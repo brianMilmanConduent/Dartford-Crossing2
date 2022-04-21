@@ -1,0 +1,114 @@
+
+
+
+<h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+  Your crossings
+ </h3>
+
+ {%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+ {{ govukTable({
+   attributes: {
+     'data-module': 'moj-sortable-table'
+   },
+   head: [
+     {
+       text: "Crossing date and time",
+       attributes: {
+         "aria-sort": "ascending"
+       }
+     },
+     {
+       text: "Number plate"
+     },
+     {
+       text: "Amount"
+     },
+     {
+       text: "Payment status"
+      
+     }
+   ],
+   rows: [
+     [
+       {
+         text: "20 Jan 2022 9:34 am"
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+         html: "<strong class='govuk-tag govuk-tag--yellow'>Pending</strong>"
+       }
+     ],
+     [
+       {
+         text: "19 Jan 2022 8:24 am"
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+        html: "<strong class='govuk-tag govuk-tag--green'>Paid</strong>"
+      }
+     ],
+     [
+       {
+         text: "18 Jan 2022 10:04 am"
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+        html: "<strong class='govuk-tag govuk-tag--green'>Paid</strong>"
+      }
+     ],
+     [
+       {
+         text: "17 Jan 2022 7:22 am"
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+        html: "<strong class='govuk-tag govuk-tag--green'>Paid</strong>"
+      }
+     ],
+     [
+       {
+         text: "16 Jan 2022 9:34 am"
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+        html: "<strong class='govuk-tag govuk-tag--red'>Pcn</strong>"
+      }
+     ]
+   ]
+ }) }}
+<p class="govuk-body">
+  
+
+ <a href="#" class="govuk-link">View crossings history</a>
+</p>

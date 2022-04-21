@@ -7,6 +7,7 @@ if (window.console && window.console.info) {
 
 $(document).ready(function () {
   window.GOVUKFrontend.initAll()
+  window.MOJFrontend.initAll()
   $.fn.goBack = () => {
     history.go(-1); event.preventDefault();
   }; 

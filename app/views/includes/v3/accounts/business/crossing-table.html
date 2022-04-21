@@ -1,0 +1,122 @@
+
+
+
+<h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">
+  Your crossings
+ </h2>
+
+ {{ govukWarningText({
+  text: "Payments will be taken after midnight the day following the crossing.",
+  iconFallbackText: "Warning",
+  classes: "govuk-!-margin-bottom-3"
+}) }}
+
+
+
+ {%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+ {{ govukTable({
+   attributes: {
+     'data-module': 'moj-sortable-table'
+   },
+   head: [
+     {
+       text: "Crossing date and time",
+       attributes: {
+         "aria-sort": "ascending"
+       }
+     },
+     {
+       text: "Number plate"
+     },
+     {
+       text: "Amount"
+     },
+     {
+       text: "Payment status"
+      
+     }
+   ],
+   rows: [
+     [
+       {
+         html: " <a href='#' class='govuk-link'>20 Jan 2022 9:34 am</a>  "
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+         html: "<strong class='govuk-tag govuk-tag--yellow'>Pending</strong>"
+       }
+     ],
+     [
+       {
+        html: " <a href='#' class='govuk-link'>19 Jan 2022 8:24 am</a> "
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+        html: "<strong class='govuk-tag govuk-tag--green'>Paid</strong>"
+      }
+     ],
+     [
+       {
+        html: "  <a href='#' class='govuk-link'>18 Jan 2022 10:04 am</a>  "
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+        html: "<strong class='govuk-tag govuk-tag--green'>Paid</strong>"
+      }
+     ],
+     [
+       {
+        html: "<a href='#' class='govuk-link'> 17 Jan 2022 7:22 am</a> "
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+        html: "<strong class='govuk-tag govuk-tag--green'>Paid</strong>"
+      }
+     ],
+     [
+       {
+        html: "<a href='#' class='govuk-link'>16 Jan 2022 9:34 am</a>  "
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+        html: "<strong class='govuk-tag govuk-tag--red'>Pcn</strong>"
+      }
+     ]
+   ]
+ }) }}
+<p class="govuk-body">
+  
+
+ <a href="#" class="govuk-link">View crossings history</a>
+</p>

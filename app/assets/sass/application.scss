@@ -15,3 +15,57 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/task-list";
 @import "patterns/related-items";
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+
+[aria-sort] button, [aria-sort] button:hover {
+    background-color: transparent;
+    border-width: 0;
+    -webkit-box-shadow: 0 0 0 0;
+    -moz-box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0;
+    color: #005ea5;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    padding: 0 10px 0 0;
+    position: relative;
+    text-align: inherit;
+    font-size: 1em;
+    margin: 0;
+}
+
+[aria-sort] button:before {
+    content: " ▼";
+    position: absolute;
+    right: -1px;
+    top: 9px;
+    font-size: .5em;
+}
+[aria-sort] button:after {
+    content: " ▲";
+    position: absolute;
+    right: -1px;
+    top: 1px;
+    font-size: .5em;
+}
+
+[aria-sort=ascending] button:after {
+    content: " ▲";
+    font-size: .8em;
+    position: absolute;
+    right: -5px;
+    top: 2px;
+}
+[aria-sort=descending] button:after {
+    content: " ▼";
+    font-size: .8em;
+    position: absolute;
+    right: -5px;
+    top: 2px;
+}
+
+.neg3{margin-top:govuk-spacing(-9)!important;position:relative;top:-20px;}
+
+
+
