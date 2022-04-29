@@ -1,0 +1,125 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+  Account summary - Business
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+
+<!--main body starts-->
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "File upload complete",
+        html: "Your vehicles have been uploaded"
+      }) }}
+
+      <p class="govuk-body">We have sent you a confirmation email to jondoe@fleetmail.com</p>
+
+      <h2 class="govuk-heading-l">Records updated</h2>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+      
+
+{{ govukTable({
+  caption: "Records included",
+  firstCellIsHeader: false,
+ rows: [
+    [
+      {
+        text: "Vehicles added",
+        classes: 'govuk-!-width-two-thirds'
+      },
+      {
+        text: "234"
+      }
+    ],
+    [
+      {
+        text: "Vehicles deleted"
+      },
+      {
+        text: "45"
+      }
+    ],
+    [
+      {
+        text: "Vehicles edited"
+      },
+      {
+        text: "3"
+      }
+    ]
+  ]
+}) }}
+
+{{ govukTable({
+  caption: "Records not included",
+  firstCellIsHeader: false,
+ rows: [
+    [
+      {
+        text: "Duplicate records within file",
+        classes: 'govuk-!-width-two-thirds'
+      },
+      {
+        text: "2"
+      }
+    ],
+    [
+      {
+        text: "Duplicate record on account"
+      },
+      {
+        text: "0"
+      }
+    ],
+    [
+      {
+        text: "VRM on another account"
+      },
+      {
+        text: "3"
+      }
+    ]
+  ]
+}) }}
+
+{{ govukTable({
+ 
+  firstCellIsHeader: true,
+ rows: [
+    [
+      {
+        text: "Total records within file",
+        classes: 'govuk-!-width-two-thirds'
+      },
+      {
+        text: "287"
+      }
+    ]
+  ]
+}) }}
+        </div>
+      </div>
+
+     
+      
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">Upload another file</a> <br><br><a href="#" class="govuk-link">Back to vehicle management</a>
+      </p>
+    </div>
+  </div>
+{% endblock %}
+<!--main body ends-->

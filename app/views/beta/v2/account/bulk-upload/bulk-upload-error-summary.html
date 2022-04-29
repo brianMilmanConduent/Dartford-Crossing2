@@ -1,0 +1,128 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+  Account summary - Business
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+
+<!--main body starts-->
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: "Correct the errors and upload the file again",
+          href: "#table-error"
+        }
+      ]
+    }) }}
+
+
+    <h1 class="govuk-heading-l">
+      Your CSV file has the following errors
+    </h1>
+  
+
+    {{ govukWarningText({
+      text: "The file could not be uploaded because it contains errors. no records have been uploaded",
+      iconFallbackText: "Fallback text"
+    }) }}
+
+<div class="error-table">
+  <p id="table-error" class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> Correct the errors and upload the file again
+  </p>
+    {{ govukTable({
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: "Error"
+        },
+        {
+          text: "Number of records affected"
+        },
+        {
+          text: ""
+        }
+      ],
+      rows: [
+        [
+        {
+          text: "Related error content here"
+        },
+        {
+          text: "12"
+        },
+        {
+          html: "<a href='#' class='govuk-link'>View detail</a>"
+        }
+        ],
+        [
+        {
+          text: "Related error content here"
+        },
+        {
+          text: "0"
+        },
+        {
+          html: " "
+        }
+        ],
+        [
+        {
+          text: "Related error content here"
+        },
+        {
+          text: "333"
+        },
+        {
+          html: "<a href='#' class='govuk-link'>View detail</a>"
+        }
+        ],
+        [
+        {
+          text: "Related error content here"
+        },
+        {
+          text: "12"
+        },
+        {
+          html: "<a href='#' class='govuk-link'>View detail</a>"
+        }
+        ]
+      ]
+    }) }}
+  </div>
+
+
+
+    <h2 class="govuk-heading-m govuk-!-margin-top-6">
+      Upload your amended file
+    </h2>
+    {{ govukFileUpload({
+      id: "bulk-upload-file",
+      name: "bulk-upload-file",
+      label: {
+        text: "Upload a file"
+      }
+    }) }}
+
+
+    {{ govukButton({
+      text: "Continue",
+      href: "pre-upload-summary"
+    }) }}    
+    <br>
+    <a href="#" class="govuk-link">Cancel</a>
+  </div>
+</div>
+{% endblock %}
+<!--main body ends-->

@@ -1,0 +1,126 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+  Account summary - Business
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+
+<!--main body starts-->
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  
+
+
+    <h1 class="govuk-heading-l">
+      Check new vehicle records
+    </h1>
+  
+
+   {{ govukInsetText({
+     html: "If you need to correct any records, you need to amend the data in your source file, then <a href='bulk-upload-start' class='govuk-link'>upload your CSV file again.</a>"
+   }) }}
+
+
+<h2 class="govuk-heading-l">
+  Breakdown of records to be updated
+</h2>
+{{ govukTable({
+  caption: "Records to be included",
+  firstCellIsHeader: false,
+ rows: [
+    [
+      {
+        text: "Vehicles added",
+        classes: 'govuk-!-width-two-thirds'
+      },
+      {
+        text: "234"
+      }
+    ],
+    [
+      {
+        text: "Vehicles deleted"
+      },
+      {
+        text: "45"
+      }
+    ],
+    [
+      {
+        text: "Vehicles edited"
+      },
+      {
+        text: "3"
+      }
+    ]
+  ]
+}) }}
+
+{{ govukTable({
+  caption: "Records that won't be included",
+  firstCellIsHeader: false,
+ rows: [
+    [
+      {
+        text: "Duplicate records within file",
+        classes: 'govuk-!-width-two-thirds'
+      },
+      {
+        text: "2"
+      }
+    ],
+    [
+      {
+        text: "Duplicate record on account"
+      },
+      {
+        text: "0"
+      }
+    ],
+    [
+      {
+        text: "VRM on another account"
+      },
+      {
+        text: "3"
+      }
+    ]
+  ]
+}) }}
+
+{{ govukTable({
+ 
+  firstCellIsHeader: true,
+ rows: [
+    [
+      {
+        text: "Total records",
+        classes: 'govuk-!-width-two-thirds'
+      },
+      {
+        text: "287"
+      }
+    ]
+  ]
+}) }}
+
+
+ 
+
+    {{ govukButton({
+      text: "Continue",
+      href: "confirmation-screen"
+    }) }}    
+    <br>
+    <a href="#" class="govuk-link">Cancel and discard the upload</a>
+  </div>
+</div>
+{% endblock %}
+<!--main body ends-->

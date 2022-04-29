@@ -1,0 +1,39 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+  Account summary - Business
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+
+<!--main body starts-->
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Upload a CSV file
+    </h1>
+   <p class="govuk-body">
+     Some content here to explain that a <a href="#" class="govuk-link">template</a> is available.
+   <p>
+
+    {{ govukFileUpload({
+      id: "bulk-upload-file",
+      name: "bulk-upload-file",
+      label: {
+        text: "Upload a file"
+      }
+    }) }}
+
+    {{ govukButton({
+      text: "Continue",
+      href: "bulk-upload-error-summary"
+    }) }}    
+  </div>
+</div>
+{% endblock %}
+<!--main body ends-->

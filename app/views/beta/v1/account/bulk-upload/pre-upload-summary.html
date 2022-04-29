@@ -1,0 +1,49 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+  Account summary - Business
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+
+<!--main body starts-->
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  
+
+
+    <h1 class="govuk-heading-l">
+      Check new vehicle records
+    </h1>
+  
+
+   {{ govukInsetText({
+     html: "If you need to correct any records, you need to amend the data in your source file, then <a href='bulk-upload-start' class='govuk-link'>upload your CSV file again.</a>"
+   }) }}
+
+
+<h2 class="govuk-heading-l">
+  What info do we show here?
+</h2>
+
+<h2 class="govuk-heading-m">
+  By group, Class, Make, Action?
+</h2>
+ 
+
+    {{ govukButton({
+      text: "Continue",
+      href: "confirmation-screen"
+    }) }}    
+    <br>
+    <a href="#" class="govuk-link">Cancel and discard the upload</a>
+  </div>
+</div>
+{% endblock %}
+<!--main body ends-->
