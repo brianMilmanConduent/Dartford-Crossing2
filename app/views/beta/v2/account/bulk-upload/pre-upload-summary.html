@@ -28,11 +28,8 @@
    }) }}
 
 
-<h2 class="govuk-heading-l">
-  Breakdown of records to be updated
-</h2>
 {{ govukTable({
-  caption: "Records to be included",
+  caption: "Records that will be included in the update",
   firstCellIsHeader: false,
  rows: [
     [
@@ -64,7 +61,7 @@
 }) }}
 
 {{ govukTable({
-  caption: "Records that won't be included",
+  caption: "Records that will not be included in the update",
   firstCellIsHeader: false,
  rows: [
     [
@@ -101,7 +98,7 @@
  rows: [
     [
       {
-        text: "Total records",
+        text: "Total records within the file",
         classes: 'govuk-!-width-two-thirds'
       },
       {
