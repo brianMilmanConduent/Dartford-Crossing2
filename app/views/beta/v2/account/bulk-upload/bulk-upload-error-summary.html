@@ -27,12 +27,12 @@
 
 
     <h1 class="govuk-heading-l">
-      Your CSV file has the following errors
+      The CSV file cannot be uploaded
     </h1>
   
 
     {{ govukWarningText({
-      text: "The file could not be uploaded because it contains errors. no records have been uploaded",
+      text: "The file could not be uploaded because it contains errors.",
       iconFallbackText: "Fallback text"
     }) }}
 
@@ -47,7 +47,7 @@
           text: "Error"
         },
         {
-          text: "Number of records affected"
+          text: "Affected errors"
         },
         {
           text: ""
@@ -62,7 +62,7 @@
           text: "12"
         },
         {
-          html: "<a href='bulk-upload-error-detail' class='govuk-link'>View detail</a>"
+          html: "<a href='bulk-upload-error-detail' class='govuk-link'>View details</a>"
         }
         ],
         [
@@ -84,7 +84,7 @@
           text: "333"
         },
         {
-          html: "<a href='#' class='govuk-link'>View detail</a>"
+          html: "<a href='#' class='govuk-link'>View details</a>"
         }
         ],
         [
@@ -95,7 +95,7 @@
           text: "12"
         },
         {
-          html: "<a href='#' class='govuk-link'>View detail</a>"
+          html: "<a href='#' class='govuk-link'>View details</a>"
         }
         ]
       ]
