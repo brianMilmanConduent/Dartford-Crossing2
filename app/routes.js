@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const v1Routes = require('./routes/v1');
+const v7Routes = require('./routes/v7');
 
-router.use('/', v1Routes);
+router.use('/', v7Routes);
 
 module.exports = router;

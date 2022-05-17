@@ -70,7 +70,7 @@
               Account summary (previously Dashboard)
             </h3>
           </li>
-            <ul>
+          <ul class="govuk-list govuk-list--bullet">
             <li>
               <a href="v06/v1/account/account-summary-business-v3" class="govuk-link">Account summary - Business</a>
             </li>
@@ -81,6 +81,20 @@
             <li>
               <a href="v06/v1/account/account-summary-personal-payg" class="govuk-link">Account summary - Personal (PayG)</a>
             </li>
+          </ul>
+          </ul>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li> 
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-top-6">
+              Vehicle bulk upload
+            </h3>
+          </li>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a href="v06/v3/account/bulk-upload/bulk-upload-start" class="govuk-link">Vehicle bulk upload</a>
+            </li>
+          </ul>
           </ul>
          <!-- <li>
             <h3 class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-top-6">
@@ -97,7 +111,7 @@
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <hr class="govuk-!-margin-top-9 govuk-!-margin-bottom-9">
-                <h2 class="govuk-heading-m">Alpha research sessions</h2>
+                <h2 class="govuk-heading-m">Alpha research</h2>
                 <th scope="col" class="govuk-table__header">Sprint</th>
                 <th scope="col" class="govuk-table__header">No of <br>participants</th>
                 <th scope="col" class="govuk-table__header">UR Confidence</th>
@@ -142,48 +156,84 @@
 
           <p>
             <h2 class="govuk-heading-l">
-              Sprint 11a
+              <span class="govuk-caption-m">Current sprint</span>
+              Sprint 11b
             </h2>
-            <h3 class="govuk-heading-m">
-              Prototype links
-            </h3>
+           
             <ul class="govuk-list govuk-list--bullet">
               <li> 
                 <h3 class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-top-6">
-                Account summary (previously Dashboard)
+                Account creation
               </h3>
             </li>
               <ul>
                 <li>
-                  <a href="https://miro.com/app/board/uXjVO980Kvo=/" class="govuk-link" target="_blank">Miro board</a>
+                  <a href="https://miro.com/app/board/uXjVO5gpAaI=/" class="govuk-link" target="_blank">Miro board</a>
                 </li>
-              <li>
-                <a href="v06/v1/account/account-summary-business-v3" class="govuk-link">Account summary - Business</a>
-              </li>
+                <li>Prototype link - tbc</li>
+            </ul>
+            </ul>
+            <hr>
             
-              <li>
-                <a href="v06/v1/account/account-summary-personal-pre-pay" class="govuk-link">Account summary - Personal Pre pay (Auto top up)</a>
-              </li>
-              <li>
-                <a href="v06/v1/account/account-summary-personal-payg" class="govuk-link">Account summary - Personal (PayG)</a>
-              </li>
-            </ul>
-            <li>
-              <h3 class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-top-6">
-              Vehicle bulk upload
-            </h3>
-          </li>
-            <ul>
-              <li>
-                <a href="https://miro.com/app/board/uXjVO7A2VGI=/" class="govuk-link" target="_blank">Miro board</a>
-              </li>
-              <li><a href="v06/v1/account/bulk-upload/bulk-upload-start" class="govuk-link">Version 1</a></li>
-              <li><a href="v06/v2/account/bulk-upload/bulk-upload-start" class="govuk-link">Version 2 - Including feedback and guidance from BA's</a></li>
-              <li><a href="v06/v2/account/bulk-upload/bulk-upload-start-error-states" class="govuk-link">Bulk upload start page - Error states</a></li>
-              <li><a href="v06/v2/account/bulk-upload/bulk-upload-error-summary-variantb" class="govuk-link">Error summary - Variant B</a></li>
-              <li><a href="v06/v3/account/bulk-upload/bulk-upload-start" class="govuk-link">Version 3 - Including feedback from show and tell</a></li>
-            </ul>
-            </ul>
+            <h2 class="govuk-heading-l">
+              Previous sprints
+            </h2>
+            {{ govukAccordion({
+              id: "previousSprints",
+              items: [
+                {
+                  heading: {
+                    text: "Sprint 11a"
+                  },
+                  content: {
+                    html: 
+                    "
+                    <p class='govuk-body'>
+                      The following sections were worked on during Sprint 11a, ready for User research in future sprints
+                    <p>
+                    <ul class='govuk-list govuk-list--bullet'>
+                      <li> 
+                        <h3 class='govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-top-6'>
+                        Account summary (previously Dashboard)
+                      </h3>
+                    </li>
+                      <ul>
+                        <li>
+                          <a href='https://miro.com/app/board/uXjVO980Kvo=/' class='govuk-link' target='_blank'>Miro board</a>
+                        </li>
+                      <li>
+                        <a href='v06/v1/account/account-summary-business-v3' class='govuk-link'>Account summary - Business</a>
+                      </li>
+                    
+                      <li>
+                        <a href='v06/v1/account/account-summary-personal-pre-pay' class='govuk-link'>Account summary - Personal Pre pay (Auto top up)</a>
+                      </li>
+                      <li>
+                        <a href='v06/v1/account/account-summary-personal-payg' class='govuk-link'>Account summary - Personal (PayG)</a>
+                      </li>
+                    </ul>
+                    <li>
+                      <h3 class='govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-top-6'>
+                      Vehicle bulk upload
+                    </h3>
+                  </li>
+                    <ul>
+                      <li>
+                        <a href='https://miro.com/app/board/uXjVO7A2VGI=/' class='govuk-link' target='_blank'>Miro board</a>
+                      </li>
+                      <li><a href='v06/v1/account/bulk-upload/bulk-upload-start' class='govuk-link'>Version 1</a></li>
+                      <li><a href='v06/v2/account/bulk-upload/bulk-upload-start' class='govuk-link'>Version 2 - Including feedback and guidance from BA's</a></li>
+                      <li><a href='v06/v2/account/bulk-upload/bulk-upload-start-error-states' class='govuk-link'>Bulk upload start page - Error states</a></li>
+                      <li><a href='v06/v2/account/bulk-upload/bulk-upload-error-summary-variantb' class='govuk-link'>Error summary - Variant B</a></li>
+                      <li><a href='v06/v3/account/bulk-upload/bulk-upload-start' class='govuk-link'>Version 3 - Including feedback from show and tell</a></li>
+                    </ul>
+                    </ul>
+                    "
+                  }
+                }
+              ]
+            }) }}
+
 
           </div>
           <!--beta versions ends-->
