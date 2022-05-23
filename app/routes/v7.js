@@ -49,13 +49,23 @@ router.post(`/v${verNum}/create-account/name`, function (req, res) {
 
 
 
-router.post(`/v${verNum}/create-account/addressselect`, function (req, res) {
-  const accountType = req.session.data['account-type'];
+router.post(`/v${verNum}/create-account/lrdsSelection`, function (req, res) {
+  const lrdsSelect = req.session.data['lrdsSelect'];
 
-  if (accountType === 'Personal') {
-      res.redirect(`/v${verNum}/create-account/addressselect`);
+  if (lrdsSelect === 'None of the above') {
+      res.redirect(`/v${verNum}/create-account/otherAccountType`);
   } else {
-      res.redirect(`/v${verNum}/create-account/company-address`);
+      res.redirect(`/v${verNum}/create-account/lrdsDocUpload`);
+  }
+});
+
+router.post(`/v${verNum}/create-account/lrdsPost`, function (req, res) {
+  const lrdsUploadNow = req.session.data['lrdsUploadNow'];
+
+  if (lrdsUploadNow === 'Post') {
+      res.redirect(`/v${verNum}/create-account/lrdsPostInfo`);
+  } else {
+      res.redirect(`/v${verNum}/create-account/lrdsDocUploadFirstDoc`);
   }
 });
 
