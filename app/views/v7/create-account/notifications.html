@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Get Notifications
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="vehicle-registration" method="post">
+          
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="notifications">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                 Notifications 
+                </h1>
+              </legend>
+              <p class="govuk-body">
+                needs some thought in line with RTM and user needs
+              <p>
+             
+              </div>
+            </fieldset>
+         
+
+              {{ govukButton({
+                  text: "Continue"
+              }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -21,25 +21,48 @@ router.post(`/v${verNum}/role/application/change-cv`, function (req, res) {
 //EXAMPLE ROUTING END
 
 
-//V1 beta routing starts here
 
-router.post(`/v${verNum}/landing`, function (req, res) {
-  const editChoice = req.session.data['start-choose']
-  if (editChoice === 'one-off-payment') {
-    res.redirect(`/v${verNum}/start_page/landing_page/landing/one-off-payment/pay-crossing`)
-  } else if (editChoice === 'create-account') {
-    res.redirect(`/v${verNum}/create_account/account_email`)
-  }
-  else if (editChoice === 'resolve-pcn') {
-    res.redirect(`/v${verNum}/start_page/landing_page/landing/resolve-pcn/flow1`)
+
+
+//V7 routing starts here
+router.post(`/v${verNum}/create-account/account-type`, function (req, res) {
+  const accountType = req.session.data['account-type'];
+
+  if (accountType === 'Personal') {
+      res.redirect(`/v${verNum}/create-account/name`);
+  } else {
+      res.redirect(`/v${verNum}/create-account/name`);
   }
 });
 
 
 
-//V1 beta routing ends here
+router.post(`/v${verNum}/create-account/name`, function (req, res) {
+  const accountType = req.session.data['account-type'];
+
+  if (accountType === 'Personal') {
+      res.redirect(`/v${verNum}/create-account/addresslookup`);
+  } else {
+      res.redirect(`/v${verNum}/create-account/company-details`);
+  }
+});
 
 
+
+router.post(`/v${verNum}/create-account/addressselect`, function (req, res) {
+  const accountType = req.session.data['account-type'];
+
+  if (accountType === 'Personal') {
+      res.redirect(`/v${verNum}/create-account/addressselect`);
+  } else {
+      res.redirect(`/v${verNum}/create-account/company-address`);
+  }
+});
+
+
+
+
+//V7 ends here
 
 
 

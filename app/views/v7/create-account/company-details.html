@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Step 1 - About you
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="addresslookup" method="post">
+        <h1 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Company details</h1>
+          <fieldset class="govuk-fieldset">
+          
+           <p class="govuk-body"></p>
+
+            <div class="govuk-form-group">
+
+             <label class="govuk-label" >Company name</label>
+             
+              <input class="govuk-input govuk-!-width-two-thirds" id="first-name" name="first-name" value="{{ data['first-name']}}" type="text" autocomplete="name"></div>
+              <label class="govuk-label" >Company Registration Number (optional)</label>
+              
+              
+               <input class="govuk-input govuk-!-width-two-thirds" id="last-name" name="last-name" value="{{ data['last-name']}}" type="text" autocomplete="name"></div>
+              </div> 
+          
+        </fieldset>
+        <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+      </form>
+    </div>
+  </div>
+<div>
+          
+
+{% endblock %}

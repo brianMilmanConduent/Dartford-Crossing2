@@ -1,0 +1,188 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Step 3 - Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Your vehicle</h1>
+        <fieldset class="govuk-fieldset">
+          <h1 class="govuk-heading-l">Is this your vehicle?</h1>
+
+
+            <form class="form" method="post" action="payment3a">
+
+              <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-two-thirds">
+                      <p class="gov-uk-body">Please check details below to confirm they're correct. </p>
+                      <table class="govuk-table ">
+
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Number plate</td>
+                              <!-- <td class="govuk-table__cell  govuk-body "><b>{{data['vrm-1'][0]}}</b></td> -->
+                              <td class="govuk-table__cell  govuk-body ">{{data['vrn']}}</td>
+                              <!-- <td class="govuk-table__cell  govuk-body "> </td> -->
+                          </tr>
+
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Vehicle type
+                                  <!-- <br> <details class="govuk-details govuk-!-margin-bottom-0" data-module="govuk-details">
+                                  <summary class="govuk-details__summary">
+                                    <span class="govuk-details__summary-text">
+                                      What does this mean?
+                                    </span>
+                                  </summary> -->
+                                   <!-- <div class="govuk-details__text">
+                                    Lorem Ipsum
+                                  </div> -->
+                                <!-- </details> -->
+                              </td>
+                              <td class="govuk-table__cell  govuk-body ">Car</td>
+                              <!-- <td class="govuk-table__cell  govuk-body "> <a href="javascript:void(0)" class="govuk-link"
+                                      area-role="link">Change</a></td> -->
+                          </tr>
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Make</td>
+                              <td class="govuk-table__cell  govuk-body ">Audi</td>
+                              <!-- <td class="govuk-table__cell  govuk-body "><a href="javascript:void(0)" class="govuk-link"
+                                      area-role="link">Change</a></td> -->
+                          </tr>
+
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Model</td>
+                              <td class="govuk-table__cell  govuk-body ">RS4</td>
+                              <!-- <td class="govuk-table__cell  govuk-body "><a href="javascript:void(0)" class="govuk-link"
+                                      area-role="link">Change</a></td> -->
+                          </tr>
+
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Colour</td>
+                              <td class="govuk-table__cell  govuk-body ">Black</td>
+                              <!-- <td class="govuk-table__cell  govuk-body "><a href="javascript:void(0)" class="govuk-link"
+                                      area-role="link">Change</a></td> -->
+                          </tr>
+                          <!-- <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Country of registration</td>
+                              <td class="govuk-table__cell  govuk-body ">UK
+                              </td> -->
+                              <!-- <td class="govuk-table__cell  govuk-body "><a href="javascript:void(0)" class="govuk-link"
+                                      area-role="link">Change</a></td>
+                          </tr> -->
+                      </table>
+
+                      {% if data['vrm-1'][0] === 'LO63 NRO' %}
+                      <div class="govuk-inset-text">
+
+                      </div>
+                      {% endif %}
+              <!--        <div id="your-vehicle" class="govuk-body">
+                          Is this your vehicle?
+                        </div>
+                        <div class="govuk-radios govuk-radios--inline">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="vehicle-owner" name="vehicle-owner" type="radio" value="Yes">
+                            <label class="govuk-label govuk-radios__label" for="vehicle-owner">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="vehicle-owner-2" name="vehicle-owner" type="radio" value="No">
+                            <label class="govuk-label govuk-radios__label" for="vehicle-owner-2">
+                              No
+                            </label>
+                          </div>
+                        </div>
+
+                      <div class="govuk-form-group govuk-button-group  govuk-!-margin-top-6">
+                          <button onClick="location.href='./payment-info-single'" class="govuk-button" data-module="govuk-button"
+                              role="button" aria-label="Confirm a vehicle">Continue</button>
+                          <!--<button class="govuk-button govuk-button--secondary reject_vehicle" data-module="govuk-button" role="button"
+                              aria-label="Not my a vehicle">This is not my vehicle</button>-->
+                      </div>
+                  </div>
+
+<!--          <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Registration number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              LO62 NRO
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Car
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Make
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Vauxhall
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Colour
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Grey
+            </dd>
+          </div>
+        </dl>
+-->
+{{ govukRadios({
+              classes: "govuk-radios--inline",
+              idPrefix: "vehicle-check",
+              name: "vehicle-check",
+              fieldset: {
+                legend: {
+                  text: "",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--l"
+                }
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No, search again"
+                }
+              ]
+            }) }}
+
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              Incorrect vehicle details?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+If your vehicle details are incorrect you may <br>need to <a href='https://www.gov.uk/change-vehicle-details-registration-certificate
+'>update them</a>.</div>
+        </details>
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <!--  </div><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add another vehicle
+        </button>-->
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
