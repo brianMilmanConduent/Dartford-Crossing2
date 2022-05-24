@@ -5,20 +5,7 @@ const verNum = 7;
 
 
 
-//EXAMPLE ROUTING START
 
-router.post(`/v${verNum}/role/application/change-cv`, function (req, res) {
-    const newCV = req.session.data['use-profile-cv'];
-
-    if (newCV === 'no') {
-        res.redirect(`/v${verNum}/role/application/cv-load`);
-    } else {
-        res.redirect(`/v${verNum}/role/main-application-dashboard`);
-    }
-});
-
-
-//EXAMPLE ROUTING END
 
 
 
@@ -69,6 +56,31 @@ router.post(`/v${verNum}/create-account/lrdsPost`, function (req, res) {
   }
 });
 
+
+
+router.post(`/v${verNum}/create-account/businessPersonalVehicles`, function (req, res) {
+  const accounttype = req.session.data['account-type'];
+
+  if (accounttype === 'Personal') {
+      res.redirect(`/v${verNum}/create-account/vehicle-registration`);
+  } else {
+      res.redirect(`/v${verNum}/create-account/upload-vehicles`);
+  }
+});
+
+
+
+router.post(`/v${verNum}/create-account/vehicle-add`, function (req, res) {
+  const vehicleUpload = req.session.data['vehicle-upload'];
+
+  if (vehicleUpload === 'Yes') {
+      res.redirect(`/v${verNum}/create-account/vehicle-registration`);
+  } else if (vehicleUpload === 'No') {
+    res.redirect(`/v${verNum}/create-account/number-of-vehicles`);
+  } else {
+      res.redirect(`/v${verNum}/create-account/bulk-upload-start`);
+  }
+});
 
 
 

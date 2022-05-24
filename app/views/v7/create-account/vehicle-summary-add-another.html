@@ -10,6 +10,18 @@ Step 3 - Your vehicle
 {% endblock %}
 
 {% block content %}
+
+
+
+
+
+
+
+
+
+
+
+  {% if data['account-type'] === 'Personal' %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Your vehicle</h1>
@@ -33,4 +45,46 @@ Step 3 - Your vehicle
 
     </div>
   </div>
+  
+
+  {% else %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Your vehicle</h1>
+        <fieldset class="govuk-fieldset">
+          <h1 class="govuk-heading-l">Add another vehicle</h1>
+
+
+            <form class="form" method="post" action="payment3a">
+
+              <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-two-thirds">
+                      <p class="govuk-body">
+                        yet to be designed
+                      <p>
+
+                        {{ govukButton({
+                          text: "Continue",
+                          href: "number-of-vehicles"
+                        }) }}
+
+                        {{ govukButton({
+                          text: "Add another vehicle",
+                          href: "vehicle-registration",
+                          classes: "govuk-button--secondary"
+                        }) }}
+
+       </div>
+      </form>
+
+    </div>
+  </div>
+
+
+  {% endif %}
+
+
+
+
 {% endblock %}
