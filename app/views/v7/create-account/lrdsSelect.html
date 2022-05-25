@@ -14,35 +14,41 @@ Step 2 - Select your address
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      What type of local resident discount would you like?
+    </h1>
+    <p class="govuk-body">
+      Under the Local Resident Discount Scheme (LRDS), you can choose from two different discount options.
+    </p>
+    {{ govukInsetText({
+      text: "Only one vehicle is allowed per resident. You can add more vehicles to your account, but standard rates will apply."
+    }) }}
     
     {{ govukRadios({
       idPrefix: "lrdsSelect",
       name: "lrdsSelect",
-      fieldset: {
-        legend: {
-          text: " LRDS account selection",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
-      },
-      hint: {
-        text: "Hint text"
-      },
       items: [
         {
           value: "lrds10",
-          text: "lrds10"
+          text: "Limited discount",
+          hint: {
+            text: "£10 per year for 50 crossings, and thereafter 20p per crossing. You'll be notified when a few crossings are left on your account, and get the option to make an additional payment."
+          }
         },
         {
           value: "lrds20",
-          text: "lrds20"
+          text: "Unlimited discount",
+          hint: {
+            text: "£20 per year for unlimited crossings. You'll be notified when you are close to your discount expiration date."
+          }
         },
         {
           divider: "or"
         },
         {
           value: "None of the above",
-          text: "None of the above"
+          text: "I do not want a local resident discount"
         }
       ]
     }) }}
