@@ -10,7 +10,7 @@ Step 2 - Select your address
 {% endblock %}
 
 {% block content %}
-<form id="form" method="post" action="lrdsDocUploadConfirmation">
+<form id="form" method="post" action="email">
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -19,34 +19,66 @@ Step 2 - Select your address
     <h1 class="govuk-heading-l">
       LRDS files uploaded
     </h1>
+
+    <h2 class="govuk-heading-m">
+      Files added
+    </h2>
     {{ govukTable({
       
-      firstCellIsHeader: false,
-      head: [
-        {
-          text: "Filename"
-        },
-        {
-          text: "Document type"
-        }
-        ,
-        {
-          text: ""
-        }
-      ],
+      firstCellIsHeader: true,
+     
       rows: [
         [
           {
-            text: "doc1.pdf"
+            text: "Current council tax bill"
           },
           {
-            text: "V5C"
+            html: 
+            "
+            <a href='#' class='govuk-link'>tax_bill.pdf</a> 2MB
+            "
           }
           ,
           {
             html: 
             "
-            <a href='#' class='govuk-link'>Remove
+            <a href='#' class='govuk-link'>Delete</a>
+            "
+          }
+        ],
+        [
+          {
+            text: "Vehicle V5C log book"
+          },
+          {
+            html: 
+            "
+            <a href='#' class='govuk-link'>V5C.pdf</a> 1.6MB
+            "
+          }
+          ,
+          {
+            html: 
+            "
+            <a href='#' class='govuk-link'>Delete</a>
+            "
+          }
+        ],
+        [
+          {
+            text: "Copy of driving license"
+          },
+          {
+            html: 
+            "
+            <a href='#' class='govuk-link'>drivlicense.pdf</a> 1.6MB
+            "
+          }
+          ,
+          {
+            html: 
+            "
+            <a href='#' class='govuk-link'>Delete</a>
             "
           }
         ]
@@ -55,7 +87,7 @@ Step 2 - Select your address
     <div class="govuk-button-group">
 
     {{ govukButton({
-      text: "Upload another document"
+      text: "Continue"
     }) }}
 
    

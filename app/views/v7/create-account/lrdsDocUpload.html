@@ -29,7 +29,7 @@ Step 2 - Select your address
         All documents must show your name and address. You need to send:
       <p>
 
-        <ul class="govuk-list govuk-list--bullet">
+        <ul class="govuk-list govuk-list--number">
           <li>
             A current council tax bill
           </li>
@@ -56,10 +56,10 @@ Step 2 - Select your address
         </ul>
 
         {% set postHtml %}
-<p class="govuk-body">
-  address here
-<p>
-{% endset -%}
+            <p class="govuk-body">
+              address here
+            <p>
+        {% endset -%}
 
     {{ govukRadios({
       idPrefix: "lrdsUploadNow",
@@ -73,7 +73,7 @@ Step 2 - Select your address
         },
         {
           value: "Post",
-          text: "will send my documents by post",
+          text: "I will send my documents by post",
           conditional: {
             html: postHtml
           }
