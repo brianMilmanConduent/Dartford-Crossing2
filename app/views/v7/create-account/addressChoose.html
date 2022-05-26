@@ -20,7 +20,17 @@ Step 2 - Select your address
   <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Where you live</h1>
     <fieldset class="govuk-fieldset">
       <h2 class="govuk-heading-l">Select your address?</h2>
+      {% if data['address-postcode'] === 'DA1 1DY' %}
+      <!--LRDS ZONE CONTENT-->
+        LRDS CONTENT HERE
+      <!--LRDS ZONE CONTENT ENDS-->
+      {% else %}
 
+      <!--OUTSIDE OF LRDS ZONE CONTENT-->
+      NO LRDS CONTENT HERE
+      <!--OUTSIDE OF LRDS ZONE CONTENT ENDS-->
+     
+      {% endif %}
     <div class="govuk-inset-text">
       You qualify for a Dart Charge discount, because your postcode has been recognised as a valid Local Resident Discount Scheme (LRDS) postcode. <br>
           <a href='../lrds/LRDS-start' target="_blank">Find out more about the LRDS discount (opens in a new tab).</a>
@@ -49,6 +59,7 @@ Step 2 - Select your address
 </form>
 
  {% else %}
+ 
  <form class="form" action="email" method="post">
   <h1 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Select an address</h1>
     <fieldset class="govuk-fieldset">
