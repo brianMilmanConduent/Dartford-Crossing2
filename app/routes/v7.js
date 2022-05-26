@@ -5,12 +5,6 @@ const verNum = 7;
 
 
 
-
-
-
-
-
-
 //V7 routing starts here
 router.post(`/v${verNum}/create-account/account-type`, function (req, res) {
   const accountType = req.session.data['account-type'];
@@ -50,7 +44,7 @@ router.post(`/v${verNum}/create-account/lrdsPost`, function (req, res) {
   const lrdsUploadNow = req.session.data['lrdsUploadNow'];
 
   if (lrdsUploadNow === 'Post') {
-      res.redirect(`/v${verNum}/create-account/lrdsPostInfo`);
+      res.redirect(`/v${verNum}/create-account/email`);
   } else {
       res.redirect(`/v${verNum}/create-account/lrdsDocUploadFirstDoc`);
   }
