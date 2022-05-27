@@ -31,25 +31,18 @@ Step 3 - Your vehicle
             
             <div class="govuk-grid-row">
               
-            
+              <table class="govuk-table">
+                
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">{{data['vrn']}}</th>
+                    <td class="govuk-table__cell"><a href='#' class='govuk-link'>Change</a> | <a href='#' class='govuk-link govuk-!-text-align-left'>Remove</a></td>
+                  </tr>
+                
+                </tbody>
+              </table>
           
-            {{ govukTable({
-              
-              firstCellIsHeader: false,
-              rows: [
-                [
-                  {
-                    text: "RF22 5RE"
-                  },
-                  {
-                    html: ""
-                  },
-                  {
-                    html: "<a href='#' class='govuk-link'>Change</a> | <a href='#' class='govuk-link govuk-!-text-align-left'>Remove</a>"
-                  }
-                ]
-              ]
-            }) }}
+            
 
           </div>
         </div>
