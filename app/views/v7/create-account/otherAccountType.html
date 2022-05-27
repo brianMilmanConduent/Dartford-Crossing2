@@ -14,32 +14,66 @@ Step 2 - Select your address
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      What type of account would you like?
+    </h1>
+    <p class="govuk-body">
+      You can choose from two different account options.
+    <p>
     
     {{ govukRadios({
-      idPrefix: "lrdsSelect",
-      name: "lrdsSelect",
-      fieldset: {
-        legend: {
-          text: "Other account selection",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
-      },
-      hint: {
-        text: "Hint text"
-      },
+      idPrefix: "paygtopup",
+      name: "paygtopup",
+      
       items: [
         {
-          value: "payg",
-          text: "payg"
+          value: " Pre-pay",
+          html: " <b>Pre-pay</b>",
+          hint: {
+            html: 
+            "
+              <ul class='govuk-list govuk-list--bullet'>
+                <li>
+                  Pay a minimum £10 deposit
+                </li>
+                <li>
+                  Get a discount with each crossing
+                </li>
+                <li>
+                  Your account gets topped up automatically when your balance is low
+                </li>
+              </ul>
+            "
+          }
         },
         {
-          value: "auto top up",
-          text: "auto top up"
+          value: "Pay as you go",
+          html: "<b>Pay as you go</b>",
+          hint: {
+          html: 
+          "
+            <ul class='govuk-list govuk-list--bullet'>
+              <li>
+                No deposit
+              </li>
+              <li>
+                No discount
+              </li>
+              <li>
+                Your payment gets taken automatically after your crossing
+              </li>
+            </ul>
+          "
+          }
         }
       ]
     }) }}
 
+
+
+
+
+    
     {{ govukButton({
       text: "Continue"
     }) }}
