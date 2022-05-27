@@ -91,7 +91,7 @@ router.post(`/v${verNum}/create-account/notification`, function (req, res) {
 router.post(`/v${verNum}/create-account/vehicle-summary-add-another`, function (req, res) {
   const vehiclecheck = req.session.data['vehicle-check'];
 
-  if (vehiclecheck === 'No') {
+  if (vehiclecheck === 'no') {
       res.redirect(`/v${verNum}/create-account/vehicle-registration`);
   } else {
       res.redirect(`/v${verNum}/create-account/vehicle-summary-add-another`);
