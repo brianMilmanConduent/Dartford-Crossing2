@@ -65,7 +65,6 @@ router.post(`/v${verNum}/create-account/businessPersonalVehicles`, function (req
 });
 
 
-
 router.post(`/v${verNum}/create-account/vehicle-add`, function (req, res) {
   const vehicleUpload = req.session.data['vehicle-upload'];
 
@@ -85,6 +84,17 @@ router.post(`/v${verNum}/create-account/notification`, function (req, res) {
       res.redirect(`/v${verNum}/create-account/mobile`);
   }  else {
       res.redirect(`/v${verNum}/create-account/vehicle-registration`);
+  }
+});
+
+
+router.post(`/v${verNum}/create-account/vehicle-summary-add-another`, function (req, res) {
+  const vehiclecheck = req.session.data['vehicle-check'];
+
+  if (vehiclecheck === 'No') {
+      res.redirect(`/v${verNum}/create-account/vehicle-registration`);
+  } else {
+      res.redirect(`/v${verNum}/create-account/vehicle-summary-add-another`);
   }
 });
 
