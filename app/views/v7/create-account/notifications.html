@@ -13,7 +13,7 @@ Get Notifications
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="businessPersonalVehicles" method="post">
+      <form action="mobile" method="post">
           
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset" aria-describedby="notifications">
@@ -22,13 +22,59 @@ Get Notifications
                  Notifications 
                 </h1>
               </legend>
-              <p class="govuk-body">
-                needs some thought in line with RTM and user needs
-              <p>
+           {{ govukRadios({
+             idPrefix: "comms-pref",
+             name: "comms-pref",
+             fieldset: {
+               legend: {
+                 text: " account related comms?",
+                 isPageHeading: false,
+                 classes: "govuk-fieldset__legend--m"
+               }
+             },
+             hint: {
+               text: "Hint text"
+             },
+             items: [
+               {
+                 value: "Email",
+                 text: "Email"
+               },
+              {
+                value: "Post",
+                text: "Post"
+              }
+             ]
+           }) }}
              
               </div>
             </fieldset>
          
+            {{ govukRadios({
+              idPrefix: "textcomms",
+              name: "textcomms",
+              classes: "govuk-radios--inline",
+              fieldset: {
+                legend: {
+                  text: "mobile comms as well?",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              hint: {
+                text: "Hint text"
+              },
+              items: [
+                {
+                  value: "Yes",
+                  text: "Yes"
+                },
+                {
+                  value: "No",
+                  text: "No"
+                }
+              ]
+            }) }}
 
               {{ govukButton({
                   text: "Continue"
