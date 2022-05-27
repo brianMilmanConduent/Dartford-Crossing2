@@ -15,17 +15,22 @@ Step 4 - Enter the email code
     <div class="govuk-grid-column-two-thirds">
       <form action="create-password" method="post">
       
-      <h1 class="govuk-heading-l">Check your email for a code</h1>
+      <h1 class="govuk-heading-l">Check your email for a security code</h1>
       {{ govukInsetText({
 
-        html: "<p class='govuk-body'>We have sent an email to <br>Alex.lee@gmail.com</p>"
+        html: "<p class='govuk-body'>We've sent an email to
+          'email address'</p>"
       }) }}
 
 
 
-      <p>The email contains a 6 digit security code</p>
+      <p class="govuk-body">
+        Check the email for a 6-digit security code. This code will expire after 15 minutes.
+      <p>
 
-      <p>Your email might take a few minutes to arrive. If you do not get an email, check your spam folder.</p>
+      <p class="govuk-body">
+        Your email might take a few minutes to arrive. If you do not get an email, check your spam folder.
+      <p>
 
         <p>The code will expire after 15 minutes.</p>
         <form action="step4-code" method="post">
@@ -46,14 +51,14 @@ Step 4 - Enter the email code
   <details class="govuk-details" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-            I don't have a code
+            I do not have a security code
           </span>
         </summary>
         <div class="govuk-details__text">
-          Request a new code if:
-          <br>the code is not working or has expired, or you did not receive online
-          <br>you want to use a different email address
-          <p class='govuk-body'><a href='request-email-code'>Request a new code</a></p>
+          Details component body: 
+          Details component body: 
+          If you did not get a code, or it is not working, you can
+          <a href='request-email-code'>request a new code</a>.
 
         </div>
       </details>

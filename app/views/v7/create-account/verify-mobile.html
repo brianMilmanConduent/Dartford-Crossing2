@@ -16,23 +16,25 @@ Step 4 - Enter the SMS code
     <div class="govuk-grid-column-two-thirds">
     <form class="form" action="notifications" method="post">
         
-      <h1 class="govuk-heading-l">Check your mobile phone</h1>
+      <h1 class="govuk-heading-l">Check your phone for a security code</h1>
       {{ govukInsetText({
 
-        html: "<p class='govuk-body'>We have sent a text message to <br>0789912345</p>"
+        html: "<p class='govuk-body'>We've sent a text message to
+          'mobile number'."
       }) }}
 
-      <p>The text message contains a 4 digit security code</p>
-
-      <p>Your text message might take a few minutes to arrive.</p>
-
-        <p>The code will expire after 15 minutes.</p>
+     <p class="govuk-body">
+      Check your message for a 4-digit security code. This code will expire after 15 minutes.
+     <p>
+       <p class="govuk-body">
+        Your text message might take a few minutes to arrive.
+       <p>
         <form action="step4-code" method="post">
 
             <div class="govuk-form-group govuk-!-margin-top-6">
 
               <label class="govuk-label" for="">
-                Enter the 4 digit security code
+                Enter the 4-digit security code
               </label>
         <input class="govuk-input govuk-input--width-4" id="security-code" name="security-code" type="text">
         </div>
@@ -44,14 +46,13 @@ Step 4 - Enter the SMS code
   <details class="govuk-details" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-            I don't have a code
+            I do not have a security code
           </span>
         </summary>
         <div class="govuk-details__text">
-          Request a new code if:
-          <br>the code is not working or has expired, or you did not receive online
-          <br>you want to use a different mobile number
-          <p class='govuk-body'><a href='#'>Request a new code</a></p>
+          Details component body: 
+If you did not get a code, or it is not working, you can
+          <a href='#'>request a new code</a>.
 
         </div>
       </details>

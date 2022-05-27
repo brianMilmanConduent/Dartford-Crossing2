@@ -26,21 +26,64 @@ Step 3 - Your vehicle
     <div class="govuk-grid-column-two-thirds">
       
         <fieldset class="govuk-fieldset">
-          <h1 class="govuk-heading-l">Add another vehicle</h1>
+          <h1 class="govuk-heading-l">You've added 1 vehicle</h1>
+          <div class="govuk-grid-column-two-thirds">
+            
+            <div class="govuk-grid-row">
+              
+            
+          
+            {{ govukTable({
+              
+              firstCellIsHeader: false,
+              rows: [
+                [
+                  {
+                    text: "RF22 5RE"
+                  },
+                  {
+                    html: ""
+                  },
+                  {
+                    html: "<a href='#' class='govuk-link'>Change</a> | <a href='#' class='govuk-link govuk-!-text-align-left'>Remove</a>"
+                  }
+                ]
+              ]
+            }) }}
 
-
+          </div>
+        </div>
+        <div class="govuk-grid-column-full">
+          
+          <div class="govuk-grid-row">
+          <h2 class="govuk-heading-m">
+            Do you want to add another vehicle?
+          </h2>
+          {{ govukRadios({
+            classes: "govuk-radios--inline",
+            idPrefix: "more-vehicles",
+            name: "more-vehicles",
+            items: [
+              {
+                value: "Yes",
+                text: "Yes"
+              },
+              {
+                value: "No",
+                text: "No"
+              }
+            ]
+          }) }}
+        </div>
+        </div>
             <form class="form" method="post" action="payment3a">
 
               <div class="govuk-grid-row">
                   <div class="govuk-grid-column-two-thirds">
-                      <p class="govuk-body">
-                        yet to be designed
-                      <p>
+                    
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
-      <!--  </div><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-          Add another vehicle
-        </button>-->
+      
       </form>
 
     </div>
