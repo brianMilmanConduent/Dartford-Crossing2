@@ -66,6 +66,8 @@ Check your answers
           </dd>
         </div>
 
+        {% if data['textcomms'] === 'Yes' %}
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Mobile phone number
@@ -76,10 +78,18 @@ Check your answers
           <dd class="govuk-summary-list__actions">
             <a href="mobile">
               Change
-              <span class="govuk-visually-hidden"> contact details</span>
+              <span class="govuk-visually-hidden"> mobile phone number</span>
             </a>
           </dd>
         </div>
+        
+         {% else %}
+        <!--content here-->
+        {% endif %}
+
+
+
+       
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -96,6 +106,25 @@ Check your answers
             </a>
           </dd>
         </div>
+
+        {% if data['address-postcode'] === 'DA1 1DY' %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Local resident discount scheme type
+          </dt>
+          <dd class="govuk-summary-list__value">
+         {{data['lrdsSelect']}} 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden">top-up method</span>
+            </a>
+          </dd>
+        </div>
+
+        {% else %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Account payment type
@@ -110,6 +139,11 @@ Check your answers
             </a>
           </dd>
         </div>
+        {% endif %}
+
+
+
+        
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Notifications
@@ -175,106 +209,7 @@ Check your answers
       
     
       </dl>
-      <!--  <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Number plate
-          </dt>
-          <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-            {{data['vrn']}}
-          </dd>-->
-<!--          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="./pay-crossing.html">
-              Change<span class="govuk-visually-hidden"> name</span>
-            </a>
-          </dd>
-        </div>-->
-
-        <!--
-          <dd class="govuk-summary-list__actions">
-
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Card number
-          </dt>
-          <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-            {{data['cardset']}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="./payment-options#cardset">
-              Change<span class="govuk-visually-hidden"> address</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Expiry date
-          </dt>
-          <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-            {{data['month'] + "/20"+ data['year']}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="./payment-options.html#month">
-              Change<span class="govuk-visually-hidden"> address</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Name on card
-          </dt>
-          <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-            {{data['userName']}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="./payment-options#userName">
-              Change<span class="govuk-visually-hidden"> address</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Postcode
-          </dt>
-          <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-            {{data['postcode']}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="./payment-options#postcode">
-              Change<span class="govuk-visually-hidden"> address</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Email
-          </dt>
-          <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-          <p class="govuk-body">{{data['email']}}</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="./payment-options#email">
-              Change<span class="govuk-visually-hidden"> contact details</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Phone number
-          </dt>
-          <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-            <p class="govuk-body">{{-data['phoneNumber']-}}</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="./payment-options#phoneNumber">
-              Change<span class="govuk-visually-hidden"> contact details</span>
-            </a>
-          </dd>
-        </div>
-      </dl>
-<br><br>
--->
+     
      <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-4">
       <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
       <h1 id="chargeAmount" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£10<!--{% if data['sortCrossB'] %}£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}} {% elif not data['sortCrossB'] %}£{{((data['krosCount'] | float)*2.50).toFixed(2)}}{%endif%}--></h1>
@@ -284,18 +219,7 @@ Check your answers
     </button>
   </div>
 </div>
-<!--
-  <h2 class="govuk-heading-m">Now send your application</h2>
 
-  <p>By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
-
-      <form action="payment3a" method="post" novalidate>
-
-        <input type="hidden" name="answers-checked" value="true">
-
-        <button type="submit" class="govuk-button" data-module="govuk-button">
-          Agree and pay
-        </button>-->
       </form>
     </div>
   </div>
