@@ -19,47 +19,185 @@ Your account has been created
     Application complete
   </h1>
   <div class="govuk-panel__body">
-    Your account reference<br><strong>HDJ2123F</strong>
+    Your account number<br><strong>HDJ2123F</strong>
   </div>
   <br>
-  <div class="govuk-panel__body">
-    Your payment reference<br><strong>AB887234</strong>
-  </div>
+ 
 </div>
 
 
 
 
-    <p>We've sent a confirmation email with your account details to alex.lee@gmail.com</p>
-    <p>You will receive the digital receipt for your payment separately</p>
+    <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+    <p>Your payment reference is [reference number]. You’ll receive the digital receipt for this payment separately. </p>
 
 
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-              <div class="govuk-inset-text" id="notifOptInset">
-                {{data['notifOptMssg']|safe}}
-              </div>
-            <a class="govuk-link" href="#" aria-label="Print or download a PDF copy of your payment receipt">Print or
-                download your payment receipt</a><br><br>
+<div class="govuk-grid-row">
+        
 
+  {% if data['lrdsUploadNow'] === 'Upload now' %}
+  <div class='govuk-grid-column-full'>
+{{ govukInsetText({
+  text: "Your account is not active yet. Your proof of local residency documents will take up to 5 days to get approved. "
+}) }}
 
-    <table class="govuk-table govuk-!-margin-bottom-2">
-        <tbody class="govuk-table__body">
-  <div>
-      <h2 class="govuk-heading-s"><a href="../manage-account/login">Sign into your account</a> to:</h2>
-      <ul class="govuk-list govuk-list--bullet">
-    
-      <li>Choose how you want to pay for crossings</li>
-      <li>Add more vehicles to your account</li>
-      <li>Choose how you want to receive notifications</li>
-      </ul>
-
+   
+      <p class="govuk-body">
+        We’ll let you know once your account and local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings.
       <p>
-        <b>You can now close this window.</b>
-      </p>
+</p>
+    {% else %}
+    
+    {% endif %}
+
+
+    {% if data['lrdsUploadNow'] === 'Upload later' %}
+    <div class='govuk-grid-column-full'>
+        <p class='govuk-body'>
+          Your account is not active yet. You must still upload your proof of local residency documents. Once we've received all these documents, they will take up to 5 days to get approved. 
+        <p>
+          <p class="govuk-body">
+            We’ll let you know once your account and local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings. 
+          <p>
+            <a href="#" class="govuk-link">Upload proof of local residency documents now</a>
+
+            {{ govukDetails({
+              summaryText: "What documents to upload",
+              html: 
+              "
+              <div class='govuk-grid-column-full'>
+                
+             
+              <p class='govuk-body'>
+                All documents must show your name and address. You need to send: 
+              <p>
+                <ul class='govuk-list govuk-list--number'>
+                  <li>
+                    A current council tax bill
+                  </li>
+                  <li>
+                    Your vehicle V5C log book
+                  </li>
+                  <li>
+                    One of the following:
+                    <ul class='govuk-list govuk-list--bullet'>
+                      <li>
+                        a bank or credit card statement no more than 3 months old
+                      </li>
+                      <li>
+                        a utility bill (gas, electric or water only) no more than 3 months old
+                      </li>
+                      <li>
+                        an Income Support or housing association rent document
+                      </li>
+                      <li>
+                        your driving licence
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+              "
+            }) }}
+
+    </div>
+    <!--content here-->
+
+    {% else %}
+     
+    {% endif %}
+
+
+
+    {% if data['lrdsUploadNow'] === 'Post' %}
+
+    <!--content here-->
+    <div class="govuk-grid-column-full">
+      
+    
+        <p class="govuk-body">
+          Your account is not active yet. You must now send us your proof of local residency documents by post. Once we receive them, these documents will take up to 5 days to get approved. 
+        <p>
+          <p class="govuk-body">
+            We’ll let you know once your account and local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings. 
+          <p>
+            {{ govukDetails({
+              summaryText: "What documents to post to us",
+              html: 
+              "
+                <p class='govuk-body'>
+                  All documents must show your name and address. You need to send: 
+                <p>
+                  <ul class='govuk-list govuk-list--number'>
+                    <li>
+                      A current council tax bill
+                    </li>
+                    <li>
+                      Your vehicle V5C log book
+                    </li>
+                    <li>
+                      One of the following:
+                      <ul class='govuk-list govuk-list--bullet'>
+                        <li>
+                          a bank or credit card statement no more than 3 months old
+                        </li>
+                        <li>
+                          a utility bill (gas, electric or water only) no more than 3 months old
+                        </li>
+                        <li>
+                          an Income Support or housing association rent document
+                        </li>
+                        <li>
+                          your driving licence
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <p class='govuk-body'>
+                    Post these to:<br>
+                    Dart ChargePO Box 842<br>
+                    Leeds<br>
+                    LS1 9Q
+                  <p>
+                </div>
+              "
+            }) }}
+    {% else %}
+     
+    {% endif %}
+
+
+
+    {% if data['paygtopup'] === 'Pre-pay' or data['paygtopup'] === 'Pay as you go' %}
+<div class="govuk-grid-column-full">
+  
+
+        <p class="govuk-body">
+              <a href="#" class="govuk-link">Log in to your account</a> to:
+        </p>  
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            choose how you want to pay for crossings
+          </li>
+          <li>
+            add more vehicles to your account
+          </li>
+          <li>
+            choose how you want to receive notifications
+          </li>
+        </ul>  
+      </div> 
+      <!--content here-->
+
+      {% else %}
+      <!--content here-->
+      {% endif %}
+
+
+      
+             
 </div>
-</tbody>
-</table>
+
 
 
 

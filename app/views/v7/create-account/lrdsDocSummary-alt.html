@@ -20,8 +20,12 @@ Step 2 - Select your address
       Documents uploaded to prove local residence
     </h1>
 
+    {{ govukInsetText({
+      text: "You must upload all the required documents in order for your local resident discount to be approved."
+    }) }}
+
     <h2 class="govuk-heading-m">
-      Files added
+      Files already uploaded
     </h2>
     {{ govukTable({
       
@@ -51,7 +55,7 @@ Step 2 - Select your address
     }) }}
 
     <h2 class="govuk-heading-m govuk-!-margin-top-9">
-      Files required
+      Files still outstanding
     </h2>
 
     <div class="govuk-button-group">

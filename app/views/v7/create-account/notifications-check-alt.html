@@ -41,7 +41,7 @@ Get Notifications
               {% endset -%}
 
 
-           {{ govukRadios({
+           {{ govukCheckboxes({
              idPrefix: "comms-pref",
              name: "comms-pref",
             
@@ -56,6 +56,10 @@ Get Notifications
                 conditional: {
                   html: postHtml
                 }
+              },
+              {
+                value: "mobile",
+                text: "mobile"
               }
              ]
            }) }}
@@ -63,29 +67,7 @@ Get Notifications
               </div>
             </fieldset>
          
-            {{ govukRadios({
-              idPrefix: "textcomms",
-              name: "textcomms",
-              classes: "govuk-radios--inline",
-              fieldset: {
-                legend: {
-                  text: "Receive notifications by mobile phone as well?",
-                  isPageHeading: false,
-                  classes: "govuk-fieldset__legend--m"
-                }
-              },
-             
-              items: [
-                {
-                  value: "Yes",
-                  text: "Yes"
-                },
-                {
-                  value: "No",
-                  text: "No"
-                }
-              ]
-            }) }}
+            
 
               {{ govukButton({
                   text: "Continue"
