@@ -22,6 +22,23 @@ Get Notifications
                  Notifications 
                 </h1>
               </legend>
+
+
+              {% set postHtml %}
+              {{ govukCheckboxes({
+                idPrefix: "agreeCharge",
+                name: "agreeCharge",
+                
+               items: [
+                  {
+                    value: "I agree to a monthly charge of £7.00 being taken from my registered card to receive monthly account statements by post.",
+                    text: "I agree to a monthly charge of £7.00 being taken from my registered card to receive monthly account statements by post."
+                  }
+                ]
+              }) }}
+              {% endset -%}
+
+
            {{ govukRadios({
              idPrefix: "comms-pref",
              name: "comms-pref",
@@ -42,7 +59,10 @@ Get Notifications
                },
               {
                 value: "Post",
-                text: "Post"
+                text: "Post",
+                conditional: {
+                  html: postHtml
+                }
               }
              ]
            }) }}
