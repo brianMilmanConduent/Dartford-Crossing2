@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Select LRDS type
+Select LRDS
 {% endblock %}
 
 {% block beforeContent %}
@@ -22,7 +22,7 @@ Select LRDS type
       Under the Local Resident Discount Scheme (LRDS), you can choose from two different discount options.
     </p>
     {{ govukInsetText({
-      text: "Only one vehicle is allowed per resident. You can add more vehicles to your account, but standard rates will apply."
+      text: "Under the LRDS, only one vehicle per resident qualifies for the discount. You can add extra vehicles to your account, but they will incur standard rates."
     }) }}
     
     {{ govukRadios({
