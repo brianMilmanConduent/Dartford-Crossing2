@@ -12,7 +12,7 @@ How do you want to be notified?
 {% block content %}
 
 
-<div class="govuk-grid-row">
+ <!-- <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="notification" method="post">
         
@@ -77,9 +77,9 @@ How do you want to be notified?
     </form>
 
   </div>
-</div>
+</div> -->
 
- <!-- <div class="govuk-grid-row">
+  <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form action="notification" method="post">
           
@@ -109,7 +109,7 @@ How do you want to be notified?
               {% endset -%}
 
 
-           {{ govukRadios({
+           {{ govukCheckboxes({
              idPrefix: "comms-pref",
              name: "comms-pref",
             
@@ -162,6 +162,6 @@ How do you want to be notified?
       </form>
 
     </div>
-  </div> -->
+  </div>
 
 {% endblock %}
