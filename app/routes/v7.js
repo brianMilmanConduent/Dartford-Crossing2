@@ -98,6 +98,20 @@ router.post(`/v${verNum}/create-account/vehicle-summary-add-another`, function (
   }
 });
 
+
+
+
+
+router.post(`/v${verNum}/create-account/moreVehicles`, function (req, res) {
+  const moreVehicles = req.session.data['more-vehicles'];
+
+  if (moreVehicles === 'No') {
+      res.redirect(`/v${verNum}/create-account/payment3a`);
+  } else {
+      res.redirect(`/v${verNum}/create-account/vehicle-summary-add-another`);
+  }
+});
+
 //V7 ends here
 
 
