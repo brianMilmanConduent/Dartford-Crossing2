@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+How do you want to send your proof of local residency?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="lrdsPost">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-l">
+      How do you want to send your proof of local residency?
+    </h1>
+    <p class="govuk-body">
+      To qualify for the local resident discount, you need to send documents that prove your residency and vehicle ownership details. You can upload a copy of the documents, or send them to us by post.
+    <p>
+      <h2 class="govuk-heading-m">
+        Required documents
+      </h2>
+
+      <p class="govuk-body">
+        All documents must show your name and address. You need to send a copy of:
+      <p>
+
+        <ul class="govuk-list govuk-list--number">
+          <li>
+            A current council tax bill
+          </li>
+          <li>
+            Your vehicle V5C log book
+          </li>
+          <li>
+            One of the following:
+            <ul class="govuk-list govuk-list--bullet">
+              <li>
+                a bank or credit card statement no more than 3 months old
+              </li>
+              <li>
+                a utility bill (gas, electric or water only) no more than 3 months old
+              </li>
+              <li>
+                an Income Support or housing association rent document
+              </li>
+              <li>
+                your driving licence
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        {% set postHtml %}
+            <p class="govuk-body">
+              Send your documents to:<br>
+              Dart Charge<br>
+              PO Box 842<br>
+              Leeds<br>
+              LS1 9Q
+            <p>
+        {% endset -%}
+
+    {{ govukRadios({
+      idPrefix: "lrdsUploadNow",
+      name: "lrdsUploadNow",
+      
+      
+      items: [
+        {
+          value: "Upload now",
+          text: "Upload documents now"
+        },
+        {
+          value: "Upload later",
+          text: "Upload documents later"
+        },
+        {
+          value: "Post",
+          text: "I will send my documents by post",
+          conditional: {
+            html: postHtml
+          }
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+</div>
+</div> 
+    </div>
+  </div>
+</form>
+{% endblock %}

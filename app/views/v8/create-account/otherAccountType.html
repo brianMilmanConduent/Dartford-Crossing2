@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+What type of account would you like?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="email">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      What type of account would you like?
+    </h1>
+    <p class="govuk-body">
+      You can choose from two different account options.
+    <p>
+    
+    {{ govukRadios({
+      idPrefix: "paygtopup",
+      name: "paygtopup",
+      
+      items: [
+        {
+          value: "Pre-pay",
+          html: " <b>Pre-pay</b>",
+          hint: {
+            html: 
+            "
+              <ul class='govuk-list govuk-list--bullet'>
+                <li>
+                  Pay a minimum £10 deposit
+                </li>
+                <li>
+                  Get a discount with each crossing
+                </li>
+                <li>
+                  Your account gets topped up automatically when your balance is low
+                </li>
+              </ul>
+            "
+          }
+        },
+        {
+          value: "Pay as you go",
+          html: "<b>Pay as you go</b>",
+          hint: {
+          html: 
+          "
+            <ul class='govuk-list govuk-list--bullet'>
+              <li>
+                No deposit
+              </li>
+              <li>
+                No discount
+              </li>
+              <li>
+                Your payment gets taken automatically after your crossing
+              </li>
+            </ul>
+          "
+          }
+        }
+      ]
+    }) }}
+
+
+
+
+
+    
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+</div>
+</div> 
+    </div>
+  </div>
+</form>
+{% endblock %}

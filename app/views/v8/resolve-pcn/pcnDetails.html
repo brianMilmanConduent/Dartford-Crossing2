@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+PCN details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-caption-l govuk-!-margin-bottom-0 govuk-!-margin-top-0">Pay a penalty charge notice (PCN)</h1>
+      <h1 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-5">Penalty charge notice details</h1>
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+      
+      <p class="govuk-body">Please check details to confirm they’re correct</p>
+      <table id="detailsTable" class="govuk-table">  
+        <!-- <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header"><span title="Penalty charge notice">PCN<span> number</th>
+            <td class="govuk-table__cell">IB09383639</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Registration number</th>
+            <td class="govuk-table__cell">LO69 NRO</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Make</th>
+            <td class="govuk-table__cell">Audi</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Model</th>
+            <td class="govuk-table__cell">TT FSI</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Contravention time and date</th>
+            <td class="govuk-table__cell">07:56 on 2 August 2019</td>
+          </tr>                                          
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Location</th>
+            <td class="govuk-table__cell">The A282 Trunk Road Dartford
+              Crossing Southbound Bridge</td>
+          </tr>                                          
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Charge</th>
+            <td class="govuk-table__cell"> <b>£35</b> (if paid before 20 Aug 2019)
+              rising to <b>£70</b> if paid after</td>
+          </tr>                                          
+        </tbody> -->
+      </table>
+
+      <h1 id = "paymentAmount" class="govuk-heading-m">Payment amount:  £35</h1>
+      <a href="flow6details"><button class="govuk-button" data-module="govuk-button">
+        Proceed to payment
+      </button></a>
+      <h1 class="govuk-heading-m">Challenge the <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only govuk-visually-hidden" >Penalty charge notice</span></h1>
+
+      <p>If you think the <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only govuk-visually-hidden" >Penalty charge notice</span>(s) have been issued incorrectly, you can challenge/ appeal it by
+        making a representation online.</p>
+        <p><a class="govuk-link" href="#">See on which grounds you can make a representation</a></p>
+      
+        <a class="govuk-link" href="flow9"><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Challenge <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only govuk-visually-hidden" >Penalty charge notice</span>
+        </button></a>
+      
+     
+
+
+              <p><b>If we accept your representation,</b> we will send you written confirmation that you are no
+                longer liable for the <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only govuk-visually-hidden">Penalty charge notice</span>.</p>
+              <p><b>If we reject your representation,</b>  we will send you a notice of rejection which will tell you
+                what you should do next.</p>
+    </div>  
+    <div class="govuk-grid-column-one-third">
+      
+    </div>
+  </div>
+
+
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script>
+    let pcnDetailsTable = JSON.parse(localStorage.getItem("pcnDetailsTable"));
+</script>
+
+<script>
+$(document).ready(function(){
+  let escAmount = parseInt(pcnDetailsTable[11].split('£')[1]) + 35;
+  let detailShow = document.getElementById("detailsTable")
+  let tableFields = `
+  <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header"><span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only govuk-visually-hidden" >Penalty charge notice</span> number</th>
+                      <td class="govuk-table__cell">${pcnDetailsTable[5]}</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Number plate</th>
+                      <td class="govuk-table__cell">${pcnDetailsTable[0]}</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Make</th>
+                      <td class="govuk-table__cell">${pcnDetailsTable[2]}</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Model</th>
+                      <td class="govuk-table__cell">${pcnDetailsTable[3]}</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Contravention time and date</th>
+                      <td class="govuk-table__cell">${pcnDetailsTable[7]} on ${pcnDetailsTable[6]}</td>
+                    </tr>                                          
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Location</th>
+                      <td class="govuk-table__cell">${pcnDetailsTable[10]}</td>
+                    </tr>                                          
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Charge</th>
+                      <td class="govuk-table__cell"> <b>${pcnDetailsTable[11]}</b> (if paid before ${pcnDetailsTable[9]})
+                        rising to <b>£${escAmount}</b> if paid after</td>
+                    </tr>                      `; 
+
+                  detailShow.innerHTML += tableFields;
+
+                  document.getElementById("paymentAmount").innerHTML = `Payment amount:  ${pcnDetailsTable[11]}`
+
+})
+</script>
+
+{% endblock %}

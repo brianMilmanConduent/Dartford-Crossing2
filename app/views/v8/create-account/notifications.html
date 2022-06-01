@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+How do you want to be notified?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+ <!-- <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="notification" method="post">
+        
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="notifications">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                How would you like to receive notifications about your account?
+              </h1>
+            </legend>
+            {{ govukInsetText({
+              text: "It costs £7 a month to receive your account statements by post."
+            }) }}
+
+            {% set postHtml %}
+            {{ govukCheckboxes({
+              idPrefix: "agreeCharge",
+              name: "agreeCharge",
+              
+             items: [
+                {
+                  value: "I agree to be debited £7 a month to receive my account statements by post.",
+                  text: "I agree to be debited £7 a month to receive my account statements by post."
+                }
+              ]
+            }) }}
+            {% endset -%}
+
+
+         {{ govukCheckboxes({
+           idPrefix: "comms-pref",
+           name: "comms-pref",
+          
+           items: [
+             {
+               value: "email",
+               text: "email"
+             },
+            {
+              value: "post",
+              text: "post",
+              conditional: {
+                html: postHtml
+              }
+            },
+            {
+              value: "mobile",
+              text: "mobile"
+            }
+           ]
+         }) }}
+           
+            </div>
+          </fieldset>
+       
+          
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+    </form>
+
+  </div>
+</div> -->
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="notification" method="post">
+          
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="notifications">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  How would you like to receive notifications about your account?
+                </h1>
+              </legend>
+              {{ govukInsetText({
+                text: "It costs £7 a month to receive your account statements by post."
+              }) }}
+
+              {% set postHtml %}
+              {{ govukCheckboxes({
+                idPrefix: "agreeCharge",
+                name: "agreeCharge",
+                
+               items: [
+                  {
+                    value: "I agree to be debited £7 a month to receive my account statements by post.",
+                    text: "I agree to be debited £7 a month to receive my account statements by post."
+                  }
+                ]
+              }) }}
+              {% endset -%}
+
+
+           {{ govukRadios({
+             idPrefix: "comms-pref",
+             name: "comms-pref",
+            
+             items: [
+               {
+                 value: "email",
+                 text: "email"
+               },
+               {
+                value: "mobile",
+                text: "mobile"
+              },
+              {
+                value: "post",
+                text: "post",
+                conditional: {
+                  html: postHtml
+                }
+              }
+             ]
+           }) }}
+             
+              </div>
+            </fieldset>
+         
+          
+
+              {{ govukButton({
+                  text: "Continue"
+              }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

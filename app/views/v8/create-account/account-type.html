@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+What type of account would you like to set up?
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="account-type" method="post">
+      
+       {{ govukRadios({
+         idPrefix: "account-type",
+         name: "account-type",
+         fieldset: {
+           legend: {
+             text: "What type of account would you like to set up?",
+             isPageHeading: true,
+             classes: "govuk-fieldset__legend--l"
+           }
+         },
+        
+         items: [
+           {
+             value: "Personal",
+             text: "Personal account",
+             hint: {
+              text: "If you live in the Dartford Crossing area, you may qualify for a local resident discount with this account"
+            }
+           },
+           {
+            value: "Business",
+            text: "Business account",
+            hint: {
+              text: "Your company can add up to 50,000 vehicles with this account"
+            }
+          }
+         ]
+       }) }}
+          <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">Continue</button>
+      </form>
+    </div>
+  </div>
+<div>
+          
+
+{% endblock %}

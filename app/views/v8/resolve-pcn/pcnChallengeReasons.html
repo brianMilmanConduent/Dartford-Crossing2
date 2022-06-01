@@ -1,0 +1,244 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+PCN Challenge reasons
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<style>
+    .sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  }
+</style>
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h1 class="govuk-caption-l govuk-!-margin-bottom-0 govuk-!-margin-top-0">Challenge a penalty charge notice (PCN)</h1>
+        <h2 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-5">Give a reason for challenging</h2>
+      </div>
+      
+      <div class="govuk-grid-column-three-quarters">
+          
+        
+        <p class="govuk-body">Please select the reason you are challenging your <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> from the list below. </p>
+        <!-- <p class="govuk-body"><b>Registration number:</b> LO69 NRO    <a class="govuk-link" href="flow1">Change</a> </p> -->
+
+
+        <!-- <a href="flow2"><button class="govuk-button govuk-button--secondary" data-module="govuk-button" style="float: right;">
+          Add another <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>
+       </button></a> <br><br><br><br> -->
+       <!-- <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-9">
+        <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
+        <h1 class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£105</h1>
+      </div>
+       -->
+       <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="A. You weren't the registered keeper of this vehicle : If you had sold the vehicle you’ll need to provide the name and address of the person you sold it to and proof of sale." aria-describedby="sign-in-item-hint">
+              <label class="govuk-label govuk-radios__label" for="sign-in">
+                <span><b>A.</b></span> You weren't the registered keeper of this vehicle <br>
+                <span class="govuk-hint govuk-!-margin-top-1">If you had sold the vehicle you’ll need to provide the name and address of the person you sold it to and proof of sale.</span>
+              </label>
+              <!-- <div id="sign-in-item-hint" class="govuk-body govuk-radios__item govuk-!-padding-left-3">
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      More about this...
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    lorem ipsum on the issue.
+                  </div>
+                </details>
+              </div> -->
+            </div>
+            <div class="govuk-radios__item govuk-!-margin-top-0">
+              <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="B. The vehicle was used without your consent : For instance, if the vehicle had been stolen you’ll need to provide a crime reference number." aria-describedby="sign-in-item-hint">
+              <label class="govuk-label govuk-radios__label" for="sign-in">
+                <span><b>B.</b></span> The vehicle was used without your consent <br>
+                <span class="govuk-hint govuk-!-margin-top-1">For instance, if the vehicle had been stolen you’ll need to provide a crime reference number.</span>
+              </label>
+              <!-- <div id="sign-in-item-hint" class="govuk-body govuk-radios__item govuk-!-padding-left-3">
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      More about this...
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    lorem ipsum on the issue.
+                  </div>
+                </details>
+              </div> -->
+            </div>
+            <div class="govuk-radios__item govuk-!-margin-top-0">
+              <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="C. The vehicle was hired to someone at the time : You’ll need to provide a copy of the hire agreement. You should also provide the statement of liability to show the driver was aware of their responsibility for any road charges." aria-describedby="sign-in-item-hint">
+              <label class="govuk-label govuk-radios__label" for="sign-in">
+                <span><b>C.</b></span> The vehicle was hired to someone at the time <br>
+                <span class="govuk-hint govuk-!-margin-top-1">You’ll need to provide a copy of the hire agreement. You should also provide the statement of liability to show the driver was aware of their responsibility for any road charges.</span>
+              </label>
+              <!-- <div id="sign-in-item-hint" class="govuk-body govuk-radios__item govuk-!-padding-left-3">
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      More about this...
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    lorem ipsum on the issue.
+                  </div>
+                </details>
+              </div> -->
+            </div>
+            <div class="govuk-radios__item govuk-!-margin-top-0">
+              <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="D. You paid the road user charge : You’ll need to provide a receipt or payment reference number. If you use the crossing a lot, make sure you provide details for the crossing you received the PCN for." aria-describedby="sign-in-item-hint">
+              <label class="govuk-label govuk-radios__label" for="sign-in">
+                <span><b>D.</b></span> You paid the road user charge <br>
+                <span class="govuk-hint govuk-!-margin-top-1">You’ll need to provide a receipt or payment reference number. If you use the crossing a lot, make sure you provide details for the crossing you received the PCN for.</span>
+              </label>
+              <!-- <div id="sign-in-item-hint" class="govuk-body govuk-radios__item govuk-!-padding-left-3">
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      More about this...
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    lorem ipsum on the issue.
+                  </div>
+                </details>
+              </div> -->
+            </div>
+            <div class="govuk-radios__item govuk-!-margin-top-0">
+              <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="E. No road user charge or penalty charge is payable under the charging scheme : If there’s no charge for your vehicle, you’ll need to provide the vehicle log book (V5C form) to show the vehicle class. For an emergency service or military vehicle, you’ll need to include a letter from an appropriate officer." aria-describedby="sign-in-item-hint">
+              <label class="govuk-label govuk-radios__label" for="sign-in">
+                <span><b>E.</b></span> No road user charge or penalty charge is payable under the charging scheme <br>
+                <span class="govuk-hint govuk-!-margin-top-1">If there’s no charge for your vehicle, you’ll need to provide the vehicle log book (V5C form) to show the vehicle class. For an emergency service or military vehicle, you’ll need to include a letter from an appropriate officer.</span>
+              </label>
+              <!-- <div id="sign-in-item-hint" class="govuk-body govuk-radios__item govuk-!-padding-left-3">
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      More about this...
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    lorem ipsum on the issue.
+                  </div>
+                </details>
+              </div> -->
+            </div>
+            <div class="govuk-radios__item govuk-!-margin-top-0">
+              <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="F. The penalty charge exceeded the amount applicable in the circumstances of this case : If you think you’ve been charged more than you should have been, you’ll need to provide evidence of what you were charged and what you should have been charged." aria-describedby="sign-in-item-hint">
+              <label class="govuk-label govuk-radios__label" for="sign-in">
+                <span><b>F.</b></span> The penalty charge exceeded the amount applicable in the circumstances of this case <br>
+                <span class="govuk-hint govuk-!-margin-top-1">If you think you’ve been charged more than you should have been, you’ll need to provide evidence of what you were charged and what you should have been charged.</span>
+              </label>
+              <!-- <div id="sign-in-item-hint" class="govuk-body govuk-radios__item govuk-!-padding-left-3">
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      More about this...
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    lorem ipsum on the issue.
+                  </div>
+                </details>
+              </div> -->
+            </div>
+            <div class="govuk-radios__item govuk-!-margin-top-0">
+              <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="G. There has been a procedural impropriety by the charging authority : This means that the Dart Charge service did not follow its own rules in issuing the PCN. If you think this happened you’ll need to provide evidence of which rules were broken." aria-describedby="sign-in-item-hint">
+              <label class="govuk-label govuk-radios__label" for="sign-in">
+                <span><b>G.</b></span> There has been a procedural impropriety by the charging authority <br>
+                <span class="govuk-hint govuk-!-margin-top-1">This means that the Dart Charge service did not follow its own rules in issuing the PCN. If you think this happened you’ll need to provide evidence of which rules were broken.</span>
+              </label>
+              <!-- <div id="sign-in-item-hint" class="govuk-body govuk-radios__item govuk-!-padding-left-3">
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      More about this...
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    lorem ipsum on the issue.
+                  </div>
+                </details>
+              </div> -->
+            </div>
+            <div class="govuk-radios__item govuk-!-margin-top-0">
+              <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="H. None of the above : You should provide any evidence to back this up. For instance, if the vehicle was somewhere else when the crossing was meant to take place, you’ll need to provide evidence of this." aria-describedby="sign-in-item-hint">
+              <label class="govuk-label govuk-radios__label" for="sign-in">
+                <span><b>H.</b></span> None of the above <br>
+                <span class="govuk-hint govuk-!-margin-top-1"><span class="govuk-hint">You should provide any evidence to back this up. For instance, if the vehicle was somewhere else when the crossing was meant to take place, you’ll need to provide evidence of this.</span></span>
+              </label>
+              <!-- <div id="sign-in-item-hint" class="govuk-body govuk-radios__item govuk-!-padding-left-3">
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                      More about this...
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    lorem ipsum on the issue.
+                  </div>
+                </details>
+              </div> -->
+            </div>
+          </div>
+      
+        </fieldset>
+      </div><br><br>
+      <a id="nextBtn" href="flow11"><button class="govuk-button govuk-!-width-one-quarter" data-module="govuk-button">
+        Next
+      </button> 
+
+                
+
+
+   
+      <br>
+      <br><br><br><br>
+      
+
+
+      </div>  
+                  
+    </div>
+                   
+
+                   
+                    
+      <div class="govuk-grid-column-one-third">
+        
+      </div>
+
+    </div>
+
+                   
+<script src="/public/javascripts/jquery-1.11.3.js"></script>    
+<script>
+        let nextBtn = document.querySelector('#nextBtn')
+          nextBtn.addEventListener("click", function(){
+            let challengeReason = document.querySelector(".govuk-radios__input:checked").value
+            localStorage.setItem("challengeReason", JSON.stringify(challengeReason))
+          })
+        
+</script>
+
+{% endblock %}

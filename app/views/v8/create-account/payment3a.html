@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Payment details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="account-confirmation" method="post">
+       
+          <fieldset class="govuk-fieldset">
+           
+
+
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-1">How do you want to pay?</h1>
+            <fieldset class="govuk-fieldset">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="email">
+                </label>
+
+                   <!-- <p aria-label="Minimal Payment" class="govuk-body">
+                      To open your account, you must make an initial minimum payment of £10. If you want to pay by Direct Debit, you'll have to make a band transfer for this initial amount.
+                    </p>-->
+                    </div>
+
+
+                    {% if data['paygtopup'] === 'Pay as you go' %}
+
+                    <!--content here-->
+      
+                    {% else %}
+                    <div class="govuk-form-group">
+                      <label class="govuk-label govuk-!-font-size-24 govuk-!-font-weight-bold " for="amount">Payment amount</label>
+    
+                      <div class="govuk-input__wrapper govuk-grid-column-two-third">
+                      <div class="govuk-input__prefix govuk-!-font-weight-bold" aria-hidden="true">£</div>
+                        <input class="govuk-input govuk-!-font-weight-bold govuk-input--width-5" id="amount" name="amount" value="10.00" type="number" aria-describedby="amount" spellcheck="false">
+                      </div>
+                      </div>
+                    {% endif %}
+
+                 
+
+                  <div class="govuk-!-margin-top-1">
+                       {% include "includes/payment-info-debitonly.html" %}
+                  </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -67,6 +67,19 @@
           <ul class="govuk-list govuk-list--bullet">
             <li> 
               <h3 class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-top-6">
+              Account creation (personal only)
+            </h3>
+          </li>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              <a href="v7/create-account/create-start" class="govuk-link">Account creation</a>
+            </li>
+          </ul>
+          </ul>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li> 
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-top-6">
               Account summary (previously Dashboard)
             </h3>
           </li>
@@ -157,7 +170,7 @@
           <p>
             <h2 class="govuk-heading-l">
               <span class="govuk-caption-m">Current sprint</span>
-              Sprint 22
+              Sprint 23
             </h2>
            
             <ul class="govuk-list govuk-list--bullet">
@@ -170,7 +183,7 @@
                 <li>
                   <a href="https://miro.com/app/board/uXjVO5gpAaI=/" class="govuk-link" target="_blank">Miro board</a>
                 </li>
-                <li><a href="v7/create-account/create-start" class="govuk-link">Create account</a></li>
+                <li><a href="v8/create-account/create-start" class="govuk-link">Create account</a></li>
             </ul>
             </ul>
             <hr>
@@ -181,6 +194,32 @@
             {{ govukAccordion({
               id: "previousSprints",
               items: [
+                {
+                  heading: {
+                    text: "Sprint 22"
+                  },
+                  content: {
+                    html: 
+                    "
+                    <p class='govuk-body'>
+                      The following sections were worked on during Sprint 22, ready for user research in future sprints
+                    <p>
+                    <ul class='govuk-list govuk-list--bullet'>
+                      <li> 
+                        <h3 class='govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-top-6'>
+                        Account creation (personal)
+                      </h3>
+                    </li>
+                      <ul>
+                        <li>
+                          <a href='https://miro.com/app/board/uXjVO5gpAaI=/' class='govuk-link' target='_blank'>Miro board</a>
+                        </li>
+                        <li><a href='v7/create-account/create-start' class='govuk-link'>Create account</a></li>
+                    </ul>
+                    </ul>
+                    "
+                  }
+                },
                 {
                   heading: {
                     text: "Sprint 11a"
