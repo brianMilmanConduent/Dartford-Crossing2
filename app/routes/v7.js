@@ -12,7 +12,7 @@ router.post(`/v${verNum}/create-account/account-type`, function (req, res) {
   if (accountType === 'Personal') {
       res.redirect(`/v${verNum}/create-account/name`);
   } else {
-      res.redirect(`/v${verNum}/create-account/name`);
+      res.redirect(`/v${verNum}/create-account/account-type`);
   }
 });
 
@@ -106,7 +106,7 @@ router.post(`/v${verNum}/create-account/moreVehicles`, function (req, res) {
   const moreVehicles = req.session.data['more-vehicles'];
 
   if (moreVehicles === 'No') {
-      res.redirect(`/v${verNum}/create-account/payment3a`);
+      res.redirect(`/v${verNum}/create-account/check-answers`);
   } else {
       res.redirect(`/v${verNum}/create-account/vehicle-summary-add-another`);
   }
