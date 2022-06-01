@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const verNum = 7;
+const verNum = 8;
 
 
 
@@ -12,7 +12,7 @@ router.post(`/v${verNum}/create-account/account-type`, function (req, res) {
   if (accountType === 'Personal') {
       res.redirect(`/v${verNum}/create-account/name`);
   } else {
-      res.redirect(`/v${verNum}/create-account/account-type`);
+      res.redirect(`/v${verNum}/create-account/name`);
   }
 });
 
@@ -24,7 +24,7 @@ router.post(`/v${verNum}/create-account/name`, function (req, res) {
   if (accountType === 'Personal') {
       res.redirect(`/v${verNum}/create-account/addresslookup`);
   } else {
-      res.redirect(`/v${verNum}/create-account/company-details`);
+      res.redirect(`/v${verNum}/create-account/addresslookup`);
   }
 });
 

@@ -13,19 +13,17 @@ Enter the email code
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form action="create-password" method="post">
-      
+      <form class="form" action="create-password" method="post">
+        
       <h1 class="govuk-heading-l">Check your email for a security code</h1>
-      {{ govukInsetText({
+     
 
-        html: "<p class='govuk-body'>We've sent an email to
-          {{ data['email']}}</p>"
-      }) }}
-
-
+      <div class="govuk-inset-text">
+        We've sent an email to {{ data['email'] }}
+      </div>
 
       <p class="govuk-body">
-        Check the email for a 6-digit security code. This code will expire after 15 minutes.
+        Check the email for a 6-digit security code. This code will expire after 15 minutes. 
       <p>
 
       <p class="govuk-body">
@@ -33,7 +31,7 @@ Enter the email code
       <p>
 
         <p>The code will expire after 15 minutes.</p>
-        <form action="step4-code" method="post">
+        
 
             <div class="govuk-form-group govuk-!-margin-top-6">
               <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
