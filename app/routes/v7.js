@@ -78,9 +78,9 @@ router.post(`/v${verNum}/create-account/vehicle-add`, function (req, res) {
 });
 
 router.post(`/v${verNum}/create-account/notification`, function (req, res) {
-  const textcomms = req.session.data['textcomms'];
+  const textcomms = req.session.data['comms-pref'];
 
-  if (textcomms === 'Yes') {
+  if (textcomms === 'mobile') {
       res.redirect(`/v${verNum}/create-account/mobile`);
   }  else {
       res.redirect(`/v${verNum}/create-account/vehicle-registration`);

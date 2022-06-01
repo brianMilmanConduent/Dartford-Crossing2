@@ -20,7 +20,7 @@ Enter the SMS code
       {{ govukInsetText({
 
         html: "<p class='govuk-body'>We've sent a text message to
-          'mobile number'."
+          {{ data['phone-number']}}."
       }) }}
 
      <p class="govuk-body">
