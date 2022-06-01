@@ -161,59 +161,8 @@ Check your answers
 
 
       </dl>
-        <h2 class="govuk-heading-m">Payment details</h2>
-
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Name on card
-          </dt>
-       <dd class="govuk-summary-list__value">
-            {{data['name-on-card']}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="#">
-              Change
-              <span class="govuk-visually-hidden">Name on card</span>
-            </a>
-          </dd>
-        </div>
-          <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Card number
-          </dt>
-       <dd class="govuk-summary-list__value">
-            {{data['name-on-card']}}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="#">
-              Change
-              <span class="govuk-visually-hidden">card number</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Expiry date
-        </dt>
-     <dd class="govuk-summary-list__value">
-          {{data['month'] + "/20"+ data['year']}}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a href="#">
-            Change
-            <span class="govuk-visually-hidden">expiry date</span>
-          </a>
-        </dd>
-      </div>
-      
-    
-      </dl>
+       
      
-     <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-4">
-      <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
-      <h1 id="chargeAmount" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£10<!--{% if data['sortCrossB'] %}£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}} {% elif not data['sortCrossB'] %}£{{((data['krosCount'] | float)*2.50).toFixed(2)}}{%endif%}--></h1>
-    </div><br><br>
     <button onClick="location.href='./account-confirmation'" id="confirmPay"  class="govuk-button" data-module="govuk-button">
       Confirm and pay
     </button>

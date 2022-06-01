@@ -53,9 +53,11 @@ Your account has been created
 
     {% if data['lrdsUploadNow'] === 'Upload later' %}
     <div class='govuk-grid-column-full'>
-        <p class='govuk-body'>
-          Your account is not active yet. You must still upload your proof of local residency documents. Once we've received all these documents, they will take up to 5 days to get approved. 
-        <p>
+
+      {{ govukInsetText({
+        text: "Your account is not active yet. You must still upload your proof of local residency documents. Once we've received all these documents, they will take up to 5 days to get approved. "
+      }) }}
+        
           <p class="govuk-body">
             We’ll let you know once your account and local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings. 
           <p>
@@ -113,11 +115,10 @@ Your account has been created
 
     <!--content here-->
     <div class="govuk-grid-column-full">
-      
+      {{ govukInsetText({
+        text: "Your account is not active yet. You must now send us your proof of local residency documents by post. Once we receive them, these documents will take up to 5 days to get approved. "
+      }) }}
     
-        <p class="govuk-body">
-          Your account is not active yet. You must now send us your proof of local residency documents by post. Once we receive them, these documents will take up to 5 days to get approved. 
-        <p>
           <p class="govuk-body">
             We’ll let you know once your account and local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings. 
           <p>
