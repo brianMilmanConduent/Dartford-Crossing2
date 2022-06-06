@@ -87,6 +87,19 @@ router.post(`/v${verNum}/create-account/notification`, function (req, res) {
   }
 });
 
+router.post(`/v${verNum}/create-account/businessNotification`, function (req, res) {
+  const textcomms = req.session.data['comms-pref'];
+
+  if (textcomms === 'mobile') {
+      res.redirect(`/v${verNum}/create-account/mobile`);
+  }  else {
+      res.redirect(`/v${verNum}/create-account/upload-vehicles`);
+  }
+});
+
+
+
+
 
 router.post(`/v${verNum}/create-account/vehicle-summary-add-another`, function (req, res) {
   const vehiclecheck = req.session.data['vehicle-check'];

@@ -20,29 +20,29 @@ Step 1 - About you
          name: "vehicle-upload",
          fieldset: {
            legend: {
-             text: "Do you want to add vehicles now?",
+             text: "How do you want to upload your vehicles' details?",
              isPageHeading: true,
              classes: "govuk-fieldset__legend--l"
            }
          },
          hint: {
-           text: "Hint text"
+           text: "You can upload your vehicles individually or in a bulk group of up to 5,000"
          },
          items: [
            {
              value: "Yes",
-             text: "Yes - I'll add manually"
+             text: "Upload vehicles one at a time"
            },
            {
-            value: "No",
-            text: "No - I'd like to add later"
+            value: "Bulk upload",
+            text: "Upload vehicles in bulk"
           },
           {
             divider: "or"
           },
           {
-            value: "Bulk upload",
-            text: "Bulk upload"
+            value: "No",
+            text: "Upload vehicles later"
           }
          ]
        }) }}
