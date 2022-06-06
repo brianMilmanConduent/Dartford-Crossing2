@@ -12,7 +12,7 @@ router.post(`/v${verNum}/create-account/account-type`, function (req, res) {
   if (accountType === 'Personal') {
       res.redirect(`/v${verNum}/create-account/name`);
   } else {
-      res.redirect(`/v${verNum}/create-account/account-type`);
+      res.redirect(`/v${verNum}/create-account/name`);
   }
 });
 
