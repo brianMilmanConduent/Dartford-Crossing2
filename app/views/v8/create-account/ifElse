@@ -1,4 +1,4 @@
-{% if data['ethnicity'] === 'White' %}
+{% if data['account-type'] === 'Personal' %}
 
 <!--content here-->
 

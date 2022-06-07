@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Step 3 - Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+
+
+
+
+
+ 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+          <h1 class="govuk-heading-l">Initial top up and balance base limit</h1>
+            <form class="form" method="post" action="check-answers">
+
+              <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full">
+                      <p class="govuk-body">
+                        A page to offer information based on scenarios provided
+                      <p>
+
+                        {{ govukTable({
+                          
+                          firstCellIsHeader: false,
+                          head: [
+                          {
+                            text: "Vehicles in fleet",
+                            format: "numeric"
+                          },
+                          {
+                            text: "estimated crossings per month",
+                            format: "numeric"
+                          },
+                          {
+                            text: "Suggested deposit",
+                            format: "numeric"
+                          },
+                          {
+                            text: "Suggested top up balance",
+                            format: "numeric"
+                          }
+                        ],
+                          rows: [
+                            
+                            [
+                              {
+                                text: "123",
+                                format: "numeric"
+                              },
+                              {
+                                text: "2",
+                                format: "numeric"
+                              },
+                              {
+                                text: "£260",
+                                format: "numeric"
+                              },
+                              {
+                                text: "£150",
+                                format: "numeric"
+                              }
+                            ],
+                            [
+                            {
+                              text: "123",
+                              format: "numeric"
+                            },
+                            {
+                              text: "2",
+                              format: "numeric"
+                            },
+                            {
+                              text: "£260",
+                              format: "numeric"
+                            },
+                            {
+                              text: "£150",
+                              format: "numeric"
+                            }
+                            ]
+                          ]
+                        }) }}
+
+                        <h2 class="govuk-heading-m">
+                          Top up values
+                        </h2>
+
+                        {{ govukInput({
+                          id: "topup",
+                          name: "topup",
+                          classes: "govuk-input--width-10",
+                          prefix: {
+                            text: "£"
+                          },
+                          suffix: {
+                            text: "Do we need a suffix?"
+                          },
+                          label: {
+                            text: "Initial deposit"
+                          },
+                          hint: {
+                            text: "Hint text"
+                          }
+                        }) }}
+
+                        {{ govukInput({
+                          id: "low-balance",
+                          name: "low-balance",
+                          classes: "govuk-input--width-10",
+                          prefix: {
+                            text: "£"
+                          },
+                          suffix: {
+                            text: "Do we need a suffix?"
+                          },
+                          label: {
+                            text: "Low balance"
+                          },
+                          hint: {
+                            text: "Hint text"
+                          }
+                        }) }}
+                        
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      
+      </form>
+
+    </div>
+  </div>
+  
+
+  
+
+
+
+
+{% endblock %}

@@ -5,7 +5,7 @@ const verNum = 8;
 
 
 
-//V7 routing starts here
+//Vx routing starts here
 router.post(`/v${verNum}/create-account/account-type`, function (req, res) {
   const accountType = req.session.data['account-type'];
 
@@ -111,21 +111,27 @@ router.post(`/v${verNum}/create-account/vehicle-summary-add-another`, function (
   }
 });
 
-
-
-
-
-router.post(`/v${verNum}/create-account/moreVehicles`, function (req, res) {
+router.post(`/v${verNum}/create-account/moreVehiclesBusiness`, function (req, res) {
   const moreVehicles = req.session.data['more-vehicles'];
 
-  if (moreVehicles === 'No') {
+  if (moreVehicles === `No` ) {
+    res.redirect(`/v${verNum}/create-account/number-of-vehicles`);
+} else {
+      res.redirect(`/v${verNum}/create-account/vehicle-summary-add-another`);
+  }
+});
+
+router.post(`/v${verNum}/create-account/moreVehiclesPersonal`, function (req, res) {
+  const moreVehicles = req.session.data['more-vehicles'];
+
+  if (moreVehicles === `No`) {
       res.redirect(`/v${verNum}/create-account/check-answers`);
   } else {
       res.redirect(`/v${verNum}/create-account/vehicle-summary-add-another`);
   }
 });
 
-//V7 ends here
+//Vx ends here
 
 
 

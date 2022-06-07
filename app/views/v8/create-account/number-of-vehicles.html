@@ -25,16 +25,51 @@ Step 3 - Your vehicle
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-          <h1 class="govuk-heading-l">Number of vehicles</h1>
-
-
-            <form class="form" method="post" action="guidance-based-upon-vehicles-in-fleet">
+            <form class="form" method="post" action="number-of-vehicles-guidance">
 
               <div class="govuk-grid-row">
                   <div class="govuk-grid-column-two-thirds">
-                      <p class="govuk-body">
-                        yet to be designed
-                      <p>
+
+                    {% set fleetHtml %}
+                    {{ govukInput({
+                      id: "numberinFleet",
+                      name: "numberinFleet",
+                      type: "number",
+                      classes: "govuk-!-width-one-third",
+                      label: {
+                        text: "How many vehicles do you have in your fleet?"
+                      }
+                    }) }}
+                    {% endset -%}
+
+
+                      {{ govukRadios({
+                        idPrefix: "vehiclesInFleet",
+                        name: "vehiclesInFleet",
+                        fieldset: {
+                          legend: {
+                            text: "Do you know how many vehicles in your fleet?",
+                            isPageHeading: true,
+                            classes: "govuk-fieldset__legend--l"
+                          }
+                        },
+                        hint: {
+                          text: "Hint text"
+                        },
+                        items: [
+                          {
+                            value: "Yes",
+                            text: "Yes",
+                            conditional: {
+                              html: fleetHtml
+                            }
+                          },
+                          {
+                            value: "No",
+                            text: "No"
+                          }
+                        ]
+                      }) }}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
       
