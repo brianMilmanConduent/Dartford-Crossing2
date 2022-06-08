@@ -73,7 +73,7 @@ router.post(`/v${verNum}/create-account/vehicle-add`, function (req, res) {
   } else if (vehicleUpload === 'No') {
     res.redirect(`/v${verNum}/create-account/number-of-vehicles`);
   } else {
-      res.redirect(`/v${verNum}/create-account/bulk-upload-start`);
+      res.redirect(`/v${verNum}/manage-account/bulk-upload/bulk-upload-start`);
   }
 });
 
