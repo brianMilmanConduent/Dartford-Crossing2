@@ -10,17 +10,6 @@ Step 3 - Your vehicle
 {% endblock %}
 
 {% block content %}
-
-
-
-
-
-
-
-
-
-
-
  
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -30,49 +19,35 @@ Step 3 - Your vehicle
               <div class="govuk-grid-row">
                   <div class="govuk-grid-column-two-thirds">
 
-                    {% set fleetHtml %}
-                    {{ govukInput({
-                      id: "numberinFleet",
-                      name: "numberinFleet",
-                      type: "number",
-                      classes: "govuk-!-width-one-third",
-                      label: {
-                        text: "How many vehicles do you have in your fleet?"
-                      }
-                    }) }}
-                    {% endset -%}
+                  <h1 class="govuk-heading-l">
+                    How many vehicles are in your fleet?
+                  </h1>
+                    <p class="govuk-body">
+                      This helps us calculate your suggested top-up and low balance amounts
+                    <p>
 
-
-                      {{ govukRadios({
-                        idPrefix: "vehiclesInFleet",
-                        name: "vehiclesInFleet",
-                        fieldset: {
-                          legend: {
-                            text: "Do you know how many vehicles in your fleet?",
-                            isPageHeading: true,
-                            classes: "govuk-fieldset__legend--l"
-                          }
-                        },
-                        hint: {
-                          text: "Hint text"
-                        },
-                        items: [
-                          {
-                            value: "Yes",
-                            text: "Yes",
-                            conditional: {
-                              html: fleetHtml
-                            }
-                          },
-                          {
-                            value: "No",
-                            text: "No"
-                          }
-                        ]
-                      }) }}
-
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
-      
+                   {{ govukInput({
+                    label: {
+                      text: "Vehicles in fleet",
+                      classes: "govuk-label--m",
+                      isPageHeading: false
+                    },
+                    hint: {
+                      text: ""
+                    },
+                    id: "event-name",
+                    name: "event-name"
+                  }) }}
+                  
+                  <div class="govuk-grid-row">
+                    
+                  
+                   <div class="govuk-grid-column-full">
+                    <button class="govuk-button" data-module="govuk-button">Continue</button>
+                   </div>   
+                   </div>
+       
+                   <a href="number-of-vehicles-guidance" class="govuk-link">I do not know how many vehicles are in my fleet</a>
       </form>
 
     </div>
