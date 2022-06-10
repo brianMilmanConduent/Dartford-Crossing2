@@ -43,10 +43,10 @@ Payment details
                       <div class="govuk-input__prefix govuk-!-font-weight-bold" aria-hidden="true">£</div>
 
 
-                    {% if data['lrdsSelect'] === 'Limited discount' %}
-                    <input class="govuk-input govuk-!-font-weight-bold govuk-input--width-5" id="amount" name="amount" value="10.00" type="number" aria-describedby="amount" spellcheck="false">
-                    {% else %}
+                    {% if data['lrdsSelect'] === 'unlimited discount' %}
                     <input class="govuk-input govuk-!-font-weight-bold govuk-input--width-5" id="amount" name="amount" value="20.00" type="number" aria-describedby="amount" spellcheck="false">
+                    {% else %}
+                    <input class="govuk-input govuk-!-font-weight-bold govuk-input--width-5" id="amount" name="amount" value="10.00" type="number" aria-describedby="amount" spellcheck="false">
                     {% endif %}
 
                         

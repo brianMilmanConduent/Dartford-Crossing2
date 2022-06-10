@@ -13,75 +13,64 @@ Step 3 - Your vehicle
 
 
 
-
-
-
-
-
-
+{% if data['vehicle-upload'] === 'No' %}
 
 
  
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      
-          <h1 class="govuk-heading-l">Initial top up and balance base limit</h1>
-            <form class="form" method="post" action="check-answers">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+        <h1 class="govuk-heading-l">Recommended top-up and low balance limit</h1>
+          <form class="form" method="post" action="check-answers">
 
-              <div class="govuk-grid-row">
-                  <div class="govuk-grid-column-full">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                    
                       <p class="govuk-body">
-                        A page to offer information based on scenarios provided
+                        These calculations are an example only. They are based on:
                       <p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                          the number of vehicles in your fleet 
+                        </li>
+                        <li>
+                          an example to show number of crossings you make in a month
+                        </li>
+                        <li>
+                          an assumed car charge at £2
+                        </li>
+                      </ul>
 
-                        {{ govukTable({
+                      {{ govukTable({
+                        
+                        firstCellIsHeader: false,
+                        head: [
+                        {
+                          text: "Vehicles in fleet",
+                          format: "numeric"
+                        },
+                        {
+                          text: "Estimated crossings per month",
+                          format: "numeric"
+                        },
+                        {
+                          text: "Suggested top-up amount",
+                          format: "numeric"
+                        },
+                        {
+                          text: "Suggested low balance",
+                          format: "numeric"
+                        }
+                      ],
+                        rows: [
                           
-                          firstCellIsHeader: false,
-                          head: [
-                          {
-                            text: "Vehicles in fleet",
-                            format: "numeric"
-                          },
-                          {
-                            text: "estimated crossings per month",
-                            format: "numeric"
-                          },
-                          {
-                            text: "Suggested deposit",
-                            format: "numeric"
-                          },
-                          {
-                            text: "Suggested top up balance",
-                            format: "numeric"
-                          }
-                        ],
-                          rows: [
-                            
-                            [
-                              {
-                                text: "123",
-                                format: "numeric"
-                              },
-                              {
-                                text: "2",
-                                format: "numeric"
-                              },
-                              {
-                                text: "£260",
-                                format: "numeric"
-                              },
-                              {
-                                text: "£150",
-                                format: "numeric"
-                              }
-                            ],
-                            [
+                          [
                             {
                               text: "123",
                               format: "numeric"
                             },
                             {
-                              text: "2",
+                              text: "10",
                               format: "numeric"
                             },
                             {
@@ -92,57 +81,212 @@ Step 3 - Your vehicle
                               text: "£150",
                               format: "numeric"
                             }
-                            ]
+                          ],
+                          [
+                          {
+                            text: "123",
+                            format: "numeric"
+                          },
+                          {
+                            text: "15",
+                            format: "numeric"
+                          },
+                          {
+                            text: "£260",
+                            format: "numeric"
+                          },
+                          {
+                            text: "£150",
+                            format: "numeric"
+                          }
                           ]
-                        }) }}
+                        ]
+                      }) }}
 
-                        <h2 class="govuk-heading-m">
-                          Top up values
-                        </h2>
+                      <h2 class="govuk-heading-m">
+                        Top up values
+                      </h2>
+                      {{ govukInput({
+                        id: "low-balance",
+                        name: "low-balance",
+                        classes: "govuk-input--width-5",
+                        prefix: {
+                          text: "£"
+                        },
+                       type: "number",
+                        label: {
+                          text: "Recommended low balance limit"
+                        },
+                        hint: {
+                          text: "If your balance falls below this amount, we'll top it up"
+                        }
+                      }) }}
+                      {{ govukInput({
+                        id: "topup",
+                        name: "topup",
+                        classes: "govuk-input--width-5",
+                        prefix: {
+                          text: "£"
+                        },
+                        type: "number",
+                        label: {
+                          text: "Recommended top-up amount"
+                        },
+                        hint: {
+                          text: "We'll automatically top up your account with this amount"
+                        }
+                      }) }}
 
-                        {{ govukInput({
-                          id: "topup",
-                          name: "topup",
-                          classes: "govuk-input--width-10",
-                          prefix: {
-                            text: "£"
-                          },
-                          suffix: {
-                            text: "Do we need a suffix?"
-                          },
-                          label: {
-                            text: "Initial deposit"
-                          },
-                          hint: {
-                            text: "Hint text"
-                          }
-                        }) }}
+                      
+                      
 
-                        {{ govukInput({
-                          id: "low-balance",
-                          name: "low-balance",
-                          classes: "govuk-input--width-10",
-                          prefix: {
-                            text: "£"
-                          },
-                          suffix: {
-                            text: "Do we need a suffix?"
-                          },
-                          label: {
-                            text: "Low balance"
-                          },
-                          hint: {
-                            text: "Hint text"
-                          }
-                        }) }}
-                        
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+    
+    </form>
 
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
-      
-      </form>
-
-    </div>
   </div>
+</div>
+
+ {% else %}
+
+ 
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+        <h1 class="govuk-heading-l">Recommended top-up and low balance limit</h1>
+          <form class="form" method="post" action="check-answers">
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                    
+                      <p class="govuk-body">
+                        These calculations are an example only. They are based on:
+                      <p>
+                      <ul class="govuk-list govuk-list--bullet">
+                        <li>
+                          an estimated 100  vehicles in your fleet
+                        </li>
+                        <li>
+                          the number of crossings you make in a month
+                        </li>
+                        <li>
+                          an assumed car charge at £2
+                        </li>
+                      </ul>
+
+                      {{ govukTable({
+                        
+                        firstCellIsHeader: false,
+                        head: [
+                        {
+                          text: "Estimated vehicles in fleet",
+                          format: "numeric"
+                        },
+                        {
+                          text: "Estimated crossings per month",
+                          format: "numeric"
+                        },
+                        {
+                          text: "Suggested top-up amount",
+                          format: "numeric"
+                        },
+                        {
+                          text: "Suggested low balance",
+                          format: "numeric"
+                        }
+                      ],
+                        rows: [
+                          
+                          [
+                            {
+                              text: "100",
+                              format: "numeric"
+                            },
+                            {
+                              text: "10",
+                              format: "numeric"
+                            },
+                            {
+                              text: "£260",
+                              format: "numeric"
+                            },
+                            {
+                              text: "£150",
+                              format: "numeric"
+                            }
+                          ],
+                          [
+                          {
+                            text: "100",
+                            format: "numeric"
+                          },
+                          {
+                            text: "15",
+                            format: "numeric"
+                          },
+                          {
+                            text: "£260",
+                            format: "numeric"
+                          },
+                          {
+                            text: "£150",
+                            format: "numeric"
+                          }
+                          ]
+                        ]
+                      }) }}
+
+                      <h2 class="govuk-heading-m">
+                        Top up values
+                      </h2>
+                      {{ govukInput({
+                        id: "low-balance",
+                        name: "low-balance",
+                        classes: "govuk-input--width-5",
+                        prefix: {
+                          text: "£"
+                        },
+                       type: "number",
+                        label: {
+                          text: "Recommended low balance limit"
+                        },
+                        hint: {
+                          text: "If your balance falls below this amount, we'll top it up"
+                        }
+                      }) }}
+                      {{ govukInput({
+                        id: "topup",
+                        name: "topup",
+                        classes: "govuk-input--width-5",
+                        prefix: {
+                          text: "£"
+                        },
+                        type: "number",
+                        label: {
+                          text: "Recommended top-up amount"
+                        },
+                        hint: {
+                          text: "We'll automatically top up your account with this amount"
+                        }
+                      }) }}
+
+                      
+                      
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+    
+    </form>
+
+  </div>
+</div>
+{% endif %}
+
+
+
+
+
+
+
   
 
   

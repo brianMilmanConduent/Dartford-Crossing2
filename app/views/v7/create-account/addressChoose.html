@@ -20,7 +20,7 @@ Select your address
       
       
 
-      <!--OUTSIDE OF LRDS ZONE CONTENT-->
+      <!--LRDS ZONE CONTENT
       <form class="form" action="lrdsSelect" method="post">
        
         <fieldset class="govuk-fieldset">
@@ -51,8 +51,37 @@ Select your address
         <button class="govuk-button" data-module="govuk-button">Continue</button>
         <p class='govuk-body'><a href='addressmanual'>Enter your address manually</a></p>
       </form>
-      <!--OUTSIDE OF LRDS ZONE CONTENT ENDS-->
+      LRDS ZONE CONTENT ENDS-->
      
+       <!--OUTSIDE OF LRDS ZONE CONTENT-->
+       <form class="form" action="otherAccountType" method="post">
+        <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Where you live</h1>
+          <fieldset class="govuk-fieldset">
+            <h2 class="govuk-heading-l">Select your address?</h2>
+            
+        
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-postcode">
+              </label>
+        
+              <select class="govuk-select" id="select-address" name="select-address">
+                  <option value="addressfound" selected>8 addresses found</option>
+                  <option value="1 Bark Road, Townsville, Countyville ">1 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="3 Bark Road, Townsville, Countyville ">3 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="5 Bark Road, Townsville, Countyville ">5 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="7 Bark Road, Townsville, Countyville ">7 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="9 Bark Road, Townsville, Countyville ">9 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="11 Bark Road, Townsville, Countyville ">11 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="15 Bark Road, Townsville, Countyville ">15 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="17 Bark Road, Townsville, Countyville ">17 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+              </select>
+        
+          </fieldset>
+        
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+          <p class='govuk-body'><a href='addressmanual'>Enter your address manually</a></p>
+        </form>
+      <!--OUTSIDE OF LRDS ZONE CONTENT ENDS-->
      
     
 
