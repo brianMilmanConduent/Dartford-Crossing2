@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Step 3 - Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+ 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+            <form class="form" method="post" action="number-of-vehicles-guidance">
+
+              <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-two-thirds">
+
+                  <h1 class="govuk-heading-l">
+                    How many vehicles are in your fleet?
+                  </h1>
+                    <p class="govuk-body">
+                      This helps us calculate your suggested top-up and low balance amounts
+                    <p>
+
+                   {{ govukInput({
+                    label: {
+                      text: "Vehicles in fleet",
+                      classes: "govuk-label--m",
+                      isPageHeading: false
+                    },
+                    hint: {
+                      text: ""
+                    },
+                    id: "event-name",
+                    name: "event-name"
+                  }) }}
+                  
+                  <div class="govuk-grid-row">
+                    
+                  
+                   <div class="govuk-grid-column-full">
+                    <button class="govuk-button" data-module="govuk-button">Continue</button>
+                   </div>   
+                   </div>
+       
+                   <a href="number-of-vehicles-guidance" class="govuk-link">I do not know how many vehicles are in my fleet</a>
+      </form>
+
+    </div>
+  </div>
+  
+
+  
+
+
+
+
+{% endblock %}

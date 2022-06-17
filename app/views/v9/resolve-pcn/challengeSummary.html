@@ -1,0 +1,178 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Challenge summary
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<style>
+    .sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  }
+</style>
+
+
+<div class="govuk-width-container">
+
+  
+
+  
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h1 class="govuk-caption-xl govuk-!-margin-bottom-0 govuk-!-margin-top-0">Challenge a penalty charge notice (PCN) </h1>
+        <h1 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-5">Confirm your challenge summary</h1>
+        <p class="govuk-body">Please give supporting evidence for your <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>challenge</p>
+      </div>
+      
+      <div class="govuk-grid-column-three-quarters">
+          
+        
+
+        <table class="govuk-table">
+          <tbody id="tbody" class="govuk-table__body">
+
+          </tbody>
+        </table> 
+
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="countries" name="countries" type="checkbox" value="france">
+            <label class="govuk-label govuk-checkboxes__label" for="countries">
+              I confirm the information is correct to the best of my knowledge
+            </label>
+          </div>
+        </div>
+        <br><br>
+
+
+      
+
+            <a href="flow17"><button class="govuk-button govuk-!-width-one-quarter" data-module="govuk-button">
+              Next
+            </button></a>   
+
+
+
+   
+      <br>
+      <br><br><br><br>
+      
+
+
+      </div>  
+
+    </div>
+                   
+
+                    
+      <div class="govuk-grid-column-one-third">
+        
+      </div>
+
+</div>
+
+
+<script src="/public/javascripts/jquery-1.11.3.js"></script>  
+<script>
+     
+     
+     $(document).ready(function(){
+     let challengeDetails = JSON.parse(localStorage.getItem("challengeDetails"));
+     let challengedPCNs = JSON.parse(localStorage.getItem("challengedPCNs"));
+     let challengeReason = JSON.parse(localStorage.getItem("challengeReason"));
+     let challengeEvidence = JSON.parse(localStorage.getItem("challengeEvidence"));
+        // let backLink = document.getElementById("backLink")
+        // backLink.href = cardEntriesPCN[7]
+        // let chargeAmount = document.getElementById("chargeAmount")
+        
+        //                   let vandal = []
+        //                   if (typeof(roper[0])=="string"){
+        //                     vandal.push(roper)
+        //                     }else if(typeof(roper[0])=="object"){vandal=roper}
+        //                  let chargeCummulator = 0
+        //                     for (i=0; i<vandal.length; i++){
+                        
+        //                  chargeCummulator += parseInt(vandal[i][11].split('£')[1]);
+        //                 }
+        //                 //  element IDs can be treated as variable names
+                          
+        //                   chargeAmount.innerText =`£${chargeCummulator}`
+        
+        let userName = ''
+        if (challengeDetails[0].length>0){
+          userName = challengeDetails[0]
+        }
+        if (challengeDetails[0].length=0){
+          userName = "John Doe"
+        }
+        if (!challengeReason){
+          challengeReason = 'The vehicle was used without your consent'
+        }
+  
+        let supportEvidence = ""
+        if (challengeEvidence[0]){
+          supportEvidence = challengeEvidence[0]
+        }
+        if (challengeEvidence[0]==""){
+          supportEvidence = "Evidence.PNG"
+        }
+  
+        let supportExplanation = ''
+        if (challengeEvidence[1]){
+          supportExplanation = challengeEvidence[1]
+        }
+       
+  
+        if (challengeEvidence[1]==""){
+          supportExplanation = "Lorem Ipsum..."
+        }
+        // let userName = challengeDetails[0];
+        let pcns = challengedPCNs
+        let container = document.getElementById("tbody")
+  
+        let fieldHTML = `
+                    <tr class="govuk-table__row">                
+                       <th scope="col" class="govuk-table__header govuk-table__header govuk-!-padding-right-1" >Name</th>
+                       <td class="govuk-table__cell govuk-table__cell govuk-!-padding-right-1" >${userName}</td>
+                       <td class="govuk-table__cell govuk-table__cell" ><a href="javascript:void(0)">Change</a></td>
+                    </tr>            
+                    <tr  class="govuk-table__row">                
+                       <th scope="col" class="govuk-table__header govuk-table__header govuk-!-padding-right-1" >PCN Number(s)</th>
+                       <td class="govuk-table__cell govuk-table__cell govuk-!-padding-right-1"  name="pay">${pcns.join("<br>")}</td>
+                       <td class="govuk-table__cell govuk-table__cell" ><a href="javascript:void(0)">Change</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">                
+                       <th scope="col" class="govuk-table__header govuk-table__header govuk-!-padding-right-1" >Reasons for challenging</th>
+                       <td class="govuk-table__cell govuk-table__cell govuk-!-padding-right-1" name="pay" >${challengeReason.split(":")[0]}</td>
+                       <td class="govuk-table__cell govuk-table__cell" ><a href="javascript:void(0)">Change</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">               
+                       <th scope="col" class="govuk-table__header govuk-table__header govuk-!-padding-right-1" >Supporting evidence</th>
+                       <td class="govuk-table__cell govuk-table__cell govuk-!-padding-right-1" name="pay" >${supportEvidence}</td>
+                       <td class="govuk-table__cell govuk-table__cell" ><a href="javascript:void(0)">Change</a></td>
+                    </tr>
+                    <tr class="govuk-table__row">               
+                       <th scope="col" class="govuk-table__header govuk-table__header govuk-!-padding-right-1" >Explanation for supporting evidence</th>
+                       <td class="govuk-table__cell govuk-table__cell govuk-!-padding-right-1" name="pay" >${supportExplanation}</td>
+                       <td class="govuk-table__cell govuk-table__cell" ><a href="javascript:void(0)">Change</a></td>               
+                    </tr> 
+                    `
+                    container.innerHTML += fieldHTML;
+  
+     })
+</script>
+
+
+
+
+{% endblock %}
