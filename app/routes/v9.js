@@ -131,6 +131,20 @@ router.post(`/v${verNum}/create-account/moreVehiclesPersonal`, function (req, re
   }
 });
 
+
+
+router.post(`/v${verNum}/landing-page`, function (req, res) {
+  const editChoice = req.session.data[`landing`]
+  if (editChoice === 'one-off-payment') {
+    res.redirect(`/v${verNum}/one-off-payment/pay-crossing`)
+  } else if (editChoice === 'create-account') {
+    res.redirect(`/v${verNum}/create-account/create-start`)
+  }
+  else if (editChoice === 'resolve-pcn') {
+    res.redirect(`/v${verNum}/resolve-pcn/payConfirm`)
+  }
+});
+
 //Vx ends here
 
 
