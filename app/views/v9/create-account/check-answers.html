@@ -158,6 +158,44 @@ Check your answers
               </a>
             </dd>
           </div>
+
+
+          {% if data['account-type'] === 'Business' %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Low balance limit
+            </dt>
+            <dd class="govuk-summary-list__value">
+                £{{data['low-balance']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden">low balance limit</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Top-up amount
+            </dt>
+            <dd class="govuk-summary-list__value">
+                £{{data['topup']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden">low balance limit</span>
+              </a>
+            </dd>
+          </div>
+
+            {% else %}
+            <!--content here-->
+            {% endif %}
+
+
       </dl>
        
      
