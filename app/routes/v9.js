@@ -44,9 +44,9 @@ router.post(`/v${verNum}/create-account/lrdsPost`, function (req, res) {
   const lrdsUploadNow = req.session.data['lrdsUploadNow'];
 
   if (lrdsUploadNow === 'Post') {
-      res.redirect(`/v${verNum}/create-account/email`);
+      res.redirect(`/v${verNum}/create-account/lrdswarn`);
   } else if (lrdsUploadNow === 'Upload later') {
-    res.redirect(`/v${verNum}/create-account/email`);
+    res.redirect(`/v${verNum}/create-account/lrdswarn`);
 } else {
       res.redirect(`/v${verNum}/create-account/lrdsDocUploadFirstDoc`);
   }
