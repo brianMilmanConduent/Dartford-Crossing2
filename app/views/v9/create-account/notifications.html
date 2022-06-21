@@ -23,23 +23,11 @@ How do you want to be notified?
                 How would you like to receive notifications about your account?
               </h1>
             </legend>
-            {{ govukInsetText({
-              text: "It costs £7 a month to receive your account statements by post."
-            }) }}
+           
 
            
            
-            {{ govukCheckboxes({
-              idPrefix: "agreeCharge",
-              name: "agreeCharge",
-              
-             items: [
-                {
-                  value: "I agree to be debited £7 a month to receive my account statements by post.",
-                  text: "I agree to be debited £7 a month to receive my account statements by post."
-                }
-              ]
-            }) }}
+          
 
 
          {{ govukRadios({
