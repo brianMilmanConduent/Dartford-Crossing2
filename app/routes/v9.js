@@ -158,6 +158,7 @@ router.post(`/v${verNum}/create-account/otherAccountTypeLRDScheck`, function (re
       || checkPostCode === 'da1 1dy'
       || checkPostCode === 'DA1  1DY'
       || checkPostCode === 'DA1 1DY'
+      || checkPostCode === 'Da1 1dy'
   ) {
       res.redirect(`/v${verNum}/create-account/addressChooseLRDSinfo`);
   } else {
