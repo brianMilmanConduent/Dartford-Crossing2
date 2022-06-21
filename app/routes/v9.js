@@ -145,6 +145,26 @@ router.post(`/v${verNum}/landing-page`, function (req, res) {
   }
 });
 
+
+
+
+router.post(`/v${verNum}/create-account/otherAccountTypeLRDScheck`, function (req, res) {
+  const checkPostCode = req.session.data['address-postcode'];
+
+  if (
+    checkPostCode === 'DA11DY'
+      || checkPostCode === 'da11dy'
+      || checkPostCode === 'da1  1dy'
+      || checkPostCode === 'da1 1dy'
+      || checkPostCode === 'DA1  1DY'
+      || checkPostCode === 'DA1 1DY'
+  ) {
+      res.redirect(`/v${verNum}/create-account/addressChooseLRDSinfo`);
+  } else {
+      res.redirect(`/v${verNum}/create-account/otherAccountType`);
+  }
+});
+
 //Vx ends here
 
 

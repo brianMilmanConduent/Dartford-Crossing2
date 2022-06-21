@@ -11,10 +11,9 @@ Enter your address
 
 {% block content %}
 {% if data['account-type'] === 'Personal' %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="otherAccountType" method="post">
+    <form action="otherAccountTypeLRDScheck" method="post">
      
         <fieldset class="govuk-fieldset">
           <h1 class="govuk-heading-l">What is your address?</h1>
@@ -63,13 +62,6 @@ Enter your address
 
           </fieldset>
       <button class="govuk-button" data-module="govuk-button">Continue</button>
-
-  <!--<p class='govuk-body'> If you already have an account you can <a href='#'>sign in</a></p>
--->
-
-
-
-
     </form>
 
   </div>
