@@ -48,7 +48,7 @@ Select LRDS
           value: "None of the above",
           text: "I do not want a local resident discount",
           hint: {
-            text: "Pay as you go or top up your account instead"
+            text: "Pay as you go or pre-pay your account instead"
           }
         }
       ]
@@ -58,10 +58,125 @@ Select LRDS
       text: "Continue"
     }) }}
 
-    {{ govukDetails({
-      summaryText: "What are the standard rates for the Dartford Crossing?",
-      text: "TBC"
-    }) }}
+
+
+
+    {% set detailsHTML %}
+          <h2 class="govuk-heading-m">
+            Cars and motorcycles
+          </h2>
+          {{ govukTable({
+            firstCellIsHeader: true,
+            head: [
+              {
+                text: ""
+              },
+              {
+                text: "Vehicle class"
+              },
+              {
+                text: "Pay as you go"
+              },
+              {
+                text: "Pre-pay"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "Motorcycles, mopeds and quad bikes"
+                },
+                {
+                  text: "A"
+                },
+             
+                {
+                  text: "Free"
+                },
+                {
+                  text: "Free"
+                }
+              ],
+              [
+                {
+                  text: "Cars (including trailers), motorhomes and any minibuses that have 9 or less seats (including the driver’s seat)	"
+                },
+                {
+                  text: "B"
+                },
+             
+                {
+                  text: "£2.50"
+                },
+                {
+                  text: "£2.00"
+                }
+              ]
+            ]
+          }) }}
+
+
+          <h2 class="govuk-heading-m">
+            Buses, coaches, vans and other goods vehicles
+          </h2>
+          {{ govukTable({
+            firstCellIsHeader: true,
+            head: [
+              {
+                text: ""
+              },
+              {
+                text: "Vehicle class"
+              },
+              {
+                text: "Pay as you go"
+              },
+              {
+                text: "Pre-pay"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "Vehicles with 2 axles"
+                },
+                {
+                  text: "C"
+                },
+             
+                {
+                  text: "£3.00"
+                },
+                {
+                  text: "£2.63"
+                }
+              ],
+              [
+                {
+                  text: "Vehicles with more than 2 axles"
+                },
+                {
+                  text: "D"
+                },
+             
+                {
+                  text: "£6.00"
+                },
+                {
+                  text: "£5.19"
+                }
+              ]
+            ]
+          }) }}
+{% endset %}
+
+{{ govukDetails({
+ summaryText: "What are the standard rates for the Dartford Crossing?",
+ html: detailsHTML
+ })
+}}
+
+
 </div>
 </div> 
     </div>
