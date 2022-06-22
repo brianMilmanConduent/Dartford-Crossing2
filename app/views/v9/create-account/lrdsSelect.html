@@ -21,9 +21,7 @@ Select LRDS
     <p class="govuk-body">
       Under the Local Resident Discount Scheme (LRDS), you can choose from two different discount options.
     </p>
-    {{ govukInsetText({
-      text: "Under the LRDS, only one vehicle per resident qualifies for the discount. You can add extra vehicles to your account, but they will incur standard rates."
-    }) }}
+    
     
     {{ govukRadios({
       idPrefix: "lrdsSelect",
@@ -58,6 +56,11 @@ Select LRDS
 
     {{ govukButton({
       text: "Continue"
+    }) }}
+
+    {{ govukDetails({
+      summaryText: "What are the standard rates for the Dartford Crossing?",
+      text: "TBC"
     }) }}
 </div>
 </div> 
