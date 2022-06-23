@@ -23,14 +23,25 @@
       name: "landing",
       fieldset: {
         legend: {
-          text: "What would you like to do?
-          ",
+          text: "What would you like to do?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--l"
         }
       },
      
       items: [
+      {
+        value: "create-account",
+        html: "<b>Sign in or set up a Dart Charge account</b>",
+        hint: {
+          html: "With an account, you can:
+          <ul class='govuk-hint govuk-list govuk-list--bullet'>
+            <li>get a discount of up to 20% off when you pre-pay</li>
+            <li>pay as you go, with payments taken automatically</li>
+            <li>get a local resident discount if you live in Dartford or Thurrock</li>
+          </ul>"
+        }
+      },
         {
           value: "one-off-payment",
           html: "<b>Pay for crossings without an account</b>",
@@ -38,21 +49,9 @@
             html: "
         You can:
         <ul class='govuk-hint govuk-list govuk-list--bullet'>
-          <li>pay for crossings you've made since yesterday</li>
-          <li>pay for future crossings, such as a return journey</li>
+          <li>pay for crossings you’ve made since yesterday</li>
+          <li>pay for future crossings</li>
         </ul>"
-          }
-        },
-        {
-          value: "create-account",
-          html: "<b>Sign in or create an account</b>",
-          hint: {
-            html: "Easily pay for future crossings. With an account you can:
-            <ul class='govuk-hint govuk-list govuk-list--bullet'>
-              <li>pre-pay – get a discount of up to 20% on all crossings</li>
-              <li>pay as you go – no discount but payments are taken automatically</li>
-              <li>get a local resident discount (if you live in Dartford or Thurrock)</li>
-            </ul>"
           }
         },
         {
@@ -61,8 +60,8 @@
           hint: {
             html: " You can:
             <ul class='govuk-hint govuk-list govuk-list--bullet'>
-              <li>pay the penalty charge</li>
-              <li>challenge a PCN you believe should not have been issued</li>
+              <li>pay a penalty charge</li>
+              <li>challenge a PCN</li>
             </ul>"
           }
         }

@@ -141,7 +141,7 @@ router.post(`/v${verNum}/landing-page`, function (req, res) {
     res.redirect(`/v${verNum}/create-account/create-start`)
   }
   else if (editChoice === 'resolve-pcn') {
-    res.redirect(`/v${verNum}/resolve-pcn/payConfirm`)
+    res.redirect(`/v${verNum}/landing`)
   }
 });
 
