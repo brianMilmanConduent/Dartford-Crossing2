@@ -25,8 +25,18 @@ Your account has been created
                   Application submitted
                 </h1>
               </div>  
+             
             <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
-            <p>Your payment reference is 4569852.<br>You’ll receive the digital receipt for this payment separately. </p>
+            <h2 class="govuk-heading-m">
+              Your payment
+            </h2>
+            <p class="govuk-body">
+              Your payment reference is 34562345. You’ll receive the digital receipt for this payment separately.
+            <p>
+            
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>
 
         <div class='govuk-grid-column-full'>
             {{ govukInsetText({
@@ -34,7 +44,7 @@ Your account has been created
             }) }}
 
             <p class="govuk-body">
-              We’ll let you know once your account and local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings.
+              We’ll let you know once your local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings.
             </p>
           </div>
     {% else %}
@@ -50,16 +60,22 @@ Your account has been created
                     </h1>
                   </div>
               <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
-              <p>Your payment reference is 4569852.<br>You’ll receive the digital receipt for this payment separately. </p>
-                <div class='govuk-grid-column-full'>
 
+              <h2 class="govuk-heading-m">
+                Your payment
+              </h2>
+              <p>Your payment reference is 34562345. You’ll receive the digital receipt for this payment separately.</p>
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>
+              
+                <div class='govuk-grid-column-full'>
                   {{ govukInsetText({
+                    classes:"govuk-!-margin-top-1",
                     text: "Your account is not active yet. You must still upload your proof of local residency documents. Once we've received all these documents, they will take up to 5 days to get approved. "
                   }) }}
-                <p class="govuk-body">
-                  We’ll let you know once your account and local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings. 
-                <p>
-            <a href="#" class="govuk-link">Upload proof of local residency documents now</a>
+                  <p class="govuk-body"> <a href="#" class="govuk-link">Upload your documents now</a></p>
+                
 
             {{ govukDetails({
               summaryText: "What documents to upload",
@@ -68,38 +84,41 @@ Your account has been created
               <div class='govuk-grid-column-full'>
                 
              
-              <p class='govuk-body'>
-                All documents must show your name and address. You need to send: 
-              <p>
-                <ul class='govuk-list govuk-list--number'>
-                  <li>
-                    A current council tax bill
-                  </li>
-                  <li>
-                    Your vehicle V5C log book
-                  </li>
-                  <li>
-                    One of the following:
-                    <ul class='govuk-list govuk-list--bullet'>
-                      <li>
-                        a bank or credit card statement no more than 3 months old
-                      </li>
-                      <li>
-                        a utility bill (gas, electric or water only) no more than 3 months old
-                      </li>
-                      <li>
-                        an Income Support or housing association rent document
-                      </li>
-                      <li>
-                        your driving licence
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
+                <p class='govuk-body'>
+                  You need to send: 
+                <p>
+                  <ul class=1govuk-list govuk-list--number1>
+    
+                    <li>
+                      your vehicle V5C log book
+                    </li>
+                    <li>
+                      one of the following:
+                      <ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-9'>
+                        <li>
+                          a recent bank or credit card statement
+                        </li>
+                        <li>
+                          a recent utility bill (gas, electric or water only)
+                        </li>
+                        <li>
+                          your most recent council tax bill
+                        </li>
+                        <li>
+                          an Income Support or housing association rent document
+                        </li>
+                        <li>
+                          your driving licence (photo card only)
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
               </div>
               "
             }) }}
-
+            <p class="govuk-body">
+              We’ll let you know once your local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings.
+            <p>
     </div>
     <!--content here-->
 
@@ -119,43 +138,52 @@ Your account has been created
             </h1>
           </div>
               <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
-              <p>Your payment reference is 4569852.<br>You’ll receive the digital receipt for this payment separately. </p>
+
+              <h2 class="govuk-heading-m">
+                Your payment
+              </h2>
+              <p class="govuk-body">
+                Your payment reference is 34562345. You’ll receive the digital receipt for this payment separately.
+              <p>
+                <h2 class="govuk-heading-m">
+                  What happens next
+                </h2>
 
           <div class="govuk-grid-column-full">
             {{ govukInsetText({
+              classes:"govuk-!-margin-top-1",
               text: "Your account is not active yet. You must now send us your proof of local residency documents by post. Once we receive them, these documents will take up to 5 days to get approved. "
             }) }}
-                <p class="govuk-body">
-                  We’ll let you know once your account and local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings. 
-                <p>
+                
                   {{ govukDetails({
                     summaryText: "What documents to post to us",
                     html: 
                     "
                       <p class='govuk-body'>
-                        All documents must show your name and address. You need to send: 
+                        You need to send: 
                       <p>
-                        <ul class='govuk-list govuk-list--number'>
+                        <ul class=1govuk-list govuk-list--number1>
+          
                           <li>
-                            A current council tax bill
+                            your vehicle V5C log book
                           </li>
                           <li>
-                            Your vehicle V5C log book
-                          </li>
-                          <li>
-                            One of the following:
-                            <ul class='govuk-list govuk-list--bullet'>
+                            one of the following:
+                            <ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-9'>
                               <li>
-                                a bank or credit card statement no more than 3 months old
+                                a recent bank or credit card statement
                               </li>
                               <li>
-                                a utility bill (gas, electric or water only) no more than 3 months old
+                                a recent utility bill (gas, electric or water only)
+                              </li>
+                              <li>
+                                your most recent council tax bill
                               </li>
                               <li>
                                 an Income Support or housing association rent document
                               </li>
                               <li>
-                                your driving licence
+                                your driving licence (photo card only)
                               </li>
                             </ul>
                           </li>
@@ -169,6 +197,9 @@ Your account has been created
                       </div>
                     "
                   }) }}
+                  <p class="govuk-body">
+                    We’ll let you know once your local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings.
+                  <p>
     {% else %}
      <!--no content here-->
     {% endif %}
