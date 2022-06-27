@@ -59,11 +59,17 @@ Your vehicle
                               <td scope="col" class="govuk-table__header govuk-body ">Colour</td>
                               <td class="govuk-table__cell  govuk-body ">Black</td>
                           </tr>
+                          {% if data['account-type'] === 'Business' %}
 
                           <tr class="govuk-table__row">
                             <td scope="col" class="govuk-table__header govuk-body ">Class</td>
                             <td class="govuk-table__cell  govuk-body ">B</td>
                         </tr>
+
+                            {% else %}
+                            <!--content here-->
+                            {% endif %}
+                          
                          
                       </table>
 
