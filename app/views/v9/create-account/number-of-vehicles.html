@@ -68,16 +68,13 @@ Top-up and low balance
                 <div class="govuk-grid-column-two-thirds">
 
                 <h1 class="govuk-heading-l">
-                  How many vehicles are in your fleet?
+                  Has your fleet got 482 vehicles in total?
                 </h1>
+               
                   <p class="govuk-body">
                     This helps us calculate your suggested top-up and low balance amounts
                   <p>
-
-                    {{ govukInsetText({
-                      text: "You have uploaded 482 vehicles to your fleet"
-                    }) }}
-
+                    {% set fleetHtml %}
                  {{ govukInput({
                   label: {
                     text: "Confirm the total number of vehicles in your fleet",
@@ -86,6 +83,25 @@ Top-up and low balance
                   },
                   id: "vehicles-on-fleet",
                   name: "vehicles-on-fleet"
+                }) }}
+                {% endset -%}
+                {{ govukRadios({
+                  idPrefix: "vehicles-on-fleet-confirm",
+                  name: "vehicles-on-fleet-confirm",
+                 
+                  items: [
+                    {
+                      value: "Yes",
+                      text: "Yes"
+                    },
+                    {
+                      value: "No",
+                      text: "No",
+                      conditional: {
+                        html: fleetHtml
+                      }
+                    }
+                  ]
                 }) }}
                 
                 <div class="govuk-grid-row">
@@ -112,15 +128,13 @@ Top-up and low balance
                 <div class="govuk-grid-column-two-thirds">
 
                 <h1 class="govuk-heading-l">
-                  How many vehicles are in your fleet?
+                  Has your fleet got 1 vehicle in total?
                 </h1>
                
                   <p class="govuk-body">
                     This helps us calculate your suggested top-up and low balance amounts
                   <p>
-                    {{ govukInsetText({
-                      text: "You have uploaded 1 vehicle to your fleet"
-                    }) }}
+                    {% set fleetHtml %}
                  {{ govukInput({
                   label: {
                     text: "Confirm the total number of vehicles in your fleet",
@@ -129,6 +143,25 @@ Top-up and low balance
                   },
                   id: "vehicles-on-fleet",
                   name: "vehicles-on-fleet"
+                }) }}
+                {% endset -%}
+                {{ govukRadios({
+                  idPrefix: "vehicles-on-fleet-confirm",
+                  name: "vehicles-on-fleet-confirm",
+                 
+                  items: [
+                    {
+                      value: "Yes",
+                      text: "Yes"
+                    },
+                    {
+                      value: "No",
+                      text: "No",
+                      conditional: {
+                        html: fleetHtml
+                      }
+                    }
+                  ]
                 }) }}
                 
                 <div class="govuk-grid-row">
