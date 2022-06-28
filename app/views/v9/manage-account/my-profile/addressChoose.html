@@ -19,7 +19,7 @@ Select your address
 
       {% if data['address-postcode'] === 'DA1 1DY' %}
       <!--LRDS ZONE CONTENT-->
-      <form class="form" action="addressChooseLRDSinfo" method="post">
+      <form class="form" action="address-change-confirmation" method="post">
        
           <fieldset class="govuk-fieldset">
             <h2 class="govuk-heading-l">Select your address</h2>
@@ -50,7 +50,7 @@ Select your address
 
       {% elseif data['address-postcode'] === 'Da1 1DY' %}
       <!--LRDS ZONE CONTENT-->
-      <form class="form" action="addressChooseLRDSinfo" method="post">
+      <form class="form" action="address-change-confirmation" method="post">
        
           <fieldset class="govuk-fieldset">
             <h2 class="govuk-heading-l">Select your address</h2>
@@ -80,7 +80,7 @@ Select your address
       <!--LRDS ZONE CONTENT ENDS-->
       {% elseif data['address-postcode'] === 'da1 1DY' %}
       <!--LRDS ZONE CONTENT-->
-      <form class="form" action="addressChooseLRDSinfo" method="post">
+      <form class="form" action="address-change-confirmation" method="post">
        
           <fieldset class="govuk-fieldset">
             <h2 class="govuk-heading-l">Select your address</h2>
@@ -110,7 +110,7 @@ Select your address
       <!--LRDS ZONE CONTENT ENDS-->
       {% elseif data['address-postcode'] === 'da1 1dy' %}
       <!--LRDS ZONE CONTENT-->
-      <form class="form" action="addressChooseLRDSinfo" method="post">
+      <form class="form" action="address-change-confirmation" method="post">
        
           <fieldset class="govuk-fieldset">
             <h2 class="govuk-heading-l">Select your address</h2>
@@ -140,7 +140,7 @@ Select your address
       <!--LRDS ZONE CONTENT ENDS-->
       {% elseif data['address-postcode'] === 'da11dy' %}
       <!--LRDS ZONE CONTENT-->
-      <form class="form" action="addressChooseLRDSinfo" method="post">
+      <form class="form" action="address-change-confirmation" method="post">
        
           <fieldset class="govuk-fieldset">
             <h2 class="govuk-heading-l">Select your address</h2>
@@ -170,7 +170,7 @@ Select your address
       <!--LRDS ZONE CONTENT ENDS-->
       {% elseif data['address-postcode'] === 'DA11DY' %}
       <!--LRDS ZONE CONTENT-->
-      <form class="form" action="addressChooseLRDSinfo" method="post">
+      <form class="form" action="address-change-confirmation" method="post">
        
           <fieldset class="govuk-fieldset">
             <h2 class="govuk-heading-l">Select your address</h2>
@@ -202,10 +202,10 @@ Select your address
       
 
       <!--OUTSIDE OF LRDS ZONE CONTENT-->
-      <form class="form" action="addressChooseLRDSinfo" method="post">
-        <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Where you live</h1>
+      <form class="form" action="address-change-confirmation" method="post">
+       
           <fieldset class="govuk-fieldset">
-            <h2 class="govuk-heading-l">Select your address?</h2>
+            <h2 class="govuk-heading-l">Select your address</h2>
             
         
             <div class="govuk-form-group">
@@ -235,7 +235,7 @@ Select your address
     
 
  {% else %}
- <form class="form" action="email" method="post">
+ <form class="form" action="address-change-confirmation" method="post">
   <h1 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Select an address</h1>
     <fieldset class="govuk-fieldset">
       
