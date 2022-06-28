@@ -5,28 +5,167 @@ My profile
 {% endblock %}
 
 {% block beforeContent %}
-{% include "includes/alpha-banner.html" %}
+{% include "includes/beta-banner.html" %}
 {% include "includes/back-link.html" %}
 {% endblock %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
 
-      <h1 class="govuk-heading-xl">Heading or question goes here</h1>
+    <h1 class="govuk-heading-l">My profile</h1>
 
-      <form class="form" action="/url/of/next/page" method="post">
+    <h2 class="govuk-heading-m">Personal details</h2>
 
-        <p>[Insert question content here]</p>
+    {{ govukSummaryList({
+      classes: 'govuk-!-margin-bottom-9',
+      rows: [
+        {
+          key: {
+            text: "first-name"
+          },
+          value: {
+            text: "Sarah"
+          },
+          actions: {
+            items: [
+              {
+                href: "name#first-name",
+                text: "Change",
+                visuallyHiddenText: "first name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "last-name"
+          },
+          value: {
+            text: "Phillips"
+          },
+          actions: {
+            items: [
+              {
+                href: "name#last-name",
+                text: "Change",
+                visuallyHiddenText: "last name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: "72 Guild Street<br>London<br>SE23 6FH"
+          },
+          actions: {
+            items: [
+              {
+                href: "addresslookup",
+                text: "Change",
+                visuallyHiddenText: "address"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Mobile phone"
+          },
+          value: {
+            html: '<p class="govuk-body">07700 900457</p>'
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "mobile phone"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
 
-        <p>[See <a href="https://design-system.service.gov.uk">the GOV.UK Design System</a> for examples]</p>
 
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
+    <h2 class="govuk-heading-m">Account details</h2>
 
-      </form>
+    {{ govukSummaryList({
+      classes: 'govuk-!-margin-bottom-9',
+      rows: [
+      
+      {
+        key: {
+          text: "Email address"
+        },
+        value: {
+          html: '<p class="govuk-body">sarah.phillips@example.com</p>'
+        },
+        actions: {
+          items: [
+            {
+              href: "#",
+              text: "Change",
+              visuallyHiddenText: "contact details"
+            }
+          ]
+        }
+      },
+        {
+          key: {
+            text: "Change password"
+          },
+          type: "password",
+          value: {
+            html: "<p class='password'>123123123</p>"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "previous application number"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Dart charge pin"
+          },
+          value: {
+            html: "<p class='password'>1231</p>"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "licence type"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
 
-    </div>
+    
+    <form action="#" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      {{ govukButton({
+        text: "Back to summary"
+      }) }}
+
+    </form>
+
   </div>
+</div>
 
 {% endblock %}

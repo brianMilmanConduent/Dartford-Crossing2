@@ -69,5 +69,13 @@ $govuk-assets-path: '/govuk/assets/';
 
 .error-table{border-left: 5px solid #d4351c;padding-left:15px;}
 
+.white-border{font-size:20pt; border-color:#fff!important;}
+.password{-webkit-text-security: disc !important;
+    padding: 1px 2px;}
+
+input[type="password" i] {
+    -webkit-text-security: disc !important;
+    padding: 1px 2px;
+}
 
 
