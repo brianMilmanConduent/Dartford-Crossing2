@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
   
-{% include "includes/beta-banner.html" %}
+{% include "includes/alpha-banner.html" %}
 {% endblock %}
 
 
@@ -35,19 +35,19 @@
    <!--priority message banner-->
 
   {% block pageHeaderContent %}
-    {% include "includes/v3/accounts/business/page-header.html" %}
+    {% include "includes/v3/accounts/personal-pre-pay/page-header.html" %}
   {% endblock %}
 
 
   
   {% block balanceContent %}
-    {% include "includes/v3/accounts/business/balance-and-top-up.html" %}
+    {% include "includes/v3/accounts/personal-pre-pay/balance-and-top-up.html" %}
   {% endblock %}
 
  
   
   {% block notificationContent %}
-  {% include "includes/v3/accounts/business/notification.html" %}
+  {% include "includes/v3/accounts/personal-pre-pay/notification.html" %}
 {% endblock %}
 
  
@@ -55,10 +55,10 @@
 
 
 {% block crossingTableContent %}
-  {% include "includes/v3/accounts/business/crossing-table.html" %}
+  {% include "includes/v3/accounts/personal-pre-pay/crossing-table.html" %}
 {% endblock %}
 {% block vehiclesAndSavingsContent %}
-  {% include "includes/v3/accounts/business/vehicles_and_savings.html" %}
+  {% include "includes/v3/accounts/personal-pre-pay/vehicles_and_savings.html" %}
 {% endblock %}
 
 </div>

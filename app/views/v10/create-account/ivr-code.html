@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Step 4 - Create a password
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form id="form" method="post" action="mobile">
+        <h1 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">IVR code</h1>
+          <fieldset class="govuk-fieldset">
+          
+
+            <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form action="mobile" method="post">
+                {{ govukFieldset({
+                    legend: {
+                        html: "",
+                        classes: "govuk-fieldset__legend",
+                        isPageHeading: true
+                    }
+                })}}
+              <p>It must be 4 characters long.</p>
+              
+                {{ govukInput({
+                    label: {
+                        text: "Enter a pin"
+                    },
+                    id: "register-pin",
+                    name: "register-pin",
+                    classes: "govuk-input--width-4"
+                }) }}
+                
+
+                {{ govukInput({
+                    label: {
+                        text: "Retype pin"
+                    },
+                    id: "register-confirm-pin",
+                    name: "register-confirm-pin",
+                    classes: "govuk-input--width-4"
+                }) }}
+
+
+               
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
