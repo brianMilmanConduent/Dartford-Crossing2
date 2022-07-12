@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const verNum = 10;
+const verNum = 11;
 
 
 
@@ -71,7 +71,7 @@ router.post(`/v${verNum}/create-account/vehicle-add`, function (req, res) {
   if (vehicleUpload === 'Yes') {
       res.redirect(`/v${verNum}/create-account/vehicle-registration`);
   } else if (vehicleUpload === 'No') {
-    res.redirect(`/v${verNum}/create-account/number-of-vehicles`);
+    res.redirect(`/v${verNum}/create-account/check-answers`);
   } else {
       res.redirect(`/v${verNum}/manage-account/bulk-upload/bulk-upload-start`);
   }
@@ -124,7 +124,7 @@ router.post(`/v${verNum}/create-account/moreVehiclesBusiness`, function (req, re
   const moreVehicles = req.session.data['more-vehicles'];
 
   if (moreVehicles === `No` ) {
-    res.redirect(`/v${verNum}/create-account/number-of-vehicles`);
+    res.redirect(`/v${verNum}/create-account/check-answers`);
 } else {
       res.redirect(`/v${verNum}/create-account/vehicle-summary-add-another`);
   }

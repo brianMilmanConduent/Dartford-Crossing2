@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Enter your postcode
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+      {% if data['account-type'] === 'Personal' %}
+
+      <form class="form" action="addressChoose" method="post">
+       
+        <fieldset class="govuk-fieldset">
+
+          <h1 class="govuk-heading-l">What is your address?</h1>
+          <p>This should be the address where the vehicle is registered.</p>
+         
+
+         <div class="govuk-form-group">
+        <label class="govuk-label" for="address-postcode">
+        Postcode
+        </label>
+        <div id="event-name-hint" class="govuk-hint">For example WA4 1AB
+        </div>
+      <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" value="{{ data['address-postcode'] }}" type="text" autocomplete="post-code"></div>
+      </fieldset>
+      <button class="govuk-button" data-module="govuk-button">Find address</button>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          
+        
+      
+          <p class='govuk-body'>  <a href='addressmanual'>Enter your address manually</a></p>
+</div>
+</div>
+
+    </form>
+
+      {% else %}
+
+      <form class="form" action="addressChoose" method="post">
+       
+        <fieldset class="govuk-fieldset">
+
+          <h1 class="govuk-heading-l">What is your registered office address?</h1>
+          <p>Your company's registered address where all official paperwork gets sent</p>
+
+         <div class="govuk-form-group">
+        <label class="govuk-label" for="address-postcode">
+        Postcode
+        </label>
+        <div id="event-name-hint" class="govuk-hint">For example WA4 1AB
+        </div>
+      <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" value="{{ data['address-postcode'] }}" type="text" autocomplete="post-code"></div>
+      </fieldset>
+      <button class="govuk-button" data-module="govuk-button">Find address</button>
+      <p class='govuk-body'><a href='addressmanual'>Enter your office address manually</a></p>
+
+
+      {% endif %}
+
+
+
+      
+
+    </div>
+  </div>
+
+{% endblock %}

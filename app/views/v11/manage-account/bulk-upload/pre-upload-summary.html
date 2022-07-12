@@ -1,0 +1,132 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+  Account summary - Business
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+
+<!--main body starts-->
+{% block content %}
+
+
+
+
+
+{% if data['account-type'] === 'Business' %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  
+
+
+    <h1 class="govuk-heading-l">
+      New vehicle records
+    </h1>
+  
+
+   {{ govukInsetText({
+     html: "If you need to correct any records, you need to amend the data in your source file, then <a href='bulk-upload-start' class='govuk-link'>upload your CSV file again.</a>"
+   }) }}
+{{ govukTable({
+  caption: "Records that will be included in the update",
+  firstCellIsHeader: false,
+ rows: [
+    [
+      {
+        text: "Vehicles added",
+        classes: 'govuk-!-width-two-thirds'
+      },
+      {
+        text: "482"
+      }
+    ]
+  ]
+}) }}
+
+
+
+ {% else %}
+
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  
+
+
+    <h1 class="govuk-heading-l">
+      Check new vehicle records
+    </h1>
+  
+
+   {{ govukInsetText({
+     html: "If you need to correct any records, you need to amend the data in your source file, then <a href='bulk-upload-start' class='govuk-link'>upload your CSV file again.</a>"
+   }) }}
+ {{ govukTable({
+  caption: "Records that will be included in the update",
+  firstCellIsHeader: false,
+ rows: [
+    [
+      {
+        text: "Vehicles added",
+        classes: 'govuk-!-width-two-thirds'
+      },
+      {
+        text: "434"
+      }
+    ],
+    [
+      {
+        text: "Vehicles deleted"
+      },
+      {
+        text: "45"
+      }
+    ],
+    [
+      {
+        text: "Vehicles edited"
+      },
+      {
+        text: "3"
+      }
+    ]
+  ]
+}) }}
+
+{{ govukTable({
+ 
+  firstCellIsHeader: true,
+ rows: [
+    [
+      {
+        text: "Total records",
+        classes: 'govuk-!-width-two-thirds'
+      },
+      {
+        text: "482"
+      }
+    ]
+  ]
+}) }}
+{% endif %}
+
+
+
+
+ 
+
+    {{ govukButton({
+      text: "Continue",
+      href: "confirmation-screen"
+    }) }}    
+    <br>
+    <a href="#" class="govuk-link">Cancel and discard the upload</a>
+  </div>
+</div>
+{% endblock %}
+<!--main body ends-->
