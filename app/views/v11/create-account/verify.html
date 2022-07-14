@@ -41,25 +41,26 @@ Enter the email code
               </label>
         <input class="govuk-input govuk-input--width-10" id="security-code" name="security-code" type="text">
         </div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              I do not have a security code
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            
+            Details component body: 
+            If you did not get a code, or it is not working, you can
+            <a href='request-email-code'>request a new code</a>.
+  
+          </div>
+        </details>
         {{ govukButton({
         text: "Confirm email"
         }) }}
 <!--<button class="govuk-button" data-module="govuk-button">Verify email</button>
 -->
-  <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            I do not have a security code
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          
-          Details component body: 
-          If you did not get a code, or it is not working, you can
-          <a href='request-email-code'>request a new code</a>.
-
-        </div>
-      </details>
+  
 
 
 

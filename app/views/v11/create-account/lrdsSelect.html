@@ -29,14 +29,14 @@ Select LRDS
       items: [
         {
           value: "Limited discount",
-          text: "Limited discount",
+          html: "<b>Limited discount</b>",
           hint: {
             text: "£10 per year for 50 crossings, and thereafter 20p per crossing"
           }
         },
         {
           value: "Unlimited discount",
-          text: "Unlimited discount",
+          html: "<b>Unlimited discount</b>",
           hint: {
             text: "£20 per year for unlimited crossings"
           }
@@ -46,16 +46,12 @@ Select LRDS
         },
         {
           value: "None of the above",
-          text: "I do not want a local resident discount",
+          html: "<b>I do not want a local resident discount</b>",
           hint: {
             text: "Pay as you go or pre-pay your account instead"
           }
         }
       ]
-    }) }}
-
-    {{ govukButton({
-      text: "Continue"
     }) }}
 
 
@@ -175,6 +171,15 @@ Select LRDS
  html: detailsHTML
  })
 }}
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+
+
+
+    
 
 
 </div>
