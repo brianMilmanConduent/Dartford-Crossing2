@@ -6,7 +6,7 @@ How do you want to send your proof of local residency?
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+
 {% endblock %}
 
 {% block content %}
@@ -17,48 +17,7 @@ How do you want to send your proof of local residency?
     <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
       
 
-<div class="govuk-grid-row">
-<div class="govuk-grid-column-two-thirds">
-  <h1 class="govuk-heading-l">
-    Pay the Dartford Crossing charge (Dart Charge)
-  </h1>
-  <p class="govuk-body">
-    info here about LRDS etc...
-  <p>
-
-  <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-  <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 2 sections.</p>
-
-  <ol class="app-task-list">
-    <li>
-      <h2 class="app-task-list__section">
-        <span class="app-task-list__section-number">1. </span> LRDS proof of eligibility
-      </h2>
-      <ul class="app-task-list__items">
-        <li class="app-task-list__item">
-          <span class="app-task-list__task-name">
-            <a href="lrdsDocUploadFirstDoc-v5c" aria-describedby="eligibility-status">
-              Upload V5C log book
-            </a>
-          </span>
-          <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="eligibility-status">Not started</strong>
-        </li>
-        <li class="app-task-list__item">
-          <span class="app-task-list__task-name">
-            <a href="#" aria-describedby="read-declaration-status">
-              Upload additional supporting doc
-            </a>
-          </span>
-          <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="read-declaration-status">Not started</strong>
-        </li>
-      </ul>
-    </li>
-
-    
-  </ol>
-</div>
-</div>
-
+ 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
     <div class="govuk-panel govuk-panel--interruption">
@@ -107,7 +66,8 @@ How do you want to send your proof of local residency?
             </div>
             <div class="govuk-radios__item">
               {{ govukButton({
-                text: "Button text"
+                text: "Continue",
+                href: "lrdsdocumenttask"
               }) }}
             </div>
           </div>
@@ -115,8 +75,7 @@ How do you want to send your proof of local residency?
         </fieldset>
 
     </div>
-  </div>
-</div>
+
  
  
     </main>

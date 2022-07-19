@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Upload your proof of local residence documents
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="lrdsDocSummarytwo">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-l">
+      Upload your proof of address documents 
+    </h1>
+
+    
+
+   
+    <div class="govuk-form-group govuk-!-margin-top-9">
+    {{ govukFileUpload({
+      id: "file-upload-2",
+      name: "file-upload-2",
+      label: {
+        html: "<p class='govuk-body'> <b>you will need one of the following:</b> <p>
+              <ul class='govuk-list govuk-list--bullet'>
+                <li>
+                  a recent bank or credit card statement
+                </li>
+                <li>
+                  a recent utility bill (gas, electric or water only)
+                </li>
+                <li>
+                  your most recent council tax bill
+                </li>
+                <li>
+                  an Income Support or housing association rent document
+                </li>
+                <li>
+                  your driving licence (photo card only)
+                </li>
+              </ul>
+           
+        "
+      }
+    }) }}
+    </div>
+
+    
+
+    {{ govukButton({
+      text: "Continue",
+      classes: "govuk-!-margin-top-3"
+    }) }}
+</div>
+</div> 
+    </div>
+  </div>
+</form>
+{% endblock %}
