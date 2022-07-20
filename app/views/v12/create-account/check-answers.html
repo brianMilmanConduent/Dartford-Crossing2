@@ -159,37 +159,15 @@ Check your answers
             </dd>
           </div>
 
-
-          {% if data['account-type'] === 'Business' %}
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Vehicles on fleet
-            </dt>
-            <dd class="govuk-summary-list__value">
-                {{data['vehicles-on-fleet']}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a href="#">
-                Change
-                <span class="govuk-visually-hidden">vehicles on fleet</span>
-              </a>
-            </dd>
-          </div>
-        </dl>
-       
-     
-       
-            {% else %}
-            <!--content here-->
-            {% endif %}
-
             {% if data['account-type'] === 'Business' %}
-
+            <div class="govuk-grid-row govuk-!-margin-top-6">
+              <div class="govuk-grid-column-full">
             {{ govukButton({
               text: "Continue",
               href: "number-of-vehicles"
              }) }}
+             </div>
+             </div>
              {% else %}
 <div class="govuk-grid-row govuk-!-margin-top-6">
   <div class="govuk-grid-column-full">
