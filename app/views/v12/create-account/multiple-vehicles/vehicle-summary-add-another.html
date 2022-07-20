@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your vehicles
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="second-car-lrds">
+      <fieldset class="govuk-fieldset">
+        <h1 class="govuk-heading-l">You've added 1 vehicle</h1>
+        <div class="govuk-grid-column-two-thirds">
+          
+          <div class="govuk-grid-row">
+            
+            <table class="govuk-table">
+              
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">{{data['vrn']}}</th>
+                  <td class="govuk-table__cell"> <a href='#' class='govuk-link govuk-!-text-align-left'>Remove</a></td>
+                </tr>
+              
+              </tbody>
+            </table>
+        
+          
+
+        </div>
+      </div>
+      <div class="govuk-grid-column-full">
+        
+        <div class="govuk-grid-row">
+        <h2 class="govuk-heading-m">
+          Do you want to add another vehicle?
+        </h2>
+        {{ govukRadios({
+          classes: "govuk-radios--inline",
+          idPrefix: "more-vehicles",
+          name: "more-vehicles",
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+        }) }}
+      </div>
+      </div>
+         
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                  
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+    
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

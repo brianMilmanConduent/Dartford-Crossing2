@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+How do you want to be notified?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+{% if data['account-type'] === 'Personal' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="statements" method="post">
+        
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="notifications">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                How would you like to receive communication about your account?
+              </h1>
+            </legend>
+           
+ 
+
+         {{ govukCheckboxes({
+           idPrefix: "comms-pref",
+           name: "comms-pref",
+          
+           items: [
+             {
+               value: "email",
+               text: "email"
+             },
+             {
+              value: "text message",
+              text: "text message"
+            }
+           ]
+         }) }}
+           
+            </div>
+          </fieldset>
+       
+        
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+    </form>
+
+  </div>
+</div>
+
+ {% else %}
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="statements" method="post">
+        
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="notifications">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                How would you like to receive communication about your account?
+              </h1>
+            </legend>
+           
+
+            {{ govukCheckboxes({
+              idPrefix: "comms-pref",
+              name: "comms-pref",
+             
+              items: [
+                {
+                  value: "email",
+                  text: "email"
+                },
+                {
+                 value: "text message",
+                 text: "text message"
+               }
+              ]
+            }) }}
+           
+            </div>
+          </fieldset>
+       
+        
+         
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+    </form>
+
+  </div>
+</div>
+{% endif %}
+
+
+  
+
+{% endblock %}

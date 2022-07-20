@@ -1,0 +1,351 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Resolve PCN
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<style>
+  .sr-only {
+position:absolute;
+left:-10000px;
+top:auto;
+width:1px;
+height:1px;
+overflow:hidden;
+}
+</style>
+
+<div title="Error" class="govuk-error-summary govuk-!-display-none" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary">
+    <h2 class="govuk-error-summary__title" id="error-summary-title">
+      There is a problem
+    </h2>
+    <div class="govuk-error-summary__body">
+      <ul class="govuk-list govuk-error-summary__list">
+        <li>
+          <a href="#regDiv">Check your number plate.</a> 
+          <!-- <i>UK vehicle registration numbers begin with 2 letters, followed by 2 numbers and then 3 letters.</i> -->
+            
+        </li>
+      </ul>
+    </div>
+  </div>
+
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <h1 class="govuk-heading-xl govuk-!-margin-top-3 govuk-!-margin-bottom-3">Resolve a penalty charge notice
+          (PCN)</h1>
+        <!-- <h2 class="govuk-heading-l">Enter your Vehicle registration number</h2>    -->
+      </div>
+    </div>
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <!-- <p class="govuk-body">Please check details to confirm they’re correct</p> -->
+        <table class="govuk-table" style="display:none">  
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Number plate</th>
+              <td id="reg" class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Class</th>
+              <td id="cla" class="govuk-table__cell"></td>
+            </tr>
+            <tr  class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Make</th>
+              <td id="make" class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Model</th>
+              <td id="model" class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Colour</th>
+              <td id="color" class="govuk-table__cell"></td>
+            </tr>                                          
+          </tbody>
+        </table>
+        
+        <!-- <p class="govuk-body">If you want to:</p> -->
+        <p class="govuk-body">Find out how to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>pay for a <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only" >Penalty charge notice</span></li>
+          <li>challenge a <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only" >Penalty charge notice</span></li>
+          <li>check if there is a <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only" >Penalty charge notice</span> assigned to your vehicle</li>
+        </ul>
+        <!-- <br><p>You can enter your vehicle registration number with or without spaces.  -->
+          <!-- For example, ‘LT65 XZN’ or ‘LT65XZN’. -->
+          </p>
+          <p class="govuk-body">To pay, challenge or check for a <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only">Penalty charge notice</span>, enter your vehicle registration number below.</p>
+          <p class="govuk-body">You will then be asked to:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>check your vehicle details</li>
+            <li>add a <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only" >Penalty charge notice</span> number</li>
+            <li>confirm your <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only" >Penalty charge notice</span> details</li>
+            <!-- <li>see if there is a <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> assigned to your vehicle</li> -->
+          </ul>
+          <p class="govuk-body">Once you confirm your <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only" >Penalty charge notice</span>, you can choose to pay or to challenge 1 or more <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only" >Penalty charge notice</span></p>
+          <div id="regDiv" class="govuk-form-group">
+          <!-- <form action="flow2"> -->
+          <label class="govuk-label" for="width-20">
+            Enter your number plate
+          </label>
+          <!-- <span id="vrnError" class="govuk-error-message govuk-!-display-none">
+            <span class="govuk-visually-hidden">Error:</span> Enter a valid vehicle registration number, like L065 NRO.
+          </span> -->
+          <span id="vrnError" class="govuk-error-message govuk-!-display-none">
+            <span class="govuk-visually-hidden">Error:</span> UK vehicle registration numbers begin with 2 letters, followed by 2 numbers and then 3 letters.
+          </span>
+          <input style="text-transform: uppercase;" class="govuk-input govuk-input--width-20" id="reg_field" name="width-20" type="text">
+          <!-- <div class="govuk-inset-text">
+            You can enter it with or without a space. For example L068RNA or <br> L069 RNA
+          </div> -->                       
+        <!-- </form> -->
+        </div>
+        
+        <a id="nextPage" href="flow2">
+          <button data-prevent-double-click="true" class="govuk-button govuk-!-width-one-third" data-module="govuk-button" id=button type=submit value="Click" >
+            Find your vehicle
+          </button>
+        </a><br><br>
+        <!-- <div class="govuk-form-group govuk-form-group--error">
+          <label class="govuk-label" for="address-postcode">
+            Postcode
+          </label>
+          <span id="address-postcode-error" class="govuk-error-message">
+            <span class="govuk-visually-hidden">Error:</span> Enter a real postcode
+          </span>
+          <input class="govuk-input govuk-input--width-10 govuk-input--error" id="address-postcode" name="address-postcode" type="text" value="Not a postcode" aria-describedby="address-postcode-error" autocomplete="postal-code">
+        </div> -->
+        <!-- <h3 class="govuk-heading-m">Challenging a <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span></h3>
+        <p class="govuk-body">You may feel that your PCN has been unfairly issued. There are <b>two</b> ways to challenge your <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>:
+          
+          <ul class="govuk-list govuk-list--bullet">
+            <li>by using this service after entering your vehicle registration</li>
+            <li>by completing and returning the postal form attached to your <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span></li>
+          </ul>
+         
+        <p class="govuk-body">If you are making representation by post you <b>must</b> send your form to the following address:</p>
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Dart Charge Enforcement</h3>
+        <p class="govuk-body">PO BOX 842 <br>
+          Leeds <br>
+          LS1 9QF</p>
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Business customer's DX address</h3>
+        <p class="govuk-body">Land registry <br>
+            DX 321601 <br>
+            Gloucester 33</p>
+        <p>If you cannot find your postal <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> form then you will need to <a href="#">contact Dart Charge.</a></p>
+        <h3 class="govuk-heading-m">Creating a Dartford Charge account</h3>
+        <p class="govuk-body">To prevent future <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>s you can <a href="flow12">create a Dart Charge account</a> and either
+          pre-pay or pay
+          automatically as you make a crossing.</p> -->
+        <h3 class="govuk-heading-m">Other ways to pay or challenge a <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span></h3>
+        <p class="govuk-body">Using the online service is the quickest way to resolve your <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only" >Penalty charge notice</span>.</p>
+        <p class="govuk-body">If you are unable to use the online service or need help to pay, challenge or check for a <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only" >Penalty charge notice</span> you can contact:</p>
+        <p class="govuk-body govuk-!-margin-bottom-0"><b>Dart Charge Contact Centre</b></p>
+        <p class="govuk-body govuk-!-margin-bottom-0"><b>Telephone:</b>  0808 157 3900</p>
+        <p class="govuk-body "><b>Textphone:</b>   0808 157 3909</p>
+
+        <p class="govuk-body"><b>Calling from outside the UK</b><br>
+          +44 0808 157 0192 <br><br>
+          Telephone lines are open Monday to Friday, 8am to 8pm.
+        </p>
+        <p class="govuk-body"><a href="javascript:void(0)">Find out about call charges</a></p><br><br>
+
+        <h3 class="govuk-heading-m">Deadlines and penalties when you challenge a <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span></h3>
+      <p class="govuk-body">Do not ignore your <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only" >Penalty charge notice</span>. Paying or challenging a <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> within the deadline stops payment charges increasing.</p>
+      <p class="govuk-body">If you do not pay a <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> within 28 days, the fine will increase by 50% and will have to be paid within 2 weeks.</p>
+      <p class="govuk-body">When you challenge a <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> additional <b>penalty charges will be paused</b> while your challenge is considered. The amount you owe will not increase during this time.</p>
+      <p class="govuk-body">Penalty charges will only be paused for the <span aria-hidden="true" title="Penalty charge notice">PCN</span><span class="sr-only" >Penalty charge notice</span> you have chosen to challenge. If you have more than 1 <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> you must challenge or pay each one within the deadline to stop payment charges increasing.</p>
+      <h3 class="govuk-heading-m">Support with money problems</h3>
+      <p class="govuk-body">If you are struggling to pay a <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span> because of debt or money problems contact the<a href="/landing"> Dart Charge team</a></p> 
+      <p class="govuk-body">The team will look at ways to help you avoid unmanageable debt.</p>
+
+        <!-- <p class="govuk-body"><b>Opening times</b><br>
+          Monday to Friday: 8am to 8pm</p>
+        <p class="govuk-body"><b>Closed:</b><br> -->
+          <!-- Christmas Day, Boxing Day and New Year’s Day.</p> -->
+      </div>
+    </div>
+    <div class="govuk-grid-column-one-third">
+
+    </div>
+
+
+  </div>
+  <script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+
+  <script type="text/javascript">
+  
+              
+  let cars = [{
+            'reg':'LT65 XZN',
+            'cla':'Car',
+            'make':'Mercedes Benz',
+            'model':'C Class',
+            'color':'Blue', 
+            'penalties':  [{
+              'pcn':'IB50000001', 
+              'conDate':'26 Aug 2019', 
+              'conTime': '4:00PM', 
+              'daysToEsc':'14 days', 
+              'escDate':'10 sep 2019', 
+              'conLocation':'The A282 Trunk Road Dartford Crossing Southbound Bridge', 
+              'charge': '£35'
+            }, {
+              'pcn':'IB50000002', 
+              'conDate':'25 Aug 2019', 
+              'conTime': '6:39PM', 
+              'daysToEsc':'13 days', 
+              'escDate':'9 sep 2019',  
+              'conLocation':'The A282 Trunk Road Dartford Crossing Northbound Bridge', 
+              'charge': '£35'
+            },{
+              'pcn':'IB50000003', 
+              'conDate':'1 Aug 2019', 
+              'conTime': '8:43AM', 
+              'daysToEsc':'2 days', 
+              'escDate':'29 Aug 2019', 
+              'conLocation':'The A282 Trunk Road Dartford Crossing Northbound Bridge', 
+              'charge': '£70'
+            }, {
+              'pcn':'IB50000004', 
+              'conDate':'5 Aug 2019',  
+              'conTime': '9:59PM', 
+              'daysToEsc':'6 days', 
+              'escDate':'1 Sep 2019', 
+              'conLocation':'The A282 Trunk Road Dartford Crossing Northbound Bridge', 
+              'charge': '£70'
+            }, {
+              'pcn':'IB50000005', 
+              'conDate':'7 Aug 2019',  
+              'conTime': '8:39PM', 
+              'daysToEsc':'8 days', 
+              'escDate':'3 Sep 2019', 
+              'conLocation':'The A282 Trunk Road Dartford Crossing Northbound Bridge', 
+              'charge': '£70'
+            }] } ,{
+              'reg':'LO61 NRO',
+              'cla':'Car',
+              'make':'Tesla',
+              'model':'S Plaid',
+              'color':'Green', 
+              'penalties':[{
+                'pcn':'IB10000001', 
+                'conDate':'2 Aug 2019', 
+                'conTime': '7:32AM', 
+                'daysToEsc':'14 days', 
+                'escDate':'16 Aug 2019', 
+                'conLocation':'The A282 Trunk Road Dartford Crossing Northbound Bridge', 
+                'charge': '£35'
+            }]},{
+              'reg':'LO62 NRO',
+              'cla':'Car',
+              'make':'Audi',
+              'model':'TT FSI',
+              'color':'Black', 
+              'penalties':[{
+                'pcn':'IB20000001', 
+                'conDate':'1 Aug 2019', 
+                'conTime': '7:32AM', 
+                'daysToEsc':'14 days', 
+                'escDate':'20 Aug 2019', 
+                'conLocation':'The A282 Trunk Road Dartford Crossing Southbound Bridge', 
+                'charge': '£35'
+              }, {
+                'pcn':'IB20000002', 
+                'conDate':'5 Aug 2019', 
+                'conTime': '10:00AM', 
+                'daysToEsc':'3 days', 
+                'escDate':'20 Aug 2019', 
+                'conLocation':'The A282 Trunk Road Dartford Crossing Northbound Bridge', 
+                'charge': '£70'
+              }]}];
+    localStorage.setItem("object_name",JSON.stringify(cars));
+    let cars2 = JSON.parse(localStorage.getItem("object_name"));
+    console.log(cars2);
+  
+    let cram =[]
+    for (let i=0; i<cars.length; i++){
+    cram.push(cars[i].reg.replace(/\s/g, ""))}
+    function validateInput (){
+      let regField = document.getElementById("reg_field")
+      let errorSummary = document.querySelector(".govuk-error-summary")
+      let vrnError = document.getElementById("vrnError")
+      let regDiv = document.getElementById("regDiv")
+  
+      if (regField.value.trim()===""){
+        regField.value = 'LO62NRO'
+      }
+      
+      if (regField.value.replace(/\s/g, "").length<=3||regField.value.replace(/\s/g, "").length>7||!cram.includes(regField.value.replace(/\s/g, "").toUpperCase())){
+        event.preventDefault()
+        errorSummary.classList.remove("govuk-!-display-none")
+        // regField.setAttribute("value", "Invalid VRN")
+        regField.setAttribute("aria-describedby", "reg_field-error")
+        regField.classList.add("govuk-input--error")
+        regDiv.classList.add("govuk-form-group--error")
+        vrnError.classList.remove("govuk-!-display-none")
+        errorSummary.focus()
+        
+      }
+    }
+  
+    $(document).ready(function() {
+      if (window.location.href.substring(window.location.href.lastIndexOf('/')+1) === 'demo'){
+        document.getElementById("nextPage").setAttribute('href', "demo/flow2")
+      }
+      let nextPage = document.getElementById("nextPage")
+      nextPage.addEventListener("click", function(event){
+        
+        validateInput()
+      })
+      document.addEventListener("keyup", function(event) {
+      if (event.keyCode === 13) {
+        validateInput()
+      }
+      });
+          $("#button").click(function(){ 
+            if ($("#reg_field").val().toUpperCase().replace(/\s/g, "")==""){
+              let chosenDefault = $.makeArray(cars2[2])
+              var chosenDefSmall = [cars2[2].reg, cars2[2].cla, cars2[2].make, cars2[2].model, cars2[2].color];
+              localStorage.setItem("chosenCar", JSON.stringify(chosenDefSmall));
+              localStorage.setItem("chosenCarfull", JSON.stringify(chosenDefault));            
+            }
+            var i;
+            for (i=0; i<cars2.length; i++){
+            if ($("#reg_field").val().toUpperCase().replace(/\s/g, "") === cars2[i].reg.replace(/\s/g, "")) {
+            let chosenRegFull = $.makeArray(cars2[i]); 
+            $("#reg").html(cars2[i].reg) ; 
+            $("#cla").html(cars2[i].cla);  
+            $("#make").html(cars2[i].make);  
+            $("#model").html(cars2[i].model);  
+            $("#color").html(cars2[i].color);
+            var chosenReg = [cars2[i].reg, cars2[i].cla, cars2[i].make, cars2[i].model, cars2[i].color];
+            localStorage.setItem("chosenCar", JSON.stringify(chosenReg));
+            localStorage.setItem("chosenCarfull", JSON.stringify(chosenRegFull));
+              break;
+            }
+          }
+          })
+          })
+  
+   </script>
+
+
+
+
+{% endblock %}

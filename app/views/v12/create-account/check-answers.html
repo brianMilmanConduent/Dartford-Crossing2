@@ -1,0 +1,213 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Check your answers
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">Check your answers before making a payment</h1>
+
+      <h2 class="govuk-heading-m">Personal details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['first-name']}} {{ data['last-name']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden">full name</span>
+            </a>
+          </dd>
+        </div>
+       
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['select-address']}}
+            <br>{{data['address-postcode']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> contact information</span>
+            </a>
+          </dd>
+        </div>
+
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['email']}}
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if data['textcomms'] === 'Yes' %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Mobile phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['phone-number']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> mobile phone number</span>
+            </a>
+          </dd>
+        </div>
+        
+         {% else %}
+        <!--content here-->
+        {% endif %}
+
+
+
+       
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+              Number plate
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{data['vrn']}}
+            </dd>
+       
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if data['address-postcode'] === 'DA1 1DY' %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Local resident discount scheme type
+          </dt>
+          <dd class="govuk-summary-list__value">
+         {{data['lrdsSelect']}} 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden">top-up method</span>
+            </a>
+          </dd>
+        </div>
+
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Account type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['paygtopup']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a href="#">
+              Change
+              <span class="govuk-visually-hidden">top-up method</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
+
+
+
+        
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Notifications
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{data['comms-pref']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden">SMS</span>
+              </a>
+            </dd>
+          </div>
+
+
+          {% if data['account-type'] === 'Business' %}
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Vehicles on fleet
+            </dt>
+            <dd class="govuk-summary-list__value">
+                {{data['vehicles-on-fleet']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a href="#">
+                Change
+                <span class="govuk-visually-hidden">vehicles on fleet</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+       
+     
+       
+            {% else %}
+            <!--content here-->
+            {% endif %}
+
+            {% if data['account-type'] === 'Business' %}
+
+            {{ govukButton({
+              text: "Continue",
+              href: "number-of-vehicles"
+             }) }}
+             {% else %}
+<div class="govuk-grid-row govuk-!-margin-top-6">
+  <div class="govuk-grid-column-full">
+    {{ govukButton({
+      text: "Continue",
+      href: "./payment3a"
+     }) }}
+  </div>
+</div>
+
+             
+
+
+             {% endif %}
+  </div>
+</div>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Dartford crossing account: sign in or set up
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Dartford crossing account: sign in or set up</h1>
+
+      <form action="name" method="post">
+        <p class="govuk-body">You can use a Dart Charge account to pre-pay for crossings that you have not made yet.</p>
+      
+        {{ govukInsetText({
+          text: "If you've already made a crossing, you cannot pay for it through a Dart Charge account."
+        }) }}
+
+        <p class="govuk-body">
+          You can set up a personal or business account. If yours is a personal account, you can also apply for a local resident discount.
+        <p>
+      <p class='govuk-body'> If you already have an account you can <a href='../manage-account/login'>sign in</a>.</p>
+      <h2 class="govuk-heading-m">Before you start</h2>
+
+     
+      <p class="govuk-body">You'll need to have:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>an email address to receive a code by email</li>
+        <li>a mobile phone to receive a code by text message</li>
+        <li>the vehicle registration (number plate) you want to add to the account</li>
+        <li>a valid debit card or bank account details if you want to set up bank transfer</li>
+      </ul>
+      <p class="govuk-body">
+        If you're applying for a local resident discount, you'll also need to upload a copy of: 
+      <p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+           your vehicle V5C log book
+          </li>
+          <li>
+            your drivers licence
+          </li>
+          <li>
+            a recent utility bill
+          </li>
+        </ul>
+      {{ govukButton({
+        text: "Create account",
+        href: "account-type"
+      }) }}
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              I need help doing this online
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">We can help you to:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                  <li>pay a recent charge</li>
+                  <li>pay future charges</li>
+                  <li>set up your account</li>
+                </ul>
+            <b>Dart Charge contact centre </b><br> Telephone 0300 300 0120 <br> Textphone 18001 0300 300 0120 <br> Everyday 8am to 8pm
+          </div>
+        </details>
+
+        
+
+          </div>
+            <div class="govuk-grid-column-one-third">
+              <h2 class="govuk-heading-m" id="subsection-title">
+                Related content
+              </h2>
+              <nav role="navigation" aria-labelledby="subsection-title">
+                <ul class="govuk-list govuk-!-font-size-16">
+                  <li>
+                    <a href="/resolve-pcn/pcn-details-b">
+                      Resolve a penalty charge notice (PCN)
+                    </a>
+                  </li>
+                  <a href="../information/charges-and-penalties">
+                    Understanding charges, discounts and penalties
+                  </a>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          </div>
+      </form>
+
+    </div>
+  </div>
+
+
+{% endblock %}

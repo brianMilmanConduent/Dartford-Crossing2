@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your account has been created
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<br><br>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+        <div class="govuk-grid-row">
+              <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">
+                  Application submitted
+                </h1>
+              </div> 
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>
+
+         <div class='govuk-grid-column-full'>
+            {{ govukInsetText({
+              classes:"govuk-!-margin-top-1",
+              text: "Your account is not active yet. Your proof of local residency documents will take up to 5 days to get approved. "
+            }) }}
+
+            <p class="govuk-body">
+              We’ll let you know once your local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings.
+            </p>
+          </div>  
+  </div>
+{% endblock %}

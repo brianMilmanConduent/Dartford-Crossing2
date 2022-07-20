@@ -1,0 +1,357 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your account has been created
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<br><br>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+<div class="govuk-grid-row">
+  {% if data['account-type'] === 'Personal'  %}
+
+          {% if data['lrdsUploadNow'] === 'Upload now' %}
+              <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">
+                  Application submitted
+                </h1>
+              </div>  
+             
+            <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+            <h2 class="govuk-heading-m">
+              Your payment
+            </h2>
+            <p class="govuk-body">
+              Your payment reference is 34562345. You’ll receive the digital receipt for this payment separately.
+            <p>
+            
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>
+
+        <div class='govuk-grid-column-full'>
+            {{ govukInsetText({
+              classes:"govuk-!-margin-top-1",
+              text: "Your account is not active yet. Your proof of local residency documents will take up to 5 days to get approved. "
+            }) }}
+
+            <p class="govuk-body">
+              We’ll let you know once your local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings.
+            </p>
+          </div>
+    {% else %}
+          <!--no content shown-->
+    {% endif %}
+
+
+    {% if data['lrdsUploadNow'] === 'Upload later' %}
+
+                  <div class="govuk-panel govuk-panel--confirmation">
+                    <h1 class="govuk-panel__title">
+                      Application submitted
+                    </h1>
+                  </div>
+              <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+
+              <h2 class="govuk-heading-m">
+                Your payment
+              </h2>
+              <p>Your payment reference is 34562345. You’ll receive the digital receipt for this payment separately.</p>
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>
+              
+                <div class='govuk-grid-column-full'>
+                  {{ govukInsetText({
+                    classes:"govuk-!-margin-top-1",
+                    text: "Your account is not active yet. You must still upload your proof of local residency documents. Once we've received all these documents, they will take up to 5 days to get approved. "
+                  }) }}
+                 
+                
+
+            {{ govukDetails({
+              summaryText: "What documents to upload",
+              html: 
+              "
+              <div class='govuk-grid-column-full'>
+                
+             
+                <p class='govuk-body'>
+                  You need to send: 
+                <p>
+                  <ul class=1govuk-list govuk-list--number1>
+    
+                    <li>
+                      your vehicle V5C log book
+                    </li>
+                    <li>
+                      one of the following:
+                      <ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-9'>
+                        <li>
+                          a recent bank or credit card statement
+                        </li>
+                        <li>
+                          a recent utility bill (gas, electric or water only)
+                        </li>
+                        <li>
+                          your most recent council tax bill
+                        </li>
+                        <li>
+                          an Income Support or housing association rent document
+                        </li>
+                        <li>
+                          your driving licence (photo card only)
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+              </div>
+              "
+            }) }}
+            <p class="govuk-body">
+              We’ll let you know once your local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings.
+            <p>
+              <p class="govuk-body"> <a href="#" class="govuk-link">Upload your documents now</a>.</p>
+              <p class="govuk-body">
+                You can also log in to your account to upload your documents later.
+              <p>
+    </div>
+    <!--content here-->
+
+    {% else %}
+     <!--no content here-->
+    {% endif %}
+
+
+
+    {% if data['lrdsUploadNow'] === 'Post' %}
+
+    <!--content here-->
+
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Application submitted
+            </h1>
+          </div>
+              <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+
+              <h2 class="govuk-heading-m">
+                Your payment
+              </h2>
+              <p class="govuk-body">
+                Your payment reference is 34562345. You’ll receive the digital receipt for this payment separately.
+              <p>
+                <h2 class="govuk-heading-m">
+                  What happens next
+                </h2>
+
+          <div class="govuk-grid-column-full">
+            {{ govukInsetText({
+              classes:"govuk-!-margin-top-1",
+              text: "Your account is not active yet. You must now send us your proof of local residency documents by post. Once we receive them, these documents will take up to 5 days to get approved. "
+            }) }}
+                
+                  {{ govukDetails({
+                    summaryText: "What documents to post to us",
+                    html: 
+                    "
+                      <p class='govuk-body'>
+                        You need to send: 
+                      <p>
+                        <ul class=1govuk-list govuk-list--number1>
+          
+                          <li>
+                            your vehicle V5C log book
+                          </li>
+                          <li>
+                            one of the following:
+                            <ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-9'>
+                              <li>
+                                a recent bank or credit card statement
+                              </li>
+                              <li>
+                                a recent utility bill (gas, electric or water only)
+                              </li>
+                              <li>
+                                your most recent council tax bill
+                              </li>
+                              <li>
+                                an Income Support or housing association rent document
+                              </li>
+                              <li>
+                                your driving licence (photo card only)
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                        <p class='govuk-body'>
+                          Post these to:<br>
+                          Dart Charge<br>
+                          PO Box 842<br>
+                          Leeds<br>
+                          LS1 9Q
+                        <p>
+                      </div>
+                    "
+                  }) }}
+                  <p class="govuk-body">
+                    We’ll let you know once your local resident discount is activated. Until then, you’ll need to pay standard rates for your crossings.
+                  <p>
+    {% else %}
+     <!--no content here-->
+    {% endif %}
+
+
+
+    {% if data['paygtopup'] === 'Pay as you go' %}
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Application complete
+      </h1>
+      <div class="govuk-panel__body">
+        Your account number<br><strong>HDJ2123F</strong>
+      </div>
+      <br>
+    </div>
+        <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+            
+             <p class="govuk-body">
+              Your pay-as-you-go payment will get taken each time you make a crossing.
+             <p>
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>
+              <p class="govuk-body">
+                Your Dart Charge account is now active.
+              <p>
+
+
+
+
+       
+        <p class="govuk-body">
+              <a href="#" class="govuk-link">Log in to your account</a> to:
+        </p>  
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            add more vehicles
+          </li>
+          <li>
+            change how you pay for crossings
+          </li>
+          <li>
+            change how you receive communications
+          </li>
+        </ul>  
+      
+      <!--content here-->
+
+      {% else %}
+      <!--no content here-->
+      {% endif %}
+       
+      {% if data['paygtopup'] === 'Pre-pay'  %}
+
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Application complete
+            </h1>
+            <div class="govuk-panel__body">
+              Your account number<br><strong>HDJ2123F</strong>
+            </div>
+            <br>
+          </div>
+          
+          <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+          <h2 class="govuk-heading-m">
+            Your payment
+          </h2>
+                  
+                    <p>Your payment reference for your pre-pay account is 4569852.<br>You’ll receive the digital receipt for this payment separately. </p>
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>    
+
+              <p class="govuk-body">
+                Your Dart Charge account is now active.
+              <p>
+
+              
+                <p class="govuk-body">
+                    <a href="#" class="govuk-link">Log in to your account</a> to:
+                </p>  
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  add more vehicles
+                </li>
+                <li>
+                  change how you pay for crossings
+                </li>
+                <li>
+                  change how you receive communications
+                </li>
+              </ul>  
+            
+      <!--content here-->
+
+      {% else %}
+      <!--no content here-->
+      {% endif %}
+      
+      {% else %}
+      <!--business account content-->
+              <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">
+                  Application complete
+                </h1>
+                <div class="govuk-panel__body">
+                  Your account number<br><strong>HDJ2123F</strong>
+                </div>
+                <br>
+              </div>
+              <h2 class="govuk-heading-m">
+                Your payment
+              </h2>
+
+              <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+                <p>Your payment reference is 4569852.<br>You’ll receive the digital receipt for this payment separately. </p>
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>
+         
+            <p class="govuk-body">
+                <a href="#" class="govuk-link">Log in to your account</a> to:
+            </p>  
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              upload more vehicles
+            </li>
+            <li>
+              change how you pay for crossings
+            </li>
+            <li>
+              change how you receive communications
+            </li>
+          </ul>  
+       
+        <!--business account content ends-->
+    {% endif %}
+             
+</div>
+
+
+
+
+  
+
+{% endblock %}

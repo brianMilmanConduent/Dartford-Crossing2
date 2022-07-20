@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+How do you want to be notified?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+{% if data['account-type'] === 'Personal' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="notificationsPersonal" method="post">
+        
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="mobile">
+            
+            {% set yesHtml %}
+            {{ govukCheckboxes({
+              idPrefix: "postStatements",
+              name: "postStatements",
+             
+             
+              items: [
+                {
+                  value: "I would like to receive statements by post",
+                  text: "I would like to receive statements by post, and agree to be debited £2 a month for this service."
+                }
+              ]
+            }) }}
+            {% endset -%}
+  
+  
+  
+            {{ govukRadios({
+              idPrefix: "statements-post",
+              name: "statements-post",
+              fieldset: {
+                legend: {
+                  text: "Would you like to receive monthly account statements by post?",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--l"
+                }
+              },
+              hint: {
+                text: "We can send you monthly account statements by post. This service costs £2 a month."
+              },
+              items: [
+                {
+                  value: "Yes",
+                  text: "Yes",
+                  conditional: {
+                    html: yesHtml
+                  }
+                },
+                {
+                  value: "No",
+                  text: "No"
+                }
+              ]
+            }) }}
+           
+            </div>
+          </fieldset>
+       
+        
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+    </form>
+
+  </div>
+</div>
+
+ {% else %}
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="mobile" method="post">
+        
+        <div class="govuk-form-group">
+          
+       
+        
+           
+
+
+
+          {% set yesHtml %}
+          {{ govukCheckboxes({
+            idPrefix: "postStatements",
+            name: "postStatements",
+           
+           
+            items: [
+              {
+                value: "I would like to receive statements by post",
+                text: "I would like to receive statements by post, and agree to be debited £2 a month for this service."
+              }
+            ]
+          }) }}
+          {% endset -%}
+
+
+
+          {{ govukRadios({
+            idPrefix: "statements-post",
+            name: "statements-post",
+            fieldset: {
+              legend: {
+                text: "Would you like to receive monthly account statements by post?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "We can send you monthly account statements by post. This service costs £2 a month."
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                conditional: {
+                  html: yesHtml
+                }
+              },
+              {
+                value: "No",
+                text: "No"
+              }
+            ]
+          }) }}
+          </div>
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+    </form>
+
+  </div>
+</div>
+{% endif %}
+
+
+  
+
+{% endblock %}
