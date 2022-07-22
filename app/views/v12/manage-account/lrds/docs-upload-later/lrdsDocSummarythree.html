@@ -10,7 +10,7 @@ Documents uploaded to prove local residence
 {% endblock %}
 
 {% block content %}
-<form id="form" method="post" action="lrdsdocumenttask">
+<form id="form" method="post" action="lrdsdocumenttask" novalidate data-validate='validation'>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -55,7 +55,26 @@ Documents uploaded to prove local residence
       text: "Continue"
     }) }}
 
-   
+   <!--prtotype validation only-->
+   <div class="govuk-visually-hidden">
+    <p class="govuk-body">
+      prototype only - please ignore
+    </p>
+    {{ govukCheckboxes({
+      idPrefix: "sup2stage-checked",
+      name: "sup2stage-checked",
+      
+      items: [
+        {
+          value: "done",
+          text: "done",
+          checked: "true"
+        }
+      ]
+    }) }}
+   </div>
+ 
+<!--prototype validation only-->
 
     </div>
 </div>
@@ -63,4 +82,15 @@ Documents uploaded to prove local residence
     </div>
   </div>
 </form>
+
+<script type="application/json" id="validation">
+  { 		  	
+    "sup2stage-checked": {
+      "presence": {
+        "message": "^Select an option or 'Prefer not to say'"
+      }
+    }
+    
+  }
+</script>
 {% endblock %}

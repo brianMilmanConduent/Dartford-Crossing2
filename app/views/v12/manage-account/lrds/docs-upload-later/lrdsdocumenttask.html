@@ -10,7 +10,7 @@ How do you want to send your proof of local residency?
 {% endblock %}
 
 {% block content %}
-<form id="form" method="post" action="docupload-confirmation">
+<form id="form" method="post" action="">
 
   <div class="govuk-width-container ">
         
@@ -25,7 +25,25 @@ How do you want to send your proof of local residency?
   
 
   <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-  <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 3 sections.</p>
+  <p class="govuk-body govuk-!-margin-bottom-7">
+    {% if data['sup1stage-checked'] !== 'done' and data['sup2stage-checked'] !== 'done' and data['v5cstage-checked'] !== 'done' %}
+    You have completed 0 of 3 sections.
+    {% elseif data['sup1stage-checked'] !== 'done' and data['sup2stage-checked'] !== 'done' and data['v5cstage-checked'] === 'done' %}
+      You have completed 1 of 3 sections.
+    {% elseif data['sup1stage-checked'] !== 'done' and data['sup2stage-checked'] === 'done' and data['v5cstage-checked'] === 'done' %}
+      You have completed 2 of 3 sections.
+    {% elseif data['sup1stage-checked'] !== 'done' and data['sup2stage-checked'] === 'done' and data['v5cstage-checked'] !== 'done' %}
+      You have completed 1 of 3 sections.
+    {% elseif data['sup1stage-checked'] === 'done' and data['sup2stage-checked'] !== 'done' and data['v5cstage-checked'] !== 'done' %}
+      You have completed 1 of 3 sections.
+    {% elseif data['sup1stage-checked'] === 'done' and data['sup2stage-checked'] === 'done' and data['v5cstage-checked'] !== 'done' %}
+      You have completed 2 of 3 sections.
+      {% elseif data['sup1stage-checked'] === 'done' and data['sup2stage-checked'] !== 'done' and data['v5cstage-checked'] === 'done' %}
+      You have completed 2 of 3 sections.
+    {% else %}
+      You have completed 3 of 3 sections.
+    {% endif %}
+</p>
 
   <ol class="app-task-list">
     <li>
@@ -39,7 +57,11 @@ How do you want to send your proof of local residency?
               Upload V5C log book
             </a>
           </span>
+          {% if data['v5cstage-checked'] === 'done' %}
+          <strong class="govuk-tag app-task-list__tag" id="eligibility-status">completed</strong>
+          {% else %}
           <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="eligibility-status">Not started</strong>
+          {% endif %}
         </li>
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
@@ -47,7 +69,11 @@ How do you want to send your proof of local residency?
               Supporting document 1
             </a>
           </span>
-          <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="read-declaration-status">Not started</strong>
+          {% if data['sup1stage-checked'] === 'done' %}
+          <strong class="govuk-tag app-task-list__tag" id="eligibility-status">completed</strong>
+          {% else %}
+          <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="eligibility-status">Not started</strong>
+          {% endif %}
         </li>
         <li class="app-task-list__item">
           <span class="app-task-list__task-name">
@@ -55,7 +81,11 @@ How do you want to send your proof of local residency?
               Supporting document 2
             </a>
           </span>
-          <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="read-declaration-status">Not started</strong>
+          {% if data['sup2stage-checked'] === 'done' %}
+          <strong class="govuk-tag app-task-list__tag" id="eligibility-status">completed</strong>
+          {% else %}
+          <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="eligibility-status">Not started</strong>
+          {% endif %}
         </li>
       </ul>
     </li>
@@ -66,9 +96,25 @@ How do you want to send your proof of local residency?
 </div>
 
 
- {{ govukButton({
-  text: "Continue"
- }) }}
+
+          
+
+
+
+          {% if data['sup1stage-checked'] === 'done' and data['sup2stage-checked'] === 'done' and data['v5cstage-checked'] === 'done' %}
+          {{ govukButton({
+            text: "Continue",
+            href: "docupload-confirmation"
+          }) }}
+             {% else %}
+              {{ govukButton({
+                text: "Save and continue",
+                href: "docupload-partialconfirmation"
+              }) }}
+          {% endif %}
+
+
+ 
  
     </main>
   </div>
