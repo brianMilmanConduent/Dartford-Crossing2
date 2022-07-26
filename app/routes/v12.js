@@ -177,16 +177,64 @@ router.post(`/v${verNum}/create-account/otherAccountTypeLRDScheck`, function (re
 
 
 
-
 router.post(`/v${verNum}/manage-account/login-route`, function (req, res) {
   const routeChoice = req.session.data[`account-summary-select`]
   if (routeChoice === 'lrds-upload-later') {
     res.redirect(`/v${verNum}/manage-account/lrds/docs-upload-later/lrds-halt`)
-  } else if (routeChoice === 'create-account') {
+  } else if (routeChoice === '1st-year-renewal') {
+    res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/lrds-halt`)
+  }
+  else if (routeChoice === '2nd-year-renewal') {
+    res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrds-halt`)
+  }
+  else if (routeChoice === 'create-account') {
     res.redirect(`/v${verNum}/create-account/create-start`)
   }
   else if (routeChoice === 'resolve-pcn') {
     res.redirect(`/v${verNum}/landing`)
+  }
+});
+
+
+router.post(`/v${verNum}/manage-account/lrds/1st-year-renewal/lrds-renewal-update`, function (req, res) {
+  const updateNowLater = req.session.data[`1st-year-renewal-update`]
+  if (updateNowLater === 'Yes') {
+    res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/1st-year-renewal-tasks`)
+  } 
+  else if (updateNowLater === 'No') {
+    res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/account-summary`)
+  }
+ 
+});
+
+router.post(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrds-2nd-year-renewal-update`, function (req, res) {
+  const updateNowLater = req.session.data[`2nd-year-renewal-update`]
+  if (updateNowLater === 'Yes') {
+    res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/2nd-year-renewal-tasks`)
+  } 
+  else if (updateNowLater === 'No') {
+    res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/account-summary`)
+  }
+ 
+});
+
+router.post(`/v${verNum}/manage-account/lrds/1st-year-renewal/lrdsRenewalSelection`, function (req, res) {
+  const lrdsSelect = req.session.data['lrdsSelect'];
+
+  if (lrdsSelect === 'None of the above') {
+      res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/otherAccountType`);
+  } else {
+      res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/payment3a`);
+  }
+});
+
+router.post(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrdsRenewalSelection`, function (req, res) {
+  const lrdsSelect = req.session.data['lrdsSelect'];
+
+  if (lrdsSelect === 'None of the above') {
+      res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/otherAccountType`);
+  } else {
+      res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrdsDocUpload`);
   }
 });
 

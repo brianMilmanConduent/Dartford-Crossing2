@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Select LRDS
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="lrdsSelect">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Discount info
+    </h1>
+   
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+
+
+
+    
+
+
+</div>
+</div> 
+    </div>
+  </div>
+</form>
+{% endblock %}

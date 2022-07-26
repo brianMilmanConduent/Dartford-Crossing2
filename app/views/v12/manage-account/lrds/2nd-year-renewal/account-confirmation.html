@@ -1,0 +1,165 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your account has been created
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<br><br>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+<div class="govuk-grid-row">
+  
+    {% if data['lrdsSelect'] === 'Unlimited discount' %}
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Application SUBMITTED
+      </h1>
+      <div class="govuk-panel__body">
+        Your account number<br><strong>HDJ2123F</strong>
+      </div>
+      <br>
+    </div>
+        <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+            
+             <p class="govuk-body">
+              Your pay-as-you-go payment will get taken each time you make a crossing.
+             <p>
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>
+              <p class="govuk-body">
+                Your Dart Charge account is now active.
+              <p>
+       
+        <p class="govuk-body">
+              <a href="#" class="govuk-link">Log in to your account</a> to:
+        </p>  
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            add more vehicles
+          </li>
+          <li>
+            change how you pay for crossings
+          </li>
+          <li>
+            change how you receive communications
+          </li>
+        </ul>  
+      
+      <!--content here-->
+
+      {% else %}
+      <!--no content here-->
+      {% endif %}
+
+      {% if data['lrdsSelect'] === 'Limited discount' %}
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Application SUBMITTED
+      </h1>
+      <div class="govuk-panel__body">
+        Your account number<br><strong>HDJ2123F</strong>
+      </div>
+      <br>
+    </div>
+        <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+            
+             <p class="govuk-body">
+              Your pay-as-you-go payment will get taken each time you make a crossing.
+             <p>
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>
+              <p class="govuk-body">
+                Your Dart Charge account is now active.
+              <p>
+       
+        <p class="govuk-body">
+              <a href="#" class="govuk-link">Log in to your account</a> to:
+        </p>  
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            add more vehicles
+          </li>
+          <li>
+            change how you pay for crossings
+          </li>
+          <li>
+            change how you receive communications
+          </li>
+        </ul>  
+      
+      <!--content here-->
+
+      {% else %}
+      <!--no content here-->
+      {% endif %}
+       
+      {% if data['paygtopup'] === 'Pre-pay'  %}
+
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Application complete
+            </h1>
+            <div class="govuk-panel__body">
+              Your account number<br><strong>HDJ2123F</strong>
+            </div>
+            <br>
+          </div>
+          
+          <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+          <h2 class="govuk-heading-m">
+            Your payment
+          </h2>
+                  
+                    <p>Your payment reference for your pre-pay account is 4569852.<br>You’ll receive the digital receipt for this payment separately. </p>
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>    
+
+              <p class="govuk-body">
+                Your Dart Charge account is now active.
+              <p>
+
+              
+                <p class="govuk-body">
+                    <a href="#" class="govuk-link">Log in to your account</a> to:
+                </p>  
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  add more vehicles
+                </li>
+                <li>
+                  change how you pay for crossings
+                </li>
+                <li>
+                  change how you receive communications
+                </li>
+              </ul>  
+            
+      <!--content here-->
+
+      {% else %}
+      <!--no content here-->
+      {% endif %}
+     
+           
+</div>
+
+
+
+
+  
+
+{% endblock %}
