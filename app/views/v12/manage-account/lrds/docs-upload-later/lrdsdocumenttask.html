@@ -115,10 +115,9 @@ How do you want to send your proof of local residency?
             href: "docupload-confirmation"
           }) }}
              {% else %}
-              {{ govukButton({
-                text: "Save and continue",
-                href: "docupload-partialconfirmation"
-              }) }}
+              <p class="govuk-body">
+                We have your documents where completed. You can close this browser if required.
+              </p>
           {% endif %}
 
           {% endif %}

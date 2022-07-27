@@ -190,6 +190,9 @@ router.post(`/v${verNum}/manage-account/login-route`, function (req, res) {
   else if (routeChoice === 'upgrade-add-credit') {
     res.redirect(`/v${verNum}/manage-account/lrds/upgrade-add-credit/lrds-halt`)
   }
+  else if (routeChoice === 'remove-add-vrm') {
+    res.redirect(`/v${verNum}/manage-account/lrds/remove-add-vrm/account-summary`)
+  }
   else if (routeChoice === 'create-account') {
     res.redirect(`/v${verNum}/create-account/create-start`)
   }
@@ -252,6 +255,20 @@ router.post(`/v${verNum}/manage-account/lrds/upgrade-add-credit/lrds-add-credit-
   }
  
 });
+
+
+router.post(`/v${verNum}/manage-account/lrds/remove-add-vrm/add-another-vehicle-to-lrds`, function (req, res) {
+  const newVRM = req.session.data[`add-new-vrm-lrds`]
+  if (newVRM === 'No') {
+    res.redirect(`/v${verNum}/manage-account/lrds/remove-add-vrm/no-vrm-confirmation`)
+  } 
+  else if (newVRM === 'Yes') {
+    res.redirect(`/v${verNum}/manage-account/lrds/remove-add-vrm/new-vrm-select`)
+  }
+ 
+});
+
+
 
 //Vx ends here
 

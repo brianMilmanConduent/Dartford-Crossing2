@@ -10,47 +10,20 @@ Select LRDS
 {% endblock %}
 
 {% block content %}
-<form id="form" method="post" action="upgradeInfo">
+<form id="form" method="post" action="payment3a">
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      What type of local resident discount would you like?
+      We are upgrading your account
     </h1>
     <p class="govuk-body">
-      Under the Local Resident Discount Scheme (LRDS), you can choose from two different discount options.
+      You won't pay anymore for the rest of this LRDS year.
     </p>
-    
-    
-    {{ govukRadios({
-      idPrefix: "lrdsTopUp",
-      name: "lrdsTopUp",
-      items: [
-        {
-          value: "5",
-          html: "<b>£5</b>"
-        },
-        {
-          value: "10",
-          html: "<b>£10</b>"
-        }
-      ]
-    }) }}
-
-
-
-
     {{ govukButton({
       text: "Continue"
     }) }}
-
-
-
-
-    
-
-
 </div>
 </div> 
     </div>
