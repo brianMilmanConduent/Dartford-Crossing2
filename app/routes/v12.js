@@ -187,6 +187,9 @@ router.post(`/v${verNum}/manage-account/login-route`, function (req, res) {
   else if (routeChoice === '2nd-year-renewal') {
     res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrds-halt`)
   }
+  else if (routeChoice === 'upgrade-add-credit') {
+    res.redirect(`/v${verNum}/manage-account/lrds/upgrade-add-credit/lrds-halt`)
+  }
   else if (routeChoice === 'create-account') {
     res.redirect(`/v${verNum}/create-account/create-start`)
   }
@@ -236,6 +239,18 @@ router.post(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrdsRenewalSelecti
   } else {
       res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrdsDocUpload`);
   }
+});
+
+
+router.post(`/v${verNum}/manage-account/lrds/upgrade-add-credit/lrds-add-credit-update`, function (req, res) {
+  const updateNowLater = req.session.data[`lrds-add-credit-update`]
+  if (updateNowLater === 'Yes') {
+    res.redirect(`/v${verNum}/manage-account/lrds/upgrade-add-credit/lrds-add-credit-update-tasks`)
+  } 
+  else if (updateNowLater === 'No') {
+    res.redirect(`/v${verNum}/manage-account/lrds/upgrade-add-credit/account-summary`)
+  }
+ 
 });
 
 //Vx ends here

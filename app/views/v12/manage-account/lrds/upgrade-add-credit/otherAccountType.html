@@ -1,0 +1,185 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+What type of account would you like?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="payment3a">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      What type of account would you like?
+    </h1>
+   
+    
+    {{ govukRadios({
+      idPrefix: "paygtopup",
+      name: "paygtopup",
+      
+      items: [
+        {
+          value: "Pre-pay",
+          html: " <b>Pre-pay</b>",
+          hint: {
+            html: 
+            "
+              <ul class='govuk-list govuk-list--bullet'>
+                <li>
+                  Pay a minimum £10 deposit
+                </li>
+                <li>
+                  Get a discount of up to 20% with each crossing
+                </li>
+                <li>
+                  Your account gets topped up automatically when your balance is low
+                </li>
+              </ul>
+            "
+          }
+        },
+        {
+          value: "Pay as you go",
+          html: "<b>Pay as you go</b>",
+          hint: {
+          html: 
+          "
+            <ul class='govuk-list govuk-list--bullet'>
+              <li>
+                No deposit
+              </li>
+              <li>
+                No discount
+              </li>
+              <li>
+                Your payment gets taken automatically after your crossing
+              </li>
+            </ul>
+          "
+          }
+        }
+      ]
+    }) }}
+
+
+    {% set detailsHTML %}
+          <h2 class="govuk-heading-m">
+            Cars and motorcycles
+          </h2>
+          {{ govukTable({
+            firstCellIsHeader: true,
+            head: [
+              {
+                text: ""
+              },
+              
+              {
+                text: "Pay as you go"
+              },
+              {
+                text: "Pre-pay"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "Motorcycles, mopeds and quad bikes"
+                },
+                
+             
+                {
+                  text: "Free"
+                },
+                {
+                  text: "Free"
+                }
+              ],
+              [
+                {
+                  text: "Cars (including trailers), motorhomes and any minibuses that have 9 or less seats (including the driver’s seat)	"
+                },
+               
+             
+                {
+                  text: "£2.50"
+                },
+                {
+                  text: "£2.00"
+                }
+              ]
+            ]
+          }) }}
+
+
+          <h2 class="govuk-heading-m">
+            Buses, coaches, vans and other goods vehicles
+          </h2>
+          {{ govukTable({
+            firstCellIsHeader: true,
+            head: [
+              {
+                text: ""
+              },
+              
+              {
+                text: "Pay as you go"
+              },
+              {
+                text: "Pre-pay"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "Vehicles with 2 axles"
+                },
+               
+             
+                {
+                  text: "£3.00"
+                },
+                {
+                  text: "£2.63"
+                }
+              ],
+              [
+                {
+                  text: "Vehicles with more than 2 axles"
+                },
+                
+             
+                {
+                  text: "£6.00"
+                },
+                {
+                  text: "£5.19"
+                }
+              ]
+            ]
+          }) }}
+{% endset %}
+
+{{ govukDetails({
+ summaryText: "Crossing charges per account type",
+ html: detailsHTML
+ })
+}}
+
+
+
+    
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+</div>
+</div> 
+    </div>
+  </div>
+</form>
+{% endblock %}
