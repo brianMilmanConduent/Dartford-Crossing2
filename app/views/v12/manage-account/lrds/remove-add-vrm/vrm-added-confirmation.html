@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your account has been created
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<br><br>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+<div class="govuk-grid-row">
+ 
+              <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">
+                  Vehicle added
+                </h1>
+              </div>  
+             
+            <p>We’ve sent a confirmation email to  {{ data['email']}}</p>
+           
+            
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>
+
+        <div class='govuk-grid-column-full'>
+            
+
+            <p class="govuk-body">
+              Add a new vehicle to account plan?
+            </p>
+          </div>
+    
+             
+</div>
+
+
+
+
+  
+
+{% endblock %}

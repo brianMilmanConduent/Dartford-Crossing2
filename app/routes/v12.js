@@ -269,6 +269,17 @@ router.post(`/v${verNum}/manage-account/lrds/remove-add-vrm/add-another-vehicle-
 });
 
 
+router.post(`/v${verNum}/manage-account/lrds/remove-add-vrm/which-vrm`, function (req, res) {
+  const addNewVRM = req.session.data[`add-new-vrm-lrds`]
+  if (addNewVRM === 'new-vrm') {
+    res.redirect(`/v${verNum}/manage-account/lrds/remove-add-vrm/vehicle-registration`)
+  } 
+  else {
+    res.redirect(`/v${verNum}/manage-account/lrds/remove-add-vrm/lrdsDocUploadFirstDoc-v5c`)
+  }
+ 
+});
+
 
 //Vx ends here
 
