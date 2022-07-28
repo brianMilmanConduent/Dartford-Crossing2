@@ -23,11 +23,11 @@ Your vehicle
     <div class="govuk-grid-column-two-thirds">
       
         <fieldset class="govuk-fieldset">
-          <h1 class="govuk-heading-l">Outstanding transactions</h1>
+          <h1 class="govuk-heading-l">You have outstanding payments</h1>
             <form class="form" method="post" action="vehicle-summary-add-another">
 
               <p class="govuk-body">
-                LO62 NRO has the following unpaid crossings.......
+                Your vehicle LO62 NRO made a crossing that has not yet been paid for. The cost of this crossing will be added to your total payment.
               </p>
 
               {{ govukTable({
@@ -43,7 +43,7 @@ Your vehicle
                 rows: [
                   [
                     {
-                      text: "27 Jul 9:34 am"
+                      text: "27 Jul at 9:34am"
                     },
                     {
                       text: "£2.50"
@@ -53,9 +53,7 @@ Your vehicle
               }) }}
 
 
-              <p class="govuk-body">
-                This will be added to your total on the payment screen.
-              </p>
+             
 
 
 

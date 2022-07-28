@@ -48,6 +48,14 @@
   ]
 }) }}
 
+{{ govukButton({
+  text: "Continue",
+  href: "previous-journeys-numerous-crossings"
+}) }}    
+<br>
+<a href="#" class="govuk-link">Cancel and discard the upload</a>
+</div>
+</div>
 
 
  {% else %}
@@ -113,6 +121,15 @@
     ]
   ]
 }) }}
+
+{{ govukButton({
+  text: "Continue",
+  href: "confirmation-screen"
+}) }}    
+<br>
+<a href="#" class="govuk-link">Cancel and discard the upload</a>
+</div>
+</div>
 {% endif %}
 
 
@@ -120,13 +137,8 @@
 
  
 
-    {{ govukButton({
-      text: "Continue",
-      href: "confirmation-screen"
-    }) }}    
-    <br>
-    <a href="#" class="govuk-link">Cancel and discard the upload</a>
-  </div>
-</div>
+    
 {% endblock %}
 <!--main body ends-->
+
+
