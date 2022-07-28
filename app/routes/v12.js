@@ -230,7 +230,7 @@ router.post(`/v${verNum}/manage-account/lrds/1st-year-renewal/lrdsRenewalSelecti
   if (lrdsSelect === 'None of the above') {
       res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/otherAccountType`);
   } else {
-      res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/payment3a`);
+      res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/new-vrm-select`);
   }
 });
 
@@ -240,7 +240,7 @@ router.post(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrdsRenewalSelecti
   if (lrdsSelect === 'None of the above') {
       res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/otherAccountType`);
   } else {
-      res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrdsDocUpload`);
+      res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/new-vrm-select`);
   }
 });
 
@@ -276,6 +276,28 @@ router.post(`/v${verNum}/manage-account/lrds/remove-add-vrm/which-vrm`, function
   } 
   else {
     res.redirect(`/v${verNum}/manage-account/lrds/remove-add-vrm/lrdsDocUploadFirstDoc-v5c`)
+  }
+ 
+});
+
+router.post(`/v${verNum}/manage-account/lrds/1st-year-renewal/which-vrm`, function (req, res) {
+  const addNewVRM = req.session.data[`add-new-vrm-lrds`]
+  if (addNewVRM === 'new-vrm') {
+    res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/vehicle-registration`)
+  } 
+  else {
+    res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/lrdsDocUploadFirstDoc-v5c`)
+  }
+ 
+});
+
+router.post(`/v${verNum}/manage-account/lrds/2nd-year-renewal/which-vrm`, function (req, res) {
+  const addNewVRM = req.session.data[`add-new-vrm-lrds`]
+  if (addNewVRM === 'new-vrm') {
+    res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/vehicle-registration`)
+  } 
+  else {
+    res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrdsDocUpload`)
   }
  
 });
