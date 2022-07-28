@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+{% if data['account-type'] === 'Personal' %}
+
+<!--content here-->
+
+ {% else %}
+<!--content here-->
+{% endif %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+        <fieldset class="govuk-fieldset">
+          <h1 class="govuk-heading-l">Outstanding transactions</h1>
+            <form class="form" method="post" action="vehicle-summary-add-another">
+
+              <p class="govuk-body">
+                LO62 NRO has the following unpaid crossings.......
+              </p>
+
+              {{ govukTable({
+               firstCellIsHeader: false,
+                head: [
+                  {
+                    text: "Crossing date and time"
+                  },
+                  {
+                    text: "Amount"
+                  }
+                ],
+                rows: [
+                  [
+                    {
+                      text: "27 Jul 9:34 am"
+                    },
+                    {
+                      text: "£2.50"
+                    }
+                  ]
+                ]
+              }) }}
+
+
+              <p class="govuk-body">
+                This will be added to your total on the payment screen.
+              </p>
+
+
+
+       
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <!--  </div><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add another vehicle
+        </button>-->
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
