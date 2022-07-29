@@ -23,7 +23,7 @@ Your vehicle
     <div class="govuk-grid-column-two-thirds">
       
         <fieldset class="govuk-fieldset">
-          <h1 class="govuk-heading-l">You need to confirm your vehicle details</h1>
+          <h1 class="govuk-heading-l">We need more information about your vehicle</h1>
 
 
             <form class="form" method="post" action="previous-journeys">
@@ -119,16 +119,7 @@ Your vehicle
                   {{ govukCheckboxes({
                     idPrefix: "vrm-confirmation",
                     name: "vrm-confirmation",
-                    fieldset: {
-                      legend: {
-                        text: "Vehicle detail confirmation",
-                        isPageHeading: false,
-                        classes: "govuk-fieldset__legend--m"
-                      }
-                    },
-                    hint: {
-                      text: "This is specifically for non-uk vehicles"
-                    },
+                    
                     items: [
                       {
                         value: "Value",
