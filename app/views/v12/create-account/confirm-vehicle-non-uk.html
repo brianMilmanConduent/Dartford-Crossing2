@@ -98,12 +98,28 @@ Your vehicle
                         text: "Colour"
                       }
                     }) }}
-                    {{ govukInput({
-                      id: "vehicle-make",
-                      name: "vehicle-make",
-                      label: {
-                        text: "Country of registration"
-                      }
+                   
+                    {{ govukRadios({
+                      idPrefix: "uk-or-non-uk",
+                      name: "uk-or-non-uk",
+                      fieldset: {
+                        legend: {
+                          text: "Country of registration",
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                     
+                      items: [
+                        {
+                          value: "Value",
+                          text: "UK"
+                        },
+                        {
+                          value: "Value",
+                          text: "Outside the UK"
+                        }
+                      ]
                     }) }}
 
 
