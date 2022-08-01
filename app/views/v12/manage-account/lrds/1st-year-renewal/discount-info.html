@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Tasks
+Discount information
 {% endblock %}
 
 {% block beforeContent %}
@@ -20,8 +20,12 @@ Tasks
 <div class="govuk-grid-row">
 <div class="govuk-grid-column-two-thirds">
   <h1 class="govuk-heading-l">
-    Discount-info
+    You're entitled to a discount of £{x}
   </h1>
+
+  <p class="govuk-body">
+    You recently topped up your account with £5. We'll deduct the remaining £{x} from this transaction.
+  </p>
   
 {{ govukButton({
   text: "Continue",

@@ -180,8 +180,11 @@ router.post(`/v${verNum}/create-account/otherAccountTypeLRDScheck`, function (re
 router.post(`/v${verNum}/manage-account/login-route`, function (req, res) {
   const routeChoice = req.session.data[`account-summary-select`]
   if (routeChoice === 'lrds-upload-later') {
-    res.redirect(`/v${verNum}/manage-account/lrds/docs-upload-later/lrds-halt`)
-  } else if (routeChoice === '1st-year-renewal') {
+    res.redirect(`/v${verNum}/manage-account/lrds/docs-upload-later-holding/lrds-halt`)
+  } else if (routeChoice === 'lrds-upload-holding') {
+    res.redirect(`/v${verNum}/manage-account/lrds/docs-upload-later-holding/lrds-halt`)
+  }
+  else if (routeChoice === '1st-year-renewal') {
     res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/lrds-halt`)
   }
   else if (routeChoice === '2nd-year-renewal') {
@@ -303,6 +306,20 @@ router.post(`/v${verNum}/manage-account/lrds/2nd-year-renewal/which-vrm`, functi
 });
 
 
+
+
+
+
+router.post(`/v${verNum}/manage-account/lrds/1st-year-renewal/lrds-yes-no`, function (req, res) {
+  const lrdsChoice = req.session.data[`lrds-yes-no`]
+  if (lrdsChoice === 'Yes') {
+    res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/payment3a`)
+  } 
+  else {
+    res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/lrdsSelect`)
+  }
+ 
+});
 //Vx ends here
 
 
