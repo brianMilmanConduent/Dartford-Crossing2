@@ -18,53 +18,161 @@ Your account has been created
 
 <div class="govuk-grid-row">
 
+    {% if data['lrdsSelect'] === 'Limited discount' %}
 
-  <div class="govuk-panel govuk-panel--interruption">
+    <!--content here-->
+
+    <div class="govuk-panel govuk-panel--interruption">
       
-    <fieldset class="govuk-fieldset" aria-describedby="start_new_claim">
+      <fieldset class="govuk-fieldset" aria-describedby="start_new_claim">
+  
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-heading-l">
+              We're reviewing your eligibility for the local resident discount
+            </h1>
+          </legend>
+  
+          <p class="govuk-body">
+            Your account is not currently active. Once we've received your eligibility documents, they will take up to 5 days to get approved. 
+          </p>  
+          <p class="govuk-body">
+            Your account will be active once your local resident discount is approved and activated.
+          </p>
+          <h2 class="govuk-heading-m">
+            Dart Charge contact centre
+           </h2>
+  
+           <ul class="govuk-list">
+            <li>
+              Telephone: 0300 300 0120
+  
+            </li>
+            <li>
+              Textphone: 18001 0300 300 0120
+            </li>
+            <li>
+              Every day, 8am to 8pm
+            </li>
+            <li>
+              <a href="#" class="govuk-link">Find out about call charges</a>
+            </li>
+           </ul>
+      
+        
+  
+        
+  
+      </fieldset>
+  
+  </div>
+    {% else %}
+     <!--no content here-->
+    {% endif %}
 
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-          <h1 class="govuk-heading-l">
-            We're reviewing your eligibility for the local resident discount
-          </h1>
-        </legend>
+    {% if data['lrdsSelect'] === 'Unlimited discount' %}
 
-        <p class="govuk-body">
-          Your account is not currently active. Once we've received your eligibility documents, they will take up to 5 days to get approved. 
-        </p>  
-        <p class="govuk-body">
-          Your account will be active once your local resident discount is approved and activated.
-        </p>
-        <h2 class="govuk-heading-m">
-          Dart Charge contact centre
-         </h2>
+    <!--content here-->
 
-         <ul class="govuk-list">
-          <li>
-            Telephone: 0300 300 0120
+    <div class="govuk-panel govuk-panel--interruption">
+      
+      <fieldset class="govuk-fieldset" aria-describedby="start_new_claim">
+  
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-heading-l">
+              We're reviewing your eligibility for the local resident discount
+            </h1>
+          </legend>
+  
+          <p class="govuk-body">
+            Your account is not currently active. Once we've received your eligibility documents, they will take up to 5 days to get approved. 
+          </p>  
+          <p class="govuk-body">
+            Your account will be active once your local resident discount is approved and activated.
+          </p>
+          <h2 class="govuk-heading-m">
+            Dart Charge contact centre
+           </h2>
+  
+           <ul class="govuk-list">
+            <li>
+              Telephone: 0300 300 0120
+  
+            </li>
+            <li>
+              Textphone: 18001 0300 300 0120
+            </li>
+            <li>
+              Every day, 8am to 8pm
+            </li>
+            <li>
+              <a href="#" class="govuk-link">Find out about call charges</a>
+            </li>
+           </ul>
+      
+        
+  
+        
+  
+      </fieldset>
+  
+  </div>
+    {% else %}
+     <!--no content here-->
+    {% endif %}
 
-          </li>
-          <li>
-            Textphone: 18001 0300 300 0120
-          </li>
-          <li>
-            Every day, 8am to 8pm
-          </li>
-          <li>
-            <a href="#" class="govuk-link">Find out about call charges</a>
-          </li>
-         </ul>
+
+
     
+       
+      {% if data['lrds-yes-no'] === 'Yes'  %}
+
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Application complete
+            </h1>
+            <div class="govuk-panel__body">
+              Your account number<br><strong>HDJ2123F</strong>
+            </div>
+            <br>
+          </div>
+          
+          <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+          <h2 class="govuk-heading-m">
+            Your payment
+          </h2>
+                  
+                    <p>Your payment reference for your pre-pay account is 4569852.<br>You’ll receive the digital receipt for this payment separately. </p>
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>    
+
+              <p class="govuk-body">
+                Your Dart Charge account is now active.
+              <p>
+
+              
+                <p class="govuk-body">
+                    <a href="#" class="govuk-link">Log in to your account</a> to:
+                </p>  
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  add more vehicles
+                </li>
+                <li>
+                  change how you pay for crossings
+                </li>
+                <li>
+                  change how you receive communications
+                </li>
+              </ul>  
+            
+      <!--content here-->
+
+      {% else %}
+      <!--no content here-->
+      {% endif %}
       
-
       
-
-    </fieldset>
-
-</div>
-
-
-
              
 </div>
 

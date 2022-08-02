@@ -180,7 +180,7 @@ router.post(`/v${verNum}/create-account/otherAccountTypeLRDScheck`, function (re
 router.post(`/v${verNum}/manage-account/login-route`, function (req, res) {
   const routeChoice = req.session.data[`account-summary-select`]
   if (routeChoice === 'lrds-upload-later') {
-    res.redirect(`/v${verNum}/manage-account/lrds/docs-upload-later-holding/lrds-halt`)
+    res.redirect(`/v${verNum}/manage-account/lrds/docs-upload-later/lrds-halt`)
   } else if (routeChoice === 'lrds-upload-holding') {
     res.redirect(`/v${verNum}/manage-account/lrds/docs-upload-later-holding/lrds-halt`)
   }
