@@ -278,7 +278,7 @@ router.post(`/v${verNum}/manage-account/lrds/remove-add-vrm/which-vrm`, function
     res.redirect(`/v${verNum}/manage-account/lrds/remove-add-vrm/vehicle-registration`)
   } 
   else {
-    res.redirect(`/v${verNum}/manage-account/lrds/remove-add-vrm/lrdsDocUploadFirstDoc-v5c`)
+    res.redirect(`/v${verNum}/manage-account/lrds/remove-add-vrm/existing-vrm-added-confirmation`)
   }
  
 });
