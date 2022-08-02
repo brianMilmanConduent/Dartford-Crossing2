@@ -46,116 +46,112 @@ Select LRDS
         },
         {
           value: "None of the above",
-          html: "<b>Pre-pay your account instead</b>"
+          html: "<b>I do not want a local resident discount</b>",
+          hint: {
+            text: "Pre-pay your account instead"
+          }
          
         }
       ]
     }) }}
 
-
-
-
-    {% set detailsHTML %}
-          <h2 class="govuk-heading-m">
-            Cars and motorcycles
-          </h2>
-          {{ govukTable({
-            firstCellIsHeader: true,
-            head: [
-              {
-                text: ""
-              },
-              
-              
-              {
-                text: "Pre-pay"
-              }
-            ],
-            rows: [
-              [
-                {
-                  text: "Motorcycles, mopeds and quad bikes"
-                },
-                
-             
-                
-                {
-                  text: "Free"
-                }
-              ],
-              [
-                {
-                  text: "Cars (including trailers), motorhomes and any minibuses that have 9 or less seats (including the driver’s seat)	"
-                },
-                
-             
-                
-                {
-                  text: "£2.00"
-                }
-              ]
-            ]
-          }) }}
-
-
-          <h2 class="govuk-heading-m">
-            Buses, coaches, vans and other goods vehicles
-          </h2>
-          {{ govukTable({
-            firstCellIsHeader: true,
-            head: [
-              {
-                text: ""
-              },
-             
-             
-              {
-                text: "Pre-pay"
-              }
-            ],
-            rows: [
-              [
-                {
-                  text: "Vehicles with 2 axles"
-                },
-               
-             
-               
-                {
-                  text: "£2.63"
-                }
-              ],
-              [
-                {
-                  text: "Vehicles with more than 2 axles"
-                },
-                
-             
-               
-                {
-                  text: "£5.19"
-                }
-              ]
-            ]
-          }) }}
-{% endset %}
-
-{{ govukDetails({
- summaryText: "What are the standard pre-pay rates for the Dartford Crossing?",
- html: detailsHTML
- })
-}}
-
-    {{ govukButton({
-      text: "Continue"
-    }) }}
-
-
-
-
     
 
 
+          {% set detailsHTML %}
+                <h2 class="govuk-heading-m">
+                  Cars and motorcycles
+                </h2>
+                {{ govukTable({
+                  firstCellIsHeader: true,
+                  head: [
+                    {
+                      text: ""
+                    },
+                    
+                    
+                    {
+                      text: "Pre-pay"
+                    }
+                  ],
+                  rows: [
+                    [
+                      {
+                        text: "Motorcycles, mopeds and quad bikes"
+                      },
+                      
+                  
+                      
+                      {
+                        text: "Free"
+                      }
+                    ],
+                    [
+                      {
+                        text: "Cars (including trailers), motorhomes and any minibuses that have 9 or less seats (including the driver’s seat)	"
+                      },
+                      
+                  
+                      
+                      {
+                        text: "£2.00"
+                      }
+                    ]
+                  ]
+                }) }}
+
+
+                <h2 class="govuk-heading-m">
+                  Buses, coaches, vans and other goods vehicles
+                </h2>
+                {{ govukTable({
+                  firstCellIsHeader: true,
+                  head: [
+                    {
+                      text: ""
+                    },
+                  
+                  
+                    {
+                      text: "Pre-pay"
+                    }
+                  ],
+                  rows: [
+                    [
+                      {
+                        text: "Vehicles with 2 axles"
+                      },
+                    
+                  
+                    
+                      {
+                        text: "£2.63"
+                      }
+                    ],
+                    [
+                      {
+                        text: "Vehicles with more than 2 axles"
+                      },
+                      
+                  
+                    
+                      {
+                        text: "£5.19"
+                      }
+                    ]
+                  ]
+                }) }}
+      {% endset %}
+
+    {{ govukDetails({
+    summaryText: "What are the standard pre-pay rates for the Dartford Crossing?",
+    html: detailsHTML
+    })
+    }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
 </div>
 </div> 
     </div>
