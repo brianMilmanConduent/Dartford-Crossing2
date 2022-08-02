@@ -10,29 +10,31 @@ Select LRDS
 {% endblock %}
 
 {% block content %}
-<form id="form" method="post" action="lrdsSelect">
+<form id="form" method="post" action="">
+
+  <div class="govuk-width-container ">
+        
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+      
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-column-two-thirds">
+  <h1 class="govuk-heading-l">
+    You're entitled to a discount of £{x}
+  </h1>
 
-    <h1 class="govuk-heading-l">
-      Discount info
-    </h1>
-   
-
-    {{ govukButton({
-      text: "Continue"
-    }) }}
-
-
-
-
-    
-
-
-</div>
-</div> 
-    </div>
+  <p class="govuk-body">
+    You recently topped up your account with £5. We'll deduct the remaining £{x} from this transaction.
+  </p>
+  
+{{ govukButton({
+  text: "Continue",
+  href: "lrdsSelect"
+}) }}
+  
+ 
+ 
+    </main>
   </div>
 </form>
 {% endblock %}

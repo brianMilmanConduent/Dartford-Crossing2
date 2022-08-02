@@ -14,37 +14,42 @@ Your account has been created
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-
-
 <div class="govuk-grid-row">
- 
-              <div class="govuk-panel govuk-panel--confirmation">
-                <h1 class="govuk-panel__title">
-                  Vehicle added
-                </h1>
-              </div>  
-             
-            <p>We’ve sent a confirmation email to  {{ data['email']}}</p>
-           
-            
-              <h2 class="govuk-heading-m">
-                What happens next
-              </h2>
+      <div class="govuk-panel govuk-panel--interruption">
+          
+        <fieldset class="govuk-fieldset" aria-describedby="start_new_claim">
 
-        <div class='govuk-grid-column-full'>
-            
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-heading-l">
+                We're reviewing your V5C log book details
+              </h1>
+            </legend>
 
             <p class="govuk-body">
-              Add a new vehicle to account plan?
+              Your account will be active  once your local resident discount is re-activated.
             </p>
-          </div>
-    
-             
+            <h2 class="govuk-heading-m">
+              Dart Charge contact centre
+            </h2>
+
+            <ul class="govuk-list">
+              <li>
+                Telephone: 0300 300 0120
+
+              </li>
+              <li>
+                Textphone: 18001 0300 300 0120
+              </li>
+              <li>
+                Every day, 8am to 8pm
+              </li>
+              <li>
+                <a href="#" class="govuk-link">Find out about call charges</a>
+              </li>
+            </ul>
+
+        </fieldset>
+    </div>       
 </div>
-
-
-
-
-  
 
 {% endblock %}
