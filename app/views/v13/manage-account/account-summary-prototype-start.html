@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Enter your email
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="login" method="post">
+        <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1"></h1>
+          <fieldset class="govuk-fieldset">
+           
+
+                        
+
+                        <form action="job-list-empty-tabs" method="post" class="form">
+                            <div class="govuk-form-group govuk-!-margin-top-6">
+                              {{ govukRadios({
+                                idPrefix: "account-summary-select",
+                                name: "account-summary-select",
+                                fieldset: {
+                                  legend: {
+                                    text: "Select the flow you would like to see within the LRDS account summary",
+                                    isPageHeading: true,
+                                    classes: "govuk-fieldset__legend--l"
+                                  }
+                                },
+                                items: [
+                                  {
+                                    value: "lrds-upload-later",
+                                    text: "No documents uploaded during account creation"
+                                  },
+                                  {
+                                    value: "lrds-upload-holding",
+                                    text: "Documents uploaded - holding"
+                                  },
+                                  {
+                                    value: "1st-year-renewal",
+                                    text: "1st year renewal"
+                                  },
+                                  {
+                                    value: "2nd-year-renewal",
+                                    text: "2nd year renewal"
+                                  },
+                                  {
+                                    value: "upgrade-add-credit",
+                                    text: "Upgrade or add credit to existing LRDS plan"
+                                  },
+                                  {
+                                    value: "remove-add-vrm",
+                                    text: "Remove and add new vrm to an active LRDS plan"
+                                  }
+                                ]
+                              }) }}
+                            </div>
+
+              {{ govukButton({
+                  text: "Continue"
+              }) }}
+
+             
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

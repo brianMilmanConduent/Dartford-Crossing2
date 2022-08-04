@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your account has been created
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<br><br>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+<div class="govuk-grid-row">
+ 
+
+          
+              <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">
+                  Account upgraded
+                </h1>
+              </div>  
+             
+            <p>We’ve sent a confirmation email to  [email address]</p>
+            <h2 class="govuk-heading-m">
+              Your payment
+            </h2>
+            <p class="govuk-body">
+              Your payment reference is 34562345. You’ll receive the digital receipt for this payment separately.
+            <p>
+            
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>
+
+            
+
+            <p class="govuk-body">
+              You have unlimited crossings left on your account.
+            </p>
+          <p class="govuk-body">
+            <a href="#" class="govuk-link">View your account</a>
+          </p>
+   
+</div>
+
+
+
+
+  
+
+{% endblock %}

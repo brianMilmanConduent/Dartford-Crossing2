@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+What type of account would you like?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="lrds-yes-no">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Are you sure you do not want the local resident discount?
+    </h1>
+   
+    
+   
+{{ govukRadios({
+  idPrefix: "lrds-yes-no",
+  name: "lrds-yes-no",
+  
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
+    },
+    {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+
+
+
+    
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+</div>
+</div> 
+    </div>
+  </div>
+</form>
+{% endblock %}

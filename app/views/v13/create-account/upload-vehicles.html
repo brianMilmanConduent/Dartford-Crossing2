@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+How do you want to upload your vehicles' details?
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="vehicle-add" method="post">
+      
+       {{ govukRadios({
+         idPrefix: "vehicle-upload",
+         name: "vehicle-upload",
+         fieldset: {
+           legend: {
+             text: "How do you want to upload your vehicles' details?",
+             isPageHeading: true,
+             classes: "govuk-fieldset__legend--l"
+           }
+         },
+         hint: {
+           text: "You can upload your vehicles individually or in a bulk group of up to 5,000"
+         },
+         items: [
+           {
+             value: "Yes",
+             text: "Upload vehicles one at a time"
+           },
+           {
+            value: "Bulk upload",
+            text: "Upload vehicles in bulk"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "No",
+            text: "Upload vehicles later"
+          }
+         ]
+       }) }}
+          <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">Continue</button>
+      </form>
+    </div>
+  </div>
+<div>
+          
+
+{% endblock %}

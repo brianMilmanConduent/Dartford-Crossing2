@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+How do you want to send your proof of local residency?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="lrdsPost">
+
+  <div class="govuk-width-container ">
+        
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+      
+
+ 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-panel govuk-panel--interruption">
+      
+        <fieldset class="govuk-fieldset" aria-describedby="start_new_claim">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-heading-l">
+                You still need to send your proof of eligibility for the local resident discount
+              </h1>
+            </legend>
+
+  
+         
+
+          <h2 class="govuk-heading-m">
+            You need to upload:
+          </h2>
+        
+            <ul class="govuk-list govuk-list--number">
+              <li>
+                your vehicle V5C log book
+              </li>
+              <li>
+                two of the following:
+                <ul class="govuk-list govuk-list--bullet">
+                  <li>
+                    a recent bank or credit card statement
+                  </li>
+                  <li>
+                    a recent utility bill (gas, electric or water only)
+                  </li>
+                  <li>
+                    your most recent council tax bill
+                  </li>
+                  <li>
+                    an Income Support or housing association rent document
+                  </li>
+                  <li>
+                    your driving licence (photo card only)
+                  </li>
+                </ul>
+              </li>
+            </ul>
+
+          <div class="govuk-radios govuk-!-margin-bottom-9 bluea">
+            
+           
+              {{ govukButton({
+                text: "Continue",
+                classes: "bluea",
+                href: "lrdsdocumenttask"
+              }) }}
+            
+          </div>
+
+        </fieldset>
+
+    </div>
+
+ 
+ 
+    </main>
+  </div>
+</form>
+{% endblock %}
