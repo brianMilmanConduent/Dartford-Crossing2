@@ -187,6 +187,9 @@ router.post(`/v${verNum}/manage-account/login-route`, function (req, res) {
   else if (routeChoice === '1st-year-renewal') {
     res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/lrds-halt`)
   }
+  else if (routeChoice === 'upgrade-lrds') {
+    res.redirect(`/v${verNum}/manage-account/lrds/upgrade-lrds/account-summary`)
+  }
   else if (routeChoice === '2nd-year-renewal') {
     res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrds-halt`)
   }
@@ -289,7 +292,7 @@ router.post(`/v${verNum}/manage-account/lrds/1st-year-renewal/which-vrm`, functi
     res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/vehicle-registration`)
   } 
   else {
-    res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/lrdsDocUploadFirstDoc-v5c`)
+    res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/payment3a`)
   }
  
 });

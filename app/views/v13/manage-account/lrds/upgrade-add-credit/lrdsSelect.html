@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Select LRDS
+Add credit to your LRDS
 {% endblock %}
 
 {% block beforeContent %}
@@ -10,13 +10,13 @@ Select LRDS
 {% endblock %}
 
 {% block content %}
-<form id="form" method="post" action="upgradeInfo">
+<form id="form" method="post" action="payment3a">
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
     <h1 class="govuk-heading-l">
-      How much credit do you want to add to your account?
+      How much credit do you want to add to your LRDS plan?
     </h1>
    
     
@@ -27,11 +27,17 @@ Select LRDS
       items: [
         {
           value: "5",
-          html: "<b>£5</b>"
+          html: "<b>£5</b>",
+          hint: {
+            text: "25 crossings at 20p per crossing"
+          }
         },
         {
           value: "10",
-          html: "<b>£10</b>"
+          html: "<b>£10</b>",
+          hint: {
+            text: "Unlimited crossings for the remainder of your current LRDS plan"
+          }
         }
       ]
     }) }}

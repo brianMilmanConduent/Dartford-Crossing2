@@ -20,9 +20,12 @@ Documents uploaded to prove local residence
       Documents uploaded to prove address
     </h1>
 
-    {{ govukInsetText({
-      text: "You must upload all the required documents in order for your local resident discount to be approved."
-    }) }}
+   <p class="govuk-body">
+    To qualify for the local resident discount, you need to send documents that prove your eligibility.
+   </p>
+   <p class="govuk-body">
+    All documents must show your name and address. You can upload a copy or photo them.
+   </p>
 
     <h2 class="govuk-heading-m">
       Files already uploaded
@@ -50,7 +53,25 @@ Documents uploaded to prove local residence
             <a href='#' class='govuk-link'>Delete</a>
             "
           }
-        ]
+        ],
+        [
+        {
+          text: "Supporting document 1"
+        },
+        {
+          html: 
+          "
+          <a href='#' class='govuk-link'>drivlicense.pdf</a> 1.6MB
+          "
+        }
+        ,
+        {
+          html: 
+          "
+          <a href='#' class='govuk-link'>Delete</a>
+          "
+        }
+      ]
       ]
     }) }}
 
