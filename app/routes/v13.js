@@ -325,7 +325,7 @@ router.post(`/v${verNum}/manage-account/lrds/2nd-year-renewal/which-vrm`, functi
 router.post(`/v${verNum}/manage-account/lrds/1st-year-renewal/lrds-yes-no`, function (req, res) {
   const lrdsChoice = req.session.data[`lrds-yes-no`]
   if (lrdsChoice === 'Yes') {
-    res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/payment3a`)
+    res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/number-of-vehicles-guidance`)
   } 
   else {
     res.redirect(`/v${verNum}/manage-account/lrds/1st-year-renewal/lrdsSelect`)
@@ -339,7 +339,7 @@ router.post(`/v${verNum}/manage-account/lrds/1st-year-renewal/lrds-yes-no`, func
 router.post(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrds-yes-no`, function (req, res) {
   const lrdsChoice = req.session.data[`lrds-yes-no`]
   if (lrdsChoice === 'Yes') {
-    res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/payment3a`)
+    res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/number-of-vehicles-guidance`)
   } 
   else {
     res.redirect(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrdsSelect`)
