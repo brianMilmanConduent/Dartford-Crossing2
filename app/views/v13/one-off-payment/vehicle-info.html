@@ -14,8 +14,6 @@ Your vehicle
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full govuk-!-margin-top-1">
-        <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay the Dartford Crossing Charge (Dart Charge)
-        </h1>
         <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Your vehicle</h1>
     </div>
 </div>
@@ -28,55 +26,36 @@ Your vehicle
 
             <tr class="govuk-table__row">
                 <td scope="col" class="govuk-table__header govuk-body ">Number plate</td>
-                <!-- <td class="govuk-table__cell  govuk-body "><b>{{data['vrm-1'][0]}}</b></td> -->
+               
                 <td class="govuk-table__cell  govuk-body ">{{data['vrn']}}</td>
-                <!-- <td class="govuk-table__cell  govuk-body "> </td> -->
+                
             </tr>
 
             <tr class="govuk-table__row">
                 <td scope="col" class="govuk-table__header govuk-body ">Vehicle type
-                    <!-- <br> <details class="govuk-details govuk-!-margin-bottom-0" data-module="govuk-details">
-                    <summary class="govuk-details__summary">
-                      <span class="govuk-details__summary-text">
-                        What does this mean?
-                      </span>
-                    </summary> -->
-                     <!-- <div class="govuk-details__text">
-                      Lorem Ipsum
-                    </div> -->
-                  <!-- </details> -->
+                    
                 </td>
                 <td class="govuk-table__cell  govuk-body ">Car</td>
-                <!-- <td class="govuk-table__cell  govuk-body "> <a href="javascript:void(0)" class="govuk-link"
-                        area-role="link">Change</a></td> -->
+                
             </tr>
             <tr class="govuk-table__row">
                 <td scope="col" class="govuk-table__header govuk-body ">Make</td>
                 <td class="govuk-table__cell  govuk-body ">Audi</td>
-                <!-- <td class="govuk-table__cell  govuk-body "><a href="javascript:void(0)" class="govuk-link"
-                        area-role="link">Change</a></td> -->
+                
             </tr>
 
             <tr class="govuk-table__row">
                 <td scope="col" class="govuk-table__header govuk-body ">Model</td>
                 <td class="govuk-table__cell  govuk-body ">RS4</td>
-                <!-- <td class="govuk-table__cell  govuk-body "><a href="javascript:void(0)" class="govuk-link"
-                        area-role="link">Change</a></td> -->
+                
             </tr>
 
             <tr class="govuk-table__row">
                 <td scope="col" class="govuk-table__header govuk-body ">Colour</td>
                 <td class="govuk-table__cell  govuk-body ">Black</td>
-                <!-- <td class="govuk-table__cell  govuk-body "><a href="javascript:void(0)" class="govuk-link"
-                        area-role="link">Change</a></td> -->
+              
             </tr>
-            <!-- <tr class="govuk-table__row">
-                <td scope="col" class="govuk-table__header govuk-body ">Country of registration</td>
-                <td class="govuk-table__cell  govuk-body ">UK
-                </td> -->
-                <!-- <td class="govuk-table__cell  govuk-body "><a href="javascript:void(0)" class="govuk-link"
-                        area-role="link">Change</a></td>
-            </tr> -->
+           
         </table>
 
         {% if data['vrm-1'][0] === 'LO63 NRO' %}
@@ -107,8 +86,7 @@ Your vehicle
         <div class="govuk-form-group govuk-button-group  govuk-!-margin-top-6">
             <button type="submit" class="govuk-button" data-module="govuk-button"
                 role="button" aria-label="Confirm a vehicle">Continue</button>
-            <!--<button class="govuk-button govuk-button--secondary reject_vehicle" data-module="govuk-button" role="button"
-                aria-label="Not my a vehicle">This is not my vehicle</button>-->
+            
         </div>
       </form>
     </div>

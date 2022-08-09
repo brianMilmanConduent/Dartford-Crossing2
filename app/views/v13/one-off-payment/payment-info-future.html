@@ -40,56 +40,13 @@ Pay for future crossings
   </div>
 
   <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1">
-    <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay the Dartford Crossing charge (Dart Charge)
-    </h1>
+    
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">Add future crossings</h1>
 
-    <!-- <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-         Is there a crossing missing?
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        Recent crossings can take a short time to show up so please check back later.
-      </div>
-    </details> -->
-    <div class="gem-c-contextual-sidebar__brexit-cta govuk-!-margin-bottom-1">
-      <!-- <h2 class="gem-c-contextual-sidebar__brexit-heading govuk-heading-m govuk-!-margin-bottom-0 -2 govuk-!-margin-top-1">Payment summary</h2>
-      <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
-        Penalty charge notice payment
-    </p> -->
-    <p class="gem-c-contextual-sidebar__brexit-text govuk-body govuk-!-margin-top-1">
-     <b>Number plate</b> <br>
-     <span id="plateNom">{{data['vrn']}}</span>
-  </p>
-  <!--<p class="gem-c-contextual-sidebar__brexit-text govuk-body">
-    <b>Number of pcns</b> <br>
-    <span id="countPCNs">4</span>
-  </p>-->
-  <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
-    <b>Recent crossings</b> <br>
-    <span class="govuk-!-margin-bottom-1" id="listCrossings">{{data['kros']}}</span>
-  </p>
-  <p class="gem-c-contextual-sidebar__brexit-text govuk-body govuk-!-margin-bottom-0">
-    <b>Payment amount</b> <br>
-    <span class="govuk-!-margin-bottom-1" id="listCrossingsPay">£{{((data['krosCount']*2.50)|float).toFixed(2)}}</span>
-  </p>
-  <!-- <p class="gem-c-contextual-sidebar__brexit-text govuk-body govuk-!-margin-bottom-1">
-    Total amount: <br>
-    <h1 id="charge" class="govuk-heading-xl govuk-!-margin-top-1 govuk-!-margin-bottom-1">£10</h1>
-  </p> -->
-    </div>
+    
     <div class="govuk-body govuk-!-margin-top-0">
-      You can make an additional payment to cover upcoming crossings. A return journey consists of 2 crossings. <br><br>Future crossings are valid for 12 months, though if you're a regular user you may want to create an account instead. You can do this after you've paid.
-    </div>
-    <!-- <div class="govuk-warning-text govuk-!-margin-top-1">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-warning-text__assistive">Warning</span>
-        You have 2 unpaid crossings. If you do not pay for a crossing you could get a penalty charge notice (PCN).
-      </strong>
-    </div> -->
+      You can make an additional payment to cover upcoming crossings. A return journey consists of 2 crossings. Future crossings are valid for 12 months.    </div>
+   
 
     <div class="govuk-body">It costs <b>£2.50 per crossing</b> for a car. </div>
     <form method="post">
@@ -132,29 +89,19 @@ Pay for future crossings
         <input class="govuk-input govuk-input--width-5" id="chargeB" name="chargeB" type="text" spellcheck="false" value="2.50" style="font-weight:bold ;" disabled>
       </div>
     </div>
-    <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-5">
+    <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-9">
       <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Total amount including recent crossings</h3>
       <h1 id = "chargeTotal" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£{{((data['krosCount']*2.50)|float + 2.50|float).toFixed(2)}}</h1>
     </div>
-    <!-- <div class="govuk-body govuk-!-margin-bottom-5">
-      You can now proceed to payment or pay for additional future crossings.
-    </div>  --> <br><br>
+    
     <!-- <div class="govuk-button-group"> -->
     <button type="submit" id="confirmPay"  class="govuk-button" data-module="govuk-button">
       Proceed to payment
     </button>
-    <!-- <button onClick="location.href='./payment-options'" id="confirmPay"  class="govuk-button govuk-button--secondary" data-module="govuk-button">
-      Add future crossings
-    </button> -->
-  <!-- </div> -->
+   
 </form>
   </div>
-  <!-- <div class="gem-c-contextual-sidebar__brexit-cta">
-    <h2 class="gem-c-contextual-sidebar__brexit-heading govuk-heading-s">Brexit</h2>
-    <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
-      <a class="govuk-link" data-module="gem-track-click" data-track-category="relatedLinkClicked" data-track-action="1.0 Transition" data-track-label="/brexit" data-track-dimension="Check what you need to do" data-track-dimension-index="29" lang="en" href="/brexit">Check what you need to do</a>
-  </p>
-  </div>  -->
+  
 
 </div>
 <!-- <div class="govuk-grid-row">

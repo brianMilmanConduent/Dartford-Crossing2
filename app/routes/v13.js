@@ -346,6 +346,44 @@ router.post(`/v${verNum}/manage-account/lrds/2nd-year-renewal/lrds-yes-no`, func
   }
  
 });
+
+
+
+/////////////////////////One off payment flow v05////////////////////////
+router.post(`/v${verNum}/one-off-payment/pay-crossing`, function (req, res) {
+  // res.redirect(`/one-off-payment/${req.params.version}/payment-options`);
+  res.redirect(`/v${verNum}/one-off-payment/vehicle-info`);
+});
+
+
+
+router.post(`/v${verNum}/one-off-payment/vehicle-info`, function (req, res) {
+  // res.redirect(`/one-off-payment/${req.params.version}/payment-options`);
+  if (req.body['vehicle-owner']) {
+    if (req.body['vehicle-owner'] === 'Yes') {
+      res.redirect("add-another-vrm");
+    } else if (req.body['vehicle-owner'] === 'No') {
+      res.redirect(`/v${verNum}/one-off-payment/pay-crossing`);
+    }
+  }
+});
+router.post(`/v${verNum}/one-off-payment/payment-info-single`, function (req, res) {
+  // res.redirect(`/one-off-payment/${req.params.version}/payment-options`);
+  res.redirect(`/v${verNum}/one-off-payment/payment-options`);
+});
+
+router.post(`/v${verNum}/one-off-payment/payment-info-future`, function (req, res) {
+  // res.redirect(`/one-off-payment/${req.params.version}/payment-options`);
+  res.redirect(`/v${verNum}/one-off-payment/payment-options`);
+});
+
+router.post(`/v${verNum}/one-off-payment/payment-options`, function (req, res) {
+  // res.redirect(`/one-off-payment/${req.params.version}/payment-options`);
+  res.redirect(`/v${verNum}/one-off-payment/confirm-card-payment`);
+});
+
+
+
 //Vx ends here
 
 
