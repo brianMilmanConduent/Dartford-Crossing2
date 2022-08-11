@@ -17,7 +17,7 @@ Confirm your payment details
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full govuk-!-margin-top-1">
-        <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay the Dartford Crossing charge (Dart Charge)</h1>
+        
         <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Confirm your payment details.</h1>
     </div>
 </div>
@@ -106,58 +106,10 @@ Confirm your payment details
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Card number
-            </dt>
-            <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-              {{data['cardset']}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./payment-options#cardset">
-                Change<span class="govuk-visually-hidden"> address</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Expiry date
-            </dt>
-            <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-              {{data['month'] + "/20"+ data['year']}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./payment-options.html#month">
-                Change<span class="govuk-visually-hidden"> address</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Name on card
-            </dt>
-            <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-              {{data['userName']}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./payment-options#userName">
-                Change<span class="govuk-visually-hidden"> address</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Postcode
-            </dt>
-            <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-              {{data['postcode']}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./payment-options#postcode">
-                Change<span class="govuk-visually-hidden"> address</span>
-              </a>
-            </dd>
-          </div>
+         
+          
+          
+         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Email
@@ -191,7 +143,7 @@ Confirm your payment details
         <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
         <h1 id="chargeAmount" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">{% if data['sortCrossB'] %}£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}} {% elif not data['sortCrossB'] %}£{{((data['krosCount'] | float)*2.50).toFixed(2)}}{%endif%}</h1>
       </div><br><br>
-      <button onClick="location.href='./payment-success'" id="confirmPay"  class="govuk-button" data-module="govuk-button">
+      <button onClick="location.href='payment-processed'" id="confirmPay"  class="govuk-button" data-module="govuk-button">
         Confirm and pay
       </button>
     </div>

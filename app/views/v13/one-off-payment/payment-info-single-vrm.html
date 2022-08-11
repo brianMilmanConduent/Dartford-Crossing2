@@ -23,6 +23,7 @@ Pay for recent crossings
     padding: 0 15px 15px;
     text-decoration: none;}
 </style>
+<form class="form" method="post" action="need-future-crossings">
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds error-summary" style="display: none; margin-bottom:-60px">
     <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
@@ -46,16 +47,7 @@ Pay for recent crossings
     <div class="govuk-body govuk-!-margin-top-0">
       Here are the details of the crossings you've made yesterday and today.
     </div>
-    <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-         Is there a crossing missing?
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        Recent crossings can take a short time to show up so please check back later.
-      </div>
-    </details>
+   
     <div class="gem-c-contextual-sidebar__brexit-cta govuk-!-margin-bottom-1">
       <!-- <h2 class="gem-c-contextual-sidebar__brexit-heading govuk-heading-m govuk-!-margin-bottom-0 -2 govuk-!-margin-top-1">Payment summary</h2>
       <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
@@ -98,57 +90,55 @@ Pay for recent crossings
 
     <div class="govuk-body">It costs <b>£2.50 per crossing</b> for a car. </div><br>
 
-
-    <!-- <div class="govuk-form-group">
-      <label class="govuk-label" for="sort">
-        Number of crossings
-      </label>
-      <select class="govuk-select govuk-!-width-one-quarter" id="sort" name="sort">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3" selected>3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
-
-      </select>
-    </div> -->
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+         Is there a crossing missing?
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Recent crossings can take a short time to show up so please check back later.<br><br>Also, a note around PCN and next steps if they possibly have one....
+      </div>
+    </details>
+    
     <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-5">
       <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
-      <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£{{((data['krosCount']*2.50)|float).toFixed(2)}}</h1>
+      <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-9 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£{{((data['krosCount']*2.50)|float).toFixed(2)}}</h1>
     </div>
-    <div class="govuk-body govuk-!-margin-bottom-5">
-      You can now proceed to payment or pay for additional future crossings.
-    </div>
+    {{ govukRadios({
+      idPrefix: "add-future-crossings",
+      name: "add-future-crossings",
+      fieldset: {
+        legend: {
+          text: "Would you like to add any credit for future crossings?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Future crossing credit will last 12 months"
+      },
+      items: [
+        {
+          value: "Yes",
+          text: "Yes"
+        },
+        {
+          value: "No",
+          text: "No"
+        }
+      ]
+    }) }}
+    
     <div class="govuk-button-group">
+      
     <button onClick="location.href='notifications'" id="confirmPay"  class="govuk-button" data-module="govuk-button">
       Continue
     </button>
-    <button onClick="location.href='./payment-info-future'" id="payinfofuture"  class="govuk-button govuk-button--secondary" data-module="govuk-button">
-      Add future crossings
-    </button>
+   
   </div>
   </div>
-  <!-- <div class="gem-c-contextual-sidebar__brexit-cta">
-    <h2 class="gem-c-contextual-sidebar__brexit-heading govuk-heading-s">Brexit</h2>
-    <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
-      <a class="govuk-link" data-module="gem-track-click" data-track-category="relatedLinkClicked" data-track-action="1.0 Transition" data-track-label="/brexit" data-track-dimension="Check what you need to do" data-track-dimension-index="29" lang="en" href="/brexit">Check what you need to do</a>
-  </p>
-  </div>  -->
+  
 
 </div>
 <!-- <div class="govuk-grid-row">
@@ -268,7 +258,7 @@ Pay for recent crossings
     {% if (data['vrm-1'][0] === 'LO61 NRO') or (data['vrm-1'][0] === 'LO62 NRO') %}
     <div class="govuk-!-padding-bottom-5 add-future-crossings-row">
       <a href="javascript:void(0)" class="govuk-link" role="link">Add Future Crossings</a>
-    </div>
+    </div>1
     {% endif %}
     {% if (data['vrm-1'][0] !== 'LO64 NRO') %}
     <div class="govuk-form-group ">
@@ -300,6 +290,7 @@ Pay for recent crossings
   </div>
 </div> -->
 </div>
+</form>
 <!-- <script>
   document.getElementById('sort').addEventListener('change', function() {
   document.getElementById('charge').innerHTML="£"+this.value*2.50;

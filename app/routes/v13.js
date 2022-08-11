@@ -361,7 +361,7 @@ router.post(`/v${verNum}/one-off-payment/vehicle-info`, function (req, res) {
   // res.redirect(`/one-off-payment/${req.params.version}/payment-options`);
   if (req.body['vehicle-owner']) {
     if (req.body['vehicle-owner'] === 'Yes') {
-      res.redirect("add-another-vrm");
+      res.redirect("payment-info-single-vrm");
     } else if (req.body['vehicle-owner'] === 'No') {
       res.redirect(`/v${verNum}/one-off-payment/pay-crossing`);
     }
@@ -384,6 +384,16 @@ router.post(`/v${verNum}/one-off-payment/payment-options`, function (req, res) {
 
 
 
+router.post(`/v${verNum}/one-off-payment/need-future-crossings`, function (req, res) {
+  const futureCrossings = req.session.data[`add-future-crossings`]
+  if (futureCrossings === 'Yes') {
+    res.redirect(`/v${verNum}/one-off-payment/payment-info-future`)
+  } 
+  else {
+    res.redirect(`/v${verNum}/one-off-payment/notifications`)
+  }
+ 
+});
 //Vx ends here
 
 

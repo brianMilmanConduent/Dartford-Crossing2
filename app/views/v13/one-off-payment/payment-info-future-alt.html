@@ -48,51 +48,167 @@ Pay for future crossings
       You can make an additional payment to cover upcoming crossings. A return journey consists of 2 crossings. Future crossings are valid for 12 months.    </div>
    
 
-    <div class="govuk-body">It costs <b>£2.50 per crossing</b> for a car. </div>
+    <div class="govuk-body govuk-!-margin-bottom-9">It costs <b>£2.50 per crossing</b> for a car. </div>
     <form method="post" action="notifications">
-    <div class="govuk-form-group">
-      <label class="govuk-label" for="sort">
-        Number of crossings
-      </label>
-      <select class="govuk-select govuk-!-width-one-quarter" id="sortCrossB" name="sortCrossB">
-        <!-- <option value="0" selected>None</option> -->
-        <option value="1"selected>1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-        <option value="13">13</option>
-        <option value="14">14</option>
-        <option value="15">15</option>
-        <option value="16">16</option>
-        <option value="17">17</option>
-        <option value="18">18</option>
-        <option value="19">19</option>
-        <option value="20">20</option>
 
-      </select>
-    </div>
-    <div class="govuk-form-group">
-      <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="cost">
-          Payment amount
-        </label>
-      </h3>
-      <div class="govuk-input__wrapper">
-        <div class="govuk-input__prefix" aria-hidden="true"><b>£</b></div>
-        <input class="govuk-input govuk-input--width-5" id="chargeB" name="chargeB" type="text" spellcheck="false" value="2.50" style="font-weight:bold ;" disabled>
-      </div>
-    </div>
-    <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-9">
-      <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Total amount including recent crossings</h3>
-      <h1 id = "chargeTotal" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£{{((data['krosCount']*2.50)|float + 2.50|float).toFixed(2)}}</h1>
-    </div>
+
+      {% set emailHtml %}
+          
+            {{ govukSelect({
+              id: "time-period",
+              name: "time-period",
+              items: [
+                {
+                  value: "Value",
+                  text: "Select required time period"
+                },
+                {
+                  value: "Value",
+                  text: "1 week"
+                },
+                {
+                  value: "Value",
+                  text: "2 weeks"
+                },
+                {
+                  value: "Value",
+                  text: "3 weeks"
+                },
+                {
+                  value: "Value",
+                  text: "1 month"
+                },
+                {
+                  value: "Value",
+                  text: "2 months"
+                },
+                {
+                  value: "Value",
+                  text: "3 months"
+                }
+              ]
+            }) }}
+{% endset -%}
+
+{% set phoneHtml %}
+{{ govukSelect({
+  id: "number-of-crossings",
+  name: "number-of-crossings",
+ class: "govuk-!-width-one-quarter",
+  items: [
+  {
+    value: "select",
+    text: "Select required number of crossings"
+  },  
+  {
+      value: "1",
+      text: "1"
+    },
+    {
+      value: "1",
+      text: "2"
+    },
+    {
+      value: "1",
+      text: "3"
+    },
+    {
+      value: "1",
+      text: "4"
+    },
+    {
+      value: "1",
+      text: "5"
+    },
+    {
+      value: "1",
+      text: "6"
+    },
+    {
+      value: "1",
+      text: "7"
+    },
+    {
+      value: "1",
+      text: "8"
+    },
+    {
+      value: "1",
+      text: "9"
+    },
+    {
+      value: "1",
+      text: "10"
+    },
+    {
+      value: "1",
+      text: "11"
+    },
+    {
+      value: "1",
+      text: "12"
+    },
+    {
+      value: "1",
+      text: "13"
+    },
+    {
+      value: "1",
+      text: "14"
+    },
+    {
+      value: "1",
+      text: "15"
+    }
+  ]
+}) }}
+{% endset -%}
+
+
+
+{{ govukRadios({
+  idPrefix: "contact",
+  name: "contact",
+  fieldset: {
+    legend: {
+      text: "Do you want crossings based on time or number of crossings?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select one option."
+  },
+  items: [
+    {
+      value: "email",
+      html: "<b>Time period</b>",
+      hint: {
+        text: "Suitable if you are unsure of the number of crossings but know the period of time you will be crossing"
+      },
+      conditional: {
+        html: emailHtml
+      }
+    },
+    {
+      value: "phone",
+      html: "<b>Number of crossings</b>",
+      hint: {
+        text: "Suitable if you are unsure when the crossings will be used"
+      },
+      conditional: {
+        html: phoneHtml
+      }
+    }
+  ]
+}) }}
+
+
+
+
+
+
+    
     
     <!-- <div class="govuk-button-group"> -->
     <button type="submit" id="confirmPay"  class="govuk-button" data-module="govuk-button">

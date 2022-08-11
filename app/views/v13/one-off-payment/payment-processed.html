@@ -65,8 +65,8 @@ Payment details
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1 ">
-        <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay the Dartford Crossing charge (Dart Charge)</h1>
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Payment details</h1>
+       
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-7">Payment details</h1>
         <div class="gem-c-contextual-sidebar__brexit-cta govuk-!-margin-bottom-1 govuk-!-padding-bottom-0">
           <h2 class="gem-c-contextual-sidebar__brexit-heading govuk-heading-m govuk-!-margin-bottom-0 govuk-!-margin-top-1">Payment summary</h2>
           <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
@@ -104,8 +104,17 @@ Payment details
   <img id=applePay class=" govuk-!-width-two-thirds govuk-!-display-none govuk-!-margin-bottom-3" src="\public\images\appleDefault.png" alt="apple Pay">
         <hr id="appleSection"class="govuk-body-xl govuk-!-width-two-thirds govuk-!-display-none govuk-section-break govuk-section-break--xl govuk-section-break--visible hr-text" data-content="OR">
 
-        <form  method="post">
+        <form  method="post" action="payment-success">
           <h2 class="govuk-heading-l">Enter card details</h2>
+          <div class="govuk-form-group govuk-!-margin-top-0">
+            <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="width-2">
+              Name on card
+
+            </label></h3>
+            <span id="nameError" class="govuk-error-message govuk-!-display-none pcnError">
+              <span class="govuk-visually-hidden">Error:</span> Enter the name as shown on your credit card
+            </span>
+            <input class="govuk-input govuk-!-width-one-half cardFields" id="userName" name="userName" type="text" value="{{data['userName']}}"></div>
           <div class="govuk-form-group govuk-!-margin-bottom-3">
             <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="event-name">
               Card number
@@ -117,8 +126,8 @@ Payment details
             <input class="govuk-input govuk-!-width-two-thirds cardFields" id="cardset" name="cardset" type="text" maxlength="15" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="{{data['cardset']}}">
 
           </div>
-          <div class="govuk-!-margin-bottom-2" style="position:relative;"><img src ="\public\images\cardarray.png" id="bgCardset" style=" position: absolute;" class="govuk-!-width-two-thirds" alt="supported cards"/>
-           <img src ="\public\images\cardarrayAMEX.png" id="fgCardset" style="max-width: 7.966461%; height:auto;  z-index: 9;" alt="AMEX"/></div>
+          <div class="govuk-!-margin-bottom-2" style="position:relative;"><img src ="\public\images\cardarray.png" id="bgCardset" style=" position: relative;width: 30%!important" class="govuk-!-width-two-thirds" alt="supported cards"/>
+           </div>
 
 
           <div id="event-name-hint" class="govuk-hint">
@@ -148,16 +157,8 @@ Payment details
             </span>
             <input class="govuk-input govuk-input--width-4 cardFields" id="year" name="year" type="text" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="{{data['year']}}">
           </div>
-            <div class="govuk-form-group govuk-!-margin-top-0">
-              <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="width-2">
-                Name on card
-
-              </label></h3>
-              <span id="nameError" class="govuk-error-message govuk-!-display-none pcnError">
-                <span class="govuk-visually-hidden">Error:</span> Enter the name as shown on your credit card
-              </span>
-              <input class="govuk-input govuk-!-width-one-half cardFields" id="userName" name="userName" type="text" value="{{data['userName']}}"></div>
-            <div class="govuk-form-group govuk-!-margin-top-0 govuk-!-margin-right-2 govuk-!-display-inline-block" >
+            
+            <div class="govuk-form-group govuk-!-margin-top-0 govuk-!-margin-right-2" >
               <label class="govuk-label govuk-label--m" for="width-5">
                   Card security code
                   <div id="event-name-hint" class="govuk-hint govuk-!-margin-top-0" >
@@ -393,16 +394,10 @@ Payment details
                </div>
               </div>
 
-               <div class="govuk-form-group">
-                <label class="govuk-label govuk-label--m" for="width-10">
-                  Postcode
-                </label>
-                <span id="postcodeError" class="govuk-error-message govuk-!-display-none pcnError">
-                  <span class="govuk-visually-hidden">Error:</span> Enter a valid postcode
-                </span>
-
-                <input class="govuk-input govuk-input--width-10 cardFields" id="postcode" name="postcode" type="text" value="{{data['postcode']}}"></div>
-                <div class="govuk-form-group">
+               <p class="govuk-body">
+                By continuing with the payment, you agree to our terms and conditions, and confirm that you are happy for us to notify you of your crossings through your chosen contact method.
+               </p>
+                 <!--<div class="govuk-form-group">
                   <label class="govuk-label govuk-label--m"  for="event-name">
                       Email address
                     </label>
@@ -445,7 +440,7 @@ Payment details
                       </label>
                   </div>
               </div>
-          </div> -->
+          </div> 
           <div class="govuk-checkboxes">
             <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="notif-opt" name="notif-opt" type="checkbox"
@@ -460,7 +455,7 @@ Payment details
             </div>
         </div>
         <input class="govuk-input govuk-!-width-one-half govuk-!-display-none" id="notifOptMssg" name="notifOptMssg" type="text" value=""></div>
-          <!-- <p>By continuing with payment, you confirm that we can contact you with important messages by email or text message as specified above.</p> -->
+          <!-- <p>By continuing with payment, you confirm that we can contact you with important messages by email or text message as specified above.</p> 
           <div class="govuk-grid-row">
             <div class="govuk-grid-column-two-thirds">
           <details class="govuk-details" data-module="govuk-details">
@@ -472,7 +467,7 @@ Payment details
           <div class="govuk-details__text">
             Notifications are optional but will help you to manage your crossings and pay on time. We will send them by email and also by text message if you provide your mobile phone number.
           </div>
-        </details>
+        </details>-->
       </div>
       </div>
           <div class="govuk-button-group govuk-!-margin-top-6">
@@ -482,6 +477,8 @@ Payment details
                   <button type ="submit" id="confirmPay"  class="govuk-button" data-module="govuk-button">
                     Proceed to payment
                   </button>
+
+                  
           </div>
         </form>
 

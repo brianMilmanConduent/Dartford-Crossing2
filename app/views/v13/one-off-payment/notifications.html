@@ -11,7 +11,7 @@ Pay for recent crossings
 {% endblock %}
 
 {% block content %}
-
+<form class="form" method="post" action="payment-options">
 <div class="govuk-grid-row">
  
 
@@ -19,63 +19,58 @@ Pay for recent crossings
     
    
 
-    {% set emailHtml %}
+    <h1 class="govuk-heading-l">
+      Would you like a receipt?
+    </h1>
+    <p class="govuk-body">
+      We can email or send a receipt by text message. Include your details in one or both of the boxes below if you would like a receipt.
+    </p>
+
     {{ govukInput({
-      id: "contact-by-email",
-      name: "contact-by-email",
-      type: "email",
-      autocomplete: "email",
-      spellcheck: false,
-      classes: "govuk-!-width-one-half",
+      id: "Email address",
+      name: "Email address",
+      classes: "govuk-input--width-20",
       label: {
-        text: "Email address"
+        html: "<b>Email address</b>"
       }
     }) }}
-    {% endset -%}
-    
-   
-    
-    {% set textHtml %}
+
     {{ govukInput({
-      id: "contact-by-text",
-      name: "contact-by-text",
-      type: "tel",
-      autocomplete: "tel",
-      classes: "govuk-!-width-one-third",
+      id: "Mobile number",
+      name: "Mobile number",
+      classes: "govuk-input--width-20",
       label: {
-        text: "Mobile phone number"
+        html: "<b>Mobile number</b>"
       }
     }) }}
-    {% endset -%}
     
-    {{ govukRadios({
-      idPrefix: "contact",
-      name: "contact",
-      fieldset: {
-        legend: {
-          text: "How would you prefer to be contacted?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
-      },
-      hint: {
-        text: "Select one option."
-      },
+    <h2 class="govuk-heading-m">
+      Notifications
+    </h2>
+
+    <p class="govuk-body">
+      We can also send you notifications, tick to say you would like:
+    </p>
+
+
+    {{ govukCheckboxes({
+      idPrefix: "travel updates",
+      name: "travel updates",
       items: [
         {
-          value: "email",
-          text: "Email",
-          conditional: {
-            html: emailHtml
-          }
-        },
-        
+          value: "Value",
+          html: "<b>Travel updates</b><br>we can let you know if there's an issue with the crossing that's affecting travel times"
+        }
+      ]
+    }) }}
+
+    {{ govukCheckboxes({
+      idPrefix: "21 updates",
+      name: "21 updates",
+      items: [
         {
-          value: "text",
-          text: "Text message",
-          conditional: {
-            html: textHtml
-          }
+          value: "Value",
+          html: "<b>Payment reminders</b><br>we can remind you to pay each time you cross"
         }
       ]
     }) }}

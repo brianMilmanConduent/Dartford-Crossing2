@@ -12,8 +12,7 @@ Pay for future crossings{% endblock %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full govuk-!-margin-top-6">
-    <h1 class="govuk-caption-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Pay the Dartford Crossing charge (Dart Charge)</h1>
-    <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Make a one off payment</h1>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-3">No unpaid crossings found</h1>
   </div>
 </div>
 
@@ -21,15 +20,36 @@ Pay for future crossings{% endblock %}
   <div class="govuk-grid-column-two-thirds">
 
     <div class="govuk-inset-text">
-      {{data['vrm-1']}} has no unpaid crossings or PCN
+      LO62 NRO has no unpaid crossings or PCN
     </div>
 
-    <p class="govuk-heading-m">Would you like to pay for future crossings?</p>
-    <div class="govuk-form-group govuk-button-group" >
-      <button onClick="location.href='./payment-info-single'" class="govuk-button" data-module="govuk-button" role="button" aria-label="Yes"
-      >Yes</button>
-        <button class="govuk-button govuk-button--secondary " data-module="govuk-button" role="button" aria-label="No"
-        >No</button>
+    {{ govukRadios({
+      idPrefix: "add-future-crossings",
+      name: "add-future-crossings",
+      fieldset: {
+        legend: {
+          text: "Would you like to add any credit for future crossings?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Future crossing credit will last 12 months"
+      },
+      items: [
+        {
+          value: "Value",
+          text: "Yes"
+        },
+        {
+          value: "No",
+          text: "No"
+        }
+      ]
+    }) }}
+    {{ govukButton({
+      text: "Continue"
+    }) }}
     </div>
 
     </div>
