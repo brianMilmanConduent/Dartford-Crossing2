@@ -10,36 +10,39 @@ How do you want to be notified?
 {% endblock %}
 
 {% block content %}
-{% if data['account-type'] === 'Personal' %}
+
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="statements" method="post">
         
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="notifications">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                How would you like to receive communication about your account?
-              </h1>
-            </legend>
-           
+         
  
 
-         {{ govukCheckboxes({
-           idPrefix: "comms-pref",
-           name: "comms-pref",
-          
-           items: [
-             {
-               value: "email",
-               text: "email"
-             },
-             {
-              value: "text message",
-              text: "text message"
+         {{ govukRadios({
+          idPrefix: "text-notifications",
+          name: "text-notifications",
+          fieldset: {
+            legend: {
+              text: "Would you like to receive communication about your account by text message?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
             }
-           ]
+          },
+          hint: {
+            text: "This will be in addition to receiving notifications by email."
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
          }) }}
            
             </div>
@@ -56,51 +59,7 @@ How do you want to be notified?
   </div>
 </div>
 
- {% else %}
- <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form action="statements" method="post">
-        
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="notifications">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                How would you like to receive communication about your account?
-              </h1>
-            </legend>
-           
-
-            {{ govukCheckboxes({
-              idPrefix: "comms-pref",
-              name: "comms-pref",
-             
-              items: [
-                {
-                  value: "email",
-                  text: "email"
-                },
-                {
-                 value: "text message",
-                 text: "text message"
-               }
-              ]
-            }) }}
-           
-            </div>
-          </fieldset>
-       
-        
-         
-
-            {{ govukButton({
-                text: "Continue"
-            }) }}
-
-    </form>
-
-  </div>
-</div>
-{% endif %}
+ 
 
 
   
