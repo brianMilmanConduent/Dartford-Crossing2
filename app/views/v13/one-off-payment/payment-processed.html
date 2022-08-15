@@ -71,10 +71,10 @@ Payment details
     </h1>
 
 
-        <table class="govuk-table">
+        <!--<table class="govuk-table">
           <caption class="govuk-table__caption govuk-table__caption--m">Payment summary</caption>
           
-          <tbody class="govuk-table__body">
+         <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Number plate</th>
               <td class="govuk-table__cell">{{data['vrn']}}</td>
@@ -89,7 +89,7 @@ Payment details
               <td class="govuk-table__cell">{{(data['sortCrossB'] | float)}}</td>
             </tr>
             {% elif not data['sortCrossB'] %}
-            <!--nocontent-->
+            <!--nocontent
             {% endif %}
             {% if data['sortCrossB'] %}
             <tr class="govuk-table__row">
@@ -97,22 +97,22 @@ Payment details
               <td class="govuk-table__cell"> {{(data['krosCount'] | float) + (data['sortCrossB'] | float)}}</td>
             </tr>
             {% elif not data['sortCrossB'] %}
-            <!--no content to show-->
+            <!--no content to show
             {% endif %}
             
            
           </tbody>
-        </table>
+        </table>-->
 
-        <p class="gem-c-contextual-sidebar__brexit-text govuk-body govuk-!-margin-bottom-1">
-          Total amount: <br>
+        <p class="gem-c-contextual-sidebar__brexit-text govuk-body govuk-!-margin-bottom-0">
+          
           {% if data['sortCrossB'] %}
-          <h1 class="govuk-heading-xl govuk-!-margin-top-1 govuk-!-margin-bottom-2 govuk-!-padding-bottom-2">£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}}</h1>
+          <h1 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-6 govuk-!-padding-bottom-2">Total amount: £{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}}</h1>
           {% elif not data['sortCrossB'] %}
-          <h1 class="govuk-heading-xl govuk-!-margin-top-1 govuk-!-margin-bottom-2 govuk-!-padding-bottom-2">£{{((data['krosCount'] | float)*2.50).toFixed(2)}}</h1>
+          <h1 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-6 govuk-!-padding-bottom-2">Total amount: £{{((data['krosCount'] | float)*2.50).toFixed(2)}}</h1>
           {% endif %}
         </p>
-     <hr class="govuk-!-margin-bottom-6">
+     
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
         
@@ -124,7 +124,6 @@ Payment details
           <div class="govuk-form-group govuk-!-margin-top-0">
             <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="width-2">
               Name on card
-
             </label></h3>
             <span id="nameError" class="govuk-error-message govuk-!-display-none pcnError">
               <span class="govuk-visually-hidden">Error:</span> Enter the name as shown on your credit card
