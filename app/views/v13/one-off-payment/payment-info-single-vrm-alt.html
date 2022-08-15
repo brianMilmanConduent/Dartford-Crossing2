@@ -23,6 +23,7 @@ Pay for recent crossings
     padding: 0 15px 15px;
     text-decoration: none;}
 </style>
+<form class="form" method="post" action="need-future-crossings">
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds error-summary" style="display: none; margin-bottom:-60px">
     <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
@@ -44,66 +45,64 @@ Pay for recent crossings
     
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">Pay for recent crossings</h1>
     <div class="govuk-body govuk-!-margin-top-0">
-      Here are the details of the crossings you've made yesterday and today.
+      Here are the details of the crossings made by {{data['vrn']}} yesterday and today.
     </div>
-    <details class="govuk-details" data-module="govuk-details">
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Number plate</th>
+          <th scope="col" class="govuk-table__header">Crossings made</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">{{data['vrn']}}</th>
+          <td class="govuk-table__cell">{{data['kros']}}</td>
+        </tr>
+       
+      </tbody>
+    </table>
+
+
+   
+    
+
+    
+
+    
+
+
+    <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-5">
+      <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
+      <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£{{((data['krosCount']*2.50)|float).toFixed(2)}}</h1>
+    </div>
+
+    
+    <details class="govuk-details govuk-!-margin-bottom-9" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
          Is there a crossing missing?
         </span>
       </summary>
       <div class="govuk-details__text">
-        Recent crossings can take a short time to show up so please check back later.
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            a crossing is a single journey over the bridge or through the tunnel
+          </li>
+          <li>
+            a return trip is 2 crossings
+          </li>
+          <li>
+            late payments will be used for future crossings - you may receive a PCN for any late payment
+          </li>
+          <li>
+            it costs <b>£2.50 per crossing</b> for a car
+          </li>
+        </ul>
       </div>
     </details>
-    <div class="gem-c-contextual-sidebar__brexit-cta govuk-!-margin-bottom-1">
-      <!-- <h2 class="gem-c-contextual-sidebar__brexit-heading govuk-heading-m govuk-!-margin-bottom-0 -2 govuk-!-margin-top-1">Payment summary</h2>
-      <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
-        Penalty charge notice payment
-    </p> -->
-    <p class="gem-c-contextual-sidebar__brexit-text govuk-body govuk-!-margin-top-1">
-     <b>Number plate</b> <br>
-     <span id="plateNom">{{data['vrn']}}</span>
-  </p>
-  <!--<p class="gem-c-contextual-sidebar__brexit-text govuk-body">
-    <b>Number of pcns</b> <br>
-    <span id="countPCNs">4</span>
-  </p>-->
-  <p class="gem-c-contextual-sidebar__brexit-text govuk-body govuk-!-margin-bottom-0">
-    <b>Crossings made</b> <br>
-    <span class="govuk-!-margin-bottom-0" id="listCrossings">{{data['kros']}}</span>
-  </p>
-  <!-- <p class="gem-c-contextual-sidebar__brexit-text govuk-body govuk-!-margin-bottom-1">
-    Total amount: <br>
-    <h1 id="charge" class="govuk-heading-xl govuk-!-margin-top-1 govuk-!-margin-bottom-1">£10</h1>
-  </p> -->
-    </div>
-  <br>
-    <!-- <div class="govuk-warning-text govuk-!-margin-top-1">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-warning-text__assistive">Warning</span>
-        You have 2 unpaid crossings. If you do not pay for a crossing you could get a penalty charge notice (PCN).
-      </strong>
-    </div> -->
-    {% if data['vrn']==="LO65 NRO" %}
-    <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            You have 3 unpaid crossings made before yesterday. You cannot pay for these now. Use the <a href="../../resolve-pcn/v1.4/flow1"> resolve penalty charge notice </a> option once you get the penalty charge notice in the post.
-          </strong>
-        </div>
-        {%endif%}
-
-    <div class="govuk-body">It costs <b>£2.50 per crossing</b> for a car. </div><br>
-
-
-    
-    <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-5">
-      <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
-      <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-9 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£{{((data['krosCount']*2.50)|float).toFixed(2)}}</h1>
-    </div>
     {{ govukRadios({
       idPrefix: "add-future-crossings",
       name: "add-future-crossings",
@@ -119,7 +118,7 @@ Pay for recent crossings
       },
       items: [
         {
-          value: "Value",
+          value: "Yes",
           text: "Yes"
         },
         {
@@ -128,7 +127,9 @@ Pay for recent crossings
         }
       ]
     }) }}
+    
     <div class="govuk-button-group">
+      
     <button onClick="location.href='notifications'" id="confirmPay"  class="govuk-button" data-module="govuk-button">
       Continue
     </button>
@@ -287,6 +288,7 @@ Pay for recent crossings
   </div>
 </div> -->
 </div>
+</form>
 <!-- <script>
   document.getElementById('sort').addEventListener('change', function() {
   document.getElementById('charge').innerHTML="£"+this.value*2.50;

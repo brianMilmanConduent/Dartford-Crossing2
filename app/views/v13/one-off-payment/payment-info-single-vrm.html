@@ -97,10 +97,22 @@ Pay for recent crossings
         </span>
       </summary>
       <div class="govuk-details__text">
-        Recent crossings can take a short time to show up so please check back later.<br><br>Also, a note around PCN and next steps if they possibly have one....
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            a crossing is a single journey over the bridge or through the tunnel
+          </li>
+          <li>
+            a return trip is 2 crossings
+          </li>
+          <li>
+            late payments will be used for future crossings - you may receive a PCN for any late payment
+          </li>
+        </ul>
       </div>
     </details>
     
+
+
     <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-5">
       <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
       <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-9 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£{{((data['krosCount']*2.50)|float).toFixed(2)}}</h1>

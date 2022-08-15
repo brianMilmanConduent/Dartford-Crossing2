@@ -27,8 +27,8 @@ Pay for recent crossings
     </p>
 
     {{ govukInput({
-      id: "Email address",
-      name: "Email address",
+      id: "Email-address",
+      name: "Email-address",
       classes: "govuk-input--width-20",
       label: {
         html: "<b>Email address</b>"
@@ -36,8 +36,8 @@ Pay for recent crossings
     }) }}
 
     {{ govukInput({
-      id: "Mobile number",
-      name: "Mobile number",
+      id: "Mobile-number",
+      name: "Mobile-number",
       classes: "govuk-input--width-20",
       label: {
         html: "<b>Mobile number</b>"
@@ -54,8 +54,8 @@ Pay for recent crossings
 
 
     {{ govukCheckboxes({
-      idPrefix: "travel updates",
-      name: "travel updates",
+      idPrefix: "travel-updates",
+      name: "travel-updates",
       items: [
         {
           value: "Value",
@@ -63,17 +63,17 @@ Pay for recent crossings
         }
       ]
     }) }}
-
+<!--
     {{ govukCheckboxes({
-      idPrefix: "21 updates",
-      name: "21 updates",
+      idPrefix: "crossing-updates",
+      name: "crossing-updates",
       items: [
         {
           value: "Value",
           html: "<b>Payment reminders</b><br>we can remind you to pay each time you cross"
         }
       ]
-    }) }}
+    }) }} -->
 
     {{ govukButton({
       text: "Continue"

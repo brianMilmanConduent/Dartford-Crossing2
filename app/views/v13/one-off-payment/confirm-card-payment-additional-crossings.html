@@ -95,10 +95,10 @@ Confirm your payment details
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-padding-right-1">
-              Number of crossings
+              Number of recent crossings
             </dt>
             <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-              {% if data['sortCrossB'] %} {{(data['krosCount'] | float) + (data['sortCrossB'] | float)}} {% elif not data['sortCrossB'] %}{{(data['krosCount'] | float)}}{% endif %}
+              {{(data['krosCount'] | float)}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="./payment-info-future">
@@ -106,16 +106,28 @@ Confirm your payment details
               </a>
             </dd>
           </div>
-         
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-padding-right-1">
+              Additional credit for crossings
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-padding-left-3">
+              {{(data['sortCrossB'] | float)}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="./payment-info-future">
+                Change<span class="govuk-visually-hidden"> Number of crossings</span>
+              </a>
+            </dd>
+          </div>
           
-
-          {% if data['Email-address'] %}
+          
+         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Email
             </dt>
             <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-            <p class="govuk-body">{{data['Email-address']}}</p>
+            <p class="govuk-body">{{data['email']}}</p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="./payment-options#email">
@@ -123,18 +135,12 @@ Confirm your payment details
               </a>
             </dd>
           </div>
-          {% elif not data['Email-address'] %}
-          <!--no content to show-->
-          {% endif %}
-          
-
-          {% if data['Mobile-number'] %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Mobile number
+              Phone number
             </dt>
             <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-              <p class="govuk-body">{{-data['Mobile-number']-}}</p>
+              <p class="govuk-body">{{-data['phoneNumber']-}}</p>
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="./payment-options#phoneNumber">
@@ -142,22 +148,13 @@ Confirm your payment details
               </a>
             </dd>
           </div>
-          {% elif not data['Mobile-Number'] %}
-          <!--no content to show-->
-          {% endif %}
-         
-         
-         
         </dl>
-
-
+<br><br>
 
        <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-4">
         <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
         <h1 id="chargeAmount" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">{% if data['sortCrossB'] %}£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}} {% elif not data['sortCrossB'] %}£{{((data['krosCount'] | float)*2.50).toFixed(2)}}{%endif%}</h1>
-      </div><p class="govuk-body govuk-!-margin-top-6 govuk-!-margin-bottom-6">
-        Payment will be taken on the next page.
-      </p>
+      </div><br><br>
       <button onClick="location.href='payment-processed'" id="confirmPay"  class="govuk-button" data-module="govuk-button">
         Confirm and pay
       </button>

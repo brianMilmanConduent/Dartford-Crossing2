@@ -23,25 +23,11 @@ Pay for future crossings
     text-decoration: none;}
 </style>
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds error-summary" style="display: none; margin-bottom:-60px">
-    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
-      data-module="govuk-error-summary">
-      <h2 class="govuk-error-summary__title" id="error-summary-title">
-        There is a problem
-      </h2>
-      <div class="govuk-error-summary__body">
-        <ul class="govuk-list govuk-error-summary__list">
-          <li>
-            <a href="#">Enter a valid email address</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+ 
 
   <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1">
     
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">Add future crossings</h1>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">Add credit for crossings</h1>
 
     
     <div class="govuk-body govuk-!-margin-top-0">
@@ -54,7 +40,7 @@ Pay for future crossings
       <label class="govuk-label" for="sort">
         Number of crossings
       </label>
-      <select class="govuk-select govuk-!-width-one-quarter" id="sortCrossB" name="sortCrossB">
+      <select class="govuk-select govuk-!-width-one-quarter govuk-!-margin-bottom-1" id="sortCrossB" name="sortCrossB">
         <!-- <option value="0" selected>None</option> -->
         <option value="1"selected>1</option>
         <option value="2">2</option>
@@ -78,7 +64,31 @@ Pay for future crossings
         <option value="20">20</option>
 
       </select>
+      {{ govukDetails({
+        summaryText: "How many crossings do you need to pay for?",
+        html: 
+        "
+        <ul class='govuk-list govuk-list--bullet'>
+          <li>
+            a crossing is a single journey over the bridge or through the tunnel
+          </li>
+          <li>
+            a return trip is 2 crossings
+          </li>
+          <li>
+            these payments are valid up to a year or till they are used
+          </li>
+          <li>
+            only use this option for crossings made yesterday, today, or a future date
+          </li>
+          <li>
+            late payments will be used for future crossings - you may receive a PCN for any late payment
+          </li>
+        </ul>
+        "
+      }) }} 
     </div>
+    
     <div class="govuk-form-group">
       <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="cost">
           Payment amount

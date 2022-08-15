@@ -64,43 +64,58 @@ Payment details
 
 
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1 ">
-       
-        <h1 class="govuk-heading-l govuk-!-margin-bottom-7">Payment details</h1>
-        <div class="gem-c-contextual-sidebar__brexit-cta govuk-!-margin-bottom-1 govuk-!-padding-bottom-0">
-          <h2 class="gem-c-contextual-sidebar__brexit-heading govuk-heading-m govuk-!-margin-bottom-0 govuk-!-margin-top-1">Payment summary</h2>
-          <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
-            Dart Charge payment
+    <div class="govuk-grid-column-two-thirds">
+      
+    <h1 class="govuk-heading-l">
+      Payment details
+    </h1>
+
+
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Payment summary</caption>
+          
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Number plate</th>
+              <td class="govuk-table__cell">{{data['vrn']}}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Number of recent crossings</th>
+              <td class="govuk-table__cell">{{(data['krosCount'] | float)}}</td>
+            </tr>
+            {% if data['sortCrossB'] %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Additional credit for crossings</th>
+              <td class="govuk-table__cell">{{(data['sortCrossB'] | float)}}</td>
+            </tr>
+            {% elif not data['sortCrossB'] %}
+            <!--nocontent-->
+            {% endif %}
+            {% if data['sortCrossB'] %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total crossings to pay for</th>
+              <td class="govuk-table__cell"> {{(data['krosCount'] | float) + (data['sortCrossB'] | float)}}</td>
+            </tr>
+            {% elif not data['sortCrossB'] %}
+            <!--no content to show-->
+            {% endif %}
+            
+           
+          </tbody>
+        </table>
+
+        <p class="gem-c-contextual-sidebar__brexit-text govuk-body govuk-!-margin-bottom-1">
+          Total amount: <br>
+          {% if data['sortCrossB'] %}
+          <h1 class="govuk-heading-xl govuk-!-margin-top-1 govuk-!-margin-bottom-2 govuk-!-padding-bottom-2">£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}}</h1>
+          {% elif not data['sortCrossB'] %}
+          <h1 class="govuk-heading-xl govuk-!-margin-top-1 govuk-!-margin-bottom-2 govuk-!-padding-bottom-2">£{{((data['krosCount'] | float)*2.50).toFixed(2)}}</h1>
+          {% endif %}
         </p>
-        <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
-         <b>Number plate</b> <br>
-         {{data['vrn']}}
-      </p>
-      {% if data['sortCrossB'] %}
-      <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
-
-        <b>Number of crossings</b> <br>
-        {{(data['krosCount'] | float) + (data['sortCrossB'] | float)}}
-
-      </p>
-      {% elif not data['sortCrossB'] %}
-      <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
-
-        <b>Number of crossings</b> <br>
-        {{(data['krosCount'] | float)}}
-
-      </p>
-      {% endif %}
-
-      <p class="gem-c-contextual-sidebar__brexit-text govuk-body govuk-!-margin-bottom-1">
-        Total amount: <br>
-        {% if data['sortCrossB'] %}
-        <h1 class="govuk-heading-xl govuk-!-margin-top-1 govuk-!-margin-bottom-2 govuk-!-padding-bottom-2">£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}}</h1>
-        {% elif not data['sortCrossB'] %}
-        <h1 class="govuk-heading-xl govuk-!-margin-top-1 govuk-!-margin-bottom-2 govuk-!-padding-bottom-2">£{{((data['krosCount'] | float)*2.50).toFixed(2)}}</h1>
-        {% endif %}
-      </p>
-        </div>
+     <hr class="govuk-!-margin-bottom-6">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+        
   <img id=applePay class=" govuk-!-width-two-thirds govuk-!-display-none govuk-!-margin-bottom-3" src="\public\images\appleDefault.png" alt="apple Pay">
         <hr id="appleSection"class="govuk-body-xl govuk-!-width-two-thirds govuk-!-display-none govuk-section-break govuk-section-break--xl govuk-section-break--visible hr-text" data-content="OR">
 
@@ -475,7 +490,7 @@ Payment details
                   aria-label="Proceed to payment">Proceed to payment</button>-->
                   <!-- onClick="location.href='./payment-failure'" -->
                   <button type ="submit" id="confirmPay"  class="govuk-button" data-module="govuk-button">
-                    Proceed to payment
+                    Process payment
                   </button>
 
                   
