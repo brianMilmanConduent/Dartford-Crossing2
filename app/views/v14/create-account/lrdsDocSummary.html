@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Documents uploaded to prove local residence
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="email">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+
+    <h1 class="govuk-heading-l">
+      Documents uploaded to prove address
+    </h1>
+
+    {{ govukTable({
+      
+      firstCellIsHeader: true,
+     
+      rows: [
+        
+        [
+          {
+            text: "Vehicle V5C log book"
+          },
+          {
+            html: 
+            "
+            <a href='#' class='govuk-link'>V5C.pdf</a> 1.6MB
+            "
+          }
+          ,
+          {
+            html: 
+            "
+            <a href='#' class='govuk-link'>Delete</a>
+            "
+          }
+        ],
+        [
+          {
+            text: "Supporting document 1"
+          },
+          {
+            html: 
+            "
+            <a href='#' class='govuk-link'>drivlicense.pdf</a> 1.6MB
+            "
+          }
+          ,
+          {
+            html: 
+            "
+            <a href='#' class='govuk-link'>Delete</a>
+            "
+          }
+        ],
+        [
+          {
+            text: "Supporting document 2"
+          },
+          {
+            html: 
+            "
+            <a href='#' class='govuk-link'>utilBill.pdf</a> 1.6MB
+            "
+          }
+          ,
+          {
+            html: 
+            "
+            <a href='#' class='govuk-link'>Delete</a>
+            "
+          }
+        ]
+      ]
+    }) }}
+    <div class="govuk-button-group">
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+   
+
+    </div>
+</div>
+</div> 
+    </div>
+  </div>
+</form>
+{% endblock %}

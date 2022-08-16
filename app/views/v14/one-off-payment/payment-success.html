@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Payment successfull
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<!--<a href="/home" style="cursor: pointer;" class="govuk-back-link">Home</a>-->
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-padding-top-0">
+        <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+                Payment successful
+            </h1>
+            <div class="govuk-panel__body">
+                Your payment reference number<br><strong>725548253</strong>
+            </div>
+        </div>
+        <p>We've sent a confirmation email to alex.lee@gmail.com</p>
+        <table class="govuk-table govuk-!-margin-bottom-2">
+            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Number plate</th>
+                    <td class="govuk-table__cell">{{data['vrn']}}</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Date</th>
+                    <td class="govuk-table__cell">26 Aug 2021</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Number of recent crossings</th>
+                    <td class="govuk-table__cell">{{data['krosCount']}}</td>
+                </tr>
+                <!--<tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Number of future crossings</th>
+                    <td class="govuk-table__cell">{% if data['sortCrossB'] %}{{data['sortCrossB']}}{% elif not data['sortCrossB'] %}0{%endif%}</td>
+                </tr>-->
+                {% if data['sortCrossB'] %}
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Number of future crossings</th>
+                    <td class="govuk-table__cell">{{data['sortCrossB']}}</td>
+                </tr>
+                {%endif%}
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Amount</th>
+                    <td class="govuk-table__cell">{% if data['sortCrossB'] %}£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}} {% elif not data['sortCrossB'] %}£{{((data['krosCount'] | float)*2.50).toFixed(2)}}{%endif%}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds"><br>
+        
+
+        
+       
+        <h3 class = "govuk-heading-m">Create a Dart Charge account</h3>
+        <p class = "govuk-body">If you make regular crossings we recommend <a href ="../create-account/create-start">creating an account.</a> Payments for crossings are then taken automatically. With a pre-pay account you’ll also get a discount of up to 20% on all crossings.</p>
+        <p>If you live in Dartford or Thurrock you may qualify for the  <a href =#>local resident discount</a>.</p>
+       
+        </div>
+       
+
+
+    </div>
+</div>
+
+
+{% endblock %}

@@ -8,6 +8,7 @@ const v10Routes = require('./routes/v10');
 const v11Routes = require('./routes/v11');
 const v12Routes = require('./routes/v12');
 const v13Routes = require('./routes/v13');
+const v14Routes = require('./routes/v14');
 
 router.use('/', v7Routes);
 router.use('/', v8Routes);
@@ -16,5 +17,6 @@ router.use('/', v10Routes);
 router.use('/', v11Routes);
 router.use('/', v12Routes);
 router.use('/', v13Routes);
+router.use('/', v14Routes);
 
 module.exports = router;

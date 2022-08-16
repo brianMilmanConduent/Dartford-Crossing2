@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+What type of account would you like?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="lrds-yes-no">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-1">
+      Are you sure you do not want the local resident discount?
+    </h1>
+   <p class="govuk-body">
+    You will pay standard pre-pay rates for any future crossings.
+   </p>
+    
+   
+{{ govukRadios({
+  idPrefix: "lrds-yes-no",
+  name: "lrds-yes-no",
+  
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
+    },
+    {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+
+
+{% set detailsHTML %}
+<h2 class="govuk-heading-m">
+  Cars and motorcycles
+</h2>
+{{ govukTable({
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: ""
+    },
+    
+    
+    {
+      text: "Pre-pay"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Motorcycles, mopeds and quad bikes"
+      },
+      
+  
+      
+      {
+        text: "Free"
+      }
+    ],
+    [
+      {
+        text: "Cars (including trailers), motorhomes and any minibuses that have 9 or less seats (including the driver’s seat)	"
+      },
+      
+  
+      
+      {
+        text: "£2.00"
+      }
+    ]
+  ]
+}) }}
+
+
+<h2 class="govuk-heading-m">
+  Buses, coaches, vans and other goods vehicles
+</h2>
+{{ govukTable({
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: ""
+    },
+  
+  
+    {
+      text: "Pre-pay"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "Vehicles with 2 axles"
+      },
+    
+  
+    
+      {
+        text: "£2.63"
+      }
+    ],
+    [
+      {
+        text: "Vehicles with more than 2 axles"
+      },
+      
+  
+    
+      {
+        text: "£5.19"
+      }
+    ]
+  ]
+}) }}
+{% endset %}
+
+{{ govukDetails({
+summaryText: "What are the standard pre-pay rates for the Dartford Crossing?",
+html: detailsHTML
+})
+}}
+    
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+</div>
+</div> 
+    </div>
+  </div>
+</form>
+{% endblock %}

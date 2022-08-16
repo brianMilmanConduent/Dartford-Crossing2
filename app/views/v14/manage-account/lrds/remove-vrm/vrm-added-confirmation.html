@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your account has been created
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<br><br>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<div class="govuk-grid-row">
+    <div class="govuk-panel govuk-panel--interruption">
+        
+      <fieldset class="govuk-fieldset" aria-describedby="start_new_claim">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-heading-l">
+              We're reviewing your V5C log book details
+            </h1>
+          </legend>
+          <h2 class="govuk-heading-m">
+            What happens next
+          </h2>
+          <p class="govuk-body">
+            Your account is not currently active. Your account will be active once your local resident discount is approved.
+          </p>
+
+          <p class="govuk-body">
+            <a href="#" class="govuk-link whitea">View your account</a>
+          </p>
+          <h2 class="govuk-heading-m">
+            Dart Charge contact centre
+          </h2>
+
+          <ul class="govuk-list">
+            <li>
+              Telephone: 0300 300 0120
+
+            </li>
+            <li>
+              Textphone: 18001 0300 300 0120
+            </li>
+            <li>
+              Every day, 8am to 8pm
+            </li>
+            <li>
+              <a href="#" class="govuk-link whitea">Find out about call charges</a>
+            </li>
+          </ul>
+
+      </fieldset>
+  </div>       
+</div>
+
+{% endblock %}

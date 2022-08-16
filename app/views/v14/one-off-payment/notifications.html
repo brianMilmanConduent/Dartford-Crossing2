@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay for recent crossings
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<form class="form" method="post" action="payment-options">
+<div class="govuk-grid-row">
+ 
+
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1">
+    
+   
+
+    <h1 class="govuk-heading-l">
+      Would you like a receipt?
+    </h1>
+    <p class="govuk-body">
+      We can email or send a receipt by text message. Include your details in one or both of the boxes below if you would like a receipt.
+    </p>
+
+    {{ govukInput({
+      id: "Email-address",
+      name: "Email-address",
+      classes: "govuk-input--width-20",
+      label: {
+        html: "<b>Email address</b>"
+      }
+    }) }}
+
+    {{ govukInput({
+      id: "Mobile-number",
+      name: "Mobile-number",
+      classes: "govuk-input--width-20",
+      label: {
+        html: "<b>Mobile number</b>"
+      }
+    }) }}
+    
+    <h2 class="govuk-heading-m">
+      Notifications
+    </h2>
+
+    <p class="govuk-body">
+      We can also send you notifications, tick to say you would like:
+    </p>
+
+
+    {{ govukCheckboxes({
+      idPrefix: "travel-updates",
+      name: "travel-updates",
+      items: [
+        {
+          value: "Value",
+          html: "<b>Travel updates</b><br>we can let you know if there's an issue with the crossing that's affecting travel times"
+        }
+      ]
+    }) }}
+
+    {{ govukCheckboxes({
+      idPrefix: "crossing-updates",
+      name: "crossing-updates",
+      items: [
+        {
+          value: "Value",
+          html: "<b>Payment reminders</b><br>we can remind you to pay each time you cross"
+        }
+      ]
+    }) }} 
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    
+</div> 
+</div>
+
+{% endblock %}

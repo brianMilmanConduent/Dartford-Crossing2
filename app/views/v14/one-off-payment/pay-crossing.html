@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay for crossings without an account
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1">
+        
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the number plate of the vehicle?</h1>
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+        
+        <!--<p class="govuk-body">
+            Pay for crossings:</p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>you've made yesterday or today</li>
+            <li>you plan to make in the future</li>
+          </ul>-->
+           
+        
+    </div>
+</div>
+
+
+
+<form method="post">
+  <div class="govuk-form-group">
+      <h2 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="vrn">
+          Number plate
+        </label>
+      </h2>
+      <div id="event-name-hint" class="govuk-hint">
+        For example, CU57ABC
+        </div>
+      <input class="govuk-input govuk-input--width-10" id="vrn" name="vrn" type="text" value="{{data['vrn']}}">
+    </div>
+    <div class="govuk-form-group govuk-!-display-none">
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="kros">
+          Number of crossings
+        </label>
+        
+      </h1>
+      
+      <input class="govuk-input govuk-!-width-one-half " id="kros" name="kros" type="text"  value="{{data['kros']}}">
+    </div>
+    <div class="govuk-form-group govuk-!-display-none">
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="krosCount">
+          Number of crossings flat
+        </label>
+      </h1>
+      <input class="govuk-input govuk-!-width-one-half govuk-!-display-none" id="krosCount" name="krosCount" type="number" value="{{data['krosCount']}}">
+    </div>
+
+    <div class="govuk-form-group govuk-!-display-none">
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="krosCountPay">
+          Payment
+        </label>
+      </h1>
+      <input class="govuk-input govuk-!-width-one-half" id="krosCountPay" name="krosCountPay" type="text" value="">
+    </div>
+
+     
+
+      <button type="submit" id="plateSubmit" class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+        Continue
+      </button>
+  </form>
+<!-- <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+        I have a non-UK registration plate
+      </span>
+    </summary>
+     <div class="govuk-details__text">
+      We need to know your nationality so we can work out which elections you’re entitled to vote in. If you cannot provide your nationality, you’ll have to send copies of identity documents through the post.
+    </div> -->
+  <!-- </details> -->
+
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+  Account summary - Business
+{% endblock %}
+
+{% block beforeContent %}
+  
+{% include "includes/beta-banner.html" %}
+{% endblock %}
+
+
+<!--main body starts-->
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!--priority message banner-->
+    {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+    {% set html %}
+      <p class="govuk-notification-banner__heading">
+        You have 1 outstanding action{s}.
+        <a class="govuk-notification-banner__link" href="2nd-year-renewal-tasks"> Act now</a>.
+      </p>
+    {% endset %}
+    
+    {{ govukNotificationBanner({
+      html: html
+    }) }}
+
+   <!--priority message banner-->
+
+   {% block pageHeaderContent %}
+   {% include "includes/v3/accounts/personal-pre-pay/page-header.html" %}
+ {% endblock %}
+
+
+ 
+ {% block balanceContent %}
+   {% include "includes/v3/accounts/personal-pre-pay/balance-and-top-up.html" %}
+ {% endblock %}
+
+
+
+{% block crossingTableContent %}
+ {% include "includes/v3/accounts/personal-pre-pay/crossing-table.html" %}
+{% endblock %}
+<div class="govuk-grid-row">
+ <div class="govuk-grid-column-one-half govuk-!-margin-top-7 app-!-divider">
+   <h3 class="govuk-heading-m govuk-!-margin-bottom-1">Your vehicles</h3>
+   <div class="govuk-!-margin-bottom-3">
+      <h3 class="govuk-heading-xl govuk-!-font-weight-regular govuk-!-margin-bottom-0">2 <span class="govuk-body">Vehicles</span></h3>
+   </div>
+   <div class="govuk-!-margin-top-3"><a class="govuk-link govuk-body govuk-link--no-visited-state" role="link"  href="vehicles" >View vehicles</a></div>
+ </div>
+ <div class="govuk-grid-column-one-half govuk-!-padding-left-3 govuk-!-margin-top-7 govuk-!-margin-bottom-7">
+   <h3 class="govuk-heading-m govuk-!-margin-bottom-1">Your savings</h3>
+   <div class="govuk-!-margin-bottom-3">
+      <h3 class="govuk-heading-xl govuk-!-font-weight-regular govuk-!-margin-bottom-0">£ 10 <span class="govuk-body">Average saving/month</span></h3>
+   </div>
+   <div class="govuk-!-margin-top-3"><a class="govuk-link govuk-body govuk-link--no-visited-state" role="link"  href="#" >View payment history</a></div>
+ </div>
+</div>
+
+</div>
+</div>
+{% endblock %}
+<!--main body ends-->
