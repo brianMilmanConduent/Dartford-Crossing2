@@ -25,21 +25,7 @@ Pay for recent crossings
 </style>
 <form class="form" method="post" action="need-future-crossings">
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds error-summary" style="display: none; margin-bottom:-60px">
-    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" tabindex="-1"
-      data-module="govuk-error-summary">
-      <h2 class="govuk-error-summary__title" id="error-summary-title">
-        There is a problem
-      </h2>
-      <div class="govuk-error-summary__body">
-        <ul class="govuk-list govuk-error-summary__list">
-          <li>
-            <a href="#">Enter a valid email address</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  
 
   <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1">
     
@@ -52,13 +38,13 @@ Pay for recent crossings
       
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th scope="col" class="govuk-table__header">Number plate</th>
+          <th scope="col" class="govuk-table__header">Vehicle Registration (number plate)</th>
           <th scope="col" class="govuk-table__header">Crossings made</th>
         </tr>
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">{{data['vrn']}}</th>
+          <td class="govuk-table__cell">{{data['vrn']}}</td>
           <td class="govuk-table__cell">{{data['kros']}}</td>
         </tr>
        
@@ -78,7 +64,31 @@ Pay for recent crossings
       <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
       <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£{{((data['krosCount']*2.50)|float).toFixed(2)}}</h1>
     </div>
-
+    {{ govukSelect({
+      id: "quantity-of-journeys",
+      name: "quantity-of-journeys",
+      label: {
+        html: "<b>Confirm number of crossings to pay for</b>"
+      },
+      hint: {
+        text: "Hint text"
+      },
+      items: [
+        {
+          value: "1",
+          text: "1"
+        },
+        {
+          value: "2",
+          text: "2"
+        },
+        {
+          value: "3",
+          text: "3",
+          selected: "true"
+        }
+      ]
+    }) }}
     
     <details class="govuk-details govuk-!-margin-bottom-9" data-module="govuk-details">
       <summary class="govuk-details__summary">
@@ -103,6 +113,12 @@ Pay for recent crossings
         </ul>
       </div>
     </details>
+
+
+    
+
+
+
     {{ govukRadios({
       idPrefix: "add-future-crossings",
       name: "add-future-crossings",

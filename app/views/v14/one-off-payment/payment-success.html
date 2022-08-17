@@ -27,7 +27,7 @@ Payment successfull
         <table class="govuk-table govuk-!-margin-bottom-2">
             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Number plate</th>
+                    <th scope="row" class="govuk-table__header">Vehicle Registration (number plate)</th>
                     <td class="govuk-table__cell">{{data['vrn']}}</td>
                 </tr>
                 <tr class="govuk-table__row">
@@ -58,8 +58,65 @@ Payment successfull
 </div>
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds"><br>
-        
 
+        {% if data['travel-updates'] and not data['crossing-updates'] %}
+        
+{{ govukInsetText({
+    html: 
+    "
+    Thank you for registering for notifications. We will send these by [email and text message].<br>
+    We will notifiy you when:
+    <ul class='govuk-list govuk-list--bullet'>
+        <li>
+            There are delays with crossing times due to traffic conditions
+        </li>
+    </ul>
+    "
+}) }}
+{% elif data['crossing-updates'] and not data['travel-updates']%}
+{{ govukInsetText({
+    html: 
+    "
+    Thank you for registering for notifications. We will send these by [email and text message].<br>
+    We will notifiy you when:
+    <ul class='govuk-list govuk-list--bullet'>
+        <li>
+            You make a crossing you have already paid for so you know how much balance you have left
+        </li>
+        <li>
+            You need to make a payment for a crossing
+        </li>
+    </ul>
+    "
+}) }}
+
+
+{% elif data['travel-updates'] and data['crossing-updates'] %}
+{{ govukInsetText({
+    html: 
+    "
+    Thank you for registering for notifications. We will send these by [email and text message].<br>
+    We will notifiy you when:
+    <ul class='govuk-list govuk-list--bullet'>
+        <li>
+            You make a crossing you have already paid for so you know how much balance you have left
+        </li>
+        <li>
+            You need to make a payment for a crossing
+        </li>
+        <li>
+            There are delays with crossing times due to traffic conditions
+        </li>
+    </ul>
+    "
+}) }}
+
+{% elif not data['travel-updates'] or data['crossing-updates'] %}
+
+{{ govukInsetText({
+    html: "You did not opt in to receive notifications. Please always remember to pay on time."
+}) }}
+{%endif%}
         
        
         <h3 class = "govuk-heading-m">Create a Dart Charge account</h3>

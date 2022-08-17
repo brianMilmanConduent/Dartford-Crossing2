@@ -79,36 +79,64 @@ Confirm your payment details
            </tr>
           </tbody>
         </table>   -->
+        <h2 class="govuk-heading-m">Crossing details</h2>
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Number plate
+              Vehicle Registration (number plate)
             </dt>
             <dd class="govuk-summary-list__value govuk-!-padding-left-3">
               {{data['vrn']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./pay-crossing.html">
+              <a class="govuk-link" href="">
                 Change<span class="govuk-visually-hidden"> name</span>
               </a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-padding-right-1">
-              Number of crossings
+              Recent crossings
             </dt>
             <dd class="govuk-summary-list__value govuk-!-padding-left-3">
-              {% if data['sortCrossB'] %} {{(data['krosCount'] | float) + (data['sortCrossB'] | float)}} {% elif not data['sortCrossB'] %}{{(data['krosCount'] | float)}}{% endif %}
+              {{data['krosCount']}}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./payment-info-future">
+              <a class="govuk-link" href="">
                 Change<span class="govuk-visually-hidden"> Number of crossings</span>
               </a>
             </dd>
           </div>
-         
-          
+          {% if data['sortCrossB']  %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-padding-right-1">
+              Credit for additional crossings
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-padding-left-3">
+                {{data['sortCrossB']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">
+                Change<span class="govuk-visually-hidden"> Number of crossings</span>
+              </a>
+            </dd>
+          </div>
+          {% elif not data['sortCrossB']%}
+          <!--no content to show-->
+          {% endif %}
+        </dl>
 
+        <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-4">
+          <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
+          <h1 id="chargeAmount" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">{% if data['sortCrossB'] %}£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}} {% elif not data['sortCrossB'] %}£{{((data['krosCount'] | float)*2.50).toFixed(2)}}{%endif%}</h1>
+        </div>
+        
+        {% if data['Email-address'] or data['Mobile-number'] %}
+        <h2 class="govuk-heading-m govuk-!-padding-top-6">
+          Notification details
+        </h2>
+        
+        <dl class="govuk-summary-list">
           {% if data['Email-address'] %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -118,14 +146,17 @@ Confirm your payment details
             <p class="govuk-body">{{data['Email-address']}}</p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./payment-options#email">
+              <a class="govuk-link" href="">
                 Change<span class="govuk-visually-hidden"> contact details</span>
               </a>
             </dd>
+            
           </div>
-          {% elif not data['Email-address'] %}
+          {% elif not data['Email-address'] or not data['Mobile-number'] %}
           <!--no content to show-->
           {% endif %}
+          
+
           
 
           {% if data['Mobile-number'] %}
@@ -137,7 +168,7 @@ Confirm your payment details
               <p class="govuk-body">{{-data['Mobile-number']-}}</p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="./payment-options#phoneNumber">
+              <a class="govuk-link" href="">
                 Change<span class="govuk-visually-hidden"> contact details</span>
               </a>
             </dd>
@@ -145,19 +176,52 @@ Confirm your payment details
           {% elif not data['Mobile-Number'] %}
           <!--no content to show-->
           {% endif %}
-         
-         
-         
-        </dl>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Travel updates
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-padding-left-3">
+              <p class="govuk-body">
+                {% if data['travel-updates'] %}
+                {{data['travel-updates']}}
+                {% elif not data['travel-updates'] %}
+                Not selected
+                {% endif %}
+              </p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Payment reminders
+            </dt>
+            <dd class="govuk-summary-list__value govuk-!-padding-left-3">
+              <p class="govuk-body">
+                {% if data['crossing-updates'] %}
+                {{data['crossing-updates']}}
+                {% elif not data['crossing-updates'] %}
+                Not selected
+                {% endif %}
+              </p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">
+                Change<span class="govuk-visually-hidden"> contact details</span>
+              </a>
+            </dd>
+          </div>
+          </dl>
+
+          {% elif not data['Email-address'] or not data['Mobile-Number'] %}
+          <!--no content to show-->
+          {% endif %}
 
 
-
-       <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-4">
-        <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
-        <h1 id="chargeAmount" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">{% if data['sortCrossB'] %}£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}} {% elif not data['sortCrossB'] %}£{{((data['krosCount'] | float)*2.50).toFixed(2)}}{%endif%}</h1>
-      </div><p class="govuk-body govuk-!-margin-top-6 govuk-!-margin-bottom-6">
-        Payment will be taken on the next page.
-      </p>
+       
       <button onClick="location.href='payment-processed'" id="confirmPay"  class="govuk-button" data-module="govuk-button">
         Confirm and pay
       </button>

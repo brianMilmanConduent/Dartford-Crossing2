@@ -128,7 +128,7 @@ Payment details
             <span id="nameError" class="govuk-error-message govuk-!-display-none pcnError">
               <span class="govuk-visually-hidden">Error:</span> Enter the name as shown on your credit card
             </span>
-            <input class="govuk-input govuk-!-width-one-half cardFields" id="userName" name="userName" type="text" value="{{data['userName']}}"></div>
+            <input class="govuk-input govuk-!-width-one-half cardFields" id="userName" name="userName" type="text" ></div>
           <div class="govuk-form-group govuk-!-margin-bottom-3">
             <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="event-name">
               Card number
@@ -137,7 +137,7 @@ Payment details
             <span id="cardNumError" class="govuk-error-message govuk-!-display-none pcnError">
               <span class="govuk-visually-hidden">Error:</span> Enter a valid credit card number
             </span>
-            <input class="govuk-input govuk-!-width-two-thirds cardFields" id="cardset" name="cardset" type="text" maxlength="15" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="{{data['cardset']}}">
+            <input class="govuk-input govuk-!-width-two-thirds cardFields" id="cardset" name="cardset" type="text" maxlength="15" onkeypress='return event.charCode >= 48 && event.charCode <= 57' >
 
           </div>
           <div class="govuk-!-margin-bottom-2" style="position:relative;"><img src ="\public\images\cardarray.png" id="bgCardset" style=" position: relative;width: 30%!important" class="govuk-!-width-two-thirds" alt="supported cards"/>
@@ -159,7 +159,7 @@ Payment details
             <span id="monthError" class="govuk-error-message govuk-!-display-none pcnError">
               <span class="govuk-visually-hidden">Error:</span> Enter a valid month
             </span>
-            <input class="govuk-input govuk-input--width-2 cardFields" id="month" name="month" type="text" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="{{data['month']}}">
+            <input class="govuk-input govuk-input--width-2 cardFields" id="month" name="month" type="text" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' >
           </div>
           <h3 class="govuk-heading-m" style="display:inline-block;">/</h3>
           <div class="govuk-form-group" style="display:inline-block;">
@@ -169,7 +169,7 @@ Payment details
             <span id="yearError" class="govuk-error-message govuk-!-display-none pcnError">
               <span class="govuk-visually-hidden">Error:</span> Enter a valid year
             </span>
-            <input class="govuk-input govuk-input--width-4 cardFields" id="year" name="year" type="text" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="{{data['year']}}">
+            <input class="govuk-input govuk-input--width-4 cardFields" id="year" name="year" type="text" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' v>
           </div>
             
             <div class="govuk-form-group govuk-!-margin-top-0 govuk-!-margin-right-2" >
@@ -182,7 +182,7 @@ Payment details
                 <span id="cvvError" class="govuk-error-message govuk-!-display-none pcnError">
                   <span class="govuk-visually-hidden">Error:</span> Enter a valid card security code
                 </span>
-                <input class="govuk-input govuk-input--width-4 cardFields" id="cvv" name="cvv" type="text" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="{{data['cvv']}}">
+                <input class="govuk-input govuk-input--width-4 cardFields" id="cvv" name="cvv" type="text" maxlength="3" onkeypress='return event.charCode >= 48 && event.charCode <= 57' >
                 <div class="govuk-!-display-inline-block" style=" position:relative; top:0.7em;">
                  <svg
                   xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -538,38 +538,9 @@ Payment details
                          })
 
 
-                         //Autofill payment details form
-                         let confirmPay = document.getElementById("confirmPay")
-                         let cardFields  = document.getElementsByClassName("cardFields");
-                         confirmPay.addEventListener("mouseover", function(){
-                          if (cardFields[0].value===""){
-                            cardFields[0].value="355266188299511"
-                          }
-                          if (cardFields[1].value===""){
-                            cardFields[1].value="01"
-                          }
-                          if (cardFields[2].value==""){
-                            cardFields[2].value="25"
-                          }
-                          if (cardFields[3].value==="") {
-                              cardFields[3].value="Alex Lee"
-                          }
-                          if (cardFields[4].value===""){
-                            cardFields[4].value="323"
-                           }
-                           if (cardFields[5].value===""){
-                            cardFields[5].value="NW105AD"
-                           }
+                        
 
-                           if (cardFields[6].value==""){
-                            cardFields[6].value="johndoe@email.com"
-                           }
-                           if (cardFields[7].value==""){
-                            cardFields[7].value="+44 8849 33302 "
-                           }
-
-
-                         })
+                        
   </script>
 
 
