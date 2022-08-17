@@ -6,7 +6,7 @@ Pay for recent crossings
 
 
 {% block beforeContent %}
-{% include "includes/alpha-banner.html" %}
+{% include "includes/beta-banner.html" %}
 {% include "includes/back-link.html" %}
 {% endblock %}
 
@@ -55,6 +55,7 @@ Pay for recent crossings
     {{ govukSelect({
       id: "quantity-of-journeys",
       name: "quantity-of-journeys",
+      classes: "govuk-input--width-10",
       label: {
         html: "<b>Confirm number of crossings to pay for</b>"
       },
@@ -64,15 +65,15 @@ Pay for recent crossings
       items: [
         {
           value: "1",
-          text: "1"
+          text: "1 crossings"
         },
         {
           value: "2",
-          text: "2"
+          text: "2 crossings"
         },
         {
           value: "3",
-          text: "3",
+          text: "3 crossings",
           selected: "true"
         }
       ]
