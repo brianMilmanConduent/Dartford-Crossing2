@@ -11,7 +11,7 @@ Pay for recent crossings
 {% endblock %}
 
 {% block content %}
-<form class="form" method="post" action="payment-options">
+<form class="form" method="post" action="receipts">
 <div class="govuk-grid-row">
  
 
@@ -23,7 +23,7 @@ Pay for recent crossings
       Would you like a receipt?
     </h1>
     <p class="govuk-body">
-      We can email or send a receipt by text message. Include your details in one or both of the boxes below if you would like a receipt.
+      We can send you a receipt by email and/or text message.
     </p>
 
     {{ govukInput({
@@ -44,36 +44,7 @@ Pay for recent crossings
       }
     }) }}
     
-    <h2 class="govuk-heading-m">
-      Notifications
-    </h2>
-
-    <p class="govuk-body">
-      We can also send you notifications, tick to say you would like:
-    </p>
-
-
-    {{ govukCheckboxes({
-      idPrefix: "travel-updates",
-      name: "travel-updates",
-      items: [
-        {
-          value: "Selected",
-          html: "<b>Travel updates</b><br>we can let you know if there's an issue with the crossing that's affecting travel times"
-        }
-      ]
-    }) }}
-
-    {{ govukCheckboxes({
-      idPrefix: "crossing-updates",
-      name: "crossing-updates",
-      items: [
-        {
-          value: "Selected",
-          html: "<b>Payment reminders</b><br>we can remind you to pay each time you cross"
-        }
-      ]
-    }) }} 
+    
 
     {{ govukButton({
       text: "Continue"

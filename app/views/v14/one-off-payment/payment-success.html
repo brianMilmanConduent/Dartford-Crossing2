@@ -68,7 +68,7 @@ Payment successfull
     We will notifiy you when:
     <ul class='govuk-list govuk-list--bullet'>
         <li>
-            There are delays with crossing times due to traffic conditions
+            there are delays with crossing times due to traffic conditions
         </li>
     </ul>
     "
@@ -81,10 +81,10 @@ Payment successfull
     We will notifiy you when:
     <ul class='govuk-list govuk-list--bullet'>
         <li>
-            You make a crossing you have already paid for so you know how much balance you have left
+            you need to make a payment
         </li>
         <li>
-            You need to make a payment for a crossing
+            you make a crossing you've already paid for, so you know how much balance you've got left
         </li>
     </ul>
     "
@@ -95,17 +95,16 @@ Payment successfull
 {{ govukInsetText({
     html: 
     "
-    You have registered for notifications. We will send these by [email and text message].<br>
-    We will notifiy you when:
+    We will  notify you [by email and/or text message] when:
     <ul class='govuk-list govuk-list--bullet'>
         <li>
-            You make a crossing you have already paid for so you know how much balance you have left
+            you need to make a payment
         </li>
         <li>
-            You need to make a payment for a crossing
+            you make a crossing you've already paid for, so you know how much balance you've got left
         </li>
         <li>
-            There are delays with crossing times due to traffic conditions
+            there are delays with crossing times due to traffic conditions
         </li>
     </ul>
     "
@@ -114,13 +113,13 @@ Payment successfull
 {% elif not data['travel-updates'] or data['crossing-updates'] %}
 
 {{ govukInsetText({
-    html: "You did not opt in to receive notifications. You will need to remember to pay on time."
+    html: "We will not remind you when to pay, as you did not opt in to receive notifications."
 }) }}
 {%endif%}
         
        
         <h3 class = "govuk-heading-m">Create a Dart Charge account</h3>
-        <p class = "govuk-body">If you make regular crossings we recommend <a href ="../create-account/create-start">creating an account.</a> Payments for crossings are then taken automatically. With a pre-pay account you’ll also get a discount of up to 20% on all crossings.</p>
+        <p class = "govuk-body">If you make regular crossings, you might benefit from <a href ="../create-account/create-start">creating an account</a>. Payments for crossings are then taken automatically. With a pre-pay account you’ll also get a discount of up to 20% on all crossings.</p>
         <p>If you live in Dartford or Thurrock you may qualify for the  <a href =#>local resident discount</a>.</p>
        
         </div>
