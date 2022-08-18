@@ -110,7 +110,7 @@ Payment details
           <p class="govuk-body govuk-!-margin-bottom-0">
             Total amount:
           </p>
-          <h1 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-6 govuk-!-padding-bottom-2">Total amount: £{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}}</h1>
+          <h1 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-6 govuk-!-padding-bottom-2">£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}}</h1>
           {% elif not data['sortCrossB'] %}
 
           <p class="govuk-body govuk-!-margin-bottom-0">

@@ -23,40 +23,22 @@ Payment successfull
                 Your payment reference number<br><strong>725548253</strong>
             </div>
         </div>
-        <p>We've sent a confirmation email to alex.lee@gmail.com</p>
-        <table class="govuk-table govuk-!-margin-bottom-2">
-            <tbody class="govuk-table__body">
-                                <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Vehicle Registration (number plate)</th>
-                    <td class="govuk-table__cell">{{data['vrn']}}</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Date</th>
-                    <td class="govuk-table__cell">26 Aug 2021</td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Number of recent crossings</th>
-                    <td class="govuk-table__cell">{{data['krosCount']}}</td>
-                </tr>
-                <!--<tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Number of future crossings</th>
-                    <td class="govuk-table__cell">{% if data['sortCrossB'] %}{{data['sortCrossB']}}{% elif not data['sortCrossB'] %}0{%endif%}</td>
-                </tr>-->
-                {% if data['sortCrossB'] %}
-                <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Number of future crossings</th>
-                    <td class="govuk-table__cell">{{data['sortCrossB']}}</td>
-                </tr>
-                {%endif%}
-                <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Amount</th>
-                    <td class="govuk-table__cell">{% if data['sortCrossB'] %}£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}} {% elif not data['sortCrossB'] %}£{{((data['krosCount'] | float)*2.50).toFixed(2)}}{%endif%}</td>
-                </tr>
-            </tbody>
-        </table>
+        {% if data['Email-address'] and not data['Mobile-number'] %}
+        <p>We've sent a confirmation email to {{data['Email-address']}}.</p>
+        {%endif%}
+        {% if data['Email-address'] and data['Mobile-number'] %}
+        <p>We've sent a confirmation email to {{data['Email-address']}} and a confirmation text message to {{data['Mobile-number']}}.</p>
+        {%endif%}
+        <p class="govuk-body">
+            <b>Vehicle Registration (number plate)</b><br>{{data['vrn']}}
+        </p>
+        <p class="govuk-body govuk-!-margin-bottom-0">
+            <b>Amount paid</b><br>{% if data['sortCrossB'] %}£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}} {% elif not data['sortCrossB'] %}£{{((data['krosCount'] | float)*2.50).toFixed(2)}}{%endif%}
+        </p>
+        
     </div>
 </div>
-<div class="govuk-grid-row">
+<div class="govuk-grid-row govuk-!-padding-top-0 govuk-!-margin-top-0">
     <div class="govuk-grid-column-two-thirds"><br>
 
         {% if data['travel-updates'] and not data['crossing-updates'] %}
