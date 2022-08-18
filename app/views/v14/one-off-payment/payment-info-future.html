@@ -13,7 +13,7 @@ Pay for future crossings
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1">
-    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">Add credit for crossings</h1>
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">Add credit for additional crossings</h1>
     <form method="post" action="notifications">
     <div class="govuk-form-group">
       <label class="govuk-label" for="sort">
@@ -69,15 +69,13 @@ Pay for future crossings
     </div>
     
     <div class="govuk-form-group">
-      <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="cost">
-          Payment amount
-        </label>
-      </h3>
-      <div class="govuk-input__wrapper">
-        <div class="govuk-input__prefix" aria-hidden="true"><b>£</b></div>
-        <input class="govuk-input govuk-input--width-5" id="chargeB" name="chargeB" type="text" spellcheck="false" value="2.50" style="font-weight:bold ;" disabled>
+     
+      <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-9">
+        <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount for a car</h3>
+        <h1 id = "chargeTotal" class="govuk-body-l govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£2.50</h1>
       </div>
     </div>
+   
     <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-9">
       <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Total amount including recent crossings</h3>
       <h1 id = "chargeTotal" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£{{((data['krosCount']*2.50)|float + 2.50|float).toFixed(2)}}</h1>

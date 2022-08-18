@@ -13,16 +13,6 @@ Pay for recent crossings
 {% block content %}
 
 
-<style>
-     .gem-c-contextual-sidebar__brexit-cta {text-size-adjust: 100%;
-    font-family: "GDS Transport",arial,sans-serif;
-    margin-bottom: 30px;
-    background-color: #f3f2f1;
-    border-top: 2px solid #282538;
-    display: block;
-    padding: 0 15px 15px;
-    text-decoration: none;}
-</style>
 <form class="form" method="post" action="additional-credit-question">
 <div class="govuk-grid-row">
   
@@ -31,7 +21,7 @@ Pay for recent crossings
     
     <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">Pay for recent crossings</h1>
     <div class="govuk-body govuk-!-margin-top-0">
-      Here are the details of the crossings made yesterday and today.
+      Recent crossings include all northbound and southbound crossings made yesterday and today.
     </div>
     <table class="govuk-table">
       <thead class="govuk-table__head">
@@ -43,7 +33,7 @@ Pay for recent crossings
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">{{data['vrn']}}</td>
-          <td class="govuk-table__cell">{{data['kros']}}</td>
+          <td class="govuk-table__cell">3</td>
         </tr>
       </tbody>
     </table>
@@ -52,37 +42,66 @@ Pay for recent crossings
       <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
       <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£{{((data['krosCount']*2.50)|float).toFixed(2)}}</h1>
     </div>
-    {{ govukSelect({
-      id: "quantity-of-journeys",
-      name: "quantity-of-journeys",
-      classes: "govuk-input--width-10",
-      label: {
-        html: "<b>Confirm number of crossings to pay for</b>"
+
+
+    {% set confirmHtml %}
+        {{ govukSelect({
+          id: "krosCount",
+          name: "krosCount",
+          label: {
+            text: "Confirm crossings to pay for"
+          },
+          items: [
+            {
+              value: "1",
+              text: "1 crossing"
+            },
+            {
+              value: "2",
+              text: "2 crossings"
+            },
+            {
+              value: "3",
+              text: "3 crossings",
+              selected: "true"
+            }
+          ]
+        }) }}
+    {% endset -%}
+
+   
+    {{ govukRadios({
+      idPrefix: "krosCountConfirm",
+      name: "krosCountConfirm",
+      fieldset: {
+        legend: {
+          text: "Is this correct?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
       },
-      hint: {
-        text: "Hint text"
-      },
+     
       items: [
         {
-          value: "1",
-          text: "1 crossings"
+          value: "Yes",
+          text: "Yes"
         },
         {
-          value: "2",
-          text: "2 crossings"
-        },
-        {
-          value: "3",
-          text: "3 crossings",
-          selected: "true"
+          value: "No",
+          text: "No",
+          conditional: {
+            html: confirmHtml
+          }
         }
       ]
     }) }}
+
+    
     
     <details class="govuk-details " data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
-         Is there a crossing missing?
+          How crossings work
         </span>
       </summary>
       <div class="govuk-details__text">
@@ -97,7 +116,7 @@ Pay for recent crossings
             late payments will be used for future crossings - you may receive a PCN for any late payment
           </li>
           <li>
-            it costs <b>£2.50 per crossing</b> for a car
+            it costs £2.50 per crossing for a car
           </li>
         </ul>
       </div>

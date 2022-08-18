@@ -18,7 +18,7 @@ Confirm your payment details
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-full govuk-!-margin-top-1">
         
-        <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Confirm your payment details.</h1>
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Check your answers before paying</h1>
     </div>
 </div>
 
@@ -131,7 +131,7 @@ Confirm your payment details
           <h1 id="chargeAmount" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">{% if data['sortCrossB'] %}£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}} {% elif not data['sortCrossB'] %}£{{((data['krosCount'] | float)*2.50).toFixed(2)}}{%endif%}</h1>
         </div>
         
-        {% if data['Email-address'] or data['Mobile-number'] %}
+        {% if data['receipts-question'] === 'Yes' %}
         <h2 class="govuk-heading-m govuk-!-padding-top-6">
           Notification details
         </h2>
@@ -152,7 +152,7 @@ Confirm your payment details
             </dd>
             
           </div>
-          {% elif not data['Email-address'] or not data['Mobile-number'] %}
+          {% elif data['receipts-question'] === 'No' %}
           <!--no content to show-->
           {% endif %}
           
