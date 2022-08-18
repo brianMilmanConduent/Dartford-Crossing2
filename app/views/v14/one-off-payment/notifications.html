@@ -20,31 +20,57 @@ Pay for recent crossings
    
 
     <h1 class="govuk-heading-l">
-      Would you like a receipt?
+      How do you want to receive your payment receipt?
     </h1>
     <p class="govuk-body">
       We can send you a receipt by email and/or text message.
     </p>
 
+
+    {% set emailHtml %}
     {{ govukInput({
       id: "Email-address",
       name: "Email-address",
       classes: "govuk-input--width-20",
       label: {
-        html: "<b>Email address</b> (optional)"
+        html: "<b>Email address</b>"
       }
     }) }}
+    {% endset -%}
 
+    {% set textHtml %}
     {{ govukInput({
       id: "Mobile-number",
       name: "Mobile-number",
       classes: "govuk-input--width-20",
       label: {
-        html: "<b>Mobile number</b> (optional)"
+        html: "<b>Mobile number</b>"
       }
     }) }}
+    {% endset -%}
     
-    
+
+
+    {{ govukCheckboxes({
+      idPrefix: "receipt-pref",
+      name: "receipt-pref",
+      items: [
+        {
+          value: "Value",
+          text: "Email (optional)",
+          conditional: {
+            html: emailHtml
+          }
+        },
+        {
+          value: "Value",
+          text: "Text message (optional)",
+          conditional: {
+            html: textHtml
+          }
+        }
+      ]
+    }) }}
 
     {{ govukButton({
       text: "Continue"

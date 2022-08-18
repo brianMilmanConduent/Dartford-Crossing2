@@ -107,9 +107,16 @@ Payment details
         <p class="gem-c-contextual-sidebar__brexit-text govuk-body govuk-!-margin-bottom-0">
           
           {% if data['sortCrossB'] %}
-          <h1 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-6 govuk-!-padding-bottom-2">Total amount: £{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}}</h1>
+          <p class="govuk-body govuk-!-margin-bottom-0">
+            Total amount:
+          </p>
+          <h1 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-6 govuk-!-padding-bottom-2">Total amount: £{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}}</h1>
           {% elif not data['sortCrossB'] %}
-          <h1 class="govuk-heading-m govuk-!-margin-top-0 govuk-!-margin-bottom-6 govuk-!-padding-bottom-2">Total amount: £{{((data['krosCount'] | float)*2.50).toFixed(2)}}</h1>
+
+          <p class="govuk-body govuk-!-margin-bottom-0">
+            Total amount:
+          </p>
+          <h1 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-6 govuk-!-padding-bottom-2">£{{((data['krosCount'] | float)*2.50).toFixed(2)}}</h1>
           {% endif %}
         </p>
      
