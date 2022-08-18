@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Add credit to your LRDS
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="upgradeinfo">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      How much credit do you want to add to your LRDS plan?
+    </h1>
+   
+    
+    
+    {{ govukRadios({
+      idPrefix: "lrdsTopUp",
+      name: "lrdsTopUp",
+      items: [
+        {
+          value: "5",
+          html: "<b>£5</b>",
+          hint: {
+            text: "25 crossings at 20p per crossing"
+          }
+        },
+        {
+          value: "10",
+          html: "<b>£10</b>",
+          hint: {
+            text: "Unlimited crossings for the remainder of your current LRDS plan"
+          }
+        }
+      ]
+    }) }}
+
+
+
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+
+
+
+    
+
+
+</div>
+</div> 
+    </div>
+  </div>
+</form>
+{% endblock %}

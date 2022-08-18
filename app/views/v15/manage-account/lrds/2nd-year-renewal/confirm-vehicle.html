@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+{% if data['account-type'] === 'Personal' %}
+
+<!--content here-->
+
+ {% else %}
+<!--content here-->
+{% endif %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+        <fieldset class="govuk-fieldset">
+          <h1 class="govuk-heading-l">Is this your vehicle?</h1>
+
+
+            <form class="form" method="post" action="lrdsDocUpload">
+
+              <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-two-thirds">
+                    
+                      <table class="govuk-table ">
+
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Number plate</td>
+                              <!-- <td class="govuk-table__cell  govuk-body "><b>{{data['vrm-1'][0]}}</b></td> -->
+                              <td class="govuk-table__cell  govuk-body ">{{data['vrn']}}</td>
+                              <!-- <td class="govuk-table__cell  govuk-body "> </td> -->
+                          </tr>
+
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Vehicle type</td>
+                              <td class="govuk-table__cell  govuk-body ">Car</td>
+                              
+                          </tr>
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Make</td>
+                              <td class="govuk-table__cell  govuk-body ">Audi</td>
+                          </tr>
+
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Model</td>
+                              <td class="govuk-table__cell  govuk-body ">RS4</td>
+                          </tr>
+
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Colour</td>
+                              <td class="govuk-table__cell  govuk-body ">Black</td>
+                          </tr>
+                          {% if data['account-type'] === 'Business' %}
+
+                          <tr class="govuk-table__row">
+                            <td scope="col" class="govuk-table__header govuk-body ">Class</td>
+                            <td class="govuk-table__cell  govuk-body ">B</td>
+                        </tr>
+
+                            {% else %}
+                            <!--content here-->
+                            {% endif %}
+                          
+                         
+                      </table>
+
+                      {% if data['vrm-1'][0] === 'LO63 NRO' %}
+                      <div class="govuk-inset-text">
+
+                      </div>
+                      {% endif %}
+             
+                      </div>
+                  </div>
+
+
+{{ govukRadios({
+              classes: "govuk-radios--inline",
+              idPrefix: "vehicle-check",
+              name: "vehicle-check",
+              fieldset: {
+                legend: {
+                  text: "",
+                  isPageHeading: true,
+                  classes: "govuk-fieldset__legend--l"
+                }
+              },
+              items: [
+                {
+                  value: "yes",
+                  text: "Yes"
+                },
+                {
+                  value: "no",
+                  text: "No, search again"
+                }
+              ]
+            }) }}
+
+
+       
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <!--  </div><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add another vehicle
+        </button>-->
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
