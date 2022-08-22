@@ -54,11 +54,29 @@ Enter your address
               </div>
               <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" value="{{ data['address-postcode'] }}" type="text" autocomplete="postal-code"></div>
 
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-!-font-weight-bold" for="address-county">
-                  Country 
-                </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text"></div>
+              {{ govukRadios({
+                idPrefix: "uk-or-non-uk",
+                name: "uk-or-non-uk",
+                fieldset: {
+                  legend: {
+                    text: "Country of registration",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+               
+                items: [
+                  {
+                    value: "Value",
+                    text: "UK"
+                  },
+                  {
+                    value: "Value",
+                    text: "Outside the UK"
+                  }
+                ]
+              }) }}
+
 
           </fieldset>
       <button class="govuk-button" data-module="govuk-button">Continue</button>
@@ -114,11 +132,29 @@ Enter your address
               </div>
               <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" value="{{ data['address-postcode'] }}" type="text" autocomplete="postal-code"></div>
 
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-!-font-weight-bold" for="address-county">
-                  Country 
-                </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text"></div>
+              {{ govukRadios({
+                idPrefix: "uk-or-non-uk",
+                name: "uk-or-non-uk",
+                fieldset: {
+                  legend: {
+                    text: "Country of registration",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--s"
+                  }
+                },
+               
+                items: [
+                  {
+                    value: "Value",
+                    text: "UK"
+                  },
+                  {
+                    value: "Value",
+                    text: "Outside the UK"
+                  }
+                ]
+              }) }}
+
 
           </fieldset>
       <button class="govuk-button" data-module="govuk-button">Continue</button>

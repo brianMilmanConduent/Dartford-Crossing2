@@ -16,7 +16,10 @@ What is your phone number?
       <form class="form" action="verify-mobile" method="post">
           
           <h1 class="govuk-heading-l">What is your mobile phone number?</h1>
-
+        <p class="govuk-body">
+          We'll use this to send you a security code by text message
+        </p>
+        
 
               {{ govukFieldset({
                   legend: {
@@ -27,9 +30,9 @@ What is your phone number?
               })}}
 
               {{ govukInput({
-                  label: {
-                      text: "We'll use this to send you a security code by text message"
-                  },
+                hint: {
+                  text: "For international numbers include the country code"
+                },
                   id: "phone-number",
                   name: "phone-number",
                   classes: "govuk-input--width-10"
