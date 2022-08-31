@@ -1,0 +1,606 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+Crossing history
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Crossing history</h1>
+      <p class="govuk-body">
+        Your crossings can take up to 8 hoursto appear on your account.<br>You can view the previous 90 days usage in the table below.
+      </p>
+
+      
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            
+            {%- from "moj/components/filter/macro.njk" import mojFilter -%}
+            {%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
+            {%- from "govuk/components/input/macro.njk" import govukInput -%}
+
+            {%- set filterOptionsHtml %}
+
+              {{ govukInput({
+                id: 'keywords',
+                name: 'keywords',
+                label: {
+                  text: 'Number plate',
+                  classes: 'govuk-label--m'
+                }
+              }) }}
+
+              
+
+              {{ govukDateInput({
+                id: "date",
+                namePrefix: "date",
+                fieldset: {
+                  legend: {
+                    text: "Date range",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "For example, 31 3 1980"
+                },
+                items: [
+                  {
+                    name: "day",
+                    label: "Day",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "month",
+                    label: "Month",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "year",
+                    label: "Year",
+                    
+                    classes: "govuk-input--width-4"
+                  }
+                ]
+              }) }}
+
+
+              {{ govukDateInput({
+                id: "date",
+                namePrefix: "date",
+                fieldset: {
+                  legend: {
+                    text: "End date",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "For example, 31 3 1980"
+                },
+                items: [
+                  {
+                    name: "day",
+                    label: "Day",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "month",
+                    label: "Month",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "year",
+                    label: "Year",
+                    
+                    classes: "govuk-input--width-4"
+                  }
+                ]
+              }) }}
+
+              
+            {% endset -%}
+
+            {{ mojFilter({
+ 
+ 
+ 
+              heading: {
+                        text: 'Filter'
+                      },
+                      selectedFilters: {
+
+                        heading: {
+                          text: 'Selected filters'
+                        },
+
+                        clearLink: {
+                          text: 'Clear filters'
+                        },
+
+                        categories: [
+                          {
+                            heading: {
+                              text: 'Number plate'
+                            },
+                            items: [{
+                              href: '/path/to/remove/this',
+                              text: 'FD54 NRO'
+                            }]
+                          }
+                        ]
+                      },
+                      optionsHtml: filterOptionsHtml
+                    }) }}
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            
+              
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+{{ govukTable({
+  attributes: {
+    'data-module': 'moj-sortable-table'
+  },
+  head: [
+    {
+      text: "Crossing date",
+      attributes: {
+        "aria-sort": "ascending"
+      }
+    },
+    {
+      text: "Time",
+      attributes: {
+        "aria-sort": "none"
+      }
+    },
+    {
+      text: "Direction",
+      attributes: {
+        "aria-sort": "none"
+      }
+    },
+    {
+      text: "Number plate",
+      attributes: {
+        "aria-sort": "none"
+      },
+      format: "numeric"
+    },
+    {
+      text: "View"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "9:00 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Southbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "11:00 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Northbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "7 Aug 2022"
+      },
+      {
+        text: "9:00 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Southbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "7 Aug 2022"
+      },
+      {
+        text: "10:44 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Northbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "8 Aug 2022"
+      },
+      {
+        text: "9:00 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Southbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "8 Aug 2022"
+      },
+      {
+        text: "11:00 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Northbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "9 Aug 2022"
+      },
+      {
+        text: "9:00 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Southbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "9 Aug 2022"
+      },
+      {
+        text: "10:44 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Northbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "10 Aug 2022"
+      },
+      {
+        text: "9:00 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Southbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "10 Aug 2022"
+      },
+      {
+        text: "11:00 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Northbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "11 Aug 2022"
+      },
+      {
+        text: "9:00 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Southbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "11 Aug 2022"
+      },
+      {
+        text: "10:44 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Northbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "12 Aug 2022"
+      },
+      {
+        text: "9:00 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Southbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "12 Aug 2022"
+      },
+      {
+        text: "11:00 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Northbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "13 Aug 2022"
+      },
+      {
+        text: "9:00 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Southbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      {
+        text: "13 Aug 2022"
+      },
+      {
+        text: "10:44 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Northbound"
+      },
+      {
+        text: "FD54 NRO",
+        format: "numeric",
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='#' class='govuk-link'>view</a>"
+      }
+    ]
+  ]
+}) }}
+
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      href: "#"
+    },
+    {
+      number: 2,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}   
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

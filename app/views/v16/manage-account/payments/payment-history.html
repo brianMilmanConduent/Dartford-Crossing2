@@ -1,0 +1,541 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+Payment history
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Payment history</h1>
+      <p class="govuk-body">
+        Your last 30 days of history is listed below. For faster results, search by a specific date. <br>You can also search a date range.
+      </p>
+
+      
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            
+            {%- from "moj/components/filter/macro.njk" import mojFilter -%}
+            {%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
+            {%- from "govuk/components/input/macro.njk" import govukInput -%}
+
+            {%- set filterOptionsHtml %}
+
+              {{ govukInput({
+                id: 'keywords',
+                name: 'keywords',
+                label: {
+                  text: 'Number plate',
+                  classes: 'govuk-label--m'
+                }
+              }) }}
+
+              
+
+              {{ govukDateInput({
+                id: "date",
+                namePrefix: "date",
+                fieldset: {
+                  legend: {
+                    text: "Date range",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "For example, 31 3 1980"
+                },
+                items: [
+                  {
+                    name: "day",
+                    label: "Day",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "month",
+                    label: "Month",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "year",
+                    label: "Year",
+                    
+                    classes: "govuk-input--width-4"
+                  }
+                ]
+              }) }}
+
+
+              {{ govukDateInput({
+                id: "date",
+                namePrefix: "date",
+                fieldset: {
+                  legend: {
+                    text: "End date",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "For example, 31 3 1980"
+                },
+                items: [
+                  {
+                    name: "day",
+                    label: "Day",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "month",
+                    label: "Month",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "year",
+                    label: "Year",
+                    
+                    classes: "govuk-input--width-4"
+                  }
+                ]
+              }) }}
+
+              
+            {% endset -%}
+
+            {{ mojFilter({
+ 
+ 
+ 
+              heading: {
+                        text: 'Filter'
+                      },
+                      selectedFilters: {
+
+                        heading: {
+                          text: 'Selected filters'
+                        },
+
+                        clearLink: {
+                          text: 'Clear filters'
+                        },
+
+                        categories: [
+                          {
+                            heading: {
+                              text: 'Number plate'
+                            },
+                            items: [{
+                              href: '/path/to/remove/this',
+                              text: 'FD54 NRO'
+                            }]
+                          }
+                        ]
+                      },
+                      optionsHtml: filterOptionsHtml
+                    }) }}
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            
+              
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+{{ govukTable({
+  attributes: {
+    'data-module': 'moj-sortable-table'
+  },
+  head: [
+    {
+      text: "Payment date",
+      attributes: {
+        "aria-sort": "ascending"
+      }
+    },
+    {
+      text: "Payment type",
+      attributes: {
+        "aria-sort": "none"
+      }
+    },
+    {
+      text: "Payment method",
+      attributes: {
+        "aria-sort": "none"
+      }
+    },
+    {
+      text: "Payment reference",
+      attributes: {
+        "aria-sort": "none"
+      },
+      format: "numeric"
+    },
+    {
+      text: "Amount"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],[
+    {
+      text: "6 Aug 2022"
+    },
+    {
+      text: "Auto top-up",
+      attributes: {
+        "data-sort-value": "6961"
+      }
+    },
+    {
+      text: "Debit card"
+    },
+    {
+      html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+    },
+    {
+      html: "£10.00"
+    }
+  ],
+  [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ],
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "Auto top-up",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      {
+        text: "Debit card"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      },
+      {
+        html: "£10.00"
+      }
+    ]
+  ]
+}) }}
+
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      href: "#"
+    },
+    {
+      number: 2,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}   
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

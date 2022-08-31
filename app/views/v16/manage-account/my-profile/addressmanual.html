@@ -10,7 +10,7 @@ Enter your address
 {% endblock %}
 
 {% block content %}
-{% if data['account-type'] === 'Personal' %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <form action="profile" method="post">
@@ -54,67 +54,6 @@ Enter your address
               </div>
               <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" value="{{ data['address-postcode'] }}" type="text" autocomplete="postal-code"></div>
 
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-!-font-weight-bold" for="address-county">
-                  Country 
-                </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="address-county" type="text"></div>
-
-          </fieldset>
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
-    </form>
-
-  </div>
-</div>
-
- {% else %}
- <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form action="profile" method="post">
-     
-        <fieldset class="govuk-fieldset">
-          <h1 class="govuk-heading-l">What is your registered office address?</h1>
-          <p class="govuk-body">
-            Your company's registered address where all official paperwork gets sent
-          <p>
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-
-            </legend>
-
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-!-font-weight-bold" for="address-line-1">
-                Building number and street <span class="govuk-visually-hidden">line 1 of 2</span>
-              </label>
-              <div id="event-name-hint" class="govuk-hint">
-                For example 47, Flat 2a or Rose Cottage
-              </div>
-              <input class="govuk-input" id="address-line-1" name="address-line-1" type="text" autocomplete="address-line1"></div>
-
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-!-font-weight-bold" for="address-line-2">
-                Address line 2 (optional) <span class="govuk-visually-hidden">Building number and street line 2 of 2</span>
-              </label>
-              <input class="govuk-input" id="address-line-2" name="address-line-2" type="text" autocomplete="address-line2"></div>
-
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-!-font-weight-bold" for="address-town">
-                Town or city
-              </label>
-              <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text" autocomplete="address-level2"></div>
-
-            
-
-            <div class="govuk-form-group">
-              <label class="govuk-label govuk-!-font-weight-bold" for="address-postcode">
-                Postcode
-              </label>
-              <div id="event-name-hint" class="govuk-hint">
-                For example, SK4 2PS
-              </div>
-              <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" value="{{ data['address-postcode'] }}" type="text" autocomplete="postal-code"></div>
-
-
               <h3 class="govuk-heading-s">
                 Country of registration
               </h3>
@@ -132,21 +71,13 @@ Enter your address
                   }
                 ]
               }) }}
-
           </fieldset>
       <button class="govuk-button" data-module="govuk-button">Continue</button>
-
-  <!--<p class='govuk-body'> If you already have an account you can <a href='#'>sign in</a></p>
--->
-
-
-
-
     </form>
 
   </div>
 </div>
-{% endif %}
+
   
 
 {% endblock %}
