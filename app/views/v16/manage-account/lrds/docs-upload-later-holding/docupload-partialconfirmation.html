@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your account has been created
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<br><br>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+        <div class="govuk-grid-row">
+              <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">
+                  Documents submitted
+                </h1>
+              </div> 
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>
+
+              <p class="govuk-body">
+                this is the alternative confirmation page, when users have only updated partial amount of docs.
+              </p>
+
+         <div class='govuk-grid-column-full'>
+            {{ govukInsetText({
+              classes:"govuk-!-margin-top-1",
+              text: "Your account is not active yet. Your proof of local residency documents will take up to 5 days to get approved. "
+            }) }}
+
+            
+          </div>  
+  </div>
+{% endblock %}

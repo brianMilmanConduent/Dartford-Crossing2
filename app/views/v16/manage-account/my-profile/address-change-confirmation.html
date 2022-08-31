@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your account has been created
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<br><br>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukPanel({
+      titleText: "Address change successful"
+    }) }}
+
+    <p class="govuk-body">We have sent you a confirmation email.</p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+    
+    <p class="govuk-body">
+      They will contact you either to confirm your registration, or to ask for more information.
+    </p>
+
+    <p class="govuk-body">
+      {{ govukButton({
+        text: "Continue",
+        href: "profile"
+      }) }}
+    </p>
+  </div>
+</div>
+
+
+
+
+  
+
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay for recent crossings
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+<form class="form" method="post" action="additional-credit-question">
+<div class="govuk-grid-row">
+  
+
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1">
+    
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">Pay for recent crossings</h1>
+    <div class="govuk-body govuk-!-margin-top-0">
+      Recent crossings include all northbound and southbound crossings made yesterday and today.
+    </div>
+    <table class="govuk-table">
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Vehicle Registration (number plate)</th>
+          <th scope="col" class="govuk-table__header">Crossings made</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">{{data['vrn']}}</td>
+          <td class="govuk-table__cell">3</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-5">
+      <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount</h3>
+      <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£{{((data['krosCount']*2.50)|float).toFixed(2)}}</h1>
+    </div>
+
+
+    {% set confirmHtml %}
+        {{ govukSelect({
+          id: "krosCount",
+          name: "krosCount",
+          label: {
+            text: "Confirm crossings to pay for"
+          },
+          items: [
+            {
+              value: "1",
+              text: "1 crossing"
+            },
+            {
+              value: "2",
+              text: "2 crossings"
+            },
+            {
+              value: "3",
+              text: "3 crossings",
+              selected: "true"
+            }
+          ]
+        }) }}
+    {% endset -%}
+
+   
+    {{ govukRadios({
+      idPrefix: "krosCountConfirm",
+      name: "krosCountConfirm",
+      fieldset: {
+        legend: {
+          text: "Is this correct?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+     
+      items: [
+        {
+          value: "Yes",
+          text: "Yes"
+        },
+        {
+          value: "No",
+          text: "No",
+          conditional: {
+            html: confirmHtml
+          }
+        }
+      ]
+    }) }}
+
+    
+    
+    <details class="govuk-details " data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          How crossings work
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <ul class="govuk-list govuk-list--bullet">
+          <li>
+            a crossing is a single journey over the bridge or through the tunnel
+          </li>
+          <li>
+            a return trip is 2 crossings
+          </li>
+          <li>
+            late payments will be used for future crossings - you may receive a PCN for any late payment
+          </li>
+          <li>
+            it costs £2.50 per crossing for a car
+          </li>
+        </ul>
+      </div>
+    </details>
+
+    
+    <div class="govuk-button-group">
+      
+    <button  id="confirmPay"  class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+   
+  </div>
+  </div>
+  
+
+</div>
+
+  
+    
+   
+  </div>
+</div> 
+</div>
+</form>
+
+{% endblock %}

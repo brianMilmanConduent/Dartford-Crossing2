@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay for recent crossings
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<form class="form" method="post" action="payment-options">
+<div class="govuk-grid-row">
+ 
+
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1">
+    
+   
+
+    
+
+    {% set updateHtml %}
+    {{ govukCheckboxes({
+      idPrefix: "travel-updates",
+      name: "travel-updates",
+      items: [
+        {
+          value: "Selected",
+          html: "<b>Travel updates</b><br>We can let you know if there's an issue with the crossing that's affecting travel times."
+        }
+      ]
+    }) }}
+    
+    {{ govukCheckboxes({
+      idPrefix: "crossing-updates",
+      name: "crossing-updates",
+      items: [
+        {
+          value: "Selected",
+          html: "<b>Payment reminders</b><br>We can remind you to pay each time you cross."
+        }
+      ]
+    }) }} 
+    {% endset -%}
+
+{{ govukRadios({
+  idPrefix: "receipts-question",
+  name: "receipts-question",
+  fieldset: {
+    legend: {
+      text: "Would you like to receive travel updates and payment reminders?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      conditional: {
+        html: updateHtml
+      }
+    },
+    {
+      value: "No",
+      text: "No"
+    }
+  ]
+}) }}
+
+
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    
+</div> 
+</div>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your vehicles
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="add-another-vehicle-to-lrds">
+      <fieldset class="govuk-fieldset">
+        
+       
+       {{ govukRadios({
+        idPrefix: "add-new-vrm-lrds",
+        name: "add-new-vrm-lrds",
+        fieldset: {
+          legend: {
+            text: "Do you want to add a new vehicle to your local resident plan? ",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+        ]
+       }) }}
+      
+         
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                  {{ govukButton({
+                    text: "Continue"
+                  }) }}
+       
+  </div>
+</div>
+
+</form>
+
+
+
+
+
+  
+  
+
+  
+
+
+
+
+{% endblock %}
