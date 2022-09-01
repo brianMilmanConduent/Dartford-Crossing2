@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Vehicle confirmation
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "New vehicle added successfully"
+      }) }}
+
+      <p class="govuk-body">We have sent you a confirmation email to [email address]</p>
+
+      <table class="govuk-table">
+       
+        <thead class="govuk-table__head">
+         
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Date</th>
+            <td class="govuk-table__cell">[Date processed</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Vehicle added</th>
+            <td class="govuk-table__cell">
+              {{ govukDetails({
+                summaryText: "View vehicle",
+                text: "Text"
+              }) }}
+            </td>
+          </tr>
+         
+        </tbody>
+      </table>
+
+
+
+      {{ govukButton({
+        text: "Back to vehicle list",
+        href: "vehicle-summary"
+      }) }}
+    </div>
+  </div>
+{% endblock %}
+
+ 
+

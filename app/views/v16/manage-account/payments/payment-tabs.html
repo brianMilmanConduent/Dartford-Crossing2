@@ -10,9 +10,12 @@ Payment history
 {% endblock %}
 
 {% block content %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+      <span class="govuk-caption-l">Account management</span>
+      <h1 class="govuk-heading-l">Payment</h1>
+
+      {% set paymentHistoryHtml %}
       <h1 class="govuk-heading-l">Payment history</h1>
       <p class="govuk-body">
         Your last 30 days of history is listed below. For faster results, search by a specific date. <br>You can also search a date range.
@@ -69,7 +72,7 @@ Payment history
                     name: "year",
                     label: "Year",
                     
-                    classes: "govuk-input--width-4"
+                    classes: "govuk-input--width-4 four"
                   }
                 ]
               }) }}
@@ -105,7 +108,7 @@ Payment history
                     name: "year",
                     label: "Year",
                     
-                    classes: "govuk-input--width-4"
+                    classes: "govuk-input--width-4 four"
                   }
                 ]
               }) }}
@@ -162,26 +165,16 @@ Payment history
       }
     },
     {
-      text: "Payment type",
-      attributes: {
-        "aria-sort": "none"
-      }
-    },
-    {
-      text: "Payment method",
-      attributes: {
-        "aria-sort": "none"
-      }
-    },
-    {
       text: "Payment reference",
       attributes: {
         "aria-sort": "none"
-      },
-      format: "numeric"
+      }
     },
     {
       text: "Amount"
+    },
+    {
+      text: "View"
     }
   ],
   rows: [
@@ -190,318 +183,235 @@ Payment history
         text: "6 Aug 2022"
       },
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR4234FTTY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],
     [
       {
-        text: "6 Aug 2022"
+        text: "7 Aug 2022"
       },
+     
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR5433TY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],
     [
       {
-        text: "6 Aug 2022"
+        text: "8 Aug 2022"
       },
+     
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR47654FTTY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],
     [
       {
-        text: "6 Aug 2022"
+        text: "9 Aug 2022"
       },
+     
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR546543TTY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],
     [
       {
-        text: "6 Aug 2022"
+        text: "10 Aug 2022"
       },
+     
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR43546TY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],
     [
       {
-        text: "6 Aug 2022"
+        text: "11 Aug 2022"
       },
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR4236543TY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],
     [
       {
-        text: "6 Aug 2022"
+        text: "12 Aug 2022"
       },
+      
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR765FTTY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],
     [
       {
-        text: "6 Aug 2022"
+        text: "13 Aug 2022"
       },
+     
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR888FTTY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],[
     {
       text: "6 Aug 2022"
     },
+   
     {
-      text: "Auto top-up",
-      attributes: {
-        "data-sort-value": "6961"
-      }
-    },
-    {
-      text: "Debit card"
-    },
-    {
-      html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+      text: "F3454FTTY"
     },
     {
       html: "£10.00"
+    },
+    {
+      html: "<a href='#' class='govuk-link'>View</a>"
     }
   ],
   [
       {
-        text: "6 Aug 2022"
+        text: "14 Aug 2022"
       },
+      
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "F77654FTTY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],
     [
       {
-        text: "6 Aug 2022"
+        text: "15 Aug 2022"
       },
+      
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR4234123TTY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],
     [
       {
-        text: "6 Aug 2022"
+        text: "16 Aug 2022"
       },
+      
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR4234432TTY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],
     [
       {
-        text: "6 Aug 2022"
+        text: "17 Aug 2022"
       },
+     
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR423123Y"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],
     [
       {
-        text: "6 Aug 2022"
+        text: "18 Aug 2022"
       },
+      
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR4234876TY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],
     [
       {
-        text: "6 Aug 2022"
+        text: "19 Aug 2022"
       },
+     
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR4234FTTY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ],
     [
       {
-        text: "6 Aug 2022"
+        text: "20 Aug 2022"
       },
       {
-        text: "Auto top-up",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      {
-        text: "Debit card"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>FR4234FTTY</a>"
+        text: "FR4234FTTY"
       },
       {
         html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
       }
     ]
   ]
@@ -531,9 +441,144 @@ Payment history
       href: "#"
     }
   ]
-}) }}   
-        </div>
-      </div>
+}) }} 
+</div>
+</div>
+
+
+{% endset -%}
+
+
+{% set paymentmethodsHtml %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">
+      Payment methods
+    </h2>
+
+
+<!--<h3 class="govuk-heading-s govuk-!-margin-bottom-1">
+  Default payment method: debit/credit card 
+</h3>
+<p class="govuk-body">
+  Mastercard **** 4563 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />
+</p>-->
+
+
+{{ govukRadios({
+  idPrefix: "othermethods",
+  name: "othermethods",
+  fieldset: {
+    legend: {
+      text: "Payment methods",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--s"
+    }
+  },
+  
+  items: [
+    {
+      value: "Value",
+      html: "Visa *****1234 <img class='card-img-new' src='/public/images/visa.png'  width='40px' alt='payment' />",
+      checked: "true"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "abroad",
+      text: "Add a new payment method"
+    }
+  ]
+}) }}
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+    </div>
+  </div>
+{% endset -%}
+
+
+{% set paymentTopUpHtml %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">What are your top-up and low balance amounts?</h2>
+      <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+           
+
+
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+            {{ govukInput({              
+              id: "low-balance",
+              name: "low-balance",
+              classes: "govuk-input--width-5",
+              prefix: {
+                text: "£"
+              },
+             type: "number",
+              label: {
+                text: "Your low balance limit",
+                classes: "govuk-!-font-weight-bold"
+              },
+              hint: {
+                text: "If your balance falls below this amount, we'll top it up"
+              }
+            }) }}
+            {{ govukInput({
+              id: "topup",
+              name: "topup",
+              classes: "govuk-input--width-5",
+              prefix: {
+                text: "£"
+              },
+              type: "number",
+              label: {
+                text: "Your top-up amount",
+                classes: "govuk-!-font-weight-bold"
+              },
+              hint: {
+                text: "We'll automatically top up your account with this amount"
+              }
+            }) }}
+                
+
+<button class="govuk-button" data-module="govuk-button">Continue</button>
+</div>
+</div>
+{% endset -%}
+
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Payment history",
+      id: "paymentHistoryHtml",
+      panel: {
+        html: paymentHistoryHtml
+      }
+    },
+    {
+      label: "Payment methods",
+      id: "paymentmethodsHtml",
+      panel: {
+        html: paymentmethodsHtml
+      }
+    },
+    {
+      label: "Payment top-up",
+      id: "paymentTopUpHtml",
+      panel: {
+        html: paymentTopUpHtml
+      }
+    }
+  ]
+}) }}
+
+
+       
 
     </div>
   </div>
