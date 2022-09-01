@@ -1,0 +1,102 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+Nominated contacts
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Account management</span>
+<h1 class="govuk-heading-l">Invite a nominated contact</h1>
+
+      <form class="form" action="/url/of/next/page" method="post">
+
+        {{ govukInput({
+          id: "first-name",
+          name: "first-name",
+          classes: "govuk-input--width-20",
+          label: {
+            html: "<b>First name</b>"
+          }
+        }) }}
+        {{ govukInput({
+          id: "last-name",
+          name: "last-name",
+          classes: "govuk-input--width-20",
+          label: {
+            html: "<b>Last name</b>"
+          }
+        }) }}
+        {{ govukInput({
+          id: "email-addres",
+          name: "email-address",
+          classes: "govuk-input--width-20",
+          label: {
+            html: "<b>Email address</b>"
+          },
+          hint: {
+            text: "This will be their username when they log in to the account"
+          }
+        }) }}
+        {{ govukInput({
+          id: "email-addres",
+          name: "email-address",
+          classes: "govuk-input--width-20",
+          label: {
+            html: "<b>Mobile number</b>"
+          },
+          hint: {
+            text: "For international numbers please use country code"
+          }
+        }) }}
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          idPrefix: "sign-in",
+          name: "sign-in",
+          fieldset: {
+            legend: {
+              text: "Choose their permissions",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "You’ll need an account to prove your identity and complete your Self Assessment."
+          },
+          items: [
+            {
+              value: "government-gateway",
+              html: "<b>Full permission</b>",
+              hint: {
+                text: "They'll be able to view and change account and vehicle data, plus change the payment method:"
+              }
+            },
+            {
+              value: "govuk-verify",
+              html: "<b>Limited permission</b>",
+              hint: {
+                text: "They'll only be able to view and change account and vehicle data."
+              }
+            }
+          ]
+        }) }}
+        
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

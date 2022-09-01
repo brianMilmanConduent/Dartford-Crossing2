@@ -19,9 +19,14 @@ Nominated contacts
 
       <form class="form" action="/url/of/next/page" method="post">
 
-        
+        <p class="govuk-body">
+          You can nominate up to 5 other people who can use your account.
+        </p>
 
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
+        {{ govukButton({
+          text: "Continue",
+          href: "first-contact"
+        }) }}
 
       </form>
 
