@@ -6,7 +6,24 @@ My profile
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{% include "includes/back-link.html" %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Account management",
+      href: "#"
+    },
+    {
+      text: "My profile",
+      href: "#"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -133,24 +150,9 @@ My profile
               }
             ]
           }
-        },
-        {
-          key: {
-            text: "Dart charge pin"
-          },
-          value: {
-            html: "<p class='password'>1231</p>"
-          },
-          actions: {
-            items: [
-              {
-                href: "ivr-code",
-                text: "Change",
-                visuallyHiddenText: "licence type"
-              }
-            ]
-          }
         }
+        
+        
       ]
     }) }}
 
