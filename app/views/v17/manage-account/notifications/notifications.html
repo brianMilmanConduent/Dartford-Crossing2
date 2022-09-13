@@ -1,0 +1,359 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+Notifications
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <span class="govuk-caption-l">Account management</span>
+        <h1 class="govuk-heading-l">Notifications</h1>
+
+
+        {% from "govuk/components/tabs/macro.njk" import govukTabs %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{% set pastDayHtml %}
+<h2 class="govuk-heading-l">Priority notifications</h2>
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+   
+    
+  
+    
+      
+    <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 3 sections.</p>
+    
+  
+  
+    <ol class="app-task-list">
+      <li>
+        <h2 class="app-task-list__section">
+          <span class="app-task-list__section-number"></span> Your default card will expire in 30 days
+        </h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="lrdsSelect" aria-describedby="eligibility-status">
+                Update your payment card
+              </a>
+            </span>
+           
+            <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="eligibility-status">Not started</strong>
+            
+          </li>
+         
+        </ul>
+      </li>
+    </ol>
+
+    <ol class="app-task-list">
+      <li>
+        <h2 class="app-task-list__section">
+          <span class="app-task-list__section-number"></span> LRDS renewal
+        </h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="lrdsDiscountInfo" aria-describedby="eligibility-status">
+                Reapply for discount 
+              </a>
+            </span>
+           
+            <strong class="govuk-tag app-task-list__tag govuk-tag--blue" id="eligibility-status">In progress</strong>
+            
+          </li>
+         
+        </ul>
+      </li>
+    </ol>
+
+
+
+    <ol class="app-task-list">
+      <li>
+        <h2 class="app-task-list__section">
+          <span class="app-task-list__section-number"></span> LRDS crossings allowance
+        </h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <span class="app-task-list__task-name">
+              <a href="lrdsSelect" aria-describedby="eligibility-status">
+                Add credit for crossings
+              </a>
+            </span>
+            {% if data['v5cstage-checked'] === 'done' %}
+            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">completed</strong>
+            {% else %}
+            <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="eligibility-status">Not started</strong>
+            {% endif %}
+          </li>
+         
+        </ul>
+      </li>
+    </ol>
+  </div>
+  </div>
+
+{% endset -%}
+
+{% set pastWeekHtml %}
+<h2 class="govuk-heading-l">Standard notifications</h2>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    
+    {%- from "moj/components/filter/macro.njk" import mojFilter -%}
+    {%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
+    {%- from "govuk/components/input/macro.njk" import govukInput -%}
+
+    {%- set filterOptionsHtml %}
+
+      {{ govukInput({
+        id: 'keywords',
+        name: 'keywords',
+        label: {
+          text: 'Number plate',
+          classes: 'govuk-label--m'
+        }
+      }) }}
+
+      
+
+      {{ govukDateInput({
+        id: "date",
+        namePrefix: "date",
+        fieldset: {
+          legend: {
+            text: "Date range",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "For example, 31 3 1980"
+        },
+        items: [
+          {
+            name: "day",
+            label: "Day",
+            
+            classes: "govuk-input--width-2"
+          },
+          {
+            name: "month",
+            label: "Month",
+            
+            classes: "govuk-input--width-2"
+          },
+          {
+            name: "year",
+            label: "Year",
+            
+            classes: "govuk-input--width-4 four"
+          }
+        ]
+      }) }}
+
+
+      {{ govukDateInput({
+        id: "date",
+        namePrefix: "date",
+        fieldset: {
+          legend: {
+            text: "End date",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "For example, 31 3 1980"
+        },
+        items: [
+          {
+            name: "day",
+            label: "Day",
+            
+            classes: "govuk-input--width-2"
+          },
+          {
+            name: "month",
+            label: "Month",
+            
+            classes: "govuk-input--width-2"
+          },
+          {
+            name: "year",
+            label: "Year",
+            
+            classes: "govuk-input--width-4 four"
+          }
+        ]
+      }) }}
+
+      
+    {% endset -%}
+
+    {{ mojFilter({
+
+
+
+      heading: {
+                text: 'Filter'
+              },
+              selectedFilters: {
+
+                heading: {
+                  text: 'Selected filters'
+                },
+
+                clearLink: {
+                  text: 'Clear filters'
+                },
+
+                categories: [
+                  {
+                    heading: {
+                      text: 'Number plate'
+                    },
+                    items: [{
+                      href: '/path/to/remove/this',
+                      text: 'FD54 NRO'
+                    }]
+                  }
+                ]
+              },
+              optionsHtml: filterOptionsHtml
+            }) }}
+  </div>
+  <div class="govuk-grid-column-two-thirds">
+    <p class="govuk-body govuk-!-margin-bottom-1">
+      <b>9th Jun 2022 11:00 am</b> - Direct debit success
+    </p>
+{{ govukDetails({
+  summaryText: "About your direct debit",
+  text: "Text"
+}) }}
+<hr>
+    <p class="govuk-body govuk-!-margin-bottom-1">
+      <b>6th Jun 2022 9:34 am</b> - Direct debit due soon
+    </p>
+{{ govukDetails({
+  summaryText: "About your direct debit",
+  text: "Text"
+}) }}
+<hr>
+<p class="govuk-body govuk-!-margin-bottom-1">
+  <b>9th May 2022 11:00 am</b> - Direct debit success
+</p>
+{{ govukDetails({
+summaryText: "About your direct debit",
+text: "Text"
+}) }}
+<hr>
+<p class="govuk-body govuk-!-margin-bottom-1">
+  <b>6th Apr 2022 9:34 am</b> - LRDS Renewal successful
+</p>
+{{ govukDetails({
+summaryText: "About your LRDS renewal",
+text: "Text"
+}) }}
+<hr>
+<p class="govuk-body govuk-!-margin-bottom-1">
+  <b>9th Mar 2022 11:00 am</b> - Direct debit success
+</p>
+{{ govukDetails({
+summaryText: "About your direct debit",
+text: "Text"
+}) }}
+<hr>
+<p class="govuk-body govuk-!-margin-bottom-1">
+  <b>6th Feb 2022 9:34 am</b> - LRDS expiry
+</p>
+{{ govukDetails({
+summaryText: "About your LRDS expiry",
+text: "Text"
+}) }}
+<hr>
+<p class="govuk-body govuk-!-margin-bottom-1">
+  <b>9th Jan 2022 11:00 am</b> - Direct debit success
+</p>
+{{ govukDetails({
+summaryText: "About your direct debit",
+text: "Text"
+}) }}
+<hr>
+<p class="govuk-body govuk-!-margin-bottom-1">
+  <b>6th Jan 2022 9:34 am</b> - Direct debit due soon
+</p>
+{{ govukDetails({
+summaryText: "About your direct debit",
+text: "Text"
+}) }}
+<hr>
+
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      href: "#"
+    },
+    {
+      number: 2,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}
+    </div>
+
+{% endset -%}
+
+
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Priority notifications",
+      id: "past-day",
+      panel: {
+        html: pastDayHtml
+      }
+    },
+    {
+      label: "Standard notififcations",
+      id: "past-week",
+      panel: {
+        html: pastWeekHtml
+      }
+    }
+   
+  ]
+}) }}
+      
+    </div>
+  </div>
+
+{% endblock %}

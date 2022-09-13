@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay for future crossings
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1">
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-5">Add credit for additional crossings</h1>
+    <form method="post" action="notifications">
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="sort">
+        Number of crossings
+      </label>
+      <select class="govuk-select govuk-!-width-one-quarter govuk-!-margin-bottom-1" id="sortCrossB" name="sortCrossB">
+        <!-- <option value="0" selected>None</option> -->
+        <option value="1"selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+
+      </select>
+      {{ govukDetails({
+        summaryText: "How many crossings do you need to pay for?",
+        html: 
+        "
+        <ul class='govuk-list govuk-list--bullet'>
+          <li>
+            a crossing is a single journey over the bridge or through the tunnel
+          </li>
+          <li>
+            a return trip is 2 crossings
+          </li>
+          <li>
+            these payments are valid up to 12 months or till they are used
+          </li>
+          <li>
+            only use this option for crossings made yesterday, today, or a future date
+          </li>
+          <li>
+            late payments will be used for future crossings - you may receive a PCN for any late payment
+          </li>
+        </ul>
+        "
+      }) }} 
+    </div>
+    
+    <div class="govuk-form-group">
+     
+      <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-9">
+        <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Payment amount for a car</h3>
+        <h1 id = "chargeTotal" class="govuk-body-l govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£2.50</h1>
+      </div>
+    </div>
+   
+    <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-9">
+      <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Total amount including recent crossings</h3>
+      <h1 id = "chargeTotal" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">£{{((data['krosCount']*2.50)|float + 2.50|float).toFixed(2)}}</h1>
+    </div>
+   
+    <button type="submit" id="confirmPay"  class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+</form>
+  </div>
+</div>
+    </div>
+  </div>
+</div> 
+</div>
+<script>
+  let listCrossingsPay = document.getElementById("listCrossingsPay").innerHTML
+  document.getElementById('sortCrossB').addEventListener('change', function() {
+  document.getElementById('chargeB').value=(this.value*2.50).toFixed(2);
+  document.getElementById('chargeTotal').innerHTML='£'+(parseFloat(listCrossingsPay.split('£')[1])+parseFloat(document.getElementById('chargeB').value)).toFixed(2);
+});
+
+</script>
+
+{% endblock %}

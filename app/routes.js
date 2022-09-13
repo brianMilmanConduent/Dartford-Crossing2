@@ -11,6 +11,7 @@ const v13Routes = require('./routes/v13');
 const v14Routes = require('./routes/v14');
 const v15Routes = require('./routes/v15');
 const v16Routes = require('./routes/v16');
+const v17Routes = require('./routes/v17');
 
 router.use('/', v7Routes);
 router.use('/', v8Routes);
@@ -22,5 +23,6 @@ router.use('/', v13Routes);
 router.use('/', v14Routes);
 router.use('/', v15Routes);
 router.use('/', v16Routes);
+router.use('/', v17Routes);
 
 module.exports = router;

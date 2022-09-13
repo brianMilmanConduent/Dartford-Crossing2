@@ -224,12 +224,12 @@
           <p>
             <h2 class="govuk-heading-l">
               <span class="govuk-caption-m">Current sprint</span>
-              Sprint 29
+              Sprint 30
             </h2>
 
             {{ govukButton({
-              text: "Start of service (Version 16)",
-              href: "v16/start"
+              text: "Start of service (Version 17)",
+              href: "v17/start"
             }) }}
            
             <ul class="govuk-list govuk-list--bullet">
@@ -242,7 +242,7 @@
                 <li>
                   <a href="https://miro.com/app/board/uXjVOo__KJA=/" class="govuk-link" target="_blank">Miro board</a>
                 </li>
-                <li><a href="v16/manage-account/account-summary-prototype-start" class="govuk-link">Account Summary scenarios</a></li>
+                <li><a href="v17/manage-account/account-summary-prototype-start" class="govuk-link">Account Summary scenarios</a></li>
             </ul>
             </ul>
             </ul>
@@ -254,6 +254,37 @@
             {{ govukAccordion({
               id: "previousSprints",
               items: [
+              {
+                heading: {
+                  text: "Sprint 29"
+                },
+                content: {
+                  html: 
+                  "
+                  <p class='govuk-body'>
+                    The following sections were worked on during Sprint 28, ready for user research in future sprints
+                  <p>
+
+                    <ul class='govuk-list govuk-list--bullet'>
+                      <li>Account summary function iterated from Alpha designs - ready for UR</li>
+                    </ul>
+                    <ul class='govuk-list govuk-list--bullet'>
+                      <li> 
+                        <h3 class='govuk-heading-s govuk-!-margin-bottom-0 govuk-!-margin-top-6'>
+                        Account summary
+                      </h3>
+                    </li>
+                      <ul>
+                        <li>
+                          <a href='https://miro.com/app/board/uXjVOo__KJA=/' class='govuk-link' target='_blank'>Miro board</a>
+                        </li>
+                        <li><a href='v16/manage-account/account-summary-prototype-start' class='govuk-link'>Account Summary scenarios</a></li>
+                    </ul>
+                    </ul>
+                    
+                  "
+                }
+              },
               {
                 heading: {
                   text: "Sprint 28"

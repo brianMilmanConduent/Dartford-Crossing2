@@ -1,0 +1,173 @@
+{% extends "layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+My profile
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Account management",
+      href: "#"
+    },
+    {
+      text: "My profile",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-l">My profile</h1>
+
+    <h2 class="govuk-heading-m">Personal details</h2>
+
+    {{ govukSummaryList({
+      classes: 'govuk-!-margin-bottom-9',
+      rows: [
+        {
+          key: {
+            text: "First name"
+          },
+          value: {
+            text: "Sarah"
+          },
+          actions: {
+            items: [
+              {
+                href: "name#first-name",
+                text: "Change",
+                visuallyHiddenText: "first name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Last name"
+          },
+          value: {
+            text: "Phillips"
+          },
+          actions: {
+            items: [
+              {
+                href: "name#last-name",
+                text: "Change",
+                visuallyHiddenText: "last name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: "72 Guild Street<br>London<br>SE23 6FH"
+          },
+          actions: {
+            items: [
+              {
+                href: "addresslookup",
+                text: "Change",
+                visuallyHiddenText: "address"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Mobile phone"
+          },
+          value: {
+            html: '<p class="govuk-body">07700 900457</p>'
+          },
+          actions: {
+            items: [
+              {
+                href: "mobile",
+                text: "Change",
+                visuallyHiddenText: "mobile phone"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+
+    <h2 class="govuk-heading-m">Account details</h2>
+
+    {{ govukSummaryList({
+      classes: 'govuk-!-margin-bottom-9',
+      rows: [
+      
+      {
+        key: {
+          text: "Email address"
+        },
+        value: {
+          html: '<p class="govuk-body">sarah.phillips@example.com</p>'
+        },
+        actions: {
+          items: [
+            {
+              href: "email",
+              text: "Change",
+              visuallyHiddenText: "contact details"
+            }
+          ]
+        }
+      },
+        {
+          key: {
+            text: "Password"
+          },
+          type: "password",
+          value: {
+            html: "<p class='password'>123123123</p>"
+          },
+          actions: {
+            items: [
+              {
+                href: "change-password",
+                text: "Change",
+                visuallyHiddenText: "previous application number"
+              }
+            ]
+          }
+        }
+        
+        
+      ]
+    }) }}
+
+    
+    <form action="#" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      {{ govukButton({
+        text: "Back to summary"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

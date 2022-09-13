@@ -1,0 +1,63 @@
+{% extends "layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+Enter your email
+{% endblock %}
+
+
+{% block beforeContent %}
+  {% include "includes/beta-banner.html" %}
+  {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Account summary",
+        href: "#"
+      },
+      {
+        text: "Account management",
+        href: "#"
+      },
+      {
+        text: "My profile",
+        href: "#"
+      },
+      {
+        text: "What is your email address?",
+        href: "#"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="verify" method="post">
+      
+          <fieldset class="govuk-fieldset">
+            <h1 class="govuk-heading-l">What is your email address?</h1>
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="email">
+                </label>
+
+                <div id="email-hint" class="govuk-hint">
+                  This will be your username when you log in to your account</div>
+                <input class="govuk-input govuk-!-width-two-thirds" id="email" name="email"  spellcheck="false" aria-describedby="email-hint" value="sarah.phillips@example.com">
+              </div>
+
+  <button class="govuk-button" data-module="govuk-button">Continue</button>
+  <!--<p class='govuk-body'><a href='#'>Resend verification</a></p>-->
+
+
+
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+Enter your postcode
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Account management",
+      href: "#"
+    },
+    {
+      text: "My profile",
+      href: "#"
+    },
+    {
+      text: "Your address",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+
+      <form class="form" action="addressChoose" method="post">
+       
+        <fieldset class="govuk-fieldset">
+
+          <h1 class="govuk-heading-l govuk-!-margin-top-6 ">What is your address?</h1>
+          <p>This should be the address where the vehicle is registered.</p>
+         
+
+         <div class="govuk-form-group">
+        <label class="govuk-label" for="address-postcode">
+        Postcode
+        </label>
+        <div id="event-name-hint" class="govuk-hint">For example WA4 1AB
+        </div>
+      <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" value="SE23 6FH" type="text" autocomplete="post-code"></div>
+      </fieldset>
+      <button class="govuk-button" data-module="govuk-button">Find address</button>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          
+        
+      
+          <p class='govuk-body'>  <a href='addressmanual'>Enter your address manually</a></p>
+</div>
+</div>
+
+    </form>
+
+     
+
+
+      
+
+    </div>
+  </div>
+
+{% endblock %}

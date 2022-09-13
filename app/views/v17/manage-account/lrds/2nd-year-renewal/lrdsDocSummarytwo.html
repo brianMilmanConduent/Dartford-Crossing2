@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Documents uploaded to prove local residence
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="lrdsdocumenttask" novalidate data-validate='validation'>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+
+    <h1 class="govuk-heading-l">
+      Document uploaded
+    </h1>
+
+    {{ govukTable({
+      
+      firstCellIsHeader: true,
+     
+      rows: [
+        
+        [
+          {
+            text: "Supporting document"
+          },
+          {
+            html: 
+            "
+            <a href='#' class='govuk-link'>utility.pdf</a> 1.6MB
+            "
+          }
+          ,
+          {
+            html: 
+            "
+            <a href='#' class='govuk-link'>Delete</a>
+            "
+          }
+        ]
+      ]
+    }) }}
+    
+
+    
+      
+      <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+<!--prtotype validation only-->
+    <div class="govuk-visually-hidden">
+      <p class="govuk-body">
+        prototype only - please ignore
+      </p>
+      {{ govukCheckboxes({
+        idPrefix: "sup1stage-checked",
+        name: "sup1stage-checked",
+        
+        items: [
+          {
+            value: "done",
+            text: "done",
+            checked: "true"
+          }
+        ]
+      }) }}
+     </div>
+   
+<!--prototype validation only-->
+    </div>
+</div>
+</div> 
+    </div>
+  </div>
+</form>
+
+<script type="application/json" id="validation">
+  { 		  	
+    "sup1stage-checked": {
+      "presence": {
+        "message": "^Select an option or 'Prefer not to say'"
+      }
+    }
+    
+  }
+</script>
+{% endblock %}

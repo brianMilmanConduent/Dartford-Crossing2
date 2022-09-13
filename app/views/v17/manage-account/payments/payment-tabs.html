@@ -1,0 +1,605 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+Payment history
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-l">Account management</span>
+      <h1 class="govuk-heading-l">Payment</h1>
+
+      {% set paymentHistoryHtml %}
+      <h1 class="govuk-heading-l">Payment history</h1>
+      <p class="govuk-body">
+        Your last 30 days of history is listed below. For faster results, search by a specific date. <br>You can also search a date range.
+      </p>
+
+      
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            
+            {%- from "moj/components/filter/macro.njk" import mojFilter -%}
+            {%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
+            {%- from "govuk/components/input/macro.njk" import govukInput -%}
+
+            {%- set filterOptionsHtml %}
+
+              {{ govukInput({
+                id: 'keywords',
+                name: 'keywords',
+                label: {
+                  text: 'Number plate',
+                  classes: 'govuk-label--m'
+                }
+              }) }}
+
+              
+
+              {{ govukDateInput({
+                id: "date",
+                namePrefix: "date",
+                fieldset: {
+                  legend: {
+                    text: "Date range",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "For example, 31 3 1980"
+                },
+                items: [
+                  {
+                    name: "day",
+                    label: "Day",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "month",
+                    label: "Month",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "year",
+                    label: "Year",
+                    
+                    classes: "govuk-input--width-4 four"
+                  }
+                ]
+              }) }}
+
+
+              {{ govukDateInput({
+                id: "date",
+                namePrefix: "date",
+                fieldset: {
+                  legend: {
+                    text: "End date",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "For example, 31 3 1980"
+                },
+                items: [
+                  {
+                    name: "day",
+                    label: "Day",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "month",
+                    label: "Month",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "year",
+                    label: "Year",
+                    
+                    classes: "govuk-input--width-4 four"
+                  }
+                ]
+              }) }}
+
+              
+            {% endset -%}
+
+            {{ mojFilter({
+ 
+ 
+ 
+              heading: {
+                        text: 'Filter'
+                      },
+                      selectedFilters: {
+
+                        heading: {
+                          text: 'Selected filters'
+                        },
+
+                        clearLink: {
+                          text: 'Clear filters'
+                        },
+
+                        categories: [
+                          {
+                            heading: {
+                              text: 'Number plate'
+                            },
+                            items: [{
+                              href: '/path/to/remove/this',
+                              text: 'FD54 NRO'
+                            }]
+                          }
+                        ]
+                      },
+                      optionsHtml: filterOptionsHtml
+                    }) }}
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            
+              
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+{{ govukTable({
+  attributes: {
+    'data-module': 'moj-sortable-table'
+  },
+  head: [
+    {
+      text: "Payment date",
+      attributes: {
+        "aria-sort": "ascending"
+      }
+    },
+    {
+      text: "Payment reference",
+      attributes: {
+        "aria-sort": "none"
+      }
+    },
+    {
+      text: "Amount"
+    },
+    {
+      text: "View"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "6 Aug 2022"
+      },
+      {
+        text: "FR4234FTTY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "7 Aug 2022"
+      },
+     
+      {
+        text: "FR5433TY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "8 Aug 2022"
+      },
+     
+      {
+        text: "FR47654FTTY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "9 Aug 2022"
+      },
+     
+      {
+        text: "FR546543TTY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "10 Aug 2022"
+      },
+     
+      {
+        text: "FR43546TY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "11 Aug 2022"
+      },
+      {
+        text: "FR4236543TY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "12 Aug 2022"
+      },
+      
+      {
+        text: "FR765FTTY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "13 Aug 2022"
+      },
+     
+      {
+        text: "FR888FTTY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],[
+    {
+      text: "6 Aug 2022"
+    },
+   
+    {
+      text: "F3454FTTY"
+    },
+    {
+      html: "£10.00"
+    },
+    {
+      html: "<a href='#' class='govuk-link'>View</a>"
+    }
+  ],
+  [
+      {
+        text: "14 Aug 2022"
+      },
+      
+      {
+        text: "F77654FTTY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "15 Aug 2022"
+      },
+      
+      {
+        text: "FR4234123TTY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "16 Aug 2022"
+      },
+      
+      {
+        text: "FR4234432TTY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "17 Aug 2022"
+      },
+     
+      {
+        text: "FR423123Y"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "18 Aug 2022"
+      },
+      
+      {
+        text: "FR4234876TY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "19 Aug 2022"
+      },
+     
+      {
+        text: "FR4234FTTY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "20 Aug 2022"
+      },
+      {
+        text: "FR4234FTTY"
+      },
+      {
+        html: "£10.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ]
+  ]
+}) }}
+
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      href: "#"
+    },
+    {
+      number: 2,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }} 
+</div>
+</div>
+
+
+{% endset -%}
+
+
+{% set paymentmethodsHtml %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">
+      Payment methods
+    </h2>
+
+
+<h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+  Default payment method 
+</h3>
+<p class="govuk-body govuk-!-margin-bottom-6">
+  Mastercard **** 4563 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />
+  <br>
+  <a href='#' class='govuk-link'>Remove</a>
+</p>
+
+
+<h3 class="govuk-heading-m">
+  Other payment methods
+</h3>
+<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
+  <li>
+    <p class="govuk-body ">
+      Visa *****1234 <img class='card-img-new' src='/public/images/visa.png'  width='40px' alt='payment' /> <br><a href='#' class='govuk-link govuk-!-margin-right-3'>Make default</a> <a href='#' class='govuk-link'>Remove</a>
+    </p>
+  </li>
+  <li>
+    <p class="govuk-body ">
+      Visa *****784 <img class='card-img-new' src='/public/images/visa.png'  width='40px' alt='payment' /> <br><a href='#' class='govuk-link govuk-!-margin-right-3'>Make default</a> <a href='#' class='govuk-link'>Remove</a>
+    </p>
+  </li>
+</ul>
+
+{{ govukRadios({
+  idPrefix: "othermethods",
+  name: "othermethods",
+  fieldset: {
+    legend: {
+      text: "Add a new payment method",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  
+  items: [
+    
+    {
+      value: "abroad",
+      text: "Add a new payment debit/credit card"
+    },
+    {
+      value: "abroad",
+      text: "Add a new direct debit"
+    }
+  ]
+}) }}
+{{ govukButton({
+  text: "Continue"
+}) }}
+<p class="govuk-body">
+  
+  <a href="#" class="govuk-link">Back to account summary</a>
+</p>
+
+    </div>
+  </div>
+{% endset -%}
+
+
+{% set paymentTopUpHtml %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">What are your top-up and low balance amounts?</h2>
+      <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+           
+
+
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+            {{ govukInput({              
+              id: "low-balance",
+              name: "low-balance",
+              classes: "govuk-input--width-5",
+              prefix: {
+                text: "£"
+              },
+             type: "number",
+              label: {
+                text: "Your low balance limit",
+                classes: "govuk-!-font-weight-bold"
+              },
+              hint: {
+                text: "If your balance falls below this amount, we'll top it up"
+              }
+            }) }}
+            {{ govukInput({
+              id: "topup",
+              name: "topup",
+              classes: "govuk-input--width-5",
+              prefix: {
+                text: "£"
+              },
+              type: "number",
+              label: {
+                text: "Your top-up amount",
+                classes: "govuk-!-font-weight-bold"
+              },
+              hint: {
+                text: "We'll automatically top up your account with this amount"
+              }
+            }) }}
+                
+
+<button class="govuk-button" data-module="govuk-button">Continue</button>
+</div>
+</div>
+{% endset -%}
+
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Payment history",
+      id: "paymentHistoryHtml",
+      panel: {
+        html: paymentHistoryHtml
+      }
+    },
+    {
+      label: "Payment methods",
+      id: "paymentmethodsHtml",
+      panel: {
+        html: paymentmethodsHtml
+      }
+    },
+    {
+      label: "Payment top-up",
+      id: "paymentTopUpHtml",
+      panel: {
+        html: paymentTopUpHtml
+      }
+    }
+  ]
+}) }}
+
+
+       
+
+    </div>
+  </div>
+
+{% endblock %}

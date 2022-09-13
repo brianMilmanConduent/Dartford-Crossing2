@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Upload your proof of local residence documents
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="lrdsDocSummary-v5c">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+    <h1 class="govuk-heading-l">
+      Upload a document 
+    </h1>
+
+   
+    <div class="govuk-form-group govuk-!-margin-top-6">
+    {{ govukFileUpload({
+      id: "file-upload-1",
+      name: "file-upload-1",
+      label: {
+        html: "<b>Upload a copy of your vehicle V5C log book</b>"
+      }
+    }) }}
+    </div>
+
+    {{ govukDetails({
+      summaryText: "What info from the V5C is needed?",
+      text: "Text"
+    }) }}
+
+    {{ govukButton({
+      text: "Continue",
+      classes: "govuk-!-margin-top-3"
+    }) }}
+</div>
+</div> 
+    </div>
+  </div>
+</form>
+{% endblock %}

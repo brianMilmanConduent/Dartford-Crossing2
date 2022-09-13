@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your vehicles
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="vehicle-registration-two">
+      <fieldset class="govuk-fieldset">
+        <h1 class="govuk-heading-l">Extra vehicles are charged at standard pre-pay rates</h1>
+           
+             
+             <p class="govuk-body">
+              You can add more vehicles to your account, but they will go on to a pre-pay account where you’ll have to pay standard rates.
+             <p>
+  
+           
+
+    {% set detailsHTML %}
+    <h2 class="govuk-heading-m">
+      Cars and motorcycles
+    </h2>
+    {{ govukTable({
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: ""
+        },
+        
+        {
+          text: "Pay as you go"
+        },
+        {
+          text: "Pre-pay"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Motorcycles, mopeds and quad bikes"
+          },
+          
+       
+          {
+            text: "Free"
+          },
+          {
+            text: "Free"
+          }
+        ],
+        [
+          {
+            text: "Cars (including trailers), motorhomes and any minibuses that have 9 or less seats (including the driver’s seat)	"
+          },
+          
+       
+          {
+            text: "£2.50"
+          },
+          {
+            text: "£2.00"
+          }
+        ]
+      ]
+    }) }}
+
+
+    <h2 class="govuk-heading-m">
+      Buses, coaches, vans and other goods vehicles
+    </h2>
+    {{ govukTable({
+      firstCellIsHeader: true,
+      head: [
+        {
+          text: ""
+        },
+       
+        {
+          text: "Pay as you go"
+        },
+        {
+          text: "Pre-pay"
+        }
+      ],
+      rows: [
+        [
+          {
+            text: "Vehicles with 2 axles"
+          },
+         
+       
+          {
+            text: "£3.00"
+          },
+          {
+            text: "£2.63"
+          }
+        ],
+        [
+          {
+            text: "Vehicles with more than 2 axles"
+          },
+          
+       
+          {
+            text: "£6.00"
+          },
+          {
+            text: "£5.19"
+          }
+        ]
+      ]
+    }) }}
+{% endset %}
+
+{{ govukDetails({
+summaryText: "What are the standard rates for the Dartford Crossing?",
+html: detailsHTML
+})
+}}
+                  
+
+                   <button class="govuk-button" data-module="govuk-button">Continue</button>
+    
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

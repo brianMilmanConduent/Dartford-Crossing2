@@ -1,0 +1,473 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+My vehicles
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Vehicle management</span>
+      <h1 class="govuk-heading-l">Vehicle list</h1>
+
+      <form class="form" action="/url/of/next/page" method="post">
+
+        <div class="govuk-button-group">
+        {{ govukInput({
+          id: "number-plate",
+          name: "number-plate",
+          classes: "govuk-input--width-10",
+          label: {
+            text: "Number plate"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Find vehicle",
+          classes: "govuk-button--secondary horimove"
+        }) }}
+        
+       </div>
+
+       {{ govukTable({
+        firstCellIsHeader: false,
+        head: [
+          {
+            text: ""
+          },
+          {
+            text: "Number plate"
+          },
+          {
+            text: "Class"
+          },
+          {
+            text: "Make"
+          },
+          {
+            text: "Date added"
+          },
+          {
+            text: "View"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: 
+            "
+            <div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+              <div class='govuk-checkboxes__item'>
+                <input class='govuk-checkboxes__input' id='organisation' name='organisation' type='checkbox' value='hmrc'>
+                <label class='govuk-label govuk-checkboxes__label' for='organisation'>
+                   
+                </label>
+              </div>
+            "
+            },
+            {
+              html: 
+              "
+              <a href='vehicle-details-to-edit' class='govuk-link'>L90 VW</a>
+              "
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "Landrover"
+            },
+            {
+              text: "Defender"
+            },
+            {
+              html: "<a href='vehicle-details-to-edit' class='govuk-link'>View</a>"
+            }
+          ],
+          [
+            {
+              html: 
+            "
+            <div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+              <div class='govuk-checkboxes__item'>
+                <input class='govuk-checkboxes__input' id='organisation' name='organisation' type='checkbox' value='hmrc'>
+                <label class='govuk-label govuk-checkboxes__label' for='organisation'>
+                   
+                </label>
+              </div>
+            "
+            },
+            {
+              html: 
+              "
+              <a href='#' class='govuk-link'>L91 VW</a>
+              "
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "Landrover"
+            },
+            {
+              text: "Defender"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a>"
+            }
+          ],
+          [
+            {
+              html: 
+            "
+            <div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+              <div class='govuk-checkboxes__item'>
+                <input class='govuk-checkboxes__input' id='organisation' name='organisation' type='checkbox' value='hmrc'>
+                <label class='govuk-label govuk-checkboxes__label' for='organisation'>
+                   
+                </label>
+              </div>
+            "
+            },
+            {
+              html: 
+              "
+              <a href='#' class='govuk-link'>L92 VW</a>
+              "
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "Audi"
+            },
+            {
+              text: "Q8"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a>"
+            }
+          ],
+          [
+            {
+              html: 
+            "
+            <div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+              <div class='govuk-checkboxes__item'>
+                <input class='govuk-checkboxes__input' id='organisation' name='organisation' type='checkbox' value='hmrc'>
+                <label class='govuk-label govuk-checkboxes__label' for='organisation'>
+                   
+                </label>
+              </div>
+            "
+            },
+            {
+              html: 
+              "
+              <a href='#' class='govuk-link'>L93 4RF</a>
+              "
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "Audi"
+            },
+            {
+              text: "S3"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a>"
+            }
+          ],
+          [
+            {
+              html: 
+            "
+            <div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+              <div class='govuk-checkboxes__item'>
+                <input class='govuk-checkboxes__input' id='organisation' name='organisation' type='checkbox' value='hmrc'>
+                <label class='govuk-label govuk-checkboxes__label' for='organisation'>
+                   
+                </label>
+              </div>
+            "
+            },
+            {
+              html: 
+              "
+              <a href='#' class='govuk-link'>L94 EDS</a>
+              "
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "Jeep"
+            },
+            {
+              text: "Wriggler"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a>"
+            }
+          ],
+          [
+            {
+              html: 
+            "
+            <div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+              <div class='govuk-checkboxes__item'>
+                <input class='govuk-checkboxes__input' id='organisation' name='organisation' type='checkbox' value='hmrc'>
+                <label class='govuk-label govuk-checkboxes__label' for='organisation'>
+                   
+                </label>
+              </div>
+            "
+            },
+            {
+              html: 
+              "
+              <a href='#' class='govuk-link'>L95 EED</a>
+              "
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "Ford"
+            },
+            {
+              text: "Fiesta"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a>"
+            }
+          ],
+          [
+            {
+              html: 
+            "
+            <div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+              <div class='govuk-checkboxes__item'>
+                <input class='govuk-checkboxes__input' id='organisation' name='organisation' type='checkbox' value='hmrc'>
+                <label class='govuk-label govuk-checkboxes__label' for='organisation'>
+                   
+                </label>
+              </div>
+            "
+            },
+            {
+              html: 
+              "
+              <a href='#' class='govuk-link'>L96 MAN</a>
+              "
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "Jaguar"
+            },
+            {
+              text: "RR432"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a>"
+            }
+          ],
+          [
+            {
+              html: 
+            "
+            <div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+              <div class='govuk-checkboxes__item'>
+                <input class='govuk-checkboxes__input' id='organisation' name='organisation' type='checkbox' value='hmrc'>
+                <label class='govuk-label govuk-checkboxes__label' for='organisation'>
+                   
+                </label>
+              </div>
+            "
+            },
+            {
+              html: 
+              "
+              <a href='#' class='govuk-link'>L97 RYF</a>
+              "
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "Fiat"
+            },
+            {
+              text: "400"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a>"
+            }
+          ],
+          [
+            {
+              html: 
+            "
+            <div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+              <div class='govuk-checkboxes__item'>
+                <input class='govuk-checkboxes__input' id='organisation' name='organisation' type='checkbox' value='hmrc'>
+                <label class='govuk-label govuk-checkboxes__label' for='organisation'>
+                   
+                </label>
+              </div>
+            "
+            },
+            {
+              html: 
+              "
+              <a href='#' class='govuk-link'>L98 URT</a>
+              "
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "Vauxhall"
+            },
+            {
+              text: "Leopard"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a>"
+            }
+          ],
+          [
+            {
+              html: 
+            "
+            <div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+              <div class='govuk-checkboxes__item'>
+                <input class='govuk-checkboxes__input' id='organisation' name='organisation' type='checkbox' value='hmrc'>
+                <label class='govuk-label govuk-checkboxes__label' for='organisation'>
+                   
+                </label>
+              </div>
+            "
+            },
+            {
+              html: 
+              "
+              <a href='#' class='govuk-link'>L99 VW</a>
+              "
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "Maranga"
+            },
+            {
+              text: "Yarp"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a>"
+            }
+          ],
+          [
+            {
+              html: 
+            "
+            <div class='govuk-checkboxes govuk-checkboxes--small' data-module='govuk-checkboxes'>
+              <div class='govuk-checkboxes__item'>
+                <input class='govuk-checkboxes__input' id='organisation' name='organisation' type='checkbox' value='hmrc'>
+                <label class='govuk-label govuk-checkboxes__label' for='organisation'>
+                   
+                </label>
+              </div>
+            "
+            },
+            {
+              html: 
+              "
+              <a href='#' class='govuk-link'>L999 ER</a>
+              "
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "Maranga"
+            },
+            {
+              text: "Yarp"
+            },
+            {
+              html: "<a href='#' class='govuk-link'>View</a>"
+            }
+          ]
+        ]
+       }) }}
+
+       {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      href: "#"
+    },
+    {
+      ellipsis: true
+    },
+    {
+      number: 6,
+      href: "#"
+    },
+    {
+      number: 7,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 8,
+      href: "#"
+    },
+    {
+      ellipsis: true
+    },
+    {
+      number: 42,
+      href: "#"
+    }
+  ]
+}) }}
+
+<div class="govuk-button-group">
+        {{ govukButton({
+          text: "Add a vehicle",
+          href: "vehicle-registration"
+        }) }}
+        {{ govukButton({
+          text: "Delete vehicles",
+          classes: "govuk-button--warning"
+        }) }}
+      </div>
+      <a href="#" class="govuk-link">Download full vehicle list</a>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

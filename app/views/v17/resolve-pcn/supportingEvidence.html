@@ -1,0 +1,174 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Payment successful
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<style>
+    .sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+  }
+</style>
+<style>
+    .gem-c-contextual-sidebar__brexit-cta {text-size-adjust: 100%;
+   font-family: "GDS Transport",arial,sans-serif;
+   margin-bottom: 30px;
+   background-color: #f3f2f1;
+   border-top: 2px solid #0a3d66;
+   display: block;
+   padding: 0 15px 15px;
+   text-decoration: none;}
+</style>
+
+<div class="govuk-width-container">
+  
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+          <h1 class="govuk-caption-l govuk-!-margin-bottom-0 govuk-!-margin-top-0">Pay or challenge a penalty charge notice (PCN)</h1>
+          <h1 class="govuk-heading-xl govuk-!-margin-top-0 govuk-!-margin-bottom-5">Supporting evidence</h1>
+        </div>
+        
+        <div class="govuk-grid-column-three-quarters">
+          <div class="gem-c-contextual-sidebar__brexit-cta govuk-!-margin-bottom-1 govuk-!-padding-bottom-0">
+            <h2 class="gem-c-contextual-sidebar__brexit-heading govuk-heading-m govuk-!-margin-bottom-0 -2 govuk-!-margin-top-1">The reason you selected for challenging the PCN is:</h2><br>
+            <p id="challReason" class="gem-c-contextual-sidebar__brexit-text govuk-body govuk-!-padding-bottom-2">
+              Penalty charge notice payment
+          </p>
+          <!-- <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
+           <b>Number plate</b> <br>
+           <span id="plateNom">{{data['vrn']}}</span>
+        </p> -->
+        <!--<p class="gem-c-contextual-sidebar__brexit-text govuk-body">
+          <b>Number of pcns</b> <br>
+          <span id="countPCNs">4</span>
+        </p>-->
+        <!-- <p class="gem-c-contextual-sidebar__brexit-text govuk-body">
+          <b>PCN number(s)</b> <br>
+          <span id="listPCNs">4</span>
+        </p> -->
+        <!-- <p class="gem-c-contextual-sidebar__brexit-text govuk-body govuk-!-margin-bottom-1">
+          Total amount: <br>
+          <h1 id="charge" class="govuk-heading-xl govuk-!-margin-top-1 govuk-!-margin-bottom-1">£10</h1>
+        </p> -->
+          </div>    
+          
+          <!-- <p class="govuk-body">Provide evidence that supports your challenge of a <span aria-hidden="true" title="Penalty charge notice">PCN</span> <span class="sr-only" >Penalty charge notice</span>.</p> -->
+          <p class="govuk-body">You need to provide evidence to support your challenge.</p>
+          <div id="challabel" class="govuk-inset-text">
+            It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application.
+          </div>
+          <!-- <p class="govuk-body">Your choice of evidence may depend on the reason you chose to appeal. For example you might want to show:</p>  
+            <ul>
+              <li class="govuk-body">a receipt or unique transaction number for your payment.</li>
+              <li class="govuk-body">the name and address of the person you sold the vehicle to and a proof of sale document.</li>
+              <li class="govuk-body">a crime reference or unique reference number for a stolen vehicle.</li>
+              <li class="govuk-body">a copy of the hire agreement and statement of liability.</li>
+              <li class="govuk-body">your V5C form for an exempt vehicle (with letter from appropriate officer if an emergency service or military vehicle).</li>
+              <li class="govuk-body">a death certificate if the registered keeper is deceased.</li>
+              <li class="govuk-body">evidence that the vehicle was in a different location at the contravention time.</li>
+              <li class="govuk-body">any other evidence to assist us in understanding your case.</li>
+            </ul> -->
+          <!-- <p class="govuk-body">Please ensure scans or photographs of documents are not cropped, blurred or covered.</p> -->
+          <p class="govuk-body">You can scan any relevant documents and upload them below. Please make sure that scans or photographs of documents are clear. If they are blurred or unreadable we may not be able to consider your challenge.</p>
+
+          <!-- <p class="govuk-body">If the information you provide cannot be read, it may not be possible to consider your supporting evidence.</p> -->
+          
+         
+          <!-- <ul>
+           <li class="govuk-body">it is the full document, not cropped or cut off</li>
+           <li class="govuk-body">photos are taken in natural daylight avoiding camera flashes or light glare that can obscure information
+          </li>
+           <li class="govuk-body">the document is photographed from above on a flat surface </li>
+           <li class="govuk-body">there are no objects (hands/pieces of paper etc) covering any part of the document
+          </li>
+           <li class="govuk-body">if the document has information on two sides copy or photograph the front and back of the document and uploaded as separate files</li>
+         </ul> -->
+         <br><br>
+          <div id="uploadFiles"class="govuk-form-group govuk-!-margin-bottom-1">
+          <label class="govuk-label" for="file-upload-1">
+            Upload a file
+          </label>
+          <input class="govuk-file-upload" id="file-upload-1" name="file-upload-1" type="file">
+        </div> 
+        <!-- <div class="govuk-inset-text govuk-hint govuk-!-margin-top-1 govuk-!-padding-top-0 govuk-!-padding-bottom-0">
+         Information about what kind of files should be uploaded Lorem ipsum dolor sit amet,
+         consectetur adipiscing elit. Duis faucibus purus eu purus ultrices
+         gravida. Duis ut fermentum.
+        </div> -->
+        <br><br>
+        <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="1000">
+        <div class="govuk-form-group">
+          <p class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="with-hint">
+              Add additional information.
+            </label>
+          </p>
+          <p class="govuk-body">Use this form if you would like to provide more information about your reason for challenging the charge. </p>
+          <div id="more-detail-hint" class="govuk-hint">
+            Do not include personal or financial information, like your National Insurance number or credit card details.
+          </div>
+          <textarea class="govuk-textarea govuk-js-character-count" id="with-hint" name="with-hint" rows="10" aria-describedby="with-hint-info with-hint-hint"></textarea>
+        </div>
+        <div id="with-hint-info" class="govuk-hint govuk-character-count__message" aria-live="polite">
+          You can enter up to 200 characters
+        </div></div>
+ 
+        <a id="nextBtn" href="flow13"><button class="govuk-button govuk-!-width-one-quarter" data-module="govuk-button">
+          Next
+        </button> 
+
+                  
+
+
+     
+        <br>
+        <br><br><br><br>
+        
+
+
+        </div>  
+                    
+    </div>
+                     
+                     
+                      
+        <div class="govuk-grid-column-one-third">
+          
+        </div>
+ 
+      </div>
+
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+
+<script>
+        $(document).ready(function(){
+        let challengeReason = JSON.parse(localStorage.getItem("challengeReason"));
+        let challReason = document.getElementById("challReason")
+        let challabel = document.getElementById("challabel")
+        challReason.innerHTML = challengeReason.split(":")[0]
+        challabel.innerHTML = challengeReason.split(":")[1]
+        let nextBtn = document.getElementById("nextBtn")
+         nextBtn.addEventListener("click", function(){
+          let upload = document.getElementById("file-upload-1").value
+          let uploadName = upload.substring(upload.lastIndexOf("\\")+1) 
+          let detailText = document.getElementById("with-hint").value
+          let challengeEvidence = [uploadName, detailText]
+          localStorage.setItem("challengeEvidence", JSON.stringify(challengeEvidence))
+         })
+         
+        })
+        
+</script>
+
+
+{% endblock %}

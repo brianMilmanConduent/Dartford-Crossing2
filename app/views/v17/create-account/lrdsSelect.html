@@ -1,0 +1,178 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Select LRDS
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="lrdsSelection">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      What type of local resident discount would you like?
+    </h1>
+    <p class="govuk-body">
+      Under the Local Resident Discount Scheme (LRDS), you can choose from two different discount options.
+    </p>
+    
+    
+    {{ govukRadios({
+      idPrefix: "lrdsSelect",
+      name: "lrdsSelect",
+      items: [
+        {
+          value: "Limited discount",
+          html: "<b>Limited discount</b>",
+          hint: {
+            text: "£10 per year for 50 crossings, and thereafter 20p per crossing"
+          }
+        },
+        {
+          value: "Unlimited discount",
+          html: "<b>Unlimited discount</b>",
+          hint: {
+            text: "£20 per year for unlimited crossings"
+          }
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "None of the above",
+          html: "<b>I do not want a local resident discount</b>",
+          hint: {
+            text: "Pay as you go or pre-pay your account instead"
+          }
+        }
+      ]
+    }) }}
+
+
+
+
+    {% set detailsHTML %}
+          <h2 class="govuk-heading-m">
+            Cars and motorcycles
+          </h2>
+          {{ govukTable({
+            firstCellIsHeader: true,
+            head: [
+              {
+                text: ""
+              },
+              
+              {
+                text: "Pay as you go"
+              },
+              {
+                text: "Pre-pay"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "Motorcycles, mopeds and quad bikes"
+                },
+                
+             
+                {
+                  text: "Free"
+                },
+                {
+                  text: "Free"
+                }
+              ],
+              [
+                {
+                  text: "Cars (including trailers), motorhomes and any minibuses that have 9 or less seats (including the driver’s seat)	"
+                },
+                
+             
+                {
+                  text: "£2.50"
+                },
+                {
+                  text: "£2.00"
+                }
+              ]
+            ]
+          }) }}
+
+
+          <h2 class="govuk-heading-m">
+            Buses, coaches, vans and other goods vehicles
+          </h2>
+          {{ govukTable({
+            firstCellIsHeader: true,
+            head: [
+              {
+                text: ""
+              },
+             
+              {
+                text: "Pay as you go"
+              },
+              {
+                text: "Pre-pay"
+              }
+            ],
+            rows: [
+              [
+                {
+                  text: "Vehicles with 2 axles"
+                },
+               
+             
+                {
+                  text: "£3.00"
+                },
+                {
+                  text: "£2.63"
+                }
+              ],
+              [
+                {
+                  text: "Vehicles with more than 2 axles"
+                },
+                
+             
+                {
+                  text: "£6.00"
+                },
+                {
+                  text: "£5.19"
+                }
+              ]
+            ]
+          }) }}
+{% endset %}
+
+{{ govukDetails({
+ summaryText: "What are the standard rates for the Dartford Crossing?",
+ html: detailsHTML
+ })
+}}
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+
+
+
+    
+
+
+</div>
+</div> 
+    </div>
+  </div>
+</form>
+{% endblock %}
