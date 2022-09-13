@@ -458,43 +458,62 @@ Payment history
     </h2>
 
 
-<!--<h3 class="govuk-heading-s govuk-!-margin-bottom-1">
-  Default payment method: debit/credit card 
+<h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+  Default payment method 
 </h3>
-<p class="govuk-body">
+<p class="govuk-body govuk-!-margin-bottom-6">
   Mastercard **** 4563 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />
-</p>-->
+  <br>
+  <a href='#' class='govuk-link'>Remove</a>
+</p>
 
+
+<h3 class="govuk-heading-m">
+  Other payment methods
+</h3>
+<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
+  <li>
+    <p class="govuk-body ">
+      Visa *****1234 <img class='card-img-new' src='/public/images/visa.png'  width='40px' alt='payment' /> <br><a href='#' class='govuk-link govuk-!-margin-right-3'>Make default</a> <a href='#' class='govuk-link'>Remove</a>
+    </p>
+  </li>
+  <li>
+    <p class="govuk-body ">
+      Visa *****784 <img class='card-img-new' src='/public/images/visa.png'  width='40px' alt='payment' /> <br><a href='#' class='govuk-link govuk-!-margin-right-3'>Make default</a> <a href='#' class='govuk-link'>Remove</a>
+    </p>
+  </li>
+</ul>
 
 {{ govukRadios({
   idPrefix: "othermethods",
   name: "othermethods",
   fieldset: {
     legend: {
-      text: "Payment methods",
+      text: "Add a new payment method",
       isPageHeading: false,
-      classes: "govuk-fieldset__legend--s"
+      classes: "govuk-fieldset__legend--m"
     }
   },
   
   items: [
+    
     {
-      value: "Value",
-      html: "Visa *****1234 <img class='card-img-new' src='/public/images/visa.png'  width='40px' alt='payment' />",
-      checked: "true"
-    },
-    {
-      divider: "or"
+      value: "abroad",
+      text: "Add a new payment debit/credit card"
     },
     {
       value: "abroad",
-      text: "Add a new payment method"
+      text: "Add a new direct debit"
     }
   ]
 }) }}
 {{ govukButton({
   text: "Continue"
 }) }}
+<p class="govuk-body">
+  
+  <a href="#" class="govuk-link">Back to account summary</a>
+</p>
 
     </div>
   </div>

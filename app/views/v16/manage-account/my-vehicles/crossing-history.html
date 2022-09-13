@@ -1,4 +1,4 @@
-{% extends "layout-dashboard.html" %}
+{% extends "layout-dash-veh-man.html" %}
 
 {% block pageTitle %}
 Crossing history
@@ -15,7 +15,7 @@ Crossing history
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-l">Crossing history</h1>
       <p class="govuk-body">
-        You can view crossings for the past 90 days.<br>Recent crossings may take up to 8 hours to appear.
+        You can view crossings for the past 90 days. Recent crossings may take up to 8 hours to appear.
       </p>
 
       
@@ -44,7 +44,7 @@ Crossing history
                 namePrefix: "date",
                 fieldset: {
                   legend: {
-                    text: "Date range",
+                    text: "Start date",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--m"
                   }
@@ -118,7 +118,7 @@ Crossing history
  
  
               heading: {
-                        text: 'Filter'
+                        text: 'Filter your search'
                       },
                       selectedFilters: {
 
@@ -559,9 +559,11 @@ Crossing history
     }
   ]
 }) }}   
-        </div>
-      </div>
 
+        </div>
+       
+      </div>
+<a href="#" class="govuk-link">Download full crossing history</a>
     </div>
   </div>
 

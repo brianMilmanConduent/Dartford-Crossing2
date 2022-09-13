@@ -18,7 +18,18 @@ How do you want to be notified?
         
         <div class="govuk-form-group">
          
- 
+          {% set confirmHtml %}
+          {{ govukCheckboxes({
+            idPrefix: "tsNcs",
+            name: "tsNcs",
+            items: [
+              {
+                value: "Value",
+                html: "See content deck confirming agreement of <a href='#' class='govuk-link'>T's and C's</a> "
+              }
+            ]
+          }) }}
+          {% endset -%}
 
          {{ govukRadios({
           idPrefix: "text-notifications",
@@ -36,7 +47,10 @@ How do you want to be notified?
           items: [
             {
               value: "Yes",
-              text: "Yes"
+              text: "Yes",
+              conditional: {
+                html: confirmHtml
+              }
             },
             {
               value: "No",
@@ -48,7 +62,10 @@ How do you want to be notified?
             </div>
           </fieldset>
        
-        
+        {{ govukDetails({
+          summaryText: "Do we need a details component about where to find charges?",
+          text: "Text"
+        }) }}
 
             {{ govukButton({
                 text: "Continue"

@@ -26,6 +26,10 @@
         Card <b>**** **** 4567</b> will expire in 22 days.
         <a class="govuk-notification-banner__link" href="#">Update card</a>.
       </p>
+      <p class="govuk-notification-banner__heading">
+        You have 10 unread notifications.
+        <a class="govuk-notification-banner__link" href="#">Read now</a>.
+      </p>
     {% endset %}
     
     {{ govukNotificationBanner({
@@ -38,28 +42,14 @@
     {% include "includes/v3/accounts/personal-pre-pay/page-header.html" %}
   {% endblock %}
 
-
-  
   {% block balanceContent %}
     {% include "includes/v3/accounts/personal-pre-pay/balance-and-top-up.html" %}
   {% endblock %}
 
- 
-  
-  {% block notificationContent %}
-  {% include "includes/v3/accounts/personal-pre-pay/notification.html" %}
-{% endblock %}
-
- 
-
-
-
 {% block crossingTableContent %}
   {% include "includes/v3/accounts/personal-pre-pay/crossing-table.html" %}
 {% endblock %}
-{% block vehiclesAndSavingsContent %}
-  {% include "includes/v3/accounts/personal-pre-pay/vehicles_and_savings.html" %}
-{% endblock %}
+
 
 </div>
 </div>
