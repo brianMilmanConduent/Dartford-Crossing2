@@ -1,4 +1,4 @@
-{% extends "layout-dashboard.html" %}
+{% extends "layout-dash-acc-man.html" %}
 
 {% block pageTitle %}
 Nominated contacts
@@ -6,7 +6,22 @@ Nominated contacts
 
 {% block beforeContent %}
 {% include "includes/alpha-banner.html" %}
-{% include "includes/back-link.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Account management",
+      href: "#"
+    },
+    {
+      text: "Nominated contacts",
+      href: "#"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -30,7 +45,10 @@ Nominated contacts
         These  contacts have accepted your invitation
        </p>
 
-
+        {{ govukTag({
+          text: "Active",
+          classes: "right-align"
+        }) }}
        {{ govukTable({
         caption: "Peter Paul",
         firstCellIsHeader: true,
@@ -83,6 +101,10 @@ Nominated contacts
         <p class="govuk-body">
           These  contacts have not accepted your invitation yet
         </p>
+        {{ govukTag({
+          text: "Pending",
+          classes: "govuk-tag--yellow right-align"
+        }) }}
         {{ govukTable({
           caption: "John Morre",
           firstCellIsHeader: true,
@@ -126,6 +148,10 @@ Nominated contacts
             }) }}
           </div>
           <hr class="govuk-!-margin-bottom-6">
+          {{ govukTag({
+            text: "Expired",
+            classes: "govuk-tag--red right-align"
+          }) }}
           {{ govukTable({
             caption: "John Morre",
             firstCellIsHeader: true,

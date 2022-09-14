@@ -6,8 +6,28 @@ Your vehicle
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{% include "includes/back-link.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Vehicle management",
+      href: "#"
+    },
+    {
+      text: "Vehicle list",
+      href: "#"
+    },
+    {
+      text: "Confirm vehicle",
+      href: "#"
+    }
+  ]
+}) }}
 {% endblock %}
+
 
 {% block content %}
 {% if data['account-type'] === 'Personal' %}

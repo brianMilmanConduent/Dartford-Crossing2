@@ -6,7 +6,7 @@ Vehicle confirmation
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{% include "includes/back-link.html" %}
+
 {% endblock %}
 
 
@@ -23,31 +23,48 @@ Vehicle confirmation
         titleText: "New vehicle added successfully"
       }) }}
 
-      <p class="govuk-body">We have sent you a confirmation email to [email address]</p>
+      <p class="govuk-body">We have sent you a confirmation email to [email address].</p>
 
-      <table class="govuk-table">
-       
-        <thead class="govuk-table__head">
-         
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Date</th>
-            <td class="govuk-table__cell">[Date processed</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Vehicle added</th>
-            <td class="govuk-table__cell">
-              {{ govukDetails({
-                summaryText: "View vehicle",
-                text: "Text"
-              }) }}
-            </td>
-          </tr>
-         
-        </tbody>
-      </table>
-
+     
+      {{ govukTable({
+        caption: "Vehicles added",
+        firstCellIsHeader: false,
+        head: [
+          
+          {
+            text: "Number plate"
+          },
+          {
+            text: "Class"
+          },
+          {
+            text: "Make"
+          },
+          {
+            text: "Date added"
+          }
+        ],
+        rows: [
+          [
+            
+            {
+              html: 
+              "
+              L90 VW
+              "
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "Landrover"
+            },
+            {
+              text: "20th Jan 2020"
+            }
+          ]
+        ]
+       }) }}
 
 
       {{ govukButton({

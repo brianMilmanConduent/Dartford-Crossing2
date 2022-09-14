@@ -6,7 +6,22 @@ Your vehicle
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{% include "includes/back-link.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Vehicle management",
+      href: "#"
+    },
+    {
+      text: "Vehicle details",
+      href: "#"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -47,10 +62,7 @@ Your vehicle
                               <td class="govuk-table__cell  govuk-body ">Car</td>
                               
                           </tr>
-                          <tr class="govuk-table__row">
-                            <td scope="col" class="govuk-table__header govuk-body ">Class</td>
-                            <td class="govuk-table__cell  govuk-body ">B</td>
-                        </tr>
+                         
                           <tr class="govuk-table__row">
                               <td scope="col" class="govuk-table__header govuk-body ">Make</td>
                               <td class="govuk-table__cell  govuk-body ">Landrover</td>

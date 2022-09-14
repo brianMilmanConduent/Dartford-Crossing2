@@ -6,7 +6,26 @@ What is the number plate of your vehicle?
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{% include "includes/back-link.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Vehicle management",
+      href: "#"
+    },
+    {
+      text: "Vehicle list",
+      href: "#"
+    },
+    {
+      text: "New vehicle number plate",
+      href: "#"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}

@@ -1,4 +1,4 @@
-{% extends "layout-dashboard.html" %}
+{% extends "layout-dash-acc-man.html" %}
 
 {% block pageTitle %}
 Nominated contacts
@@ -6,7 +6,22 @@ Nominated contacts
 
 {% block beforeContent %}
 {% include "includes/alpha-banner.html" %}
-{% include "includes/back-link.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Account management",
+      href: "#"
+    },
+    {
+      text: "Nominated contacts",
+      href: "#"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}

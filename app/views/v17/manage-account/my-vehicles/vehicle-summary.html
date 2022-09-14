@@ -6,7 +6,22 @@ My vehicles
 
 {% block beforeContent %}
 {% include "includes/alpha-banner.html" %}
-{% include "includes/back-link.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Vehicle management",
+      href: "#"
+    },
+    {
+      text: "Vehicle list",
+      href: "#"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -40,7 +55,7 @@ My vehicles
         firstCellIsHeader: false,
         head: [
           {
-            text: ""
+            text: "Select"
           },
           {
             text: "Number plate"
@@ -85,7 +100,7 @@ My vehicles
               text: "Landrover"
             },
             {
-              text: "Defender"
+              text: "20th Jan 2020"
             },
             {
               html: "<a href='vehicle-details-to-edit' class='govuk-link'>View</a>"
@@ -117,7 +132,7 @@ My vehicles
               text: "Landrover"
             },
             {
-              text: "Defender"
+              text: "20th Jan 2020"
             },
             {
               html: "<a href='#' class='govuk-link'>View</a>"
@@ -149,7 +164,7 @@ My vehicles
               text: "Audi"
             },
             {
-              text: "Q8"
+              text: "20th Jan 2020"
             },
             {
               html: "<a href='#' class='govuk-link'>View</a>"
@@ -181,7 +196,7 @@ My vehicles
               text: "Audi"
             },
             {
-              text: "S3"
+              text: "20th Jan 2020"
             },
             {
               html: "<a href='#' class='govuk-link'>View</a>"
@@ -213,7 +228,7 @@ My vehicles
               text: "Jeep"
             },
             {
-              text: "Wriggler"
+              text: "20th Jan 2020"
             },
             {
               html: "<a href='#' class='govuk-link'>View</a>"
@@ -245,7 +260,7 @@ My vehicles
               text: "Ford"
             },
             {
-              text: "Fiesta"
+              text: "20th Jan 2020"
             },
             {
               html: "<a href='#' class='govuk-link'>View</a>"
@@ -277,7 +292,7 @@ My vehicles
               text: "Jaguar"
             },
             {
-              text: "RR432"
+              text: "20th Jan 2020"
             },
             {
               html: "<a href='#' class='govuk-link'>View</a>"
@@ -309,7 +324,7 @@ My vehicles
               text: "Fiat"
             },
             {
-              text: "400"
+              text: "20th Jan 2020"
             },
             {
               html: "<a href='#' class='govuk-link'>View</a>"
@@ -341,7 +356,7 @@ My vehicles
               text: "Vauxhall"
             },
             {
-              text: "Leopard"
+              text: "20th Jan 2020"
             },
             {
               html: "<a href='#' class='govuk-link'>View</a>"
@@ -373,7 +388,7 @@ My vehicles
               text: "Maranga"
             },
             {
-              text: "Yarp"
+              text: "20th Jan 2020"
             },
             {
               html: "<a href='#' class='govuk-link'>View</a>"
@@ -405,7 +420,7 @@ My vehicles
               text: "Maranga"
             },
             {
-              text: "Yarp"
+              text: "20th Jan 2020"
             },
             {
               html: "<a href='#' class='govuk-link'>View</a>"
@@ -417,15 +432,14 @@ My vehicles
        {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 
 {{ govukPagination({
-  previous: {
-    href: "#"
-  },
+ 
   next: {
     href: "#"
   },
   items: [
     {
       number: 1,
+      current: true,
       href: "#"
     },
     {
@@ -437,7 +451,7 @@ My vehicles
     },
     {
       number: 7,
-      current: true,
+     
       href: "#"
     },
     {

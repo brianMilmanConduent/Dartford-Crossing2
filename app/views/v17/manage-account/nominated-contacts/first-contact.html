@@ -1,4 +1,4 @@
-{% extends "layout-dashboard.html" %}
+{% extends "layout-dash-acc-man.html" %}
 
 {% block pageTitle %}
 Nominated contacts
@@ -6,7 +6,26 @@ Nominated contacts
 
 {% block beforeContent %}
 {% include "includes/alpha-banner.html" %}
-{% include "includes/back-link.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Account management",
+      href: "#"
+    },
+    {
+      text: "Nominated contacts",
+      href: "#"
+    },
+    {
+      text: "Invite a nominated contact",
+      href: "#"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
@@ -75,7 +94,7 @@ Nominated contacts
               value: "government-gateway",
               html: "<b>Full permission</b>",
               hint: {
-                text: "They'll be able to view and change account and vehicle data, plus change the payment method:"
+                text: "They'll be able to view and change account and vehicle data, plus change the payment method."
               }
             },
             {
@@ -90,7 +109,7 @@ Nominated contacts
         
         {{ govukButton({
           text: "Continue",
-          href: "nominated-contact-list"
+          href: "nominated-contact-confirmation"
         }) }}
       </form>
 
