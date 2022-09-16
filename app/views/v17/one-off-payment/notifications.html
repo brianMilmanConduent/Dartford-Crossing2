@@ -11,7 +11,7 @@ Pay for recent crossings
 {% endblock %}
 
 {% block content %}
-<form class="form" method="post" action="receipts">
+<form class="form" method="post" action="confirm-card-payment">
 <div class="govuk-grid-row">
  
 
@@ -56,14 +56,14 @@ Pay for recent crossings
       name: "receipt-pref",
       items: [
         {
-          value: "Value",
+          value: "Email",
           text: "Email (optional)",
           conditional: {
             html: emailHtml
           }
         },
         {
-          value: "Value",
+          value: "Text message",
           text: "Text message (optional)",
           conditional: {
             html: textHtml

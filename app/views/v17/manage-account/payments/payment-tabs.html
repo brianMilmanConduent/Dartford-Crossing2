@@ -1,12 +1,27 @@
-{% extends "../../layout-dashboard.html" %}
+{% extends "../../layout-dash-acc-man.html" %}
 
 {% block pageTitle %}
 Payment history
 {% endblock %}
 
 {% block beforeContent %}
-{% include "includes/alpha-banner.html" %}
-{% include "includes/back-link.html" %}
+{% include "includes/beta-banner.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Account management",
+      href: "#"
+    },
+    {
+      text: "Payment",
+      href: "#"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}

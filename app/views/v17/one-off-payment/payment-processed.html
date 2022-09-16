@@ -128,14 +128,7 @@ Payment details
 
         <form  method="post" action="payment-success">
           <h2 class="govuk-heading-l">Enter card details</h2>
-          <div class="govuk-form-group govuk-!-margin-top-0">
-            <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="width-2">
-              Name on card
-            </label></h3>
-            <span id="nameError" class="govuk-error-message govuk-!-display-none pcnError">
-              <span class="govuk-visually-hidden">Error:</span> Enter the name as shown on your credit card
-            </span>
-            <input class="govuk-input govuk-!-width-one-half cardFields" id="userName" name="userName" type="text" ></div>
+          
           <div class="govuk-form-group govuk-!-margin-bottom-3">
             <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="event-name">
               Card number
@@ -178,7 +171,14 @@ Payment details
             </span>
             <input class="govuk-input govuk-input--width-4 cardFields" id="year" name="year" type="text" maxlength="2" onkeypress='return event.charCode >= 48 && event.charCode <= 57' v>
           </div>
-            
+          <div class="govuk-form-group govuk-!-margin-top-0">
+            <h3 class="govuk-label-wrapper"><label class="govuk-label govuk-label--m" for="width-2">
+              Name on card
+            </label></h3>
+            <span id="nameError" class="govuk-error-message govuk-!-display-none pcnError">
+              <span class="govuk-visually-hidden">Error:</span> Enter the name as shown on your credit card
+            </span>
+            <input class="govuk-input govuk-!-width-two-thirds cardFields" id="userName" name="userName" type="text" ></div>
             <div class="govuk-form-group govuk-!-margin-top-0 govuk-!-margin-right-2" >
               <label class="govuk-label govuk-label--m" for="width-5">
                   Card security code
