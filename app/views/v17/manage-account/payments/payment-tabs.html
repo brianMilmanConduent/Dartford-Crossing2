@@ -27,6 +27,23 @@ Payment history
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+
+      <!--banner starts-->
+      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+        {% set html %}
+          <h3 class="govuk-notification-banner__heading">
+            You have successfully removed the card  XXXXX
+          </h3>
+          <p class="govuk-body">You may <a class="govuk-notification-banner__link" href="#">Add a new payment method</a>.</p>
+        {% endset %}
+
+        {{ govukNotificationBanner({
+          html: html,
+          type: 'success'
+        }) }}
+
+        <!--banner ends-->
       <span class="govuk-caption-l">Account management</span>
       <h1 class="govuk-heading-l">Payment</h1>
 
@@ -486,45 +503,23 @@ Payment history
 <h3 class="govuk-heading-m">
   Other payment methods
 </h3>
-<ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-9">
+<ul class="govuk-list payList govuk-!-margin-bottom-9">
   <li>
     <p class="govuk-body ">
-      Visa *****1234 <img class='card-img-new' src='/public/images/visa.png'  width='40px' alt='payment' /> <br><a href='#' class='govuk-link govuk-!-margin-right-3'>Make default</a> <a href='#' class='govuk-link'>Remove</a>
+      Visa *****1234 <img class='card-img-new' src='/public/images/visa.png'  width='40px' alt='payment' /><br> <br><a href='#' class='govuk-link govuk-!-margin-right-3'>Make default</a><a href='remove-card' class='govuk-link'>Remove</a>
     </p>
   </li>
   <li>
     <p class="govuk-body ">
-      Visa *****784 <img class='card-img-new' src='/public/images/visa.png'  width='40px' alt='payment' /> <br><a href='#' class='govuk-link govuk-!-margin-right-3'>Make default</a> <a href='#' class='govuk-link'>Remove</a>
+      Visa *****784 <img class='card-img-new' src='/public/images/visa.png'  width='40px' alt='payment' /><br> <br><a href='#' class='govuk-link govuk-!-margin-right-3'>Make default</a> <a href='#' class='govuk-link'>Remove</a>
     </p>
   </li>
 </ul>
-
-{{ govukRadios({
-  idPrefix: "othermethods",
-  name: "othermethods",
-  fieldset: {
-    legend: {
-      text: "Add a new payment method",
-      isPageHeading: false,
-      classes: "govuk-fieldset__legend--m"
-    }
-  },
+<p class="govuk-body">
   
-  items: [
-    
-    {
-      value: "abroad",
-      text: "Add a new payment debit/credit card"
-    },
-    {
-      value: "abroad",
-      text: "Add a new direct debit"
-    }
-  ]
-}) }}
-{{ govukButton({
-  text: "Continue"
-}) }}
+  <a href="#" class="govuk-link">Add a new payment method</a>
+</p>
+
 <p class="govuk-body">
   
   <a href="#" class="govuk-link">Back to account summary</a>
