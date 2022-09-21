@@ -179,6 +179,7 @@ router.post(`/v${verNum}/create-account/otherAccountTypeLRDScheck`, function (re
 
 router.post(`/v${verNum}/manage-account/login-route`, function (req, res) {
   const routeChoice = req.session.data[`account-summary-select`]
+  const userLogin = req.session.data[`email-address`]
   if (routeChoice === 'lrds-upload-later') {
     res.redirect(`/v${verNum}/manage-account/lrds/docs-upload-later/lrds-halt`)
   } else if (routeChoice === 'lrds-upload-holding') {
@@ -204,6 +205,15 @@ router.post(`/v${verNum}/manage-account/login-route`, function (req, res) {
   }
   else if (routeChoice === 'create-account') {
     res.redirect(`/v${verNum}/create-account/create-start`)
+  }
+  else if (userLogin === 'lrds') {
+    res.redirect(`/v${verNum}/manage-account/dashboard-summary`)
+  }
+  else if (userLogin === 'personal') {
+    res.redirect(`/v${verNum}/manage-account/dashboard-summary`)
+  }
+  else if (userLogin === 'business') {
+    res.redirect(`/v${verNum}/manage-account/dashboard-summary`)
   }
   else if (routeChoice === 'resolve-pcn') {
     res.redirect(`/v${verNum}/landing`)

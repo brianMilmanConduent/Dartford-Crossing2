@@ -1,7 +1,7 @@
 {% extends "../../layout-dash-acc-man.html" %}
 
 {% block pageTitle %}
-Payment history
+Payment management
 {% endblock %}
 
 {% block beforeContent %}
@@ -10,11 +10,11 @@ Payment history
   items: [
     {
       text: "Account summary",
-      href: "#"
+      href: "../dashboard-summary"
     },
     {
       text: "Account management",
-      href: "#"
+      href: "../my-profile/profile-summary"
     },
     {
       text: "Payment",
@@ -28,22 +28,7 @@ Payment history
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <!--banner starts-->
-      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
-
-        {% set html %}
-          <h3 class="govuk-notification-banner__heading">
-            You have successfully removed the card  XXXXX
-          </h3>
-          <p class="govuk-body">You may <a class="govuk-notification-banner__link" href="#">Add a new payment method</a>.</p>
-        {% endset %}
-
-        {{ govukNotificationBanner({
-          html: html,
-          type: 'success'
-        }) }}
-
-        <!--banner ends-->
+      
       <span class="govuk-caption-l">Account management</span>
       <h1 class="govuk-heading-l">Payment</h1>
 
@@ -79,7 +64,7 @@ Payment history
                 namePrefix: "date",
                 fieldset: {
                   legend: {
-                    text: "Date range",
+                    text: "Start date",
                     isPageHeading: true,
                     classes: "govuk-fieldset__legend--m"
                   }
@@ -157,25 +142,7 @@ Payment history
                       },
                       selectedFilters: {
 
-                        heading: {
-                          text: 'Selected filters'
-                        },
-
-                        clearLink: {
-                          text: 'Clear filters'
-                        },
-
-                        categories: [
-                          {
-                            heading: {
-                              text: 'Number plate'
-                            },
-                            items: [{
-                              href: '/path/to/remove/this',
-                              text: 'FD54 NRO'
-                            }]
-                          }
-                        ]
+                       
                       },
                       optionsHtml: filterOptionsHtml
                     }) }}
@@ -212,10 +179,10 @@ Payment history
   rows: [
     [
       {
-        text: "6 Aug 2022"
+        text: "1 Sep 2022"
       },
       {
-        text: "FR4234FTTY"
+        text: "FR4234F53"
       },
       {
         html: "£10.00"
@@ -226,11 +193,11 @@ Payment history
     ],
     [
       {
-        text: "7 Aug 2022"
+        text: "2 Aug 2022"
       },
      
       {
-        text: "FR5433TY"
+        text: "F4453488"
       },
       {
         html: "£10.00"
@@ -241,11 +208,11 @@ Payment history
     ],
     [
       {
-        text: "8 Aug 2022"
+        text: "2 Jul 2022"
       },
      
       {
-        text: "FR47654FTTY"
+        text: "FR4258F45"
       },
       {
         html: "£10.00"
@@ -256,11 +223,11 @@ Payment history
     ],
     [
       {
-        text: "9 Aug 2022"
+        text: "3 Jun 2022"
       },
      
       {
-        text: "FR546543TTY"
+        text: "FR546543"
       },
       {
         html: "£10.00"
@@ -271,11 +238,11 @@ Payment history
     ],
     [
       {
-        text: "10 Aug 2022"
+        text: "4 May 2022"
       },
      
       {
-        text: "FR43546TY"
+        text: "FR435465"
       },
       {
         html: "£10.00"
@@ -286,10 +253,10 @@ Payment history
     ],
     [
       {
-        text: "11 Aug 2022"
+        text: "5 Apr 2022"
       },
       {
-        text: "FR4236543TY"
+        text: "FR423654"
       },
       {
         html: "£10.00"
@@ -300,11 +267,11 @@ Payment history
     ],
     [
       {
-        text: "12 Aug 2022"
+        text: "6 Mar 2022"
       },
       
       {
-        text: "FR765FTTY"
+        text: "FR765F34"
       },
       {
         html: "£10.00"
@@ -315,11 +282,11 @@ Payment history
     ],
     [
       {
-        text: "13 Aug 2022"
+        text: "7 Mar 2022"
       },
      
       {
-        text: "FR888FTTY"
+        text: "FR888F22"
       },
       {
         html: "£10.00"
@@ -329,7 +296,7 @@ Payment history
       }
     ],[
     {
-      text: "6 Aug 2022"
+      text: "8 Feb 2022"
     },
    
     {
@@ -344,100 +311,11 @@ Payment history
   ],
   [
       {
-        text: "14 Aug 2022"
+        text: "9 Jan 2022"
       },
       
       {
-        text: "F77654FTTY"
-      },
-      {
-        html: "£10.00"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>View</a>"
-      }
-    ],
-    [
-      {
-        text: "15 Aug 2022"
-      },
-      
-      {
-        text: "FR4234123TTY"
-      },
-      {
-        html: "£10.00"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>View</a>"
-      }
-    ],
-    [
-      {
-        text: "16 Aug 2022"
-      },
-      
-      {
-        text: "FR4234432TTY"
-      },
-      {
-        html: "£10.00"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>View</a>"
-      }
-    ],
-    [
-      {
-        text: "17 Aug 2022"
-      },
-     
-      {
-        text: "FR423123Y"
-      },
-      {
-        html: "£10.00"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>View</a>"
-      }
-    ],
-    [
-      {
-        text: "18 Aug 2022"
-      },
-      
-      {
-        text: "FR4234876TY"
-      },
-      {
-        html: "£10.00"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>View</a>"
-      }
-    ],
-    [
-      {
-        text: "19 Aug 2022"
-      },
-     
-      {
-        text: "FR4234FTTY"
-      },
-      {
-        html: "£10.00"
-      },
-      {
-        html: "<a href='#' class='govuk-link'>View</a>"
-      }
-    ],
-    [
-      {
-        text: "20 Aug 2022"
-      },
-      {
-        text: "FR4234FTTY"
+        text: "F77654FTY"
       },
       {
         html: "£10.00"
@@ -448,7 +326,7 @@ Payment history
     ]
   ]
 }) }}
-
+<!--
 {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 
 {{ govukPagination({
@@ -473,7 +351,7 @@ Payment history
       href: "#"
     }
   ]
-}) }} 
+}) }} -->
 </div>
 </div>
 
@@ -554,7 +432,8 @@ Payment history
               },
               hint: {
                 text: "If your balance falls below this amount, we'll top it up"
-              }
+              },
+              value: "10"
             }) }}
             {{ govukInput({
               id: "topup",
@@ -570,7 +449,8 @@ Payment history
               },
               hint: {
                 text: "We'll automatically top up your account with this amount"
-              }
+              },
+              value: "25" 
             }) }}
                 
 

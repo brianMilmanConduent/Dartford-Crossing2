@@ -1,0 +1,50 @@
+{% extends "../../layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+Nominated contacts
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Account management",
+      href: "#"
+    },
+    {
+      text: "Nominated contacts",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Account management</span>
+<h1 class="govuk-heading-l">Nominated contacts</h1>
+
+      <form class="form" action="first-contact" method="post">
+
+        <p class="govuk-body">
+          You can nominate up to 5 other people who can use your account.
+        </p>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -32,7 +32,7 @@ Notifications
   
     
       
-    <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 3 sections.</p>
+    <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 1 sections.</p>
     
   
   
@@ -57,51 +57,8 @@ Notifications
       </li>
     </ol>
 
-    <ol class="app-task-list">
-      <li>
-        <h2 class="app-task-list__section">
-          <span class="app-task-list__section-number"></span> LRDS renewal
-        </h2>
-        <ul class="app-task-list__items">
-          <li class="app-task-list__item">
-            <span class="app-task-list__task-name">
-              <a href="lrdsDiscountInfo" aria-describedby="eligibility-status">
-                Reapply for discount 
-              </a>
-            </span>
-           
-            <strong class="govuk-tag app-task-list__tag govuk-tag--blue" id="eligibility-status">In progress</strong>
-            
-          </li>
-         
-        </ul>
-      </li>
-    </ol>
+   
 
-
-
-    <ol class="app-task-list">
-      <li>
-        <h2 class="app-task-list__section">
-          <span class="app-task-list__section-number"></span> LRDS crossings allowance
-        </h2>
-        <ul class="app-task-list__items">
-          <li class="app-task-list__item">
-            <span class="app-task-list__task-name">
-              <a href="lrdsSelect" aria-describedby="eligibility-status">
-                Add credit for crossings
-              </a>
-            </span>
-            {% if data['v5cstage-checked'] === 'done' %}
-            <strong class="govuk-tag app-task-list__tag" id="eligibility-status">completed</strong>
-            {% else %}
-            <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="eligibility-status">Not started</strong>
-            {% endif %}
-          </li>
-         
-        </ul>
-      </li>
-    </ol>
   </div>
   </div>
 

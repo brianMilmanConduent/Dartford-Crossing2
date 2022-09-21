@@ -11,7 +11,7 @@ Account management
    
     {
       text: "Account summary",
-      href: "#"
+      href: "../../manage-account/dashboard-summary"
     },
     {
       text: "Vehicle management",
@@ -69,6 +69,10 @@ Account management
             </div>
              <!--container end-->
         </div>
+
+        {% if data['email-address'] === 'business' %}
+
+
         <div class="govuk-grid-column-one-third">
            <!--container start-->
            <div class="summaryContainer">
@@ -92,26 +96,7 @@ Account management
       </div>
 
       <div class="govuk-grid-row">
-        <div class="govuk-grid-column-one-third">
-          <!--container start-->
-          <div class="summaryContainer">
-            <div class="summaryHeader">
-              <h2 class="govuk-heading-m">
-                <a href="#" class="govuk-link govuk-link--no-underline">
-                  Communication preferences
-                </a>
-              </h2>
-            </div>
-              <div class="summaryDetail">
-                <p class="govuk-body">
-                 
-                    Lorem Sipsum dolor sit amet, consectetur adipiscing elit. Praesent dui ligula...
-                 
-                </p>
-              </div>
-          </div>
-           <!--container end-->
-        </div>
+       
         <div class="govuk-grid-column-one-third">
           <!--container start-->
           <div class="summaryContainer">
@@ -132,7 +117,11 @@ Account management
           </div>
            <!--container end-->
         </div>
-       
+       <!--content here-->
+
+ {% else %}
+ <!--content here-->
+ {% endif %}
       </div>
 
     </div>

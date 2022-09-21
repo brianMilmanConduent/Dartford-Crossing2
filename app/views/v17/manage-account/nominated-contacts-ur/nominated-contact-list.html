@@ -1,0 +1,99 @@
+{% extends "../../layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+Nominated contacts
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Account management",
+      href: "#"
+    },
+    {
+      text: "Nominated contacts",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Account management</span>
+<h1 class="govuk-heading-l">Nominated contacts</h1>
+
+      <form class="form"  method="post">
+       
+        
+        <h2 class="govuk-heading-m">
+          Invited nominated contacts
+        </h2>
+        <p class="govuk-body">
+          These  contacts have not accepted your invitation yet
+        </p>
+
+
+       <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">{{ data['first-name-nom-con']}} {{ data['last-name-nom-con']}}</caption>
+       {{ govukTag({
+          text: "Pending",
+          classes: "govuk-tag--yellow right-align"
+        }) }}
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Email address</th>
+            <td class="govuk-table__cell">{{ data['email-address-nom-con']}}</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Mobile number</th>
+            <td class="govuk-table__cell">{{ data['mobile-number-nom-con']}}</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Permissions</th>
+            <td class="govuk-table__cell">{{ data['permission']}}</td>
+          </tr>
+        </tbody>
+      </table>
+      {% from "govuk/components/button/macro.njk" import govukButton %}
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Resend invitation",
+          classes: "govuk-button--secondary"
+        }) }}
+        {{ govukButton({
+          text: "Remove",
+          classes: "govuk-button--warning"
+        }) }}
+      </div>
+      <hr class="govuk-!-margin-bottom-6">
+        
+      {{ govukButton({
+        text: "Add another nominated contact"
+      }) }}
+
+      <p class="govuk-body">
+        <a href="../../manage-account/dashboard-summary" class="govuk-link">Back to account summary</a>
+      </p>
+      <p class="govuk-body">
+        <a href="../my-profile/profile-summary" class="govuk-link">Back to account management</a>
+      </p>
+       
+   
+     
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
