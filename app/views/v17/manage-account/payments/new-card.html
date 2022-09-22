@@ -82,7 +82,7 @@ opacity: 0.5;}
 <img id=applePay class=" govuk-!-width-two-thirds govuk-!-display-none govuk-!-margin-bottom-3" src="\public\images\appleDefault.png" alt="apple Pay">
      <hr id="appleSection"class="govuk-body-xl govuk-!-width-two-thirds govuk-!-display-none govuk-section-break govuk-section-break--xl govuk-section-break--visible hr-text" data-content="OR">
 
-     <form  method="post" action="payment-success">
+     <form  method="post" action="new-card-confirmation#paymentmethodsHtml">
       
        
        <div class="govuk-form-group govuk-!-margin-bottom-3">
@@ -383,6 +383,21 @@ opacity: 0.5;}
 
                
        </div>
+<!--Prototype validation only-->
+       <div class="govuk-visually-hidden">
+         {{ govukRadios({
+            idPrefix: "newcarddone",
+            name: "newcarddone",
+            items: [
+               {
+                  value: "done",
+                  text: "done",
+                  checked: true
+               }
+            ]
+         }) }}
+         </div>
+         <!--Prototype validation only-->
      </form>
    </div>
 </div>

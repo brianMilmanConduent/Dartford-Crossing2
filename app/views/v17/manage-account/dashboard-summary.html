@@ -18,8 +18,12 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <!--priority message banner-->
-    {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+    {% if data['newcarddone'] %}
+
+    <!--content here-->
+    
+     {% else %}
+     {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
     {% set html %}
       <p class="govuk-notification-banner__heading">
@@ -35,6 +39,14 @@
     {{ govukNotificationBanner({
       html: html
     }) }}
+    {% endif %}
+
+    
+
+
+
+    <!--priority message banner-->
+   
 
    <!--priority message banner-->
 
