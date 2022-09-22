@@ -1,0 +1,175 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+How do you want to be notified?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "../dashboard-summary"
+    },
+    {
+      text: "Account management",
+      href: "../my-profile/profile-summary"
+    },
+    {
+      text: "Communication preferences",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="statements" method="post">
+      <span class="govuk-caption-l">Account management</span>
+        <h1 class="govuk-heading-l">Communication preferences</h1>
+        
+        <div class="govuk-form-group">
+         
+          {% set confirmHtml %}
+          {{ govukCheckboxes({
+            idPrefix: "tsNcs",
+            name: "tsNcs",
+            items: [
+              {
+                value: "Value",
+                html: "See content deck confirming agreement of <a href='#' class='govuk-link'>T's and C's</a> "
+              }
+            ]
+          }) }}
+          {% endset -%}
+
+         {{ govukRadios({
+          idPrefix: "text-notifications",
+          name: "text-notifications",
+          fieldset: {
+            legend: {
+              text: "Would you like to receive communication about your account by text message?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "This will be in addition to receiving notifications by email."
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              conditional: {
+                html: confirmHtml
+              }
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+          ]
+         }) }}
+           
+            </div>
+          </fieldset>
+       
+        
+
+           
+
+
+
+
+
+            
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="mobile" method="post">
+        
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="mobile">
+            
+            {% set yesHtml %}
+            {{ govukCheckboxes({
+              idPrefix: "postStatements",
+              name: "postStatements",
+             
+             
+              items: [
+                {
+                  value: "I would like to receive statements by post",
+                  text: "I would like to receive statements by post, and agree to be debited £2 a month for this service."
+                }
+              ]
+            }) }}
+            {% endset -%}
+  
+  
+  
+            {{ govukRadios({
+              idPrefix: "statements-post",
+              name: "statements-post",
+              fieldset: {
+                legend: {
+                  text: "Would you like to receive monthly account statements by post?",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+              hint: {
+                text: "We can send you monthly account statements by post. This service costs £2 a month."
+              },
+              items: [
+                {
+                  value: "Yes",
+                  text: "Yes",
+                  conditional: {
+                    html: yesHtml
+                  }
+                },
+                {
+                  value: "No",
+                  text: "No"
+                }
+              ]
+            }) }}
+           
+            </div>
+          </fieldset>
+       
+        
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+    </form>
+
+  </div>
+</div>
+
+ 
+
+
+
+
+
+
+    </form>
+
+  </div>
+</div>
+
+ 
+
+
+  
+
+{% endblock %}

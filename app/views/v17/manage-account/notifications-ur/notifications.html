@@ -6,7 +6,22 @@ Notifications
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{% include "includes/back-link.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "../dashboard-summary"
+    },
+    {
+      text: "Account management",
+      href: "../my-profile/profile-summary"
+    },
+    {
+      text: "Notifications",
+      href: "#"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
