@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Step 3 - Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+
+
+
+
+
+ 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+          <h1 class="govuk-heading-l">Guidance on top-ups based upon vehicles in fleet</h1>
+
+
+            <form class="form" method="post" action="payment3a">
+
+              <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-two-thirds">
+                      <p class="govuk-body">
+                        Contents to be designed
+                      <p>
+                        {{ govukTable({
+                          caption: "Caption text",
+                          firstCellIsHeader: false,
+                          head: [
+                            {
+                              text: "Column 1 heading"
+                            },
+                            {
+                              text: "Column 2 heading"
+                            }
+                          ],
+                          rows: [
+                            [
+                              {
+                                text: "Row 1, column 1"
+                              },
+                              {
+                                text: "Row 1, column 2"
+                              }
+                            ],
+                            [
+                              {
+                                text: "Row 2, column 1"
+                              },
+                              {
+                                text: "Row 2, column 2"
+                              }
+                            ],
+                            [
+                              {
+                                text: "Row 3, column 1"
+                              },
+                              {
+                                text: "Row 3, column 2"
+                              }
+                            ]
+                          ]
+                        }) }}
+
+                        {{ govukTable({
+                          caption: "Caption text",
+                          firstCellIsHeader: false,
+                          head: [
+                            {
+                              text: "Column 1 heading"
+                            },
+                            {
+                              text: "Column 2 heading"
+                            }
+                          ],
+                          rows: [
+                            [
+                              {
+                                text: "Row 1, column 1"
+                              },
+                              {
+                                text: "Row 1, column 2"
+                              }
+                            ],
+                            [
+                              {
+                                text: "Row 2, column 1"
+                              },
+                              {
+                                text: "Row 2, column 2"
+                              }
+                            ],
+                            [
+                              {
+                                text: "Row 3, column 1"
+                              },
+                              {
+                                text: "Row 3, column 2"
+                              }
+                            ]
+                          ]
+                        }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <!--  </div><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add another vehicle
+        </button>-->
+      </form>
+
+    </div>
+  </div>
+  
+
+  
+
+
+
+
+{% endblock %}

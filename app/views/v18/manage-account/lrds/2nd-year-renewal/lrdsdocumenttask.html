@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+How do you want to send your proof of local residency?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="">
+
+  <div class="govuk-width-container ">
+        
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+      
+
+<div class="govuk-grid-row">
+<div class="govuk-grid-column-two-thirds">
+  <h1 class="govuk-heading-l">
+    Pay the Dartford Crossing charge (Dart Charge)
+  </h1>
+  
+
+  
+    {% if data['sup1stage-checked'] !== 'done' and data['sup2stage-checked'] !== 'done' and data['v5cstage-checked'] !== 'done' %}
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+  <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 3 sections.</p>
+    {% elseif data['sup1stage-checked'] !== 'done' and data['sup2stage-checked'] !== 'done' and data['v5cstage-checked'] === 'done' %}
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+    <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 3 sections.</p>
+    {% elseif data['sup1stage-checked'] !== 'done' and data['sup2stage-checked'] === 'done' and data['v5cstage-checked'] === 'done' %}
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+    <p class="govuk-body govuk-!-margin-bottom-7">You have completed 2 of 3 sections.</p>
+    {% elseif data['sup1stage-checked'] !== 'done' and data['sup2stage-checked'] === 'done' and data['v5cstage-checked'] !== 'done' %}
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+    <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 3 sections.</p>
+    {% elseif data['sup1stage-checked'] === 'done' and data['sup2stage-checked'] !== 'done' and data['v5cstage-checked'] !== 'done' %}
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+    <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 3 sections.</p>
+    {% elseif data['sup1stage-checked'] === 'done' and data['sup2stage-checked'] === 'done' and data['v5cstage-checked'] !== 'done' %}
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+    <p class="govuk-body govuk-!-margin-bottom-7">You have completed 2 of 3 sections.</p>
+      {% elseif data['sup1stage-checked'] === 'done' and data['sup2stage-checked'] !== 'done' and data['v5cstage-checked'] === 'done' %}
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+  <p class="govuk-body govuk-!-margin-bottom-7">You have completed 2 of 3 sections.</p>
+    {% else %}
+    <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application complete</h2>
+    <p class="govuk-body govuk-!-margin-bottom-7">You have completed 3 of 3 sections.</p>
+    {% endif %}
+
+
+  <ol class="app-task-list">
+    <li>
+      <h2 class="app-task-list__section">
+        <span class="app-task-list__section-number"></span> LRDS proof of eligibility
+      </h2>
+      <ul class="app-task-list__items">
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="lrdsDocUploadFirstDoc-v5c" aria-describedby="eligibility-status">
+              Upload V5C log book
+            </a>
+          </span>
+          {% if data['v5cstage-checked'] === 'done' %}
+          <strong class="govuk-tag app-task-list__tag" id="eligibility-status">completed</strong>
+          {% else %}
+          <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="eligibility-status">Not started</strong>
+          {% endif %}
+        </li>
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="lrdsDocUploadsecond" aria-describedby="read-declaration-status">
+              Supporting document 1
+            </a>
+          </span>
+          {% if data['sup1stage-checked'] === 'done' %}
+          <strong class="govuk-tag app-task-list__tag" id="eligibility-status">completed</strong>
+          {% else %}
+          <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="eligibility-status">Not started</strong>
+          {% endif %}
+        </li>
+        <li class="app-task-list__item">
+          <span class="app-task-list__task-name">
+            <a href="lrdsDocUploadthird" aria-describedby="read-declaration-status">
+              Supporting document 2
+            </a>
+          </span>
+          {% if data['sup2stage-checked'] === 'done' %}
+          <strong class="govuk-tag app-task-list__tag" id="eligibility-status">completed</strong>
+          {% else %}
+          <strong class="govuk-tag app-task-list__tag govuk-tag--grey" id="eligibility-status">Not started</strong>
+          {% endif %}
+        </li>
+      </ul>
+    </li>
+
+    
+  </ol>
+</div>
+</div>
+
+
+
+{% if data['sup1stage-checked'] !== 'done' and data['sup2stage-checked'] !== 'done' and data['v5cstage-checked'] !== 'done' %}
+      <!--show nothing-->    
+{% else %}
+
+
+          {% if data['sup1stage-checked'] === 'done' and data['sup2stage-checked'] === 'done' and data['v5cstage-checked'] === 'done' %}
+          {{ govukButton({
+            text: "Continue",
+            href: "payment3a"
+          }) }}
+             {% else %}
+              
+          {% endif %}
+
+          {% endif %}
+ 
+ 
+    </main>
+  </div>
+</form>
+{% endblock %}

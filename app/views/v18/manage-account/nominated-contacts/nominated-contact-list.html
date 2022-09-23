@@ -1,0 +1,205 @@
+{% extends "../../layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+Nominated contacts
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Account management",
+      href: "#"
+    },
+    {
+      text: "Nominated contacts",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <span class="govuk-caption-l">Account management</span>
+<h1 class="govuk-heading-l">Nominated contacts</h1>
+
+      <form class="form" action="/url/of/next/page" method="post">
+        {{ govukButton({
+          text: "Add another nominated contact"
+        }) }}
+       
+        
+<h2 class="govuk-heading-m">
+  Active nominated contacts
+</h2>
+       <p class="govuk-body">
+        These  contacts have accepted your invitation
+       </p>
+
+        {{ govukTag({
+          text: "Active",
+          classes: "right-align"
+        }) }}
+       {{ govukTable({
+        caption: "Peter Paul",
+        firstCellIsHeader: true,
+       
+        rows: [
+          [
+            {
+              text: "Email address"
+            },
+            {
+              text: "Peter@email.com"
+            }
+          ],
+          [
+            {
+              text: "Mobile number"
+            },
+            {
+              text: "07484 555666"
+            }
+          ],
+          [
+            {
+              text: "Permissions"
+            },
+            {
+              text: "Full permission"
+            }
+          ]
+        ]
+       }) }}
+       {% from "govuk/components/button/macro.njk" import govukButton %}
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Edit",
+            classes: "govuk-button--secondary"
+          }) }}
+          {{ govukButton({
+            text: "Remove",
+            classes: "govuk-button--warning"
+          }) }}
+        </div>
+        <hr class="govuk-!-margin-bottom-9">
+
+
+
+        <h2 class="govuk-heading-m">
+          Invited nominated contacts
+        </h2>
+        <p class="govuk-body">
+          These  contacts have not accepted your invitation yet
+        </p>
+        {{ govukTag({
+          text: "Pending",
+          classes: "govuk-tag--yellow right-align"
+        }) }}
+        {{ govukTable({
+          caption: "John Morre",
+          firstCellIsHeader: true,
+         
+          rows: [
+            [
+              {
+                text: "Email address"
+              },
+              {
+                text: "john@email.com"
+              }
+            ],
+            [
+              {
+                text: "Mobile number"
+              },
+              {
+                text: "07543 222333"
+              }
+            ],
+            [
+              {
+                text: "Permissions"
+              },
+              {
+                text: "Full permission"
+              }
+            ]
+          ]
+         }) }}
+         {% from "govuk/components/button/macro.njk" import govukButton %}
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Resend invitation",
+              classes: "govuk-button--secondary"
+            }) }}
+            {{ govukButton({
+              text: "Remove",
+              classes: "govuk-button--warning"
+            }) }}
+          </div>
+          <hr class="govuk-!-margin-bottom-6">
+          {{ govukTag({
+            text: "Expired",
+            classes: "govuk-tag--red right-align"
+          }) }}
+          {{ govukTable({
+            caption: "John Morre",
+            firstCellIsHeader: true,
+           
+            rows: [
+              [
+                {
+                  text: "Email address"
+                },
+                {
+                  text: "john@email.com"
+                }
+              ],
+              [
+                {
+                  text: "Mobile number"
+                },
+                {
+                  text: "07543 222333"
+                }
+              ],
+              [
+                {
+                  text: "Permissions"
+                },
+                {
+                  text: "Limited permission"
+                }
+              ]
+            ]
+           }) }}
+           {% from "govuk/components/button/macro.njk" import govukButton %}
+            <div class="govuk-button-group">
+              {{ govukButton({
+                text: "Resend invitation",
+                classes: "govuk-button--secondary"
+              }) }}
+              {{ govukButton({
+                text: "Remove",
+                classes: "govuk-button--warning"
+              }) }}
+            </div>
+            <hr>
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,296 @@
+{% extends "../../layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+Select your address
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Account management",
+      href: "#"
+    },
+    {
+      text: "My profile",
+      href: "#"
+    },
+    {
+      text: "Select an address",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+{% if data['account-type'] === 'Personal' %}
+
+
+      {% if data['address-postcode'] === 'DA1 1DY' %}
+      <!--LRDS ZONE CONTENT-->
+      <form class="form" action="address-change-confirmation" method="post">
+       
+          <fieldset class="govuk-fieldset">
+            <h2 class="govuk-heading-l govuk-!-margin-top-6 ">Select your address</h2>
+            
+        
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-postcode">
+              </label>
+        
+              <select class="govuk-select" id="select-address" name="select-address">
+                  <option value="addressfound" selected>8 addresses found</option>
+                  <option value="1 Bark Road, Dartford, Kent ">1 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="3 Bark Road, Dartford, Kent ">3 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="5 Bark Road, Dartford, Kent ">5 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="7 Bark Road, Dartford, Kent ">7 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="9 Bark Road, Dartford, Kent ">9 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="11 Bark Road, Dartford, Kent ">11 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="15 Bark Road, Dartford, Kent ">15 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="17 Bark Road, Dartford, Kent ">17 Bark Road, Dartford, Kent DA1 1DY</option>
+              </select>
+        
+          </fieldset>
+        
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+          <p class='govuk-body'><a href='addressmanual'>Enter your address manually</a></p>
+        </form>
+      <!--LRDS ZONE CONTENT ENDS-->
+
+      {% elseif data['address-postcode'] === 'Da1 1DY' %}
+      <!--LRDS ZONE CONTENT-->
+      <form class="form" action="address-change-confirmation" method="post">
+       
+          <fieldset class="govuk-fieldset">
+            <h2 class="govuk-heading-l">Select your address</h2>
+            
+        
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-postcode">
+              </label>
+        
+              <select class="govuk-select" id="select-address" name="select-address">
+                  <option value="addressfound" selected>8 addresses found</option>
+                  <option value="1 Bark Road, Dartford, Kent ">1 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="3 Bark Road, Dartford, Kent ">3 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="5 Bark Road, Dartford, Kent ">5 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="7 Bark Road, Dartford, Kent ">7 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="9 Bark Road, Dartford, Kent ">9 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="11 Bark Road, Dartford, Kent ">11 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="15 Bark Road, Dartford, Kent ">15 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="17 Bark Road, Dartford, Kent ">17 Bark Road, Dartford, Kent DA1 1DY</option>
+              </select>
+        
+          </fieldset>
+        
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+          <p class='govuk-body'><a href='addressmanual'>Enter your address manually</a></p>
+        </form>
+      <!--LRDS ZONE CONTENT ENDS-->
+      {% elseif data['address-postcode'] === 'da1 1DY' %}
+      <!--LRDS ZONE CONTENT-->
+      <form class="form" action="address-change-confirmation" method="post">
+       
+          <fieldset class="govuk-fieldset">
+            <h2 class="govuk-heading-l">Select your address</h2>
+            
+        
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-postcode">
+              </label>
+        
+              <select class="govuk-select" id="select-address" name="select-address">
+                  <option value="addressfound" selected>8 addresses found</option>
+                  <option value="1 Bark Road, Dartford, Kent ">1 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="3 Bark Road, Dartford, Kent ">3 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="5 Bark Road, Dartford, Kent ">5 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="7 Bark Road, Dartford, Kent ">7 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="9 Bark Road, Dartford, Kent ">9 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="11 Bark Road, Dartford, Kent ">11 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="15 Bark Road, Dartford, Kent ">15 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="17 Bark Road, Dartford, Kent ">17 Bark Road, Dartford, Kent DA1 1DY</option>
+              </select>
+        
+          </fieldset>
+        
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+          <p class='govuk-body'><a href='addressmanual'>Enter your address manually</a></p>
+        </form>
+      <!--LRDS ZONE CONTENT ENDS-->
+      {% elseif data['address-postcode'] === 'da1 1dy' %}
+      <!--LRDS ZONE CONTENT-->
+      <form class="form" action="address-change-confirmation" method="post">
+       
+          <fieldset class="govuk-fieldset">
+            <h2 class="govuk-heading-l">Select your address</h2>
+            
+        
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-postcode">
+              </label>
+        
+              <select class="govuk-select" id="select-address" name="select-address">
+                  <option value="addressfound" selected>8 addresses found</option>
+                  <option value="1 Bark Road, Dartford, Kent ">1 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="3 Bark Road, Dartford, Kent ">3 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="5 Bark Road, Dartford, Kent ">5 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="7 Bark Road, Dartford, Kent ">7 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="9 Bark Road, Dartford, Kent ">9 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="11 Bark Road, Dartford, Kent ">11 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="15 Bark Road, Dartford, Kent ">15 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="17 Bark Road, Dartford, Kent ">17 Bark Road, Dartford, Kent DA1 1DY</option>
+              </select>
+        
+          </fieldset>
+        
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+          <p class='govuk-body'><a href='addressmanual'>Enter your address manually</a></p>
+        </form>
+      <!--LRDS ZONE CONTENT ENDS-->
+      {% elseif data['address-postcode'] === 'da11dy' %}
+      <!--LRDS ZONE CONTENT-->
+      <form class="form" action="address-change-confirmation" method="post">
+       
+          <fieldset class="govuk-fieldset">
+            <h2 class="govuk-heading-l">Select your address</h2>
+            
+        
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-postcode">
+              </label>
+        
+              <select class="govuk-select" id="select-address" name="select-address">
+                  <option value="addressfound" selected>8 addresses found</option>
+                  <option value="1 Bark Road, Dartford, Kent ">1 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="3 Bark Road, Dartford, Kent ">3 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="5 Bark Road, Dartford, Kent ">5 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="7 Bark Road, Dartford, Kent ">7 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="9 Bark Road, Dartford, Kent ">9 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="11 Bark Road, Dartford, Kent ">11 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="15 Bark Road, Dartford, Kent ">15 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="17 Bark Road, Dartford, Kent ">17 Bark Road, Dartford, Kent DA1 1DY</option>
+              </select>
+        
+          </fieldset>
+        
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+          <p class='govuk-body'><a href='addressmanual'>Enter your address manually</a></p>
+        </form>
+      <!--LRDS ZONE CONTENT ENDS-->
+      {% elseif data['address-postcode'] === 'DA11DY' %}
+      <!--LRDS ZONE CONTENT-->
+      <form class="form" action="address-change-confirmation" method="post">
+       
+          <fieldset class="govuk-fieldset">
+            <h2 class="govuk-heading-l">Select your address</h2>
+            
+        
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-postcode">
+              </label>
+        
+              <select class="govuk-select" id="select-address" name="select-address">
+                  <option value="addressfound" selected>8 addresses found</option>
+                  <option value="1 Bark Road, Dartford, Kent ">1 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="3 Bark Road, Dartford, Kent ">3 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="5 Bark Road, Dartford, Kent ">5 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="7 Bark Road, Dartford, Kent ">7 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="9 Bark Road, Dartford, Kent ">9 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="11 Bark Road, Dartford, Kent ">11 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="15 Bark Road, Dartford, Kent ">15 Bark Road, Dartford, Kent DA1 1DY</option>
+                  <option value="17 Bark Road, Dartford, Kent ">17 Bark Road, Dartford, Kent DA1 1DY</option>
+              </select>
+        
+          </fieldset>
+        
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+          <p class='govuk-body'><a href='addressmanual'>Enter your address manually</a></p>
+        </form>
+      <!--LRDS ZONE CONTENT ENDS-->
+      {% else %}
+      
+
+      <!--OUTSIDE OF LRDS ZONE CONTENT-->
+      <form class="form" action="address-change-confirmation" method="post">
+       
+          <fieldset class="govuk-fieldset">
+            <h2 class="govuk-heading-l govuk-!-margin-top-6 ">Select your address</h2>
+            
+        
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="address-postcode">
+              </label>
+        
+              <select class="govuk-select" id="select-address" name="select-address">
+                  <option value="addressfound" selected>8 addresses found</option>
+                  <option value="1 Bark Road, Townsville, Countyville ">1 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="3 Bark Road, Townsville, Countyville ">3 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="5 Bark Road, Townsville, Countyville ">5 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="7 Bark Road, Townsville, Countyville ">7 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="9 Bark Road, Townsville, Countyville ">9 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="11 Bark Road, Townsville, Countyville ">11 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="15 Bark Road, Townsville, Countyville ">15 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="17 Bark Road, Townsville, Countyville ">17 Bark Road, Townsville, Countyville {{ data['address-postcode'] }}</option>
+              </select>
+        
+          </fieldset>
+        
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+          <p class='govuk-body'><a href='addressmanual'>Enter your address manually</a></p>
+        </form>
+      <!--OUTSIDE OF LRDS ZONE CONTENT ENDS-->
+     
+      {% endif %}
+    
+
+ {% else %}
+ <form class="form" action="address-change-confirmation" method="post">
+  <h1 class="govuk-heading-l govuk-!-margin-top-0 govuk-!-margin-bottom-1">Select an address</h1>
+    <fieldset class="govuk-fieldset">
+      
+
+   
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="address-postcode">
+      </label>
+
+      <select class="govuk-select" id="select-address" name="select-address">
+          <option value="addressfound" selected>8 addresses found</option>
+          <option value="1 Bark Road, Townsville, Countyville ">1 Bark Road, Companyville Ltd, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="3 Bark Road, Townsville, Countyville ">3 Bark Road, Companyville Ltd, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="5 Bark Road, Townsville, Countyville ">5 Bark Road, Companyville Ltd, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="7 Bark Road, Townsville, Countyville ">7 Bark Road, Companyville Ltd, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="9 Bark Road, Townsville, Countyville ">9 Bark Road, Companyville Ltd, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="11 Bark Road, Townsville, Countyville ">11 Bark Road, Companyville Ltd, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="15 Bark Road, Townsville, Countyville ">15 Bark Road, Companyville Ltd, Townsville, Countyville {{ data['address-postcode'] }}</option>
+                  <option value="17 Bark Road, Townsville, Countyville ">17 Bark Road, Companyville Ltd, Townsville, Countyville {{ data['address-postcode'] }}</option>
+      </select>
+
+  </fieldset>
+
+  <button class="govuk-button" data-module="govuk-button">Continue</button>
+  <p class='govuk-body'><a href='addressmanual'>Enter your office address manually</a></p>
+</form>
+{% endif %}
+</div>
+</div>
+
+
+
+
+     
+    </div>
+  </div>
+
+{% endblock %}

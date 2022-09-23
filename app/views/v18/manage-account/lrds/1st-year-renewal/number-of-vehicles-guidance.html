@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Recommended top-up and low balance limit
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+
+ 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+        <h1 class="govuk-heading-l">What are your top-up and low balance amounts?</h1>
+          <form class="form" method="post" action="payment3a">
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                    
+                      
+
+
+
+                     
+
+                      
+                     
+
+                      
+                      {{ govukInput({
+                        id: "low-balance",
+                        name: "low-balance",
+                        classes: "govuk-input--width-5",
+                        prefix: {
+                          text: "£"
+                        },
+                       type: "number",
+                        label: {
+                          text: "Your low balance limit",
+                          classes: "govuk-!-font-weight-bold"
+                        },
+                        hint: {
+                          text: "If your balance falls below this amount, we'll top it up"
+                        }
+                      }) }}
+                      {{ govukInput({
+                        id: "topup",
+                        name: "topup",
+                        classes: "govuk-input--width-5",
+                        prefix: {
+                          text: "£"
+                        },
+                        type: "number",
+                        label: {
+                          text: "Your top-up amount",
+                          classes: "govuk-!-font-weight-bold"
+                        },
+                        hint: {
+                          text: "We'll automatically top up your account with this amount"
+                        }
+                      }) }}
+                    
+                      
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+    
+    </form>
+
+  </div>
+</div>
+
+ 
+
+
+
+
+
+
+
+  
+
+  
+
+
+
+
+{% endblock %}

@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+        <fieldset class="govuk-fieldset">
+          <h1 class="govuk-heading-l">Unable to confirm details</h1>
+          <p class="govuk-body">
+            some content to highlight that they will either need to change the vrm or add the details manually
+          <p>
+
+            <form class="form" method="post" action="vehicle-summary-add-another">
+
+              <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full">
+
+
+
+                    {{ govukInput({
+                      id: "vrn",
+                      classes: "govuk-input--width-10",
+                      name: "vrn",
+                      label: {
+                        text: "Number plate"
+                      },
+                      value: "ABC123"
+                    }) }}
+
+
+
+                    {{ govukRadios({
+                      idPrefix: "vehicle-type",
+                      name: "vehicle-type",
+                      fieldset: {
+                        legend: {
+                          text: "Vehicle type"
+                        }
+                      },
+                      hint: {
+                        text: "This will determine your crossing charge"
+                      },
+                      items: [
+                        {
+                          value: "Value",
+                          text: "Motorcycles",
+                          hint: {
+                            text: "Motorcycles, mopeds and quad bikes"
+                          }
+                        },
+                        {
+                          value: "Value",
+                          text: "Cars",
+                          hint: {
+                            text: "Cars (including trailers), motorhomes and any minibuses that have 9 or less seats (including the driver’s seat)"
+                          }
+                        },
+                        {
+                          value: "Value",
+                          text: "Vehicles with 2 axles",
+                          hint: {
+                            text: "Buses, coaches, vans and other goods vehicles"
+                          }
+                        },
+                        {
+                          value: "Value",
+                          text: "Vehicles with more than 2 axles",
+                          hint: {
+                            text: "Buses, coaches, vans and other goods vehicles"
+                          }
+                        }
+                      ]
+                    }) }}
+
+
+                    {{ govukInput({
+                      id: "make",
+                      classes: "govuk-input--width-10",
+                      name: "make",
+                      label: {
+                        text: "Make"
+                      }
+                     
+                    }) }}
+                    
+                    {{ govukInput({
+                      id: "model",
+                      classes: "govuk-input--width-10",
+                      name: "model",
+                      label: {
+                        text: "Model"
+                      }
+                      
+                    }) }}
+
+                    {{ govukInput({
+                      id: "colour",
+                      classes: "govuk-input--width-10",
+                      name: "colour",
+                      label: {
+                        text: "Colour"
+                      }
+                      
+                    }) }}
+                   
+                    
+
+                    
+                    
+
+                      
+             
+                      </div>
+                  </div>
+
+
+
+
+
+       
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <!--  </div><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add another vehicle
+        </button>-->
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
