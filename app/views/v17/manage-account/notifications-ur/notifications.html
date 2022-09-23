@@ -43,11 +43,14 @@ Notifications
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
    
-    
+   
   
-    
-      
-    <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 1 sections.</p>
+    {% if data['newcarddone'] %}
+
+    <p class="govuk-body govuk-!-margin-bottom-7">You have no outstanding sections.</p>
+
+ {% else %}
+ <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 1 sections.</p>
     
   
   
@@ -59,7 +62,7 @@ Notifications
         <ul class="app-task-list__items">
           <li class="app-task-list__item">
             <span class="app-task-list__task-name">
-              <a href="lrdsSelect" aria-describedby="eligibility-status">
+              <a href="../payments/new-card" aria-describedby="eligibility-status">
                 Update your payment card
               </a>
             </span>
@@ -71,6 +74,9 @@ Notifications
         </ul>
       </li>
     </ol>
+{% endif %}
+      
+   
 
    
 
