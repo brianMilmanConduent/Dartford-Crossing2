@@ -28,13 +28,22 @@ How do you want to be notified?
 
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds">
     <form action="statements" method="post">
       <span class="govuk-caption-l">Account management</span>
-        <h1 class="govuk-heading-l">Communication preferences</h1>
+        <h1 class="govuk-heading-l">Communications preferences</h1>
         
-        <div class="govuk-form-group">
-         
+    
+
+ 
+
+
+{% from "govuk/components/tabs/macro.njk" import govukTabs %}
+{% set accountcommsHtml %}
+<h2 class="govuk-heading-l">
+  Account communications
+</h2>
+
           {% set confirmHtml %}
           {{ govukCheckboxes({
             idPrefix: "tsNcs",
@@ -42,125 +51,125 @@ How do you want to be notified?
             items: [
               {
                 value: "Value",
-                html: "See content deck confirming agreement of <a href='#' class='govuk-link'>T's and C's</a> "
+                html: "I agree to the Dart Charge text message <a href='#' class='govuk-link'>terms and conditions.</a> "
               }
             ]
           }) }}
           {% endset -%}
 
-         {{ govukRadios({
-          idPrefix: "text-notifications",
-          name: "text-notifications",
-          fieldset: {
-            legend: {
-              text: "Would you like to receive communication about your account by text message?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
-            text: "This will be in addition to receiving notifications by email."
-          },
-          items: [
-            {
-              value: "Yes",
-              text: "Yes",
+          {% set confirmstatHtml %}
+          {{ govukCheckboxes({
+            idPrefix: "tsNcs",
+            name: "tsNcs",
+            items: [
+              {
+                value: "Value",
+                html: "I would like to receive statements by post, and agree to be debited £2 a month for this service.</a> "
+              }
+            ]
+          }) }}
+          {% endset -%}
+
+{{ govukRadios({
+  idPrefix: "comms",
+  name: "comms",
+  fieldset: {
+    legend: {
+      text: "Would you like to receive communication about your account by text message?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "This is in addition to receiving notifications by email."
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
               conditional: {
                 html: confirmHtml
               }
-            },
-            {
-              value: "No",
-              text: "No"
-            }
-          ]
-         }) }}
-           
-            </div>
-          </fieldset>
-       
-        
-
-           
+    },
+    {
+      value: "No",
+      text: "No",
+      checked: "true"
+    }
+  ]
+}) }}
+{{ govukButton({
+  text: "Save"
+}) }}
 
 
+{% endset -%}
 
+{% set accountstatementsHtml %}
+<h2 class="govuk-heading-m">Account statements</h2>
 
+{{ govukRadios({
+  idPrefix: "statements",
+  name: "statements",
+  fieldset: {
+    legend: {
+      text: "Would you like to receive monthly account statements by post?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "We can send you monthly account statements by post. This service costs £2 a month."
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes",
+      text: "Yes",
+              conditional: {
+                html: confirmstatHtml
+              }
+    },
+    {
+      value: "No",
+      text: "No",
+      checked: "true"
+    }
+  ]
+}) }}
 
-            
+{{ govukButton({
+  text: "Save"
+}) }}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    <form action="mobile" method="post">
-        
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="mobile">
-            
-            {% set yesHtml %}
-            {{ govukCheckboxes({
-              idPrefix: "postStatements",
-              name: "postStatements",
-             
-             
-              items: [
-                {
-                  value: "I would like to receive statements by post",
-                  text: "I would like to receive statements by post, and agree to be debited £2 a month for this service."
-                }
-              ]
-            }) }}
-            {% endset -%}
-  
-  
-  
-            {{ govukRadios({
-              idPrefix: "statements-post",
-              name: "statements-post",
-              fieldset: {
-                legend: {
-                  text: "Would you like to receive monthly account statements by post?",
-                  isPageHeading: false,
-                  classes: "govuk-fieldset__legend--m"
-                }
-              },
-              hint: {
-                text: "We can send you monthly account statements by post. This service costs £2 a month."
-              },
-              items: [
-                {
-                  value: "Yes",
-                  text: "Yes",
-                  conditional: {
-                    html: yesHtml
-                  }
-                },
-                {
-                  value: "No",
-                  text: "No"
-                }
-              ]
-            }) }}
-           
-            </div>
-          </fieldset>
-       
-        
-
-            {{ govukButton({
-                text: "Continue"
-            }) }}
-
-    </form>
-
-  </div>
-</div>
-
- 
+{% endset -%}
 
 
 
-
-
+{{ govukTabs({
+  items: [
+    {
+      label: "Account communications",
+      id: "accountcomms",
+      panel: {
+        html: accountcommsHtml
+      }
+    },
+    {
+      label: "Account statements",
+      id: "accountstatements",
+      panel: {
+        html: accountstatementsHtml
+      }
+    }
+  ]
+}) }}
+<p class="govuk-body">
+  <a href="../my-profile/profile-summary" class="govuk-link">Back to account management</a>
+</p>
+<p class="govuk-body">
+  <a href="../dashboard-summary" class="govuk-link">Back to account summary</a>
+</p>
 
     </form>
 

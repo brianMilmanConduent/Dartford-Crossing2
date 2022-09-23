@@ -20,7 +20,19 @@
 
     {% if data['newcarddone'] %}
 
-    <!--content here-->
+    {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+    {% set html %}
+      
+      <p class="govuk-notification-banner__heading">
+        You have 10 unread notifications.
+        <a class="govuk-notification-banner__link" href="notifications-ur/notifications#standard-notifications">Read now</a>.
+      </p>
+    {% endset %}
+    
+    {{ govukNotificationBanner({
+      html: html
+    }) }}
     
      {% else %}
      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}

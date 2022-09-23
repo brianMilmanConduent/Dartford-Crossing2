@@ -33,10 +33,29 @@ Payment management
       <h1 class="govuk-heading-l">Payment</h1>
 
       {% set paymentHistoryHtml %}
+        
+      {% if data['email-address'] === 'business' %}
+
+           <p class="govuk-body">
+            You can view your payment history for the last 30 days. 
+           </p>
+           <p class="govuk-body">
+            For faster results, search by a specific date. You can also search a date range.
+           </p>
+       {% else %}
+       <p class="govuk-body">
+        You can view your payment history for the last 90 days.
+       </p>
+       <p class="govuk-body">
+        For faster results, search by a specific date. You can also search a date range. 
+       </p>
+
+      {% endif %}
+
+
+
       <h1 class="govuk-heading-l">Payment history</h1>
-      <p class="govuk-body">
-        Your last 30 days of history is listed below. For faster results, search by a specific date. <br>You can also search a date range.
-      </p>
+      
 
       
         <div class="govuk-grid-row">
@@ -372,7 +391,7 @@ Payment management
   Default payment method 
 </h3>
 <p class="govuk-body govuk-!-margin-bottom-6">
-  Mastercard **** 4563 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />
+  Mastercard **** 4567 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />
   <br>
   <a href='#' class='govuk-link'>Remove</a>
 </p>
@@ -387,11 +406,7 @@ Payment management
       Visa *****1234 <img class='card-img-new' src='/public/images/visa.png'  width='40px' alt='payment' /><br> <br><a href='#' class='govuk-link govuk-!-margin-right-3'>Make default</a><a href='remove-card' class='govuk-link'>Remove</a>
     </p>
   </li>
-  <li>
-    <p class="govuk-body ">
-      Visa *****784 <img class='card-img-new' src='/public/images/visa.png'  width='40px' alt='payment' /><br> <br><a href='#' class='govuk-link govuk-!-margin-right-3'>Make default</a> <a href='#' class='govuk-link'>Remove</a>
-    </p>
-  </li>
+  
 </ul>
 <p class="govuk-body">
   
@@ -411,7 +426,7 @@ Payment management
 {% set paymentTopUpHtml %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h2 class="govuk-heading-l">What are your top-up and low balance amounts?</h2>
+    <h2 class="govuk-heading-l">Top-up and low balance amounts</h2>
       <div class="govuk-grid-row">
           <div class="govuk-grid-column-full">
            
@@ -454,7 +469,7 @@ Payment management
             }) }}
                 
 
-<button class="govuk-button" data-module="govuk-button">Continue</button>
+<button class="govuk-button" data-module="govuk-button">Save and continue</button>
 </div>
 </div>
 {% endset -%}

@@ -14,9 +14,23 @@ Crossing history
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-l">Crossing history</h1>
+      {% if data['email-address'] === 'business' %}
+
       <p class="govuk-body">
-        You can view crossings for the past 90 days. Recent crossings may take up to 8 hours to appear.
+       You can view your crossing history for the last 30 days. 
       </p>
+      <p class="govuk-body">
+       For faster results, search by a specific date. You can also search a date range.
+      </p>
+  {% else %}
+  <p class="govuk-body">
+   You can view your crossing history for the last 90 days.
+  </p>
+  <p class="govuk-body">
+   For faster results, search by a specific date. You can also search a date range. 
+  </p>
+
+ {% endif %}
 
       
         <div class="govuk-grid-row">
@@ -122,25 +136,7 @@ Crossing history
                       },
                       selectedFilters: {
 
-                        heading: {
-                          text: 'Selected filters'
-                        },
-
-                        clearLink: {
-                          text: 'Clear filters'
-                        },
-
-                        categories: [
-                          {
-                            heading: {
-                              text: 'Number plate'
-                            },
-                            items: [{
-                              href: '/path/to/remove/this',
-                              text: 'FD54 NRO'
-                            }]
-                          }
-                        ]
+                        
                       },
                       optionsHtml: filterOptionsHtml
                     }) }}
@@ -156,17 +152,12 @@ Crossing history
   },
   head: [
     {
-      text: "Crossing date",
+      text: "Crossing date and time",
       attributes: {
         "aria-sort": "ascending"
       }
     },
-    {
-      text: "Time",
-      attributes: {
-        "aria-sort": "none"
-      }
-    },
+    
     
     {
       text: "Number plate",
@@ -181,20 +172,17 @@ Crossing history
   rows: [
     [
       {
-        text: "6 Aug 2022"
-      },
-      {
-        text: "9:00 am",
+        text: "6 Aug 2022 at 9:00 am",
         attributes: {
-          "data-sort-value": "6961"
+          "data-sort-value": "6964"
         }
       },
     
       {
-        text: "FD54 NRO",
+        text: "LO62 NRO",
         
         attributes: {
-          "data-sort-value": "1897"
+          "data-sort-value": "6960"
         }
       },
       {
@@ -202,21 +190,19 @@ Crossing history
       }
     ],
     [
+      
       {
-        text: "6 Aug 2022"
-      },
-      {
-        text: "11:00 am",
+        text: "6 Aug 2022 at 11:00 am",
         attributes: {
-          "data-sort-value": "6961"
+          "data-sort-value": "6963"
         }
       },
      
       {
-        text: "FD54 NRO",
+        text: "LO62 NRO",
         
         attributes: {
-          "data-sort-value": "1897"
+          "data-sort-value": "696"
         }
       },
       {
@@ -224,21 +210,19 @@ Crossing history
       }
     ],
     [
+      
       {
-        text: "7 Aug 2022"
-      },
-      {
-        text: "9:00 am",
+        text: "7 Aug 2022 at 9:00 am",
         attributes: {
-          "data-sort-value": "6961"
+          "data-sort-value": "6962"
         }
       },
       
       {
-        text: "FD54 NRO",
+        text: "LO62 NRO",
        
         attributes: {
-          "data-sort-value": "1897"
+          "data-sort-value": "6956"
         }
       },
       {
@@ -246,283 +230,17 @@ Crossing history
       }
     ],
     [
+      
       {
-        text: "7 Aug 2022"
-      },
-      {
-        text: "10:44 am",
+        text: "7 Aug 2022 at 10:44 am",
         attributes: {
           "data-sort-value": "6961"
         }
       },
       
       {
-        text: "FD54 NRO",
+        text: "LO62 NRO",
         
-        attributes: {
-          "data-sort-value": "1897"
-        }
-      },
-      {
-        html: "<a href='#' class='govuk-link'>view</a>"
-      }
-    ],
-    [
-      {
-        text: "8 Aug 2022"
-      },
-      {
-        text: "9:00 am",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      
-      {
-        text: "FD54 NRO",
-        
-        attributes: {
-          "data-sort-value": "1897"
-        }
-      },
-      {
-        html: "<a href='#' class='govuk-link'>view</a>"
-      }
-    ],
-    [
-      {
-        text: "8 Aug 2022"
-      },
-      {
-        text: "11:00 am",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      
-      {
-        text: "FD54 NRO",
-        
-        attributes: {
-          "data-sort-value": "1897"
-        }
-      },
-      {
-        html: "<a href='#' class='govuk-link'>view</a>"
-      }
-    ],
-    [
-      {
-        text: "9 Aug 2022"
-      },
-      {
-        text: "9:00 am",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      
-      {
-        text: "FD54 NRO",
-        
-        attributes: {
-          "data-sort-value": "1897"
-        }
-      },
-      {
-        html: "<a href='#' class='govuk-link'>view</a>"
-      }
-    ],
-    [
-      {
-        text: "9 Aug 2022"
-      },
-      {
-        text: "10:44 am",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-    
-      {
-        text: "FD54 NRO",
-        
-        attributes: {
-          "data-sort-value": "1897"
-        }
-      },
-      {
-        html: "<a href='#' class='govuk-link'>view</a>"
-      }
-    ],
-    [
-      {
-        text: "10 Aug 2022"
-      },
-      {
-        text: "9:00 am",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-     
-      {
-        text: "FD54 NRO",
-        
-        attributes: {
-          "data-sort-value": "1897"
-        }
-      },
-      {
-        html: "<a href='#' class='govuk-link'>view</a>"
-      }
-    ],
-    [
-      {
-        text: "10 Aug 2022"
-      },
-      {
-        text: "11:00 am",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-     
-      {
-        text: "FD54 NRO",
-        
-        attributes: {
-          "data-sort-value": "1897"
-        }
-      },
-      {
-        html: "<a href='#' class='govuk-link'>view</a>"
-      }
-    ],
-    [
-      {
-        text: "11 Aug 2022"
-      },
-      {
-        text: "9:00 am",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-     
-      {
-        text: "FD54 NRO",
-        
-        attributes: {
-          "data-sort-value": "1897"
-        }
-      },
-      {
-        html: "<a href='#' class='govuk-link'>view</a>"
-      }
-    ],
-    [
-      {
-        text: "11 Aug 2022"
-      },
-      {
-        text: "10:44 am",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      
-      {
-        text: "FD54 NRO",
-        
-        attributes: {
-          "data-sort-value": "1897"
-        }
-      },
-      {
-        html: "<a href='#' class='govuk-link'>view</a>"
-      }
-    ],
-    [
-      {
-        text: "12 Aug 2022"
-      },
-      {
-        text: "9:00 am",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      
-      {
-        text: "FD54 NRO",
-        
-        attributes: {
-          "data-sort-value": "1897"
-        }
-      },
-      {
-        html: "<a href='#' class='govuk-link'>view</a>"
-      }
-    ],
-    [
-      {
-        text: "12 Aug 2022"
-      },
-      {
-        text: "11:00 am",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-     
-      {
-        text: "FD54 NRO",
-        
-        attributes: {
-          "data-sort-value": "1897"
-        }
-      },
-      {
-        html: "<a href='#' class='govuk-link'>view</a>"
-      }
-    ],
-    [
-      {
-        text: "13 Aug 2022"
-      },
-      {
-        text: "9:00 am",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-     
-      {
-        text: "FD54 NRO",
-        
-        attributes: {
-          "data-sort-value": "1897"
-        }
-      },
-      {
-        html: "<a href='#' class='govuk-link'>view</a>"
-      }
-    ],
-    [
-      {
-        text: "13 Aug 2022"
-      },
-      {
-        text: "10:44 am",
-        attributes: {
-          "data-sort-value": "6961"
-        }
-      },
-      
-      {
-        text: "FD54 NRO",
-       
         attributes: {
           "data-sort-value": "1897"
         }
@@ -534,7 +252,7 @@ Crossing history
   ]
 }) }}
 
-{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+<!--{% from "govuk/components/pagination/macro.njk" import govukPagination %}
 
 {{ govukPagination({
   previous: {
@@ -558,11 +276,12 @@ Crossing history
       href: "#"
     }
   ]
-}) }}   
+}) }}-->   
 
         </div>
        
       </div>
+      <br><br>
 <a href="#" class="govuk-link">Download full crossing history</a>
     </div>
   </div>

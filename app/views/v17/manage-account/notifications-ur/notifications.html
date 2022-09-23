@@ -189,70 +189,38 @@ Notifications
   </div>
   <div class="govuk-grid-column-two-thirds">
     <p class="govuk-body govuk-!-margin-bottom-1">
-      <b>9th Jun 2022 11:00 am</b> - Direct debit success
+      <b>9 January 2022 at 11am</b>
     </p>
 {{ govukDetails({
-  summaryText: "About your direct debit",
-  text: "Text"
+  summaryText: "Direct Debit taken successfully  ",
+  text: "A Direct Debit payment of £25 has been taken from your account."
 }) }}
 <hr>
     <p class="govuk-body govuk-!-margin-bottom-1">
-      <b>6th Jun 2022 9:34 am</b> - Direct debit due soon
+      <b>6 January 2022 at 9:34am</b> 
     </p>
 {{ govukDetails({
-  summaryText: "About your direct debit",
-  text: "Text"
+  summaryText: "Direct Debit due soon",
+  text: "We'll take a Direct Debit payment of £25 from your account in 3 days' time. If there are not enough funds to cover any trips, additional charges may be issued. "
 }) }}
 <hr>
 <p class="govuk-body govuk-!-margin-bottom-1">
-  <b>9th May 2022 11:00 am</b> - Direct debit success
+  <b>9 December 2021 at 11am</b>
 </p>
 {{ govukDetails({
-summaryText: "About your direct debit",
-text: "Text"
+summaryText: "Direct Debit taken successfully",
+text: "A Direct Debit payment of £<x> has been taken from your account."
 }) }}
 <hr>
 <p class="govuk-body govuk-!-margin-bottom-1">
-  <b>6th Apr 2022 9:34 am</b> - LRDS Renewal successful
+  <b>6 December 2021 at 9:34am</b>
 </p>
 {{ govukDetails({
-summaryText: "About your LRDS renewal",
-text: "Text"
+summaryText: "Direct Debit due soon",
+text: "We'll take a Direct Debit payment of £25 from your account in 3 days' time. If there are not enough funds to cover any trips, additional charges may be issued. "
 }) }}
 <hr>
-<p class="govuk-body govuk-!-margin-bottom-1">
-  <b>9th Mar 2022 11:00 am</b> - Direct debit success
-</p>
-{{ govukDetails({
-summaryText: "About your direct debit",
-text: "Text"
-}) }}
-<hr>
-<p class="govuk-body govuk-!-margin-bottom-1">
-  <b>6th Feb 2022 9:34 am</b> - LRDS expiry
-</p>
-{{ govukDetails({
-summaryText: "About your LRDS expiry",
-text: "Text"
-}) }}
-<hr>
-<p class="govuk-body govuk-!-margin-bottom-1">
-  <b>9th Jan 2022 11:00 am</b> - Direct debit success
-</p>
-{{ govukDetails({
-summaryText: "About your direct debit",
-text: "Text"
-}) }}
-<hr>
-<p class="govuk-body govuk-!-margin-bottom-1">
-  <b>6th Jan 2022 9:34 am</b> - Direct debit due soon
-</p>
-{{ govukDetails({
-summaryText: "About your direct debit",
-text: "Text"
-}) }}
-<hr>
-
+<!--
 {% from "govuk/components/pagination/macro.njk" import govukPagination %}
 
 {{ govukPagination({
@@ -273,6 +241,7 @@ text: "Text"
     }
   ]
 }) }}
+-->
     </div>
 
 {% endset -%}
