@@ -48,7 +48,7 @@ My profile
           actions: {
             items: [
               {
-                href: "name#first-name",
+                
                 text: "Change",
                 visuallyHiddenText: "first name"
               }
@@ -65,7 +65,7 @@ My profile
           actions: {
             items: [
               {
-                href: "name#last-name",
+                
                 text: "Change",
                 visuallyHiddenText: "last name"
               }
@@ -82,7 +82,7 @@ My profile
           actions: {
             items: [
               {
-                href: "addresslookup",
+                
                 text: "Change",
                 visuallyHiddenText: "address"
               }
@@ -99,7 +99,7 @@ My profile
           actions: {
             items: [
               {
-                href: "mobile",
+                
                 text: "Change",
                 visuallyHiddenText: "mobile phone"
               }
@@ -126,7 +126,7 @@ My profile
         actions: {
           items: [
             {
-              href: "email",
+             
               text: "Change",
               visuallyHiddenText: "contact details"
             }
@@ -144,7 +144,7 @@ My profile
           actions: {
             items: [
               {
-                href: "change-password",
+                
                 text: "Change",
                 visuallyHiddenText: "previous application number"
               }
@@ -161,10 +161,12 @@ My profile
 
       <input type="hidden" name="answers-checked" value="true">
 
-      {{ govukButton({
-        text: "Back to summary"
-      }) }}
-
+      <p class="govuk-body">
+        <a href="../my-profile/profile-summary" class="govuk-link">Back to account management</a>
+       </p>
+      <p class="govuk-body">
+     <a href="../dashboard-summary" class="govuk-link">Back to account summary</a>
+    </p>
     </form>
 
   </div>
