@@ -1,12 +1,27 @@
-{% extends "layout-dashboard.html" %}
+{% extends "../../layout-dash-veh-man.html" %}
 
 {% block pageTitle %}
   Account summary - Business
 {% endblock %}
 
 {% block beforeContent %}
-{% include "includes/alpha-banner.html" %}
-{% include "includes/back-link.html" %}
+{% include "includes/beta-banner.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "#"
+    },
+    {
+      text: "Vehicle management",
+      href: "#"
+    },
+    {
+      text: "Vehicle bulk upload",
+      href: "#"
+    }
+  ]
+}) }}
 {% endblock %}
 
 
@@ -15,7 +30,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">
-      Upload a CSV file with your vehicles' details
+      Upload a CSV file to add or edit your vehicles' details
     </h1>
     <div class="govuk-grid-row">
       
