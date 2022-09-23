@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full govuk-!-margin-top-1">
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">Is this the vehicle you're looking for?</h1>
+    </div>
+</div>
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+        <table class="govuk-table ">
+
+
+            <tr class="govuk-table__row">
+                <td scope="col" class="govuk-table__header govuk-body ">Vehicle Registration (number plate)</td>
+               
+                <td class="govuk-table__cell  govuk-body ">{{data['vrn']}}</td>
+                
+            </tr>
+
+            <tr class="govuk-table__row">
+                <td scope="col" class="govuk-table__header govuk-body ">Type of vehicle
+                    
+                </td>
+                <td class="govuk-table__cell  govuk-body ">Car</td>
+                
+            </tr>
+            <tr class="govuk-table__row">
+                <td scope="col" class="govuk-table__header govuk-body ">Make</td>
+                <td class="govuk-table__cell  govuk-body ">Audi</td>
+                
+            </tr>
+
+            <tr class="govuk-table__row">
+                <td scope="col" class="govuk-table__header govuk-body ">Model</td>
+                <td class="govuk-table__cell  govuk-body ">RS4</td>
+                
+            </tr>
+
+            <tr class="govuk-table__row">
+                <td scope="col" class="govuk-table__header govuk-body ">Colour</td>
+                <td class="govuk-table__cell  govuk-body ">Black</td>
+              
+            </tr>
+           
+        </table>
+
+        <div id="your-vehicle" class="govuk-body">
+
+          </div>
+          <form class="form" method="post" action="vehicle-check">
+          <div class="govuk-radios govuk-radios--inline">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="vehicle-owner" name="vehicle-owner" type="radio" value="Yes">
+              <label class="govuk-label govuk-radios__label" for="vehicle-owner">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="vehicle-owner-2" name="vehicle-owner" type="radio" value="No">
+              <label class="govuk-label govuk-radios__label" for="vehicle-owner-2">
+                No
+              </label>
+            </div>
+          </div>
+
+        <div class="govuk-form-group govuk-button-group  govuk-!-margin-top-6">
+            <button type="submit" class="govuk-button" data-module="govuk-button"
+                role="button" aria-label="Confirm a vehicle">Continue</button>
+           
+        </div>
+        <p class="govuk-body">
+          <a href="vehicle-reg" class="govuk-link">The Vehicle Registration (number plate) is incorrect </a>
+        </p>
+      </form>
+    </div>
+</div>
+
+{% endblock %}
