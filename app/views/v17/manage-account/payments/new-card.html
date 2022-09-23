@@ -6,7 +6,26 @@ Payment details
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{% include "includes/back-link.html" %}
+{{ govukBreadcrumbs({
+   items: [
+     {
+       text: "Account summary",
+       href: "../dashboard-summary"
+     },
+     {
+       text: "Account management",
+       href: "../my-profile/profile-summary"
+     },
+     {
+       text: "Payment",
+       href: "#"
+     },
+     {
+       text: "New payment card",
+       href: "#"
+     }
+   ]
+ }) }}
 {% endblock %}
 
 {% block content %}
@@ -65,7 +84,7 @@ opacity: 0.5;}
 
 
 
-<div class="govuk-grid-row">
+<div class="govuk-grid-row govuk-!-margin-top-6">
  <div class="govuk-grid-column-full">
    
  <h1 class="govuk-heading-l">

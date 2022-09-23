@@ -5,8 +5,23 @@ Crossing history
 {% endblock %}
 
 {% block beforeContent %}
-{% include "includes/alpha-banner.html" %}
-{% include "includes/back-link.html" %}
+{% include "includes/beta-banner.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "../dashboard-summary"
+    },
+    {
+      text: "Vehicle management",
+      href: "vehicle-sub-summary"
+    },
+    {
+      text: "Vehicle crossings",
+      href: "#"
+    }
+  ]
+}) }}
 {% endblock %}
 
 {% block content %}
