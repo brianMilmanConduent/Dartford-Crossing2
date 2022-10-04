@@ -152,6 +152,9 @@ router.post(`/v${verNum}/landing-page`, function (req, res) {
   else if (editChoice === 'resolve-pcn') {
     res.redirect(`/v${verNum}/landing`)
   }
+  else if (editChoice === 'check-paid-crossings') {
+    res.redirect(`/v${verNum}/check-paid/start`)
+  }
 });
 
 
@@ -381,6 +384,17 @@ router.post(`/v${verNum}/vehicle-dvla-check/dvla-check`, function (req, res) {
  
 });
 
+router.post(`/v${verNum}/check-paid/dvla-check`, function (req, res) {
+  const dvlaCheck = req.session.data[`vrn`]
+  if (dvlaCheck === 'LO62 NRO') {
+    res.redirect(`/v${verNum}/check-paid/vehicle-info`)
+  } 
+  else if (dvlaCheck === 'nondvla') {
+    res.redirect(`/v${verNum}/check-paid/confirm-vehicle-details-no-dvla-data`)
+  }
+ 
+});
+
 router.post(`/v${verNum}/vehicle-dvla-check/vehicle-check`, function (req, res) {
   const vrnCheck = req.session.data[`vehicle-owner`]
   if (vrnCheck === 'Yes') {
@@ -388,6 +402,17 @@ router.post(`/v${verNum}/vehicle-dvla-check/vehicle-check`, function (req, res) 
   } 
   else if (vrnCheck === 'No') {
     res.redirect(`/v${verNum}/vehicle-dvla-check/uk-registered-question`)
+  }
+ 
+});
+
+router.post(`/v${verNum}/check-paid/vehicle-check`, function (req, res) {
+  const vrnCheck = req.session.data[`vehicle-owner`]
+  if (vrnCheck === 'Yes') {
+    res.redirect(`/v${verNum}/check-paid/check-answer-change-veh`)
+  } 
+  else if (vrnCheck === 'No') {
+    res.redirect(`/v${verNum}/check-paid/uk-registered-question`)
   }
  
 });
@@ -402,6 +427,22 @@ router.post(`/v${verNum}/vehicle-dvla-check/uk-registered-question`, function (r
     res.redirect(`/v${verNum}/vehicle-dvla-check/confirm-vehicle-details-non-uk`)
   }
  
+});
+
+router.post(`/v${verNum}/check-paid/uk-registered-question`, function (req, res) {
+  const vrnCheck = req.session.data[`uk-or-non-uk`]
+  if (vrnCheck === 'UK') {
+    res.redirect(`/v${verNum}/check-paid/confirm-vehicle-details`)
+  } 
+  else {
+    res.redirect(`/v${verNum}/check-paid/confirm-vehicle-details-non-uk`)
+  }
+ 
+});
+
+router.post(`/v${verNum}/one-off-payment/pay-crossing`, function (req, res) {
+  // res.redirect(`/one-off-payment/${req.params.version}/payment-options`);
+  res.redirect(`/v${verNum}/one-off-payment/vehicle-info`);
 });
 
 

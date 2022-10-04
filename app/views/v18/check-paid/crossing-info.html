@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check for paid crossings
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  {% include "includes/back-link.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+ 
+
+  <form class="form" method="post" action="crossing-info">
+    
+    <h1 class="govuk-heading-l">
+      Details of crossings for  {{data['vrm']}} on payment reference {{data['pay-ref']}}
+    </h1>
+
+    <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-5">
+      <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Crossings remaining</h3>
+      <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">4</h1>
+      <p class="govuk-body">
+        Credit will expire on 6 Aug 2023
+      </p>
+    </div>
+    
+    <p class="govuk-body govuk-!-margin-bottom-9">
+     <span class="govuk-body govuk-!-font-weight-bold">For use with {{data['vrm']}}</span> <br> <a href="vehicle-reg" class="govuk-link">Change vehicle</a>
+    </p>
+
+    
+
+
+    {{ govukTable({
+      caption: "Previous crossings",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Date and time"
+        },
+        {
+          text: "Number plate"
+        },
+       
+        {
+          text: "Direction"
+        }
+      ],
+      rows: [
+      [
+       
+        {
+          text: "6 Aug 2022 at 10:00am"
+        },
+        {
+          text: "LO62 RFE"
+        },
+        {
+          text: "Southbound"
+        }
+      ]
+    ]
+    }) }}
+
+   
+
+  </form>
+  </div>
+
+</div>
+
+{% endblock %}
