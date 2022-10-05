@@ -6,7 +6,7 @@
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-  {% include "includes/back-link.html" %}
+ 
 
 {% endblock %}
 
@@ -18,24 +18,34 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {{ govukPanel({
-        titleText: "Application complete",
-        html: "Your reference number<br><strong>HDJ2123F</strong>"
+        titleText: "Change of vehicle complete",
+        html: ""
       }) }}
 
-      <p class="govuk-body">We have sent you a confirmation email.</p>
+     
 
-      <h2 class="govuk-heading-m">What happens next</h2>
+      <table class="govuk-table">
+        
+        
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Vehicle Registration (number plate)</th>
+            <td class="govuk-table__cell">{{data['new-vrn']}}</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Crossings remaining</th>
+            <td class="govuk-table__cell">4</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Expiry date</th>
+            <td class="govuk-table__cell">6 Aug 2023</td>
+          </tr>
+        </tbody>
+      </table>
 
-      <p class="govuk-body">
-        We’ve sent your application to Hackney Electoral Register Office.
-      </p>
-      <p class="govuk-body">
-        They will contact you either to confirm your registration, or to ask for more information.
-      </p>
+     
 
-      <p class="govuk-body">
-        <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
-      </p>
+      
     </div>
   </div>
 {% endblock %}
