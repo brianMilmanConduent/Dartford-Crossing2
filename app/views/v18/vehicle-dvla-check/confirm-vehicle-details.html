@@ -32,24 +32,21 @@ Your vehicle
                   <div class="govuk-grid-column-two-thirds">
 
 
-                    {{ govukInput({
-                      id: "number-plate",
-                      name: "number-plate",
-                      label: {
-                        text: "Number plate"
-                      },
-                      
-                      value: "LO62 NRO"
-                    }) }}
+                   
+                    <p class="govuk-body">
+                      Vehicle Registration (number plate)<br>
+                      <span class="govuk-body govuk-!-font-size-24"><strong >{{data['vrn']}}</strong></span> <a href="vehicle-reg" class="govuk-link govuk-!-margin-left-3">Change</a>
+                     </p>
 
                     
 
-                    {{ govukInput({
+                     {{ govukInput({
                       id: "vehicle-make",
                       name: "vehicle-make",
                       label: {
                         text: "Make"
-                      }
+                      },
+                      value: "Audi"
                     }) }}
                     
                     {{ govukInput({
@@ -57,7 +54,8 @@ Your vehicle
                       name: "vehicle-make",
                       label: {
                         text: "Model"
-                      }
+                      },
+                      value: "RS4"
                     }) }}
                    
                     {{ govukInput({
@@ -65,10 +63,9 @@ Your vehicle
                       name: "vehicle-make",
                       label: {
                         text: "Colour"
-                      }
+                      },
+                      value: "Black"
                     }) }}
-                  
-
 
                     
                      

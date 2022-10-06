@@ -26,21 +26,16 @@ Your vehicle
           <h1 class="govuk-heading-l">We need more information about your vehicle</h1>
 
 
-            <form class="form" method="post" action="previous-journeys">
+          <form class="form" method="post" action="check-answer-change-veh">
 
               <div class="govuk-grid-row">
                   <div class="govuk-grid-column-two-thirds">
 
 
-                    {{ govukInput({
-                      id: "number-plate",
-                      name: "number-plate",
-                      label: {
-                        text: "Number plate"
-                      },
-                      
-                      value: "LO62 NRO"
-                    }) }}
+                    <p class="govuk-body">
+                      Vehicle Registration (number plate)<br>
+                      <span class="govuk-body govuk-!-font-size-24"><strong >{{data['new-vrn']}}</strong></span> <a href="vehicle-reg" class="govuk-link govuk-!-margin-left-3">Change</a>
+                     </p>
 
                     {{ govukSelect({
                       id: "vehicle-type",

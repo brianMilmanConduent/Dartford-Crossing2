@@ -10,13 +10,7 @@ Your vehicle
 {% endblock %}
 
 {% block content %}
-{% if data['account-type'] === 'Personal' %}
 
-<!--content here-->
-
- {% else %}
-<!--content here-->
-{% endif %}
 
 
   <div class="govuk-grid-row">
@@ -26,7 +20,7 @@ Your vehicle
           <h1 class="govuk-heading-l">We need more information about your vehicle</h1>
 
 
-            <form class="form" method="post" action="previous-journeys">
+          <form class="form" method="post" action="check-answer-change-veh">
 
               <div class="govuk-grid-row">
                   <div class="govuk-grid-column-two-thirds">
