@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Enter the SMS code
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="businessPersonalVehicles" method="post">
+        
+      <h1 class="govuk-heading-l">Would you like to opt in to two-step verification?</h1>
+       <p class="govuk-body">
+        This will make access to your account more secure.
+       <p>
+        <form action="step4-code" method="post">
+
+            <div class="govuk-form-group govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+
+
+              {% set emailHtml %}
+              
+                {{ govukRadios({
+                  idPrefix: "email-or-sms",
+                  name: "email-or-sms",
+                  fieldset: {
+                    legend: {
+                      text: "What would you prefer to use for verification?",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--m"
+                    }
+                  },
+                  items: [
+                    {
+                      value: "email",
+                      text: "Email"
+                    },
+                    {
+                      value: "SMS",
+                      text: "SMS"
+                    }
+                  ]
+                }) }}
+
+              {% endset -%}
+
+
+
+            {{ govukRadios({
+              idPrefix: "opt-in-2fa",
+              name: "opt-in-2fa",
+              items: [
+                {
+                  value: "Value",
+                  text: "Yes",
+                  conditional: {
+                    html: emailHtml
+                  }
+                },
+                
+                {
+                  value: "Value",
+                  text: "No"
+                }
+              ]
+            }) }}
+          </div>
+ 
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

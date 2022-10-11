@@ -1,0 +1,36 @@
+{% extends "../../layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+Your account has been created
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<br><br>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukPanel({
+      titleText: "Opt-in to two step verfication successful"
+    }) }}
+
+    <p class="govuk-body">We've sent a confirmation email to [email address].</p>
+
+    <p class="govuk-body">
+      {{ govukButton({
+        text: "Continue",
+        href: "profile"
+      }) }}
+    </p>
+  </div>
+</div>
+
+
+
+
+  
+
+{% endblock %}
