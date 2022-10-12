@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your vehicles
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="add-new-vrm">
+      <fieldset class="govuk-fieldset">
+        
+        <h1 class="govuk-heading-l">
+          Are you sure you want to remove vehicle LO62 NRO?
+        </h1>
+        <div class="govuk-grid-column-two-thirds">
+          
+          <div class="govuk-grid-row">
+            
+            <p class="govuk-body">
+              This vehicle is registered for Dart Charge's LRDS (local resident discount scheme). If you remove it, you can add a different vehicle.
+            <p>
+        
+              <table class="govuk-table ">
+
+                <tr class="govuk-table__row">
+                    <td scope="col" class="govuk-table__header govuk-body ">Number plate</td>
+                    <!-- <td class="govuk-table__cell  govuk-body "><b>{{data['vrm-1'][0]}}</b></td> -->
+                    <td class="govuk-table__cell  govuk-body ">LO62 NRO  </td>
+                    <!-- <td class="govuk-table__cell  govuk-body "> </td> -->
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <td scope="col" class="govuk-table__header govuk-body ">Vehicle type</td>
+                    <td class="govuk-table__cell  govuk-body ">Car</td>
+                    
+                </tr>
+                <tr class="govuk-table__row">
+                    <td scope="col" class="govuk-table__header govuk-body ">Make</td>
+                    <td class="govuk-table__cell  govuk-body ">Audi</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <td scope="col" class="govuk-table__header govuk-body ">Model</td>
+                    <td class="govuk-table__cell  govuk-body ">RS4</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                    <td scope="col" class="govuk-table__header govuk-body ">Colour</td>
+                    <td class="govuk-table__cell  govuk-body ">Black</td>
+                </tr>
+                {% if data['account-type'] === 'Business' %}
+
+                <tr class="govuk-table__row">
+                  <td scope="col" class="govuk-table__header govuk-body ">Class</td>
+                  <td class="govuk-table__cell  govuk-body ">B</td>
+              </tr>
+
+                  {% else %}
+                  <!--content here-->
+                  {% endif %}
+                
+               
+            </table>
+
+
+        </div>
+      </div>
+      
+         
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                  {{ govukButton({
+                    text: "Remove vehicle",
+                    classes: "govuk-button--warning"
+                  }) }}
+      <p class="govuk-body">
+        
+      
+      <a href="vehicles" class="govuk-link">Cancel</a>
+    </p>
+    </form>
+
+  </div>
+</div>
+
+ 
+
+
+
+
+
+  
+  
+
+  
+
+
+
+
+{% endblock %}

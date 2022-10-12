@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+{% if data['account-type'] === 'Personal' %}
+
+<!--content here-->
+
+ {% else %}
+<!--content here-->
+{% endif %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+        <fieldset class="govuk-fieldset">
+         
+
+
+            <form class="form" method="post" action="uk-registered-question">
+
+              <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-two-thirds">
+
+
+
+
+                    
+
+                   
+                   
+                   
+                    {{ govukRadios({
+                      idPrefix: "uk-or-non-uk",
+                      name: "uk-or-non-uk",
+                      fieldset: {
+                        legend: {
+                          text: "Country of registration",
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--l"
+                        }
+                      },
+                     
+                      items: [
+                        {
+                          value: "UK",
+                          text: "UK"
+                        },
+                        {
+                          value: "Outside the UK",
+                          text: "Outside the UK"
+                        }
+                      ]
+                    }) }}
+
+
+                    
+                     
+             
+                      </div>
+                  </div>
+
+
+
+
+                
+       
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <!--  </div><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add another vehicle
+        </button>-->
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

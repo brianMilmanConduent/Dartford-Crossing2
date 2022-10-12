@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Sorry, there is a problem with the service - Pay the Dartford Crossing charge - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-top-6">
+    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Sorry, there is a problem with the service
+    </h1>
+    <p class="govuk-body">
+      Try again.
+    </p>
+    {{ govukButton({
+      text: "Retry"
+    }) }}
+    
+
+
+    </div>
+  </div>
+
+{% endblock %}

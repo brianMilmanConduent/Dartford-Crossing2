@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Challenge confirmation
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+    
+    <div class="govuk-grid-row">
+
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h4 class="govuk-panel__title govuk-!-font-size-36">
+            Your challenge has been received
+          </h4>
+          <div class="govuk-panel__body govuk-!-font-size-27">
+            Number plate: <br><strong><span id="vrn2"></span></strong>
+          </div>
+        </div>
+       
+          <!-- <h2 class="govuk-heading-l govuk-!-margin-top-2">Your challenge for PCNs <span id="pcns2"></span> for vehicle registration number <span id="vrn2"></span> has been received.</h2> -->
+     
+        <p class="govuk-body">We have received the penalty charge notice (PCN) challenge for <span id="pcns"></span> relating to the number plate <span id="vrn"></span></p>
+        <!-- <p>. An email confirmation has been sent to the email address <span id="email"></span>.</p> -->
+        
+        <div class="govuk-inset-text">Late payment charges will be paused while your challenge is considered. The amount you owe will not increase during this time.</div>
+        <h3 class = "govuk-heading-m">What happens next</h3>
+        <p class="govuk-body">You will receive a response by post to your challenge within 15 working days. This will tell you if your <span title="Penalty charge notice">PCN</span> challenge was successful.</p>
+        <p class="govuk-body">You will no longer need to pay the <span title="Penalty charge notice">PCN</span> and there will be no additional charges or fines If your challenge is successful.</p>
+        <p class="govuk-body">If your challenge is rejected, you will need to pay the <span title="Penalty charge notice">PCN</span> and any penalties and fines within a set amount of time. The details of how much you need to pay and when to pay will be sent to you by letter and email.</p>
+        <h3 class = "govuk-heading-m">Support with money problems</h3>
+        <p class="govuk-body">If you are struggling to pay your <span title="Penalty charge notice">PCN</span> because of existing debt or money problems contact the <a class="govuk-link " href="javascript:void(0)">Dart Charge team</a></p>
+          
+        <p class="govuk-body">The team will look at ways to help you avoid unmanageable debt.</p>
+  
+          <!-- <h3 class = "govuk-heading-m">Creating a Dartford charge account</h3>
+          <p class = "govuk-body">To prevent future <span title="Penalty charge notice">PCN<span>s you can <a href = "flow12">create a Dart Charge account</a> and either pre-pay or pay
+            automatically as you make a crossing.</p> -->
+            <h3 class = "govuk-heading-m">Manage Dart Charge payments</h3>
+            <!-- <p class = "govuk-body">To prevent future <span title="Penalty charge notice">PCN<span>s you can <a href = "flow12">create a Dart Charge account</a> and either pre-pay or pay
+              automatically as you make a crossing.</p> -->
+            <p class = "govuk-body">Use <a href="../landing">Dart Charge</a>  to:</p> 
+            <ul class="govuk-list govuk-list--bullet">
+              <li class="">set up a prepay account</li>
+              <li class="">make a single payment</li>
+              <li class="">check your payment</li>
+            </ul>  
+  
+          </div>                        
+      </div>  
+      <div class="govuk-grid-column-one-third">
+        
+      </div>
+                        
+  
+</div> 
+
+
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script>
+  let chosenCar = JSON.parse(localStorage.getItem("chosenCar"));
+  let challengeDetails = JSON.parse(localStorage.getItem("challengeDetails"));
+  let challengedPCNs = JSON.parse(localStorage.getItem("challengedPCNs"))
+  $(document).ready(function(){
+    let pcns = document.getElementById("pcns")
+    let pcns2 = document.getElementById("pcns2")
+    let email = document.getElementById("email")
+    let vrn = document.getElementById("vrn")
+    let vrn2 = document.getElementById("vrn2")
+    pcns.innerHTML = challengedPCNs
+    // pcns2.innerHTML = challengedPCNs
+    vrn.innerHTML = chosenCar[0]
+    vrn2.innerHTML = chosenCar[0]
+    email.innerHTML = challengeDetails[1]
+  })
+</script>
+
+{% endblock %}

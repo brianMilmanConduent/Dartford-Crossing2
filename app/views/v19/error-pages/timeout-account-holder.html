@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+For your security, we signed you out - Pay the Dartford Crossing charge - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-top-6">
+    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      For your security, we signed you out
+    </h1>
+    <p class="govuk-body">
+      [We saved your answers.]<br>[We did not save your answers.]
+    </p>
+      {{ govukButton({
+        text: "Sign in"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

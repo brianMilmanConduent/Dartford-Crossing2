@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay for recent crossings
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+<form class="form" method="post" action="confirm-card-payment">
+<div class="govuk-grid-row">
+ 
+
+  <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1">
+    
+   
+
+    <h1 class="govuk-heading-l">
+      How do you want to receive your payment receipt?
+    </h1>
+    <p class="govuk-body">
+      We can send you a receipt by email and text message.
+    </p>
+
+
+    {% set emailHtml %}
+    {{ govukInput({
+      id: "Email-address",
+      name: "Email-address",
+      classes: "govuk-input--width-20",
+      label: {
+        html: "<b>Email address</b>"
+      }
+    }) }}
+    {% endset -%}
+
+    {% set textHtml %}
+    {{ govukInput({
+      id: "Mobile-number",
+      name: "Mobile-number",
+      classes: "govuk-input--width-20",
+      label: {
+        html: "<b>Mobile number</b>"
+      }
+    }) }}
+    {% endset -%}
+    
+
+
+    {{ govukCheckboxes({
+      idPrefix: "receipt-pref",
+      name: "receipt-pref",
+      items: [
+        {
+          value: "Email",
+          text: "Email (optional)",
+          conditional: {
+            html: emailHtml
+          }
+        },
+        {
+          value: "Text message",
+          text: "Text message (optional)",
+          conditional: {
+            html: textHtml
+          }
+        }
+      ]
+    }) }}
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    
+</div> 
+</div>
+
+{% endblock %}

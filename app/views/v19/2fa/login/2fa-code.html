@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Enter the SMS code
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+        
+      
+      
+      {% if data['2fa-choice'] === 'Email' %}
+
+      <h1 class="govuk-heading-l">Check your email for a security code</h1>
+      <div class="govuk-inset-text">
+        We've sent a text message to
+        Email ********@gmail.com
+      </div>
+      <p class="govuk-body">
+        Check your message for a 6-digit security code. This code will expire after 15 minutes.
+       <p>
+         <p class="govuk-body">
+          Your email might take a few minutes to arrive.
+         <p>
+
+        {% else %}
+        
+        <h1 class="govuk-heading-l">Check your mobile phone for a security code</h1>
+        <div class="govuk-inset-text">
+          We've sent a text message to
+          Mobile ********388
+        </div>
+        <p class="govuk-body">
+          Check your message for a 6-digit security code. This code will expire after 15 minutes.
+         <p>
+           <p class="govuk-body">
+            Your text message might take a few minutes to arrive.
+           <p>
+        {% endif %}
+
+
+
+      
+
+    
+
+   
+      <form action="step4-code" method="post">
+
+          <div class="govuk-form-group govuk-!-margin-top-6">
+
+            <label class="govuk-label" for="">
+              Enter the 6-digit security code
+            </label>
+      <input class="govuk-input govuk-input--width-4" id="security-code" name="security-code" type="text">
+      </div>
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+<!--<button class="govuk-button" data-module="govuk-button">Verify email</button>
+-->
+<details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          I do not have a security code
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        Details component body: If you did not get a code, or it is not working, you can
+        <a href='#'>request a new code</a>.
+
+      </div>
+    </details>
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
