@@ -37,8 +37,14 @@ Enter the SMS code
                 }
               ]
             }) }}
+
+            
+           
             </div>
- 
+            {{ govukDetails({
+              summaryText: "About mobile charges",
+              text: "Message and data rates may apply. Text HELP to ##### for help. Text STOP to ##### to cancel. For terms: gov.uk/dartcharge. For privacy: gov.uk/dartcharge"
+            }) }}
 
             {{ govukButton({
               text: "Continue"

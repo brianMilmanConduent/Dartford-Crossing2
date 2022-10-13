@@ -25,31 +25,7 @@ Enter the SMS code
             <div class="govuk-form-group govuk-!-margin-top-6 govuk-!-margin-bottom-6">
 
 
-              {% set emailHtml %}
               
-                {{ govukRadios({
-                  idPrefix: "email-or-sms",
-                  name: "email-or-sms",
-                  fieldset: {
-                    legend: {
-                      text: "What would you prefer to use for verification?",
-                      isPageHeading: false,
-                      classes: "govuk-fieldset__legend--m"
-                    }
-                  },
-                  items: [
-                    {
-                      value: "email",
-                      text: "Email"
-                    },
-                    {
-                      value: "SMS",
-                      text: "SMS"
-                    }
-                  ]
-                }) }}
-
-              {% endset -%}
 
 
 
@@ -59,10 +35,7 @@ Enter the SMS code
               items: [
                 {
                   value: "Value",
-                  text: "Yes",
-                  conditional: {
-                    html: emailHtml
-                  }
+                  text: "Yes"
                 },
                 
                 {
