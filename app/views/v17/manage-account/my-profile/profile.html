@@ -112,67 +112,7 @@ My profile
 
     <h2 class="govuk-heading-m">Account details</h2>
 
-    {{ govukSummaryList({
-      classes: 'govuk-!-margin-bottom-9',
-      rows: [
-      
-      {
-        key: {
-          text: "Email address"
-        },
-        value: {
-          html: '<p class="govuk-body">sarah.phillips@example.com</p>'
-        },
-        actions: {
-          items: [
-            {
-             
-              text: "Change",
-              visuallyHiddenText: "contact details"
-            }
-          ]
-        }
-      },
-        {
-          key: {
-            text: "Password"
-          },
-          type: "password",
-          value: {
-            html: "<p class='password'>123123123</p>"
-          },
-          actions: {
-            items: [
-              {
-                
-                text: "Change",
-                visuallyHiddenText: "previous application number"
-              }
-            ]
-          }
-        },
-        {
-          key: {
-            text: "Two-step verification"
-          },
-         
-          value: {
-            html: "<p class='password'>123123123</p>"
-          },
-          actions: {
-            items: [
-              {
-                text: "Change",
-                visuallyHiddenText: "previous application number",
-                href: "password"
-              }
-            ]
-          }
-        }
-        
-        
-      ]
-    }) }}
+    
 
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
