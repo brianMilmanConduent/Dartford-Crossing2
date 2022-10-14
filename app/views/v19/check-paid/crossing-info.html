@@ -23,23 +23,23 @@
 
     
     <h1 class="govuk-heading-l">
-      Crossing details
+      Your crossing details
     </h1>
-
-    <!--<h1 class="govuk-heading-l">
-      Crossing details for payment reference {{data['pay-ref']}}
-    </h1>-->
+<h2 class="govuk-heading-m">
+  Details of crossings for {{data['vrm']}} with payment reference {{data['pay-ref']}}
+</h2>
+   
 
     <table class="govuk-table">
       
      
      <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Payment reference</th>
+          <th scope="row" class="govuk-table__header">Payment reference number</th>
           <td class="govuk-table__cell">{{data['pay-ref']}}</td>
         </tr>
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Registered vehicle</th>
+          <th scope="row" class="govuk-table__header">Number plate</th>
           <td class="govuk-table__cell">{{data['vrm']}} <a href="vehicle-reg" class="govuk-link govuk-!-margin-left-3">Change</a></td>
         </tr>
         <tr class="govuk-table__row">
@@ -79,9 +79,11 @@
     </p>
     
 
-
+<h2 class="govuk-heading-m">
+  Previous crossings
+</h2>
     {{ govukTable({
-      caption: "Previous crossings",
+      
       firstCellIsHeader: false,
       head: [
         {

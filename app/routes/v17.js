@@ -207,13 +207,13 @@ router.post(`/v${verNum}/manage-account/login-route`, function (req, res) {
     res.redirect(`/v${verNum}/create-account/create-start`)
   }
   else if (userLogin === 'lrds') {
-    res.redirect(`/v${verNum}/manage-account/dashboard-summary`)
+    res.redirect(`/v${verNum}/manage-account/2fa-challenge`)
   }
   else if (userLogin === 'personal') {
-    res.redirect(`/v${verNum}/manage-account/dashboard-summary`)
+    res.redirect(`/v${verNum}/manage-account/2fa-challenge`)
   }
   else if (userLogin === 'business') {
-    res.redirect(`/v${verNum}/manage-account/dashboard-summary`)
+    res.redirect(`/v${verNum}/manage-account/2fa-challenge`)
   }
   else if (routeChoice === 'resolve-pcn') {
     res.redirect(`/v${verNum}/landing`)

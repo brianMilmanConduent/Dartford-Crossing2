@@ -19,8 +19,11 @@
   <form class="form" method="post" action="crossing-info">
     
     <h1 class="govuk-heading-l">
-      Check for paid crossings
+      Check previous crossing details
     </h1>
+
+
+
 
     {{ govukInput({
       id: "pay-ref",
@@ -50,6 +53,9 @@
       name: "vrm",
       label: {
         html: "<b>Vehicle Registration (number plate)</b>"
+      },
+      hint: {
+        text: "For example, CU57ABC"
       },
       classes: "govuk-input--width-20"
     }) }}

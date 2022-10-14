@@ -150,11 +150,82 @@ My profile
               }
             ]
           }
+        },
+        {
+          key: {
+            text: "Two-step verification"
+          },
+         
+          value: {
+            html: "<p class='password'>123123123</p>"
+          },
+          actions: {
+            items: [
+              {
+                text: "Change",
+                visuallyHiddenText: "previous application number",
+                href: "password"
+              }
+            ]
+          }
         }
         
         
       ]
     }) }}
+
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email adddress
+        </dt>
+        <dd class="govuk-summary-list__value">
+          sarah.phillips@example.com
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Password
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <span class="password">Sarah Philips</span>
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Two-step verification
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['opt-in-2fa']  %}
+
+          {{data['opt-in-2fa']}}
+
+              {% else %}
+              Opted out
+              {% endif %}
+
+
+
+          
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="password">
+            Change<span class="govuk-visually-hidden"> name</span>
+          </a>
+        </dd>
+      </div>
+      </dl>
+    
 
     
     <form action="#" method="post" novalidate>

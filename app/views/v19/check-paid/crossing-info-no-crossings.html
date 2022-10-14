@@ -23,23 +23,23 @@
 
     
     <h1 class="govuk-heading-l">
-      Crossing details
+      Your crossing details
     </h1>
-
-    <!--<h1 class="govuk-heading-l">
-      Crossing details for payment reference {{data['pay-ref']}}
-    </h1>-->
+    <h2 class="govuk-heading-m">
+      Details of crossings for {{data['vrm']}} with payment reference {{data['pay-ref']}}
+    </h2>
+    
 
     <table class="govuk-table">
       
      
      <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Payment reference</th>
+          <th scope="row" class="govuk-table__header">Payment reference number</th>
           <td class="govuk-table__cell">{{data['pay-ref']}}</td>
         </tr>
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Registered vehicle</th>
+          <th scope="row" class="govuk-table__header">Number plate</th>
           <td class="govuk-table__cell">{{data['vrm']}} </td>
         </tr>
         <tr class="govuk-table__row">
@@ -54,8 +54,8 @@
     </table>
 
     {{ govukWarningText({
-      text: "You have no credit left for future crossings. You need to pay for any future crossings. ",
-      iconFallbackText: "You have no credit left for future crossings. You need to pay for any future crossings. "
+      text: "You have no credit left. You must pay for any further crossings you intend to make.",
+      iconFallbackText: "You have no credit left. You must pay for any further crossings you intend to make."
     }) }}
     <!--<div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-6">
       <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Registered vehicle</h3>
@@ -82,9 +82,11 @@
     </p>
     
 
-
+<h2 class="govuk-heading-m">
+  Previous crossings
+</h2>
     {{ govukTable({
-      caption: "Previous crossings",
+      
       firstCellIsHeader: false,
       head: [
         {
