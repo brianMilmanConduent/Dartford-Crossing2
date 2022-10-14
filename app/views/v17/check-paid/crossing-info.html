@@ -29,30 +29,36 @@
     
 
     <table class="govuk-table">
-      <tbody class="govuk-table__body">
-         <tr class="govuk-table__row">
-           <th scope="row" class="govuk-table__header">Payment reference number</th>
-           <td class="govuk-table__cell">{{data['pay-ref']}}</td>
-         </tr>
-         <tr class="govuk-table__row">
-           <th scope="row" class="govuk-table__header">Number plate</th>
-           <td class="govuk-table__cell">{{data['vrm']}} <a href="vehicle-reg" class="govuk-link govuk-!-margin-left-3">Change</a></td>
-         </tr>
-         <tr class="govuk-table__row">
-           <th scope="row" class="govuk-table__header">Credit remaining</th>
-           <td class="govuk-table__cell">0 crossings</td>
-         </tr>
-         <tr class="govuk-table__row">
-           <th scope="row" class="govuk-table__header">Credit expiry date</th>
-           <td class="govuk-table__cell">6 August 2023</td>
-         </tr>
-       </tbody>
-     </table>
+     <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Payment reference number</th>
+          <td class="govuk-table__cell">{{data['pay-ref']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Number plate</th>
+          {% if data['new-vrn'] %}
+          <td class="govuk-table__cell">{{data['new-vrn']}}  <a href="vehicle-reg" class="govuk-link govuk-!-margin-left-3">Change</a></td>
+          
 
-    {{ govukWarningText({
-      text: "You have no credit left. You must pay for any further crossings you intend to make.",
-      iconFallbackText: "You have no credit left. You must pay for any further crossings you intend to make."
-    }) }}
+            {% else %}
+            <td class="govuk-table__cell">{{data['vrm']}}  <a href="vehicle-reg" class="govuk-link govuk-!-margin-left-3">Change</a></td>
+            {% endif %}
+
+
+          
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Credit remaining</th>
+          <td class="govuk-table__cell">4 crossings</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Credit expiry date</th>
+          <td class="govuk-table__cell">6 August 2023</td>
+        </tr>
+      </tbody>
+    </table>
+
+
     <!--<div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-6">
       <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Registered vehicle</h3>
       <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">{{data['vrm']}}</h1>
@@ -68,17 +74,52 @@
       </p>
     </div>-->
   
-
-    <p class="govuk-body">
-      <a href="#" class="govuk-link">Pay for another car's crossings</a>
-    </p>
+    {{ govukDetails({
+      summaryText: "Previous crossings",
+      html: 
+      "
+      <table class='govuk-table'>
+        <thead class='govuk-table__head'>
+          <tr class='govuk-table__row'>
+            <th scope='col' class='govuk-table__header'>Date and time</th>
+            <th scope='col' class='govuk-table__header'>Number plate</th>
+            <th scope='col' class='govuk-table__header'>Direction</th>
+          </tr>
+        </thead>
+        <tbody class='govuk-table__body'>
+          <tr class='govuk-table__row'>
+            <td class='govuk-table__cell'>18 Aug at 2:16pm</td>
+            <td class='govuk-table__cell'>LO62RFE</td>
+            <td class='govuk-table__cell'>Tunnel</td>
+          </tr>
+          <tr class='govuk-table__row'>
+            <td class='govuk-table__cell'>6 Aug at 11:04am</td>
+            <td class='govuk-table__cell'>LO62RFE</td>
+            <td class='govuk-table__cell'>Crossing</td>
+          </tr>
+          <tr class='govuk-table__row'>
+            <td class='govuk-table__cell'>4 Aug at 9:04am</td>
+            <td class='govuk-table__cell'>LO62RFE</td>
+            <td class='govuk-table__cell'>Tunnel</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      "
+    }) }}
+    <!--<p class="govuk-body">
+      <a href="#" class="govuk-link">Add credit crossings</a>
+    </p>-->
     
     <p class="govuk-body govuk-!-margin-bottom-9">
       <a href="#" class="govuk-link">Set up an account</a>
     </p>
     
 
-<h2 class="govuk-heading-m">
+
+
+    
+<!--<h2 class="govuk-heading-m">
   Previous crossings
 </h2>
     {{ govukTable({
@@ -158,7 +199,9 @@
         }
       ]
     ]
-    }) }}
+    }) }}-->
+
+    
 
    
 

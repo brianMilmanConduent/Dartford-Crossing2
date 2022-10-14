@@ -152,6 +152,9 @@ router.post(`/v${verNum}/landing-page`, function (req, res) {
   else if (editChoice === 'resolve-pcn') {
     res.redirect(`/v${verNum}/landing`)
   }
+  else if (editChoice === 'check-paid-crossings') {
+    res.redirect(`/v${verNum}/check-paid/start`)
+  }
 });
 
 
@@ -392,7 +395,27 @@ router.post(`/v${verNum}/one-off-payment/payment-options`, function (req, res) {
   res.redirect(`/v${verNum}/one-off-payment/confirm-card-payment`);
 });
 
+router.post(`/v${verNum}/check-paid/vehicle-check`, function (req, res) {
+  const vrnCheck = req.session.data[`vehicle-owner`]
+  if (vrnCheck === 'Yes') {
+    res.redirect(`/v${verNum}/check-paid/check-answer-change-veh`)
+  } 
+  else if (vrnCheck === 'No') {
+    res.redirect(`/v${verNum}/check-paid/uk-registered-question`)
+  }
+ 
+});
 
+router.post(`/v${verNum}/check-paid/uk-registered-question`, function (req, res) {
+  const vrnCheck = req.session.data[`uk-or-non-uk`]
+  if (vrnCheck === 'UK') {
+    res.redirect(`/v${verNum}/check-paid/confirm-vehicle-details`)
+  } 
+  else {
+    res.redirect(`/v${verNum}/check-paid/confirm-vehicle-details-non-uk`)
+  }
+ 
+});
 
 router.post(`/v${verNum}/one-off-payment/need-future-crossings`, function (req, res) {
   const futureCrossings = req.session.data[`add-future-crossings`]
