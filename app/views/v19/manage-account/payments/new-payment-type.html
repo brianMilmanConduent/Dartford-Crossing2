@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Payment details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{{ govukBreadcrumbs({
+   items: [
+     {
+       text: "Account summary",
+       href: "../dashboard-summary"
+     },
+     {
+       text: "Account management",
+       href: "../my-profile/profile-summary"
+     },
+     {
+       text: "Payment",
+       href: "#"
+     },
+     {
+       text: "New payment type",
+       href: "#"
+     }
+   ]
+ }) }}
+{% endblock %}
+
+{% block content %}
+
+ 
+
+
+<form action="new-payment-type" method="post">
+
+
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+ <div class="govuk-grid-column-two-thirds">
+   
+
+
+     {{ govukRadios({
+      idPrefix: "new-payment-type",
+      name: "new-payment-type",
+      fieldset: {
+         legend: {
+            text: "Choose your new payment type",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+         }
+      },
+      items: [
+         {
+            value: "debit-credit",
+            text: "Debit or credit card"
+         },
+         {
+            value: "dd",
+            text: "Direct debit"
+         }
+      ]
+     }) }}
+
+ {{ govukButton({
+   text: "Continue"
+ }) }}
+    
+   </div>
+</div>
+</form>
+{% endblock %}

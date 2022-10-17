@@ -491,6 +491,21 @@ router.post(`/v${verNum}/one-off-payment/need-future-crossings`, function (req, 
   }
  
 });
+
+
+router.post(`/v${verNum}/manage-account/payments/new-payment-type`, function (req, res) {
+  const payType = req.session.data[`new-payment-type`]
+  if (payType === 'dd') {
+    res.redirect(`/v${verNum}/manage-account/payments/new-direct-debit`)
+  } 
+  else {
+    res.redirect(`/v${verNum}//manage-account/payments/new-card`)
+  }
+ 
+});
+
+
+
 //Vx ends here
 
 
