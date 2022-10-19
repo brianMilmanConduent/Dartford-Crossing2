@@ -29,7 +29,7 @@ Crossing history
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-l">Crossing history</h1>
-      {% if data['email-address'] === 'business' %}
+      <!--{% if data['email-address'] === 'business' %}
 
       <p class="govuk-body">
        You can view your crossing history for the last 30 days. 
@@ -45,11 +45,11 @@ Crossing history
    For faster results, search by a specific date. You can also search a date range. 
   </p>
 
- {% endif %}
+ {% endif %}-->
 
       
         <div class="govuk-grid-row">
-          <div class="govuk-grid-column-one-third">
+          <!--<div class="govuk-grid-column-one-third">
             
             {%- from "moj/components/filter/macro.njk" import mojFilter -%}
             {%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
@@ -155,7 +155,7 @@ Crossing history
                       },
                       optionsHtml: filterOptionsHtml
                     }) }}
-          </div>
+          </div>-->
           <div class="govuk-grid-column-two-thirds">
             
               
@@ -201,7 +201,7 @@ Crossing history
         }
       },
       {
-        html: "<a href='#' class='govuk-link'>view</a>"
+        html: "<a href='crossing-info-one' class='govuk-link'>view</a>"
       }
     ],
     [
@@ -221,7 +221,7 @@ Crossing history
         }
       },
       {
-        html: "<a href='#' class='govuk-link'>view</a>"
+        html: "<a href='crossing-info-two' class='govuk-link'>view</a>"
       }
     ],
     [
@@ -241,7 +241,7 @@ Crossing history
         }
       },
       {
-        html: "<a href='#' class='govuk-link'>view</a>"
+        html: "<a href='crossing-info-three' class='govuk-link'>view</a>"
       }
     ],
     [
@@ -261,7 +261,7 @@ Crossing history
         }
       },
       {
-        html: "<a href='#' class='govuk-link'>view</a>"
+        html: "<a href='crossing-info-four' class='govuk-link'>view</a>"
       }
     ]
   ]
@@ -292,12 +292,28 @@ Crossing history
     }
   ]
 }) }}-->   
-
+<a href="#" class="govuk-link">Download full crossing history</a>
         </div>
        
       </div>
-      <br><br>
-<a href="#" class="govuk-link">Download full crossing history</a>
+     
+
+<div class="govuk-grid-row">
+  
+
+<div class="govuk-grid-column-two-thirds">
+  <p class="govuk-body">
+    <br><br>
+    <a href="vehicle-sub-summary" class="govuk-link">Back to vehicle management</a>
+   </p>
+  <p class="govuk-body">
+ <a href="../dashboard-summary" class="govuk-link">Back to account summary</a>
+</p>
+</div>
+<div class="govuk-grid-column-one-third">
+  
+</div>
+</div>
     </div>
   </div>
 
