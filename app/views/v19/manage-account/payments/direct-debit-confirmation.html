@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Payment details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-padding-top-9">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukPanel({
+      titleText: "New Direct Debit added successfully"
+     
+    }) }}
+
+    <p class="govuk-body">We have sent you a confirmation email.</p>
+
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+    <p class="govuk-body">
+      DD being set up, in the meantime current default payment method will be used for payments.
+    </p>
+   
+
+    <p class="govuk-body">
+      <a href="payment-tabs#payment-methods" class="govuk-link">Back to Payment methods</a> 
+    </p>
+    <p class="govuk-body">
+      <a href="#" class="govuk-link">Back to Account summary</a> 
+    </p>
+  </div>
+</div>
+{% endblock %}
