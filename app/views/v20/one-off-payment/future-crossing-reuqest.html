@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay for future crossings{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full govuk-!-margin-top-6">
+    <h1 class="govuk-heading-l govuk-!-margin-bottom-3">No unpaid crossings found</h1>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-inset-text">
+      LO62 NRO has no unpaid crossings or PCN
+    </div>
+
+    {{ govukRadios({
+      idPrefix: "add-future-crossings",
+      name: "add-future-crossings",
+      fieldset: {
+        legend: {
+          text: "Would you like to add any credit for future crossings?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Future crossing credit will last 12 months"
+      },
+      items: [
+        {
+          value: "Value",
+          text: "Yes"
+        },
+        {
+          value: "No",
+          text: "No"
+        }
+      ]
+    }) }}
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    </div>
+
+    </div>
+    </div>
+{% endblock %}

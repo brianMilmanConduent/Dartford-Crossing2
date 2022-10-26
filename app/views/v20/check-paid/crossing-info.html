@@ -1,0 +1,204 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check for paid crossings
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  {% include "includes/back-link.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+ 
+
+  <form class="form" method="post" action="crossing-info">
+
+
+    
+
+    
+    <h1 class="govuk-heading-l">
+      Your crossing details
+    </h1>
+
+   
+
+    <table class="govuk-table">
+     <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Payment reference number</th>
+          <td class="govuk-table__cell">{{data['pay-ref']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Number plate</th>
+          <td class="govuk-table__cell">{{data['vrm']}} <a href="vehicle-reg" class="govuk-link govuk-!-margin-left-3">Change</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Credit remaining</th>
+          <td class="govuk-table__cell">4 crossings</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Credit expiry date</th>
+          <td class="govuk-table__cell">6 August 2023</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!--<div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-6">
+      <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Registered vehicle</h3>
+      <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">{{data['vrm']}}</h1>
+      <p class="govuk-body">
+        <a href="vehicle-reg" class="govuk-link">Change vehicle</a>
+      </p>
+    </div>
+    <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-6">
+      <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Crossings remaining</h3>
+      <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">4</h1>
+      <p class="govuk-body">
+        Expiry date: 6 Aug 2023
+      </p>
+    </div>-->
+  
+    {{ govukDetails({
+      summaryText: "Previous crossings",
+      html: 
+      "
+      <table class='govuk-table'>
+        <thead class='govuk-table__head'>
+          <tr class='govuk-table__row'>
+            <th scope='col' class='govuk-table__header'>Date and time</th>
+            <th scope='col' class='govuk-table__header'>Number plate</th>
+            <th scope='col' class='govuk-table__header'>Direction</th>
+          </tr>
+        </thead>
+        <tbody class='govuk-table__body'>
+          <tr class='govuk-table__row'>
+            <td class='govuk-table__cell'>18 Aug at 2:16pm</td>
+            <td class='govuk-table__cell'>LO62RFE</td>
+            <td class='govuk-table__cell'>Tunnel</td>
+          </tr>
+          <tr class='govuk-table__row'>
+            <td class='govuk-table__cell'>6 Aug at 11:04am</td>
+            <td class='govuk-table__cell'>LO62RFE</td>
+            <td class='govuk-table__cell'>Crossing</td>
+          </tr>
+          <tr class='govuk-table__row'>
+            <td class='govuk-table__cell'>4 Aug at 9:04am</td>
+            <td class='govuk-table__cell'>LO62RFE</td>
+            <td class='govuk-table__cell'>Tunnel</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      "
+    }) }}
+    <!--<p class="govuk-body">
+      <a href="#" class="govuk-link">Add credit crossings</a>
+    </p>-->
+    
+    <p class="govuk-body govuk-!-margin-bottom-9">
+      <a href="#" class="govuk-link">Set up an account</a>
+    </p>
+    
+
+
+
+    
+<!--<h2 class="govuk-heading-m">
+  Previous crossings
+</h2>
+    {{ govukTable({
+      
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Date and time"
+        },
+        {
+          text: "Number plate"
+        },
+       
+        {
+          text: "Direction"
+        }
+      ],
+      rows: [
+      [
+       
+        {
+          text: "16 Aug 2022 at 11:04am"
+        },
+        {
+          text: "LO62 RFE"
+        },
+        {
+          text: "Tunnel"
+        }
+      ],
+      [
+       
+        {
+          text: "8 Aug 2022 at 2:16pm"
+        },
+        {
+          text: "LO62 RFE"
+        },
+        {
+          text: "Crossing"
+        }
+      ],
+      [
+       
+        {
+          text: "8 Aug 2022 at 9:22pm"
+        },
+        {
+          text: "LO62 RFE"
+        },
+        {
+          text: "Tunnel"
+        }
+      ],
+      [
+       
+        {
+          text: "6 Aug 2022 at 3:01pm"
+        },
+        {
+          text: "LO62 RFE"
+        },
+        {
+          text: "Crossing"
+        }
+      ],
+      [
+       
+        {
+          text: "6 Aug 2022 at 10:01am"
+        },
+        {
+          text: "LO62 RFE"
+        },
+        {
+          text: "Tunnel"
+        }
+      ]
+    ]
+    }) }}-->
+
+    
+
+   
+
+  </form>
+  </div>
+
+</div>
+
+{% endblock %}

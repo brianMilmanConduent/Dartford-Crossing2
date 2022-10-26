@@ -1,0 +1,79 @@
+{% extends "../../layout-dash-veh-man.html" %}
+
+{% block pageTitle %}
+Vehicle confirmation
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+
+
+
+{% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "New vehicle added successfully"
+      }) }}
+
+      <p class="govuk-body">We have sent you a confirmation email to [email address].</p>
+
+     
+      {{ govukTable({
+        caption: "Vehicles added",
+        firstCellIsHeader: false,
+        head: [
+          
+          {
+            text: "Number plate"
+          },
+          {
+            text: "Class"
+          },
+          {
+            text: "Make"
+          },
+          {
+            text: "Date added"
+          }
+        ],
+        rows: [
+          [
+            
+            {
+              html: 
+              "
+              L90 VW
+              "
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "Landrover"
+            },
+            {
+              text: "20th Jan 2020"
+            }
+          ]
+        ]
+       }) }}
+
+
+      {{ govukButton({
+        text: "Back to vehicle list",
+        href: "vehicle-summary"
+      }) }}
+    </div>
+  </div>
+{% endblock %}
+
+ 
+

@@ -1,0 +1,75 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+  Account summary - Business
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+
+<!--main body starts-->
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+    {{ govukErrorSummary({
+      titleText: "There is a problem",
+      errorList: [
+        {
+          text: "The selected file must be a CSV",
+          href: "#passport-issued-day"
+        },
+        {
+          text: "The selected file must use the bulk upload template",
+          href: "#postcode-input"
+        },
+        {
+          text: "The selected file contains unreadable data",
+          href: "#postcode-input"
+        }
+      ]
+    }) }}
+
+
+
+    <h1 class="govuk-heading-l">
+      Upload a CSV file with your vehicles' details
+    </h1>
+    <div class="govuk-grid-row">
+      
+    
+    <div class="govuk-grid-column-two-thirds">
+      
+    
+   <p class="govuk-body">
+    You can add, edit or delete up to 5,000 vehicles in one bulk upload.
+   <p>
+     <p class="govuk-body">
+      Use the <a href="#" class="govuk-link">bulk upload template</a>  to complete all the necessary details about your vehicles.
+     <p>
+    </div>
+    </div>
+    {{ govukFileUpload({
+      id: "bulk-upload-file",
+      name: "bulk-upload-file",
+      label: {
+        text: "Upload a file"
+      },
+      errorMessage: {
+        html: "The selected file must be a CSV <br>The selected file must use the bulk upload template <br>The selected file contains unreadable data"
+      }
+    }) }}
+
+    {{ govukButton({
+      text: "Continue",
+      href: "bulk-upload-error-summary"
+    }) }}    
+  </div>
+</div>
+{% endblock %}
+<!--main body ends-->

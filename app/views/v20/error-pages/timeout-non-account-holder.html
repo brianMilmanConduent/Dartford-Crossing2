@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your session has expired - Pay the Dartford Crossing charge - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-top-6">
+    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Your session has expired
+    </h1>
+    <p class="govuk-body">
+      We did not save your answers.
+    </p>
+      {{ govukButton({
+        text: "Start again"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
