@@ -27,7 +27,6 @@ Payment management
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-
       
       <span class="govuk-caption-l">Account management</span>
       <h1 class="govuk-heading-l">Payment</h1>
@@ -59,113 +58,7 @@ Payment management
 
       
         <div class="govuk-grid-row">
-          <!--<div class="govuk-grid-column-one-third">
-            
-            {%- from "moj/components/filter/macro.njk" import mojFilter -%}
-            {%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
-            {%- from "govuk/components/input/macro.njk" import govukInput -%}
-
-            {%- set filterOptionsHtml %}
-
-              {{ govukInput({
-                id: 'keywords',
-                name: 'keywords',
-                label: {
-                  text: 'Number plate',
-                  classes: 'govuk-label--m'
-                }
-              }) }}
-
-              
-
-              {{ govukDateInput({
-                id: "date",
-                namePrefix: "date",
-                fieldset: {
-                  legend: {
-                    text: "Start date",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--m"
-                  }
-                },
-                hint: {
-                  text: "For example, 31 3 1980"
-                },
-                items: [
-                  {
-                    name: "day",
-                    label: "Day",
-                    
-                    classes: "govuk-input--width-2"
-                  },
-                  {
-                    name: "month",
-                    label: "Month",
-                    
-                    classes: "govuk-input--width-2"
-                  },
-                  {
-                    name: "year",
-                    label: "Year",
-                    
-                    classes: "govuk-input--width-4 four"
-                  }
-                ]
-              }) }}
-
-
-              {{ govukDateInput({
-                id: "date",
-                namePrefix: "date",
-                fieldset: {
-                  legend: {
-                    text: "End date",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--m"
-                  }
-                },
-                hint: {
-                  text: "For example, 31 3 1980"
-                },
-                items: [
-                  {
-                    name: "day",
-                    label: "Day",
-                    
-                    classes: "govuk-input--width-2"
-                  },
-                  {
-                    name: "month",
-                    label: "Month",
-                    
-                    classes: "govuk-input--width-2"
-                  },
-                  {
-                    name: "year",
-                    label: "Year",
-                    
-                    classes: "govuk-input--width-4 four"
-                  }
-                ]
-              }) }}
-
-              
-            {% endset -%}
-
-            {{ mojFilter({
- 
- 
- 
-              heading: {
-                        text: 'Filter'
-                      },
-                      selectedFilters: {
-
-                       
-                      },
-                      optionsHtml: filterOptionsHtml
-                    }) }}
-          </div>-->
+         
           <div class="govuk-grid-column-two-thirds">
             
               
@@ -269,38 +162,38 @@ Payment management
     </h2>
 
 
-
-    {% if data['newcarddone'] %}
-
     <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
       Default payment method 
     </h3>
     <p class="govuk-body govuk-!-margin-bottom-6">
-      Mastercard **** 4563 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />
+      Direct Debit **** **** 1396
       <br>
-      <a href='#' class='govuk-link'>Remove</a>
-    </p>
-     {% else %}
-     <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
-      Default payment method 
-    </h3>
-    <p class="govuk-body govuk-!-margin-bottom-6">
-      Mastercard **** 4567 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />
-      <br>
-      <a href='#' class='govuk-link'>Remove</a>
+      <a href='#' class='govuk-link'>Cancel</a>
     </p>
     
-      
-    {% endif %}
-
-
-
-
-
-<p class="govuk-body">
   
-  <a href="new-payment-type" class="govuk-link">Add a new payment method</a>
-</p>
+     
+<h3 class="govuk-heading-m">
+  Other payment methods
+</h3>
+<ul class="govuk-list payList govuk-!-margin-bottom-9">
+  <li>
+    <p class="govuk-body ">
+      Visa *****1234 <img class='card-img-new' src='/public/images/visa.png'  width='40px' alt='payment' /><br> <br><a href='#' class='govuk-link'>Remove</a>
+    </p>
+  </li>
+  
+</ul>
+    
+      
+    
+
+
+
+
+
+
+
 
 
 

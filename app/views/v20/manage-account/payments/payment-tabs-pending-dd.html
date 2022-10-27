@@ -27,7 +27,10 @@ Payment management
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-
+      {{ govukNotificationBanner({
+        type: "success|null",
+        text: "Your Direct Debit for account **** 1396 is pending. While your new Direct Debit gets set up, we'll still use your current default payment method."
+      }) }}
       
       <span class="govuk-caption-l">Account management</span>
       <h1 class="govuk-heading-l">Payment</h1>
@@ -59,113 +62,7 @@ Payment management
 
       
         <div class="govuk-grid-row">
-          <!--<div class="govuk-grid-column-one-third">
-            
-            {%- from "moj/components/filter/macro.njk" import mojFilter -%}
-            {%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
-            {%- from "govuk/components/input/macro.njk" import govukInput -%}
-
-            {%- set filterOptionsHtml %}
-
-              {{ govukInput({
-                id: 'keywords',
-                name: 'keywords',
-                label: {
-                  text: 'Number plate',
-                  classes: 'govuk-label--m'
-                }
-              }) }}
-
-              
-
-              {{ govukDateInput({
-                id: "date",
-                namePrefix: "date",
-                fieldset: {
-                  legend: {
-                    text: "Start date",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--m"
-                  }
-                },
-                hint: {
-                  text: "For example, 31 3 1980"
-                },
-                items: [
-                  {
-                    name: "day",
-                    label: "Day",
-                    
-                    classes: "govuk-input--width-2"
-                  },
-                  {
-                    name: "month",
-                    label: "Month",
-                    
-                    classes: "govuk-input--width-2"
-                  },
-                  {
-                    name: "year",
-                    label: "Year",
-                    
-                    classes: "govuk-input--width-4 four"
-                  }
-                ]
-              }) }}
-
-
-              {{ govukDateInput({
-                id: "date",
-                namePrefix: "date",
-                fieldset: {
-                  legend: {
-                    text: "End date",
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--m"
-                  }
-                },
-                hint: {
-                  text: "For example, 31 3 1980"
-                },
-                items: [
-                  {
-                    name: "day",
-                    label: "Day",
-                    
-                    classes: "govuk-input--width-2"
-                  },
-                  {
-                    name: "month",
-                    label: "Month",
-                    
-                    classes: "govuk-input--width-2"
-                  },
-                  {
-                    name: "year",
-                    label: "Year",
-                    
-                    classes: "govuk-input--width-4 four"
-                  }
-                ]
-              }) }}
-
-              
-            {% endset -%}
-
-            {{ mojFilter({
- 
- 
- 
-              heading: {
-                        text: 'Filter'
-                      },
-                      selectedFilters: {
-
-                       
-                      },
-                      optionsHtml: filterOptionsHtml
-                    }) }}
-          </div>-->
+         
           <div class="govuk-grid-column-two-thirds">
             
               
@@ -297,10 +194,8 @@ Payment management
 
 
 
-<p class="govuk-body">
-  
-  <a href="new-payment-type" class="govuk-link">Add a new payment method</a>
-</p>
+
+
 
 
 
