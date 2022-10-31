@@ -1,0 +1,303 @@
+{% extends "../../layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+Payment management
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{{ govukBreadcrumbs({
+  items: [
+    {
+      text: "Account summary",
+      href: "../dashboard-summary"
+    },
+    {
+      text: "Account management",
+      href: "../my-profile/profile-summary"
+    },
+    {
+      text: "Payment",
+      href: "#"
+    }
+  ]
+}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {{ govukNotificationBanner({
+        type: "success|null",
+        text: "Your Direct Debit for **** 1396 has been removed. We’ll use Mastercard **** 4567 as your default payment method."
+      }) }}
+      </div>
+      </div>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+      <span class="govuk-caption-l">Account management</span>
+      <h1 class="govuk-heading-l">Payment</h1>
+
+      {% set paymentHistoryHtml %}
+        
+      <!--{% if data['email-address'] === 'business' %}
+
+           <p class="govuk-body">
+            You can view your payment history for the last 30 days. 
+           </p>
+           <p class="govuk-body">
+            For faster results, search by a specific date. You can also search a date range.
+           </p>
+       {% else %}
+       <p class="govuk-body">
+        You can view your payment history for the last 90 days.
+       </p>
+       <p class="govuk-body">
+        For faster results, search by a specific date. You can also search a date range. 
+       </p>
+
+      {% endif %}-->
+
+
+
+      <h1 class="govuk-heading-l">Payment history</h1>
+      
+
+      
+        <div class="govuk-grid-row">
+         
+          <div class="govuk-grid-column-two-thirds">
+            
+              
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+{{ govukTable({
+  attributes: {
+    'data-module': 'moj-sortable-table'
+  },
+  head: [
+    {
+      text: "Payment date",
+      attributes: {
+        "aria-sort": "ascending"
+      }
+    },
+    {
+      text: "Payment reference",
+      attributes: {
+        "aria-sort": "none"
+      }
+    },
+    {
+      text: "Amount"
+    },
+    {
+      text: "View"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "9 January 2022"
+      },
+      {
+        text: "FR4234F53"
+      },
+      {
+        html: "£25.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ],
+    [
+      {
+        text: "9 December 2021"
+      },
+     
+      {
+        text: "F4453488"
+      },
+      {
+        html: "£25.00"
+      },
+      {
+        html: "<a href='#' class='govuk-link'>View</a>"
+      }
+    ]
+  ]
+}) }}
+<!--
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      href: "#"
+    },
+    {
+      number: 2,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }} -->
+</div>
+</div>
+
+
+{% endset -%}
+
+
+{% set paymentmethodsHtml %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">
+      Payment methods
+    </h2>
+
+
+
+    {% if data['newcarddone'] %}
+
+    <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+      Default payment method 
+    </h3>
+    <p class="govuk-body govuk-!-margin-bottom-6">
+      Mastercard **** 4563 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />
+      <br>
+      <a href='#' class='govuk-link'>Remove</a>
+    </p>
+     {% else %}
+     <h3 class="govuk-heading-m govuk-!-margin-bottom-1">
+      Default payment method 
+    </h3>
+    <p class="govuk-body govuk-!-margin-bottom-6">
+      Mastercard **** 4567 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />
+      <br>
+      <a href='#' class='govuk-link'>Remove</a>
+    </p>
+    
+    <p class="govuk-body">
+  
+      <a href="new-payment-type" class="govuk-link">Add a new payment method</a>
+    </p>
+      
+    {% endif %}
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+{% endset -%}
+
+
+{% set paymentTopUpHtml %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Top-up and low balance amounts</h2>
+      <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+           
+
+
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+            {{ govukInput({              
+              id: "low-balance",
+              name: "low-balance",
+              classes: "govuk-input--width-5",
+              prefix: {
+                text: "£"
+              },
+             type: "number",
+              label: {
+                text: "Your low balance limit",
+                classes: "govuk-!-font-weight-bold"
+              },
+              hint: {
+                text: "If your balance falls below this amount, we'll top it up"
+              },
+              value: "10"
+            }) }}
+            {{ govukInput({
+              id: "topup",
+              name: "topup",
+              classes: "govuk-input--width-5",
+              prefix: {
+                text: "£"
+              },
+              type: "number",
+              label: {
+                text: "Your top-up amount",
+                classes: "govuk-!-font-weight-bold"
+              },
+              hint: {
+                text: "We'll automatically top up your account with this amount"
+              },
+              value: "25" 
+            }) }}
+                
+
+<button class="govuk-button" data-module="govuk-button">Save and continue</button>
+</div>
+</div>
+{% endset -%}
+
+
+{{ govukTabs({
+  items: [
+    {
+      label: "Payment history",
+      id: "paymentHistoryHtml",
+      panel: {
+        html: paymentHistoryHtml
+      }
+    },
+    {
+      label: "Payment methods",
+      id: "paymentmethodsHtml",
+      panel: {
+        html: paymentmethodsHtml
+      }
+    },
+    {
+      label: "Payment top-up",
+      id: "paymentTopUpHtml",
+      panel: {
+        html: paymentTopUpHtml
+      }
+    }
+  ]
+}) }}
+
+
+       
+
+    </div>
+  </div>
+  <p class="govuk-body">
+    <a href="../my-profile/profile-summary" class="govuk-link">Back to account management</a>
+   </p>
+  <p class="govuk-body">
+ <a href="../dashboard-summary" class="govuk-link">Back to account summary</a>
+</p>
+{% endblock %}
