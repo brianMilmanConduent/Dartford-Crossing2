@@ -6,22 +6,7 @@ Crossing history
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Account summary",
-      href: "../dashboard-summary"
-    },
-    {
-      text: "Vehicle management",
-      href: "vehicle-sub-summary"
-    },
-    {
-      text: "Vehicle crossings",
-      href: "#"
-    }
-  ]
-}) }}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}

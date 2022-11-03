@@ -6,24 +6,7 @@ My profile
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
-
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Account summary",
-      href: "#"
-    },
-    {
-      text: "Account management",
-      href: "profile-summary"
-    },
-    {
-      text: "My profile",
-      href: "#"
-    }
-  ]
-}) }}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}

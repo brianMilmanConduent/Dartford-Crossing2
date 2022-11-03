@@ -6,28 +6,7 @@ What is your name?
 
 {% block beforeContent %}
   {% include "includes/beta-banner.html" %}
-  {% from "govuk/components/breadcrumbs/macro.njk" import govukBreadcrumbs %}
-
-  {{ govukBreadcrumbs({
-    items: [
-      {
-        text: "Account summary",
-        href: "#"
-      },
-      {
-        text: "Account management",
-        href: "#"
-      },
-      {
-        text: "My profile",
-        href: "#"
-      },
-      {
-        text: "What is your name?",
-        href: "#"
-      }
-    ]
-  }) }}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}

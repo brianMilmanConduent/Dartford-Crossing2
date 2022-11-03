@@ -6,26 +6,7 @@ Your vehicles
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Account summary",
-      href: "#"
-    },
-    {
-      text: "Vehicle management",
-      href: "#"
-    },
-    {
-      text: "Vehicle list",
-      href: "#"
-    },
-    {
-      text: "Add another vehicle?",
-      href: "#"
-    }
-  ]
-}) }}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}

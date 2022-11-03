@@ -6,26 +6,7 @@ Payment history
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Account summary",
-      href: "#"
-    },
-    {
-      text: "Account management",
-      href: "#"
-    },
-    {
-      text: "Payment",
-      href: "#"
-    },
-    {
-      text: "Remove payment card",
-      href: "#"
-    }
-  ]
-}) }}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}

@@ -6,22 +6,7 @@ My vehicles
 
 {% block beforeContent %}
 {% include "includes/alpha-banner.html" %}
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Account summary",
-      href: "#"
-    },
-    {
-      text: "Vehicle management",
-      href: "#"
-    },
-    {
-      text: "Vehicle list",
-      href: "#"
-    }
-  ]
-}) }}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}

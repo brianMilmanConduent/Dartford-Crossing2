@@ -6,26 +6,7 @@ Payment details
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{{ govukBreadcrumbs({
-   items: [
-     {
-       text: "Account summary",
-       href: "../dashboard-summary"
-     },
-     {
-       text: "Account management",
-       href: "../my-profile/profile-summary"
-     },
-     {
-       text: "Payment",
-       href: "#"
-     },
-     {
-       text: "New payment type",
-       href: "#"
-     }
-   ]
- }) }}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}

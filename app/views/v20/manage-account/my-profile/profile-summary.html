@@ -6,19 +6,7 @@ Account management
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{{ govukBreadcrumbs({
-  items: [
-    
-    {
-      text: "Account summary",
-      href: "../../manage-account/dashboard-summary"
-    },
-    {
-      text: "Account management",
-      href: "#"
-    }
-  ]
-}) }}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}

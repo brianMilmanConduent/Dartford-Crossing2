@@ -6,26 +6,7 @@ Nominated contacts
 
 {% block beforeContent %}
 {% include "includes/alpha-banner.html" %}
-{{ govukBreadcrumbs({
-  items: [
-    {
-      text: "Account summary",
-      href: "#"
-    },
-    {
-      text: "Account management",
-      href: "#"
-    },
-    {
-      text: "Nominated contacts",
-      href: "#"
-    },
-    {
-      text: "Invite a nominated contact",
-      href: "#"
-    }
-  ]
-}) }}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
