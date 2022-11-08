@@ -1,0 +1,253 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay the Dartford Crossing & Dart Charge
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <br><br>
+        <h1 class="govuk-heading-xl">Dartford Crossing charges and fines</h1>
+
+      <p class="govuk-body">
+        You must pay the charge if you use the Dartford Crossing between 6am and 10pm, or you may get fine (Penalty Charge Notice). Charges apply every day - including weekends and bank holidays.
+        <br><br>
+        How much you pay to cross depends on the type of vehicle you're driving and if you already <a href="#" class="govuk-link">have an account</a>.
+      </p>
+      <h2 class="govuk-heading-m">
+        Car and motorcycle charges
+      </h2>
+      {{ govukTable({
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: ""
+          },
+          {
+            text: "Vehicle class"
+          },
+          {
+            text: "One-off payment"
+          },
+          {
+            text: "If you have an account"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Motorcycles, mopeds and quad bikes"
+            },
+            {
+              text: "A"
+            },
+            {
+              text: "Free"
+            },
+            {
+              text: "Free"
+            }
+          ],
+          [
+            {
+              text: "Cars (including trailers), motorhomes and any minibuses that have 9 or less seats (including the drivers seat)"
+            },
+            {
+              text: "B"
+            },
+            {
+              text: "£2.50"
+            },
+            {
+              text: "£2.00"
+            }
+          ]
+        ]
+      }) }}
+      <br><br>
+
+      <h2 class="govuk-heading-m">
+        Bus, coach, van and other goods vehicles charges
+      </h2>
+      {{ govukTable({
+        firstCellIsHeader: true,
+        head: [
+          {
+            text: ""
+          },
+          {
+            text: "Vehicle class"
+          },
+          {
+            text: "One-off payment"
+          },
+          {
+            text: "If you have an account"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "Vehicles with 2 axles"
+            },
+            {
+              text: "C"
+            },
+            {
+              text: "£3.00"
+            },
+            {
+              text: "£2.63"
+            }
+          ],
+          [
+            {
+              text: "Vehicles with more than 2 axles"
+            },
+            {
+              text: "D"
+            },
+            {
+              text: "£6.00"
+            },
+            {
+              text: "£5.19"
+            }
+          ]
+        ]
+      }) }}
+
+{{ govukInsetText({
+  html: 
+  "
+  <ul class='govuk-list govuk-list--bullet'>
+    <li>
+      Only count trailer axles for articulated vehicles
+    </li>
+    <li>
+      Count droppable axles whether they're up or down
+    </li>
+    
+  </ul>
+  "
+}) }}
+
+<br><br>
+<h2 class="govuk-heading-m">
+  Exemptions for drivers with disabilities
+</h2>
+<p class="govuk-body">
+  You do not need to pay the charge if you get free UK vehicle tax because of a disability.
+</p>
+<p class="govuk-body">
+  Your vehicle will be checked automatically when you make a crossing - you do not need to do anything.
+
+</p>
+<p class="govuk-body">
+  Find out how to <a href="#" class="govuk-link">get free vehicle tax if you're a driver with a disability</a>.
+</p>
+<br><br>
+<h2 class="govuk-heading-m">
+  Local resident discount
+</h1>
+<p class="govuk-body">
+  You can apply for a crossing discount if you pay Council Tax to Dartford borough council or Thurrock council. <a href="#" class="govuk-link">Find out who your local council is</a>.
+<br><br>
+You can either:
+</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>
+    pay £20 a year to use the Dartford Crossing as many times as you want
+  </li>
+  <li>
+    pay £10 for 50 crossings, plus 20p for each additional crossing
+  </li>
+  
+</ul>
+
+
+<p class="govuk-body">
+  You can apply for a local resident discount:
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>
+    <a href="#" class="govuk-link">online</a>
+  </li>
+  <li>
+    <a href="#" class="govuk-link">by post</a> 
+  </li>
+  <li>
+    by calling the Dart Charge contact centre
+  </li>
+</ul>
+<br><br>
+<h2 class="govuk-heading-m">
+  Dart Charge fines
+</h1>
+<p class="govuk-body">
+  If you do not pay the Dart Charge by midnight the day after you cross you may get a £70 fine (Penalty Charge Notice).
+</p>
+<p class="govuk-body">
+  You must pay the fine within 28 days of receiving the notice.
+</p>
+<p class="govuk-body">
+  The fine will be:
+
+</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>
+    reduced to £35 if you pay within 14 days
+
+  </li>
+  <li>
+    increased to £105 if you do not pay it
+
+  </li>
+  <li>
+    you will also have to pay the original crossing charge
+
+  </li>
+</ul>
+
+<p class="govuk-body">
+  You can <a href="#" class="govuk-link">pay or challenge the fine online</a> or call the Dart Charge contact centre.
+</p>
+<br><br>
+
+<h2 class="govuk-heading-m">
+  Dart Charge contact centre
+</h1>
+{{ govukInsetText({
+  html: 
+  "
+  Telephone: 0300 XXX XXXX<br>
+  Textphone: 1800 XXXX XXX XXXX<br>
+  You can get in touch every day, from 8am to 8pm
+<a href='#' class='govuk-link'>Find out about call charges</a>
+  "
+}) }}
+{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  previous: {
+    labelText: "Paying the charge",
+    href: "start"
+  }
+}) }}
+
+    </div>
+      <div class="govuk-grid-column-one-third">
+       
+       
+      </div>
+    </div>
+  </div>
+  {% endblock %}

@@ -6,7 +6,7 @@ Pay the Dartford Crossing & Dart Charge
 
 {% block beforeContent %}
 {% include "includes/beta-banner.html" %}
-{% include "includes/back-link.html" %}
+
 {% endblock %}
 
 {% block content %}
@@ -15,23 +15,38 @@ Pay the Dartford Crossing & Dart Charge
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-xl">{% if serviceName %} {{ serviceName }} {% endif %}</h1>
 
-        <!--welsh language option
-                {{ govukInsetText({
-                  html: "<p class='govuk-body'>The online service is also available in <a href='#'>Welsh (Cymraeg)</a></p>"
-                }) }}-->
-
-        <!--<p>The Dart Charge provides vital funds for ongoing transport improvements, including at the Dartford Crossing itself. Around 50 million crossings are successfully paid for each year. Thanks for paying and doing your part.</p>-->
+       <p class="govuk-body">
+        Use this service to
+       </p>
+       <ul class="govuk-list govuk-list--bullet">
+        <li>
+          pay for a crossing
+        </li>
+        <li>
+          sign in or set up a Dart Charge account
+        </li>
+        <li>
+          resolve a fine (Penalty Charge Notice)
+        </li>
+        <li>
+          check which crossings you've paid for
+        </li>
+        <li>
+          find out about charges and fines
+        </li>
+       </ul>
 
         {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
           {{ govukWarningText({
-            text: "You must pay the Dart Charge by midnight the day after you cross, otherwise you'll get a penalty charge. Crossing charges apply from 6am to 10pm every day of the year.",
+            text: "You must pay the Dart Charge by midnight the day after you cross, otherwise you may get a fine (Penalty Charge Notice). ",
             iconFallbackText: "Warning"
         }) }}
+        <p class="govuk-body">
+          <a href="charges-and-penalties">Find out about charges and fines</a>
+        </p>
 
-        <p>You must pay for non-UK registered vehicles as well as those from the UK.</p>
-
-        <p>Find out about <a href="charges-and-penalties">charges, discounts and penalties</a>, including crossings for which there is no charge. How much you pay depends on the type of vehicle and if you already have an account. <a href="manage-account/login">Sign in to your account</a> if you have one.</p>
+       
 
         <a href="landing" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
           Start now
@@ -39,43 +54,71 @@ Pay the Dartford Crossing & Dart Charge
             <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
           </svg>
         </a>
-        <p>As well as paying for crossings you've made since yesterday, this service allows you to:</p>
+        
+        <h2 class="govuk-heading-m">
+          Other ways to pay your charge
+        </h2>
+<p class="govuk-body">
+  Using this online service is the quickest way to pay your charge. Or you can:
 
-        <ul class="govuk-list govuk-list--bullet">
-          <li class="govuk-!-margin-bottom-0">pay for future crossings automatically by creating an account</li>
-          <li class="govuk-!-margin-bottom-0">apply for a local resident discount</li>
-          <li class="govuk-!-margin-bottom-0">pay or challenge a penalty charge notice (PCN)</li>
-          <li class="govuk-!-margin-bottom-0">check your crossing and payment history</li>
-        </ul>
+</p>
 
-            <h2 class="govuk-heading-m">Other ways to pay</h2>
+<ul class="govuk-list govuk-list--bullet">
+  <li>
+    pay with cash at a <a href="#" class="govuk-link">Payzone store</a>
+  </li>
+  <li>
+    Pay or set up an account <a href="#" class="govuk-link">by post</a>
+  </li>
+  <li>
+    pay or set up an account by phoning the Dart Charge contact centre
+  </li>
+</ul>
 
-                  <p>The online service accessed above is the quickest way to pay. There are also other options, however. You can:</p>
 
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li>pay with cash at <a href="https://www.payzone.co.uk/consumers/">your nearest Payzone store</a></li>
-                    <li><a href="https://www.gov.uk/government/publications/set-up-or-cancel-a-dart-charge-account-by-post">set up an account by post</a></li>
-                    <li><a href="https://www.gov.uk/government/publications/pay-the-dartford-crossing-charge-dart-charge-by-post">pay in advance or top-up your account by post</a></li>
-                    <li>pay or set up an account by phone by calling the Dart Charge contact centre</li>
-                  </ul>
+<h2 class="govuk-heading-m">
+  Contact the Dart Charge team
+</h2>
+<p class="govuk-body">
+  <a href="#" class="govuk-link">Get in touch</a> about:
+</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>
+    charges
+  </li>
+  <li>
+    fines (Penalty Charge Notice)
+  </li>
+  <li>
+    refunds
+  </li>
+  <li>
+    Dart Charge accounts
+  </li>
+  <li>
+    complaints
+  </li>
+  <li>
+    general enquiries
+  </li>
+</ul>
 
-            <div role="note" aria-label="Information" class="govuk-inset-text govuk-!-margin-top-2">
-                <ul class="govuk-list govuk-!-margin-bottom-0">
-                  <li>Phone: <a class="govuk-link govuk-link--no-visited-state" href="#" aria-label="phone number">0300 300
-                      0120</a></li>
-                  <li>
-                    From outside the UK:
-                    <a class="govuk-link govuk-link--no-visited-state" href="#" aria-label="from outside the UK">+44 (0) 300 300
-                      0120</a>
-                  </li>
-                  <li>
-                    Textphone: <a class="govuk-link govuk-link--no-visited-state" href="#" aria-label="text-phone">18001 0300 300
-                      0120</a>
-                  </li>
-                  <li>You can get in touch every day, from 8am to 8pm. Find out about <a href="https://www.gov.uk/call-charges">call charges</a>.</li>
-                </ul>
-              </div>
-
+{{ govukDetails({
+  summaryText: "If your query is urgent",
+  html: 
+  "
+  <p class='govuk-body'>
+    For example, if your fine (Personal Charge Notice) is about to increase, you can call or email us.<br><br>
+    UK Telephone: XXX XXX XXXX<br>
+    From outside the UK: +44 (0) XXX XXX XXXX<br>
+    Textphone: 1800 XXXX XXX XXXX<br>
+    You can get in touch every day, Monday to Sunday, 8am to 8pm
+    <a href='charges-and-penalties'>Find out about charges and fines</a>
+    <br><br>
+    Email us: <a href='#' class='govuk-link'>name@example.com</a>. We aim to respond to email enquiries within X working days
+  </p>
+  "
+}) }}
 
     </div>
       <div class="govuk-grid-column-one-third">
@@ -85,7 +128,7 @@ Pay the Dartford Crossing & Dart Charge
         <nav role="navigation" aria-labelledby="subsection-title">
           <ul class="govuk-list govuk-!-font-size-16">
             <li>
-              <a href="information/charges-fines">
+              <a href="charges-and-penalties">
                 Understanding charges, discounts and penalties
               </a>
             </li>

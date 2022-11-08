@@ -343,6 +343,111 @@ Payment management
 <button class="govuk-button" data-module="govuk-button">Save and continue</button>
 </div>
 </div>
+</div></div>
+{% endset -%}
+
+{% set manualHtml %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h2 class="govuk-heading-l">Balance top up</h2>
+      <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+           
+
+            {% from "govuk/components/input/macro.njk" import govukInput %}
+
+            {{ govukInput({
+              id: "cost",
+              name: "cost",
+              label: {
+                text: "Enter top up amount",
+                classes: "govuk-label--m",
+                isPageHeading: false
+              },
+              prefix: {
+                text: "£"
+              },
+              classes: "govuk-input--width-5",
+              spellcheck: false
+            }) }}
+
+
+            {% set val1Html %}
+              {{ govukInput({
+                id: "contact-by-phone",
+                name: "contact-by-phone",
+                type: "tel",
+                autocomplete: "tel",
+                classes: "govuk-!-width-one-third",
+                hint: {
+                  text: "The last 3 digits on the back of your card"
+                },
+                label: {
+                  html: "<b>CVV</b>"
+                },
+                classes: "govuk-input--width-3"
+              }) }}
+              {% endset -%}
+
+              {% set val1Html %}
+              {{ govukInput({
+                id: "contact-by-phone",
+                name: "contact-by-phone",
+                type: "tel",
+                autocomplete: "tel",
+                classes: "govuk-!-width-one-third",
+                hint: {
+                  text: "The last 3 digits on the back of your card"
+                },
+                label: {
+                  html: "<b>CVV</b>"
+                },
+                classes: "govuk-input--width-3"
+              }) }}
+              {% endset -%}
+
+                
+
+            {{ govukRadios({
+              idPrefix: "123",
+              name: "123",
+              fieldset: {
+                legend: {
+                  text: "Select payment method",
+                  isPageHeading: false,
+                  classes: "govuk-fieldset__legend--m"
+                }
+              },
+             
+              items: [
+                {
+                  value: "Valu1",
+                  conditional: {
+                    html: val1Html
+                  },
+                  html: 
+                  "
+                  Mastercard **** 4567 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />
+                  "
+                },
+                {
+                  value: "Val2ue",
+                  conditional: {
+                    html: val1Html
+                  },
+                  html: 
+                  "
+                  Mastercard **** 1234 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />
+                  "
+                }
+              ]
+            }) }}
+
+<button class="govuk-button" data-module="govuk-button">Save and continue</button>
+</div>
+</div>
+</div>
+</div>
 {% endset -%}
 
 
@@ -363,10 +468,17 @@ Payment management
       }
     },
     {
-      label: "Payment top-up",
+      label: "Top-up and low balance amounts",
       id: "paymentTopUpHtml",
       panel: {
         html: paymentTopUpHtml
+      }
+    },
+    {
+      label: "Balance top up",
+      id: "manualHtml",
+      panel: {
+        html: manualHtml
       }
     }
   ]
