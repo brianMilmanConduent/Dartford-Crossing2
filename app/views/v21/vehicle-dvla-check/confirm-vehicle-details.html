@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+{% if data['account-type'] === 'Personal' %}
+
+<!--content here-->
+
+ {% else %}
+<!--content here-->
+{% endif %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+        <fieldset class="govuk-fieldset">
+          <h1 class="govuk-heading-l">We need more information about your vehicle</h1>
+
+
+            <form class="form" method="post" action="previous-journeys">
+
+              <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-two-thirds">
+
+
+                   
+                    <p class="govuk-body">
+                      Vehicle Registration (number plate)<br>
+                      <span class="govuk-body govuk-!-font-size-24"><strong >{{data['vrn']}}</strong></span> <a href="vehicle-reg" class="govuk-link govuk-!-margin-left-3">Change</a>
+                     </p>
+
+                    
+
+                     {{ govukInput({
+                      id: "vehicle-make",
+                      name: "vehicle-make",
+                      label: {
+                        text: "Make"
+                      },
+                      value: "Audi"
+                    }) }}
+                    
+                    {{ govukInput({
+                      id: "vehicle-make",
+                      name: "vehicle-make",
+                      label: {
+                        text: "Model"
+                      },
+                      value: "RS4"
+                    }) }}
+                   
+                    {{ govukInput({
+                      id: "vehicle-make",
+                      name: "vehicle-make",
+                      label: {
+                        text: "Colour"
+                      },
+                      value: "Black"
+                    }) }}
+
+                    
+                     
+             
+                      </div>
+                  </div>
+
+
+
+
+                  {{ govukCheckboxes({
+                    idPrefix: "vrm-confirmation",
+                    name: "vrm-confirmation",
+                    
+                    items: [
+                      {
+                        value: "Value",
+                        text: "I confirm that the vehicle information provided is correct"
+                      }
+                    ]
+                  }) }}
+       
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <!--  </div><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add another vehicle
+        </button>-->
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

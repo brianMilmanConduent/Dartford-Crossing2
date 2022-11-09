@@ -1,0 +1,140 @@
+{% extends "../../layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+Account management
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">Account management</h1>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <!--container start-->
+          <div class="summaryContainer">
+            <a href="profile" class="govuk-link govuk-link--no-underline">
+            <div class="summaryHeader">
+              <h2 class="govuk-heading-m">
+                  Profile
+              </h2>
+            </div>
+              <div class="summaryDetail">
+                <p class="govuk-body">
+                  Manage and change your personal and account details
+                </p>
+              </div>
+            </a>
+          </div>
+           <!--container end--><!--comment-->
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <!--container start-->
+            <div class="summaryContainer">
+              <a href="../payments/payment-tabs" class="govuk-link govuk-link--no-underline">
+              <div class="summaryHeader">
+                <h2 class="govuk-heading-m">
+                    Payment
+                </h2>
+              </div>
+                <div class="summaryDetail">
+                  <p class="govuk-body">
+                    Change your payment methods and amounts
+                  </p>
+                </div>
+              </a>
+            </div>
+             <!--container end-->
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <!--container start-->
+          <div class="summaryContainer">
+            <a href="../notifications-ur/coms-pref" class="govuk-link govuk-link--no-underline">
+            <div class="summaryHeader">
+              <h2 class="govuk-heading-m">
+                  Communication preferences
+              </h2>
+            </div>
+              <div class="summaryDetail">
+                <p class="govuk-body">
+                  Choose how we send you communications about your account
+                </p>
+              </div>
+            </a>
+          </div>
+           <!--container end-->
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+       
+        <div class="govuk-grid-column-one-third">
+          <!--container start-->
+          <div class="summaryContainer">
+          <a href="../nominated-contacts-ur/nominated-contact-start"  class="govuk-link--no-underline">
+          
+            <div class="summaryHeader">
+              <h2 class="govuk-heading-m">
+                  Nominated contact
+              </h2>
+            </div>
+              <div class="summaryDetail">
+                <p class="govuk-body">
+                  Invite other people who can use your account
+                </p>
+              </div>
+          
+        </a>
+        </div>
+           <!--container end-->
+        </div>
+      
+        <div class="govuk-grid-column-one-third">
+           <!--container start-->
+           <div class="summaryContainer">
+            <a href="#" class="govuk-link govuk-link--no-underline">
+            <div class="summaryHeader">
+              <h2 class="govuk-heading-m">
+                  Account statements
+              </h2>
+            </div>
+              <div class="summaryDetail">
+                <p class="govuk-body">
+                  View monthly and annual account statements
+                </p>
+              </div>
+            </a>
+          </div>
+           <!--container end-->
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <!--container start-->
+          <div class="summaryContainer">
+           <a href="#" class="govuk-link govuk-link--no-underline">
+           <div class="summaryHeader">
+             <h2 class="govuk-heading-m">
+                 Enquiries
+             </h2>
+           </div>
+             <div class="summaryDetail">
+               <p class="govuk-body">
+                 Make an enquiry about your account
+               </p>
+             </div>
+           </a>
+         </div>
+          <!--container end-->
+       </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

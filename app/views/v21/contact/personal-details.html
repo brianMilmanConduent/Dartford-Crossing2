@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Enter your postcode
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="check-answers" method="post">
+        <h1 class="govuk-heading-l">
+        Contact details
+        </h1>
+       <p class="govuk-body">
+        Provide your details so we can contact you.
+       </p>
+
+       {{ govukInput({
+        id: "name",
+        name: "name",
+        classes: "govuk-input--width-20",
+        label: {
+          text: "Full name"
+        }
+       }) }}
+
+       {{ govukInput({
+        id: "email",
+        name: "email",
+        classes: "govuk-input--width-20",
+        label: {
+          text: "Email address"
+        }
+       }) }}
+
+       {{ govukInput({
+        id: "phone",
+        name: "phone",
+        classes: "govuk-input--width-20",
+        label: {
+          text: "Phone number (optional)"
+        }
+       }) }}
+
+                    {% if data['conduentEmovis'] === 'Conduent' %}
+                    <!--Conduent -->
+                    {{ govukInput({
+                      id: "account",
+                      name: "account",
+                      classes: "govuk-input--width-20",
+                      label: {
+                        text: "Account number (optional)"
+                      }
+                     }) }}  
+                    <!--Conduent  end-->
+                    {% else %}
+                    <!--Emovis -->
+                   
+                     <!--Emovis  end-->
+                    {% endif %}
+
+       
+       
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

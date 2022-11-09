@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Sorry, there is a problem with the service - Pay the Dartford Crossing charge - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row govuk-!-margin-top-6">
+    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Sorry, there is a problem with the service
+    </h1>
+    <p class="govuk-body">
+      Try again later or <a href="#" class="govuk-link">sign in to your account</a> .
+    </p>
+    <h2 class="govuk-heading-m">
+      Dart Charge Contact Centre
+    </h2>
+    <p class="govuk-body">
+      <b>Phone:</b> 0300 300 0120<br>
+      <b>From outside the UK:</b> +44 (0) 300 300 0120<br>
+      <b>Textphone:</b> 18001 0300 300 0120<br>
+      Monday to Sunday, 8am to 8pm
+    </p>
+
+    </div>
+  </div>
+
+{% endblock %}

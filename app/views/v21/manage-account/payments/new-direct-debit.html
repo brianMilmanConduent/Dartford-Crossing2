@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Payment details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+ <div class="govuk-grid-column-full">
+   
+         <h1 class="govuk-heading-l">
+          Complete your Direct Debit details
+         </h1>
+         <div class="govuk-form-group">
+      
+            <p class="govuk-body">
+               Third party DD screen
+            </p>
+               {{ govukButton({
+                  text: "Continue",
+                  href: "direct-debit-confirmation"
+               }) }}
+         </div>
+     </form>
+   </div>
+</div>
+{% endblock %}

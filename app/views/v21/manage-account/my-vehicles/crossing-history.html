@@ -1,0 +1,305 @@
+{% extends "../../layout-dash-veh-man.html" %}
+
+{% block pageTitle %}
+Crossing history
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">Crossing history</h1>
+      <!--{% if data['email-address'] === 'business' %}
+
+      <p class="govuk-body">
+       You can view your crossing history for the last 30 days. 
+      </p>
+      <p class="govuk-body">
+       For faster results, search by a specific date. You can also search a date range.
+      </p>
+  {% else %}
+  <p class="govuk-body">
+   You can view your crossing history for the last 90 days.
+  </p>
+  <p class="govuk-body">
+   For faster results, search by a specific date. You can also search a date range. 
+  </p>
+
+ {% endif %}-->
+
+      
+        <div class="govuk-grid-row">
+          <!--<div class="govuk-grid-column-one-third">
+            
+            {%- from "moj/components/filter/macro.njk" import mojFilter -%}
+            {%- from "govuk/components/checkboxes/macro.njk" import govukCheckboxes -%}
+            {%- from "govuk/components/input/macro.njk" import govukInput -%}
+
+            {%- set filterOptionsHtml %}
+
+              {{ govukInput({
+                id: 'keywords',
+                name: 'keywords',
+                label: {
+                  text: 'Number plate',
+                  classes: 'govuk-label--m'
+                }
+              }) }}
+
+              
+
+              {{ govukDateInput({
+                id: "date",
+                namePrefix: "date",
+                fieldset: {
+                  legend: {
+                    text: "Start date",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "For example, 31 3 1980"
+                },
+                items: [
+                  {
+                    name: "day",
+                    label: "Day",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "month",
+                    label: "Month",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "year",
+                    label: "Year",
+                    
+                    classes: "govuk-input--width-4"
+                  }
+                ]
+              }) }}
+
+
+              {{ govukDateInput({
+                id: "date",
+                namePrefix: "date",
+                fieldset: {
+                  legend: {
+                    text: "End date",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "For example, 31 3 1980"
+                },
+                items: [
+                  {
+                    name: "day",
+                    label: "Day",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "month",
+                    label: "Month",
+                    
+                    classes: "govuk-input--width-2"
+                  },
+                  {
+                    name: "year",
+                    label: "Year",
+                    
+                    classes: "govuk-input--width-4"
+                  }
+                ]
+              }) }}
+
+              
+            {% endset -%}
+
+            {{ mojFilter({
+ 
+ 
+ 
+              heading: {
+                        text: 'Filter your search'
+                      },
+                      selectedFilters: {
+
+                        
+                      },
+                      optionsHtml: filterOptionsHtml
+                    }) }}
+          </div>-->
+          <div class="govuk-grid-column-two-thirds">
+            
+              
+{%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+{{ govukTable({
+  attributes: {
+    'data-module': 'moj-sortable-table'
+  },
+  head: [
+    {
+      text: "Crossing date and time",
+      attributes: {
+        "aria-sort": "ascending"
+      }
+    },
+    
+    
+    {
+      text: "Number plate",
+      attributes: {
+        "aria-sort": "none"
+      }
+    },
+    {
+      text: "View"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "20 Sep 2022 at 9:34 am",
+        attributes: {
+          "data-sort-value": "6964"
+        }
+      },
+    
+      {
+        text: "LO62 NRO",
+        
+        attributes: {
+          "data-sort-value": "6960"
+        }
+      },
+      {
+        html: "<a href='crossing-info-one' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      
+      {
+        text: "19 Sep 2022 at 8:24 am",
+        attributes: {
+          "data-sort-value": "6963"
+        }
+      },
+     
+      {
+        text: "LO62 NRO",
+        
+        attributes: {
+          "data-sort-value": "696"
+        }
+      },
+      {
+        html: "<a href='crossing-info-two' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      
+      {
+        text: "18 Sep 2022 at 10:04 am",
+        attributes: {
+          "data-sort-value": "6962"
+        }
+      },
+      
+      {
+        text: "LO62 NRO",
+       
+        attributes: {
+          "data-sort-value": "6956"
+        }
+      },
+      {
+        html: "<a href='crossing-info-three' class='govuk-link'>view</a>"
+      }
+    ],
+    [
+      
+      {
+        text: "17 Sep 2022 at 7:22 am",
+        attributes: {
+          "data-sort-value": "6961"
+        }
+      },
+      
+      {
+        text: "LO62 NRO",
+        
+        attributes: {
+          "data-sort-value": "1897"
+        }
+      },
+      {
+        html: "<a href='crossing-info-four' class='govuk-link'>view</a>"
+      }
+    ]
+  ]
+}) }}
+
+<!--{% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  previous: {
+    href: "#"
+  },
+  next: {
+    href: "#"
+  },
+  items: [
+    {
+      number: 1,
+      href: "#"
+    },
+    {
+      number: 2,
+      current: true,
+      href: "#"
+    },
+    {
+      number: 3,
+      href: "#"
+    }
+  ]
+}) }}-->   
+<a href="#" class="govuk-link">Download full crossing history</a>
+        </div>
+       
+      </div>
+     
+
+<div class="govuk-grid-row">
+  
+
+<div class="govuk-grid-column-two-thirds">
+  <p class="govuk-body">
+    <br><br>
+    <a href="vehicle-sub-summary" class="govuk-link">Back to vehicle management</a>
+   </p>
+  <p class="govuk-body">
+ <a href="../dashboard-summary" class="govuk-link">Back to account summary</a>
+</p>
+</div>
+<div class="govuk-grid-column-one-third">
+  
+</div>
+</div>
+    </div>
+  </div>
+
+{% endblock %}

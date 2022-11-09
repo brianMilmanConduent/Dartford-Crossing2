@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Enter your postcode
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {{ govukPanel({
+      titleText: "Contact enquiry received by Dart Charge"
+    }) }}
+    <table class="govuk-table">
+    
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Contact details</th>
+          <td class="govuk-table__cell">contact details here</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Date</th>
+          <td class="govuk-table__cell">today's date</td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+    <p class="govuk-body">
+      <a href="#" class="govuk-link">Print a copy of this information</a>
+    </p>
+    <h2 class="govuk-heading-m">What happens next</h2>
+
+    <p class="govuk-body">
+      We aim to respond in X days
+    </p>
+   
+
+   
+  </div>
+</div>
+{% endblock %}
+
+

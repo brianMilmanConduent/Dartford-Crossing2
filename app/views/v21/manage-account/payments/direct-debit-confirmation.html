@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Payment details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row govuk-!-padding-top-6">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-width-container ">
+        
+      <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+        
+  
+   
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <div class="govuk-panel govuk-panel--interruption">
+        
+          <fieldset class="govuk-fieldset" aria-describedby="start_new_claim">
+  
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-heading-l">
+                  Your new Direct Debit will take up to 4 days to get set up
+                </h1>
+              </legend>
+           <p class="govuk-body">
+            While your new Direct Debit gets set up, we'll still use your current default payment method.
+           </p>
+           <p class="govuk-body">
+            <a href="payment-tabs-pending-dd#paymentmethodsHtml" class="govuk-link whitea">Back to payment methods</a>
+           </p>
+          </fieldset>
+  </div>
+  
+      </main>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "modal_layout.html" %}
+
+{% block pageTitle %}
+Example page title - Pay the Dartford Crossing charge - GOV.UK
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% endblock %}
+
+{% block content %}
+<div class="modalframe">
+<div class="centre_container">
+  <p class="govuk-body">
+    For your security, we will sign you out in <b>2 minutes</b>. 
+  </p>
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Stay signed in",
+    href: "still-signed-in"
+  }) }}
+<a href="#" class="govuk-link govuk-!-margin-left-3 govuk-!-margin-top-3">Sign out</a>
+</div>
+</div>
+</div>
+  <div class="govuk-grid-row govuk-!-margin-top-6">
+    <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Example H1
+    </h1>
+    <p class="govuk-body">
+      This is just placeholder text, please ignore and look at the modal.
+    </p>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends "../../layout-dash-veh-man.html" %}
+
+{% block pageTitle %}
+Account management
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">Vehicle management</h1>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-third">
+          <!--container start-->
+          <div class="summaryContainer">
+            <a href="vehicle-summary" class="govuk-link govuk-link--no-underline">
+            <div class="summaryHeader">
+              <h2 class="govuk-heading-m">
+                  Vehicle list
+              </h2>
+            </div>
+              <div class="summaryDetail">
+                <p class="govuk-body">
+                  Add or delete vehicles
+                </p>
+              </div>
+            </a>
+          </div>
+           <!--container end-->
+        </div>
+        <div class="govuk-grid-column-one-third">
+            <!--container start-->
+            <div class="summaryContainer">
+              <a href="crossing-history" class="govuk-link govuk-link--no-underline">
+              <div class="summaryHeader">
+                <h2 class="govuk-heading-m">
+                  
+                    Crossing history
+                
+                </h2>
+              </div>
+                <div class="summaryDetail">
+                  <p class="govuk-body">
+                    View the crossing history for your vehicles
+                  </p>
+                </div>
+              </a>
+            </div>
+             <!--container end-->
+        </div>
+
+        {% if data['email-address'] === 'business' %}
+
+
+        <div class="govuk-grid-column-one-third">
+           <!--container start-->
+           <div class="summaryContainer">
+            <a href="#" class="govuk-link govuk-link--no-underline">
+            <div class="summaryHeader">
+              <h2 class="govuk-heading-m">
+                
+                  Vehicle bulk upload
+              
+              </h2>
+            </div>
+              <div class="summaryDetail">
+                <p class="govuk-body">
+                  Add, edit or delete up to 5,000 vehicles in one bulk upload
+                </p>
+              </div>
+            </a>
+          </div>
+           <!--container end-->
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+       
+        <div class="govuk-grid-column-one-third">
+          <!--container start-->
+          <div class="summaryContainer">
+            <a href="#" class="govuk-link govuk-link--no-underline">
+            <div class="summaryHeader">
+              <h2 class="govuk-heading-m">
+               
+                  Group management
+                
+              </h2>
+            </div>
+              <div class="summaryDetail">
+                <p class="govuk-body">
+                  Set up and manage your vehicles in groups
+                </p>
+              </div>
+            </a>
+          </div>
+           <!--container end-->
+        </div>
+       <!--content here-->
+
+ {% else %}
+ <!--content here-->
+ {% endif %}
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}
