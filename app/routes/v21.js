@@ -221,6 +221,9 @@ router.post(`/v${verNum}/manage-account/login-route`, function (req, res) {
   else if (routeChoice === 'resolve-pcn') {
     res.redirect(`/v${verNum}/landing`)
   }
+  else if (userLogin === 'contact') {
+    res.redirect(`/v${verNum}/contact/query-category`)
+  }
 });
 
 

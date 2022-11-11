@@ -12,66 +12,135 @@ Contact details
 
 {% block content %}
 
+
+
+
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form class="form" action="check-answers" method="post">
+       
+
         <h1 class="govuk-heading-l">
-        Contact details
-        </h1>
-       <p class="govuk-body">
-        Provide your details so we can contact you.
-       </p>
+          Contact details
+          </h1>
+         <p class="govuk-body">
+          Provide your details so we can contact you.
+         </p>
+        
+         {{ govukInput({
+          id: "name",
+          name: "name",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Full name"
+          }
+         }) }}
+         {% if data['email-address'] %}
+         {% set emailHtml %}
+         {{ govukInput({
+           id: "Email",
+           name: "Email",
+           classes: "govuk-input--width-20",
+           label: {
+             html: "<b>Email address</b>"
+           },
+           value: "email@email.com"
+         }) }}
+         {% endset -%}
+        
+         {% set textHtml %}
+         {{ govukInput({
+           id: "Mobile-number",
+           name: "Mobile-number",
+           classes: "govuk-input--width-20",
+           label: {
+             html: "<b>Mobile number</b>"
+           }
+         }) }}
+         {% endset -%}
+         
+        
+        
+         {{ govukCheckboxes({
+           idPrefix: "receipt-pref",
+           name: "receipt-pref",
+           items: [
+             {
+               value: "Email",
+               text: "Email (optional)",
+               conditional: {
+                 html: emailHtml
+               },
+               checked: "true"
+             },
+             {
+               value: "Text message",
+               text: "Text message (optional)",
+               conditional: {
+                 html: textHtml
+               }
+             }
+           ]
+         }) }}
 
-       {{ govukInput({
-        id: "name",
-        name: "name",
-        classes: "govuk-input--width-20",
-        label: {
-          text: "Full name"
-        }
-       }) }}
+<!--second set of content-->
+{% else %}
 
-       {{ govukInput({
-        id: "email",
-        name: "email",
-        classes: "govuk-input--width-20",
-        label: {
-          text: "Email address"
-        }
-       }) }}
 
-       {{ govukInput({
-        id: "phone",
-        name: "phone",
-        classes: "govuk-input--width-20",
-        label: {
-          text: "Phone number (optional)"
-        }
-       }) }}
+ 
+ {% set emailHtml %}
+ {{ govukInput({
+   id: "Email",
+   name: "Email",
+   classes: "govuk-input--width-20",
+   label: {
+     html: "<b>Email address</b>"
+   }
+ }) }}
+ {% endset -%}
 
-                    {% if data['conduentEmovis'] === 'Conduent' %}
-                    <!--Conduent -->
-                    {{ govukInput({
-                      id: "account",
-                      name: "account",
-                      classes: "govuk-input--width-20",
-                      label: {
-                        text: "Account number (optional)"
-                      }
-                     }) }}  
-                    <!--Conduent  end-->
-                    {% else %}
-                    <!--Emovis -->
+ {% set textHtml %}
+ {{ govukInput({
+   id: "Mobile-number",
+   name: "Mobile-number",
+   classes: "govuk-input--width-20",
+   label: {
+     html: "<b>Mobile number</b>"
+   }
+ }) }}
+ {% endset -%}
+ 
+
+
+ {{ govukCheckboxes({
+   idPrefix: "contact-pref",
+   name: "contact-pref",
+   items: [
+     {
+       value: "logged-in-Email",
+       text: "Email (optional)",
+       conditional: {
+         html: emailHtml
+       }
+     },
+     {
+       value: "Text message",
+       text: "Text message (optional)",
+       conditional: {
+         html: textHtml
+       }
+     }
+   ]
+ }) }}
+ {% endif %}
+
                    
-                     <!--Emovis  end-->
-                    {% endif %}
 
-       
-       
+                    {{ govukButton({
+                      text: "Continue"
+                    }) }}
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
     </form>
     </div>
   </div>

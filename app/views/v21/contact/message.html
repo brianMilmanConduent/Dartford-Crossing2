@@ -32,11 +32,7 @@ More information
             }
           }) }}
 
-                    {% if data['conduentEmovis'] === 'Conduent' %}
-                    <!--Conduent -->
-                          
-                    <!--Conduent  end-->
-                    {% else %}
+                    {% if data['conduentEmovis'] === 'Emovis' %}
                     <!--Emovis -->
                     {{ govukInput({
                       id: "pcnNumber",
@@ -45,7 +41,11 @@ More information
                         text: "Penalty Charge Notice number (optional)"
                       }
                     }) }}
-                     <!--Emovis  end-->
+                    <!--Emovis  end-->
+                    {% else %}
+                    <!--Conduent -->
+                   
+                     <!--Conduent end-->
                     {% endif %}
 
 

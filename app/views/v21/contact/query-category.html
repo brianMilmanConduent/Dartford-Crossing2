@@ -19,49 +19,7 @@ What is your query about?
         What is your query about?
        </h1>
        
-       {% if data['conduentEmovis'] === 'Conduent' %}
-
-       {{ govukRadios({
-        idPrefix: "query",
-        name: "query",
-        
-        items: [
-        {
-          value: "Acessibility requests",
-          text: "Accessibility requests"
-        },
-        {
-          value: "Account management",
-          text: "Account management"
-        },
-        {
-          value: "Charges",
-          text: "Charges"
-        },  
-        {
-            value: "Complaints",
-            text: "Complaints"
-          },
-          {
-            value: "Enquiry",
-            text: "Enquiry"
-          },
-          {
-            value: "General crossing information",
-            text: "General crossing information"
-          },
-          {
-            value: "Refunds",
-            text: "Refunds"
-          },  
-          {
-              value: "Website feedback",
-              text: "Website feedback"
-            }
-        ]
-       }) }}
-
-          {% else %}
+       {% if data['conduentEmovis'] === 'Emovis' %}
           {{ govukRadios({
             idPrefix: "query",
             name: "query",
@@ -79,6 +37,50 @@ What is your query about?
                 value: "Refund request",
                 text: "Refund request"
               }
+            ]
+          }) }}
+
+          {% else %}
+
+
+
+          {{ govukRadios({
+            idPrefix: "query",
+            name: "query",
+            
+            items: [
+            {
+              value: "Acessibility requests",
+              text: "Accessibility requests"
+            },
+            {
+              value: "Account management",
+              text: "Account management"
+            },
+            {
+              value: "Charges",
+              text: "Charges"
+            },  
+            {
+                value: "Complaints",
+                text: "Complaints"
+              },
+              {
+                value: "Enquiry",
+                text: "Enquiry"
+              },
+              {
+                value: "General crossing information",
+                text: "General crossing information"
+              },
+              {
+                value: "Refunds",
+                text: "Refunds"
+              },  
+              {
+                  value: "Website feedback",
+                  text: "Website feedback"
+                }
             ]
            }) }}
           {% endif %}
