@@ -27,6 +27,11 @@ Contact details
          <p class="govuk-body">
           Provide your details so we can contact you.
          </p>
+
+
+         {% if data['conduentEmovis'] === 'Conduent' %}
+
+
         
          {{ govukInput({
           id: "name",
@@ -134,6 +139,41 @@ Contact details
    ]
  }) }}
  {% endif %}
+
+ {% else %}
+<!--EMOVIS content starts here-->
+{{ govukInput({
+  id: "name",
+  name: "name",
+  classes: "govuk-input--width-20",
+  label: {
+    text: "Full name"
+  }
+ }) }}
+
+{{ govukInput({
+  id: "Email",
+  name: "Email",
+  classes: "govuk-input--width-20",
+  label: {
+    html: "Email address"
+  }
+}) }}
+
+
+{{ govukInput({
+  id: "Mobile-number",
+  name: "Mobile-number",
+  classes: "govuk-input--width-20",
+  label: {
+    html: "Mobile number (optional)"
+  }
+}) }}
+<!--EMOVIS content ends here-->
+{% endif %}
+
+
+
 
                    
 
