@@ -54,34 +54,65 @@ Contact details
         {% endif %}
        
          {% if data['email-address'] %}
-       
+         {% set emailHtml %}
+         {{ govukInput({
+           id: "Email",
+           name: "Email",
+           classes: "govuk-input--width-20",
+           label: {
+             html: "<b>Email address</b>"
+           },
+           value: "email@email.com"
+         }) }}
+         {% endset -%}
+        
+         {% set textHtml %}
+         {{ govukInput({
+           id: "Mobile-number",
+           name: "Mobile-number",
+           classes: "govuk-input--width-20",
+           label: {
+             html: "<b>Mobile number</b>"
+           }
+         }) }}
+         {% endset -%}
+         
         
         
-        {{ govukInput({
-          id: "Email",
-          name: "Email",
-          classes: "govuk-input--width-20",
-          label: {
-            html: "Email address"
-          },
-          value: "email@email.com"
-        }) }}
-        
-        
-        {{ govukInput({
-          id: "Mobile-number",
-          name: "Mobile-number",
-          classes: "govuk-input--width-20",
-          label: {
-            html: "Mobile number (optional)"
-          }
-        }) }}
+         {{ govukCheckboxes({
+           idPrefix: "receipt-pref",
+           name: "receipt-pref",
+           items: [
+             {
+               value: "Email",
+               text: "Email (optional)",
+               conditional: {
+                 html: emailHtml
+               },
+               checked: "true"
+             },
+             {
+               value: "Text message",
+               text: "Text message (optional)",
+               conditional: {
+                 html: textHtml
+               }
+             }
+           ]
+         }) }}
 
 <!--second set of content-->
 {% else %}
 
 
-
+{{ govukInput({
+  id: "name",
+  name: "name",
+  classes: "govuk-input--width-20",
+  label: {
+    text: "Full name"
+  }
+ }) }}
 
 {{ govukInput({
   id: "Email",
