@@ -18,32 +18,42 @@ Enquiry submitted
     {{ govukPanel({
       titleText: "Contact enquiry received by Dart Charge"
     }) }}
-    <table class="govuk-table">
-    
-      <tbody class="govuk-table__body">
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Contact details</th>
-          <td class="govuk-table__cell">contact details here</td>
-        </tr>
-        <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Date</th>
-          <td class="govuk-table__cell">today's date</td>
-        </tr>
+
+
+    {% if data['conduentEmovis'] === 'Emovis' %}
+
+        <!--EMOVIS content starts here-->
         
-      </tbody>
-    </table>
+        <table class="govuk-table">
     
-    <p class="govuk-body">
-      <a href="#" class="govuk-link">Print a copy of this information</a>
-    </p>
-    <h2 class="govuk-heading-m">What happens next</h2>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Contact details</th>
+              <td class="govuk-table__cell">{{ data['name']}}<br>{{ data['Email']}}<br>{{ data['Mobile-number']}}</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Date</th>
+              <td class="govuk-table__cell">[today's date]</td>
+            </tr>
+            
+          </tbody>
+        </table>
+        
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">Print a copy of this information</a>
+        </p>
+        <h2 class="govuk-heading-m">What happens next</h2>
+    
+        <p class="govuk-body">
+          We aim to respond in 1 day
+        </p>
 
-    <p class="govuk-body">
-      We aim to respond in X days
-    </p>
-   
-
-   
+         {% else %}
+        <!--CONDUENT content starts here-->
+        <p class="govuk-body">
+          Conduent confirmation content here 
+        </p>
+        {% endif %}
   </div>
 </div>
 {% endblock %}

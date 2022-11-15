@@ -36,7 +36,7 @@ Check your answers
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Name
+              PCN or other
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['conduentEmovis']}}
@@ -49,7 +49,7 @@ Check your answers
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Query category
+              Contact reason
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['query']}}
@@ -62,7 +62,7 @@ Check your answers
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Message 
+              Contact message 
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['with-hint']}}
@@ -110,9 +110,19 @@ Check your answers
             </dd>
           </div>
         </dl>
-
-       
-
+        {% if data['conduentEmovis'] === 'Emovis' %}
+        {{ govukCheckboxes({
+          idPrefix: "termsandconditions",
+          name: "termsandconditions",
+         
+          items: [
+            {
+              value: "Value",
+              html: "I confirm the information is correct to the best of my knowledge"
+            }
+          ]
+         }) }}
+         {% endif %}
         {{ govukButton({
           text: "Continue"
         }) }}
