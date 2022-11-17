@@ -34,7 +34,6 @@ Contact details
          </p>
          {% endif %}
 
-         {% if data['conduentEmovis'] === 'Dart Charge' %}
          {% if data['email-address'] %}
 
          {{ govukInput({
@@ -44,18 +43,11 @@ Contact details
           label: {
             text: "Full name"
           },
-          value: "Fred Burgess"
+          value: "Sarah Philips"
          }) }}
         
          {% else %}
-         {{ govukInput({
-          id: "name",
-          name: "name",
-          classes: "govuk-input--width-20",
-          label: {
-            text: "Full name"
-          }
-         }) }}
+        
         {% endif %}
        
          {% if data['email-address'] %}
@@ -69,7 +61,7 @@ Contact details
           label: {
             html: "Email address"
           },
-          value: "email@email.com"
+          value: "sarah.phillips@example.com"
         }) }}
         
         
@@ -81,63 +73,70 @@ Contact details
             html: "Mobile number (optional)"
           }
         }) }}
+        {% endif %}
 
-<!--second set of content-->
-{% else %}
+         {% if data['conduentEmovis'] === 'Dart Charge' %}
 
+         {{ govukInput({
+          id: "name",
+          name: "name",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Full name"
+          }
+        }) }}
 
-
-
-{{ govukInput({
-  id: "Email",
-  name: "Email",
-  classes: "govuk-input--width-20",
-  label: {
-    html: "Email address"
-  }
-}) }}
-
-
-{{ govukInput({
-  id: "Mobile-number",
-  name: "Mobile-number",
-  classes: "govuk-input--width-20",
-  label: {
-    html: "Mobile number (optional)"
-  }
-}) }}
- {% endif %}
-
- {% else %}
-<!--EMOVIS content starts here-->
-{{ govukInput({
-  id: "name",
-  name: "name",
-  classes: "govuk-input--width-20",
-  label: {
-    text: "Full name"
-  }
- }) }}
-
-{{ govukInput({
-  id: "Email",
-  name: "Email",
-  classes: "govuk-input--width-20",
-  label: {
-    html: "Email address"
-  }
-}) }}
+                {{ govukInput({
+                  id: "Email",
+                  name: "Email",
+                  classes: "govuk-input--width-20",
+                  label: {
+                    html: "Email address"
+                  }
+                }) }}
 
 
-{{ govukInput({
-  id: "Mobile-number",
-  name: "Mobile-number",
-  classes: "govuk-input--width-20",
-  label: {
-    html: "Mobile number "
-  }
-}) }}
-<!--EMOVIS content ends here-->
+                {{ govukInput({
+                  id: "Mobile-number",
+                  name: "Mobile-number",
+                  classes: "govuk-input--width-20",
+                  label: {
+                    html: "Mobile number (optional)"
+                  }
+                }) }}
+                
+
+                {% endif %}
+                {% if data['conduentEmovis'] === 'A fine (Penalty Charge Notice)' %}
+                <!--EMOVIS content starts here-->
+                {{ govukInput({
+                  id: "name",
+                  name: "name",
+                  classes: "govuk-input--width-20",
+                  label: {
+                    text: "Full name"
+                  }
+                }) }}
+
+                {{ govukInput({
+                  id: "Email",
+                  name: "Email",
+                  classes: "govuk-input--width-20",
+                  label: {
+                    html: "Email address"
+                  }
+                }) }}
+
+
+                {{ govukInput({
+                  id: "Mobile-number",
+                  name: "Mobile-number",
+                  classes: "govuk-input--width-20",
+                  label: {
+                    html: "Mobile number "
+                  }
+                }) }}
+                <!--EMOVIS content ends here-->
 {% endif %}
 
 
