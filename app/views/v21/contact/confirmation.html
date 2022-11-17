@@ -13,17 +13,22 @@ Enquiry submitted
 
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-    {{ govukPanel({
-      titleText: "Contact enquiry received by Dart Charge"
-    }) }}
 
 
-    {% if data['conduentEmovis'] === 'Emovis' %}
+
+    {% if data['conduentEmovis'] === 'A fine (Penalty Charge Notice)' %}
 
         <!--EMOVIS content starts here-->
         
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+           
+           
+            {{ govukPanel({
+              titleText: "Dart Charge enquiry submitted"
+            }) }}
+            
         <table class="govuk-table">
     
           <tbody class="govuk-table__body">
@@ -47,15 +52,41 @@ Enquiry submitted
         <p class="govuk-body">
           We aim to respond within 1 working day
         </p>
-
+      </div>
+    </div>
          {% else %}
         <!--CONDUENT content starts here-->
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            {% if data['enquiryComplaint'] === 'A complaint' %}
+            {{ govukPanel({
+              titleText: "Dart Charge complaint submitted"
+            }) }}
+            {% else %}
+            {{ govukPanel({
+              titleText: "Dart Charge enquiry submitted"
+            }) }}
+            {% endif %}
         <p class="govuk-body">
-          Conduent confirmation content here 
+          We've sent a confirmation email to {{ data['Email']}}.
+        </p>
+        <h2 class="govuk-heading-m">
+          What happens next
+        </h2>
+        
+        {% if data['enquiryComplaint'] === 'A complaint' %}
+        <p class="govuk-body">
+          We will respond to your complaint within 5 days.
+        </p>
+        {% else %}
+        <p class="govuk-body">
+          We will respond to your enquiry within 24 hours. Some types of enquiries, for example police matters and Freedom of Information requests, may take longer.
         </p>
         {% endif %}
-  </div>
-</div>
+      </div>
+    </div>
+        {% endif %}
+  
 {% endblock %}
 
 

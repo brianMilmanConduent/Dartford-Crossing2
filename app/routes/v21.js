@@ -507,7 +507,27 @@ router.post(`/v${verNum}/manage-account/payments/new-payment-type`, function (re
  
 });
 
+router.post(`/v${verNum}/contact/inter-query`, function (req, res) {
+  const interquery = req.session.data[`conduentEmovis`]
+  if (interquery === 'A fine (Penalty Charge Notice)') {
+    res.redirect(`/v${verNum}/contact/query-category`)
+  } 
+  else {
+    res.redirect(`/v${verNum}/contact/interquery`)
+  }
+ 
+});
 
+router.post(`/v${verNum}/manage-account/my-profile/inter-query`, function (req, res) {
+  const interquery = req.session.data[`conduentEmovis`]
+  if (interquery === 'A fine (Penalty Charge Notice)') {
+    res.redirect(`/v${verNum}/contact/query-category`)
+  } 
+  else {
+    res.redirect(`/v${verNum}/contact/interquery`)
+  }
+ 
+});
 
 //Vx ends here
 

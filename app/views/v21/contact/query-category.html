@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-What is your query about?
+Enter your postcode
 {% endblock %}
 
 
@@ -15,11 +15,97 @@ What is your query about?
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <form class="form" action="message" method="post">
+        {% if data['enquiryComplaint'] === 'A complaint' %}
        <h1 class="govuk-heading-l">
-        What is your query about?
+        Choose your type of complaint
        </h1>
+       {% else %}
+       <h1 class="govuk-heading-l">
+        Choose your type of enquiry
+       </h1>
+       {% endif %}
        
-       {% if data['conduentEmovis'] === 'Emovis' %}
+       {% if data['conduentEmovis'] === 'Dart Charge' or data['email-address'] === 'personal' %}
+       {% if data['enquiryComplaint'] === 'A general enquiry' %}
+<!--Conduent categories-->
+       {{ govukRadios({
+        idPrefix: "query",
+        name: "query",
+        
+        items: [
+        {
+          value: "Accessibility",
+          text: "Accessibility"
+        },  
+        {
+            value: "Account management",
+            text: "Account management"
+          },
+          {
+            value: "Data request",
+            text: "Data request"
+          },
+          {
+            value: "Paying the Dart Charge",
+            text: "Paying the Dart Charge"
+          },  
+          {
+              value: "Refund",
+              text: "Refund"
+            },  
+            {
+                value: "Using the website",
+                text: "Using the website"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "None of these",
+                text: "None of these"
+              }
+        ]
+       }) }}
+       {% else %}
+       {{ govukRadios({
+        idPrefix: "query",
+        name: "query",
+        
+        items: [
+        {
+          value: "Account management",
+          text: "Account management"
+        },  
+        {
+            value: "A crossing",
+            text: "A crossing"
+          },
+          {
+            value: "Customer service",
+            text: "Customer service"
+          },
+          {
+            value: "Paying the Dart Charge",
+            text: "Paying the Dart Charge"
+          },  
+          
+            {
+                value: "Using the website",
+                text: "Using the website"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "None of these",
+                text: "None of these"
+              }
+        ]
+       }) }}
+       {% endif %}
+<!--Conduent categories end-->
+          {% else %}
+          <!--Emovis categories-->
           {{ govukRadios({
             idPrefix: "query",
             name: "query",
@@ -38,51 +124,8 @@ What is your query about?
                 text: "Refund request"
               }
             ]
-          }) }}
-
-          {% else %}
-
-
-
-          {{ govukRadios({
-            idPrefix: "query",
-            name: "query",
-            
-            items: [
-            {
-              value: "Acessibility requests",
-              text: "Accessibility requests"
-            },
-            {
-              value: "Account management",
-              text: "Account management"
-            },
-            {
-              value: "Charges",
-              text: "Charges"
-            },  
-            {
-                value: "Complaints",
-                text: "Complaints"
-              },
-              {
-                value: "Enquiry",
-                text: "Enquiry"
-              },
-              {
-                value: "General crossing information",
-                text: "General crossing information"
-              },
-              {
-                value: "Refunds",
-                text: "Refunds"
-              },  
-              {
-                  value: "Website feedback",
-                  text: "Website feedback"
-                }
-            ]
            }) }}
+           <!--Emovis categories end-->
           {% endif %}
 
 

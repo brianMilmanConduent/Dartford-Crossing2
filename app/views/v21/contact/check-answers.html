@@ -16,27 +16,22 @@ Check your answers
     <div class="govuk-grid-column-two-thirds">
       <form class="form" action="confirmation" method="post">
         <br><br>
+        {% if data['enquiryComplaint'] === 'A complaint' %}
+        <h1 class="govuk-heading-l">Check your answers before sending your complaint</h1>
+        {% else %}
         <h1 class="govuk-heading-l">Check your answers before sending your enquiry</h1>
+        {% endif %}
 
-        <h2 class="govuk-heading-m">Personal details</h2>
-
+        {% if data['enquiryComplaint'] === 'A complaint' %}
+        <h2 class="govuk-heading-m">Details of complaint</h2>
+        {% else %}
+        <h2 class="govuk-heading-m">Details of enquiry</h2>
+        {% endif %}
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Name
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['name']}}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> name</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              PCN or other
+              Dart Charge or fine
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['conduentEmovis']}}
@@ -47,16 +42,35 @@ Check your answers
               </a>
             </dd>
           </div>
+          {% if data['enquiryComplaint'] %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Contact reason
+              Enquiry or complaint
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['enquiryComplaint']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+              </a>
+            </dd>
+          </div>
+          {% endif %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              {% if data['enquiryComplaint'] === 'A complaint' %}
+              Type of complaint
+              {% else %}
+              Type of enquiry
+              {% endif %}
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['query']}}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> date of birth</span>
+                Change<span class="govuk-visually-hidden"> address</span>
               </a>
             </dd>
           </div>
@@ -91,6 +105,30 @@ Check your answers
           </div>
 
           {% endif %}
+         
+        </dl>
+
+
+        <h2 class="govuk-heading-m">Personal details</h2>
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['name']}}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>
+          </div>
+         
+         
+          
+         
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Contact details
@@ -110,6 +148,9 @@ Check your answers
             </dd>
           </div>
         </dl>
+
+
+
         {% if data['conduentEmovis'] === 'Emovis' %}
         {{ govukCheckboxes({
           idPrefix: "termsandconditions",

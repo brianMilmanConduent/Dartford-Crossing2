@@ -14,22 +14,24 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="inter-query" method="post">
+      <form class="form" action="query-category" method="post">
        <h1 class="govuk-heading-l">
-        What are you contacting us about today?
+        What is your Dart Charge query about?
        </h1>
        {{ govukRadios({
-        idPrefix: "conduentEmovis",
-        name: "conduentEmovis",
-        
+        idPrefix: "enquiryComplaint",
+        name: "enquiryComplaint",
+        hint: {
+          text: "This helps us to field your query to the right person"
+        },
         items: [
           {
-            value: "Dart Charge",
-            text: "Dart Charge"
+            value: "A general enquiry",
+            text: "A general enquiry"
           },
           {
-            value: "A fine (Penalty Charge Notice)",
-            text: "A fine (Penalty Charge Notice)"
+            value: "A complaint",
+            text: "A complaint"
           }
         ]
        }) }}

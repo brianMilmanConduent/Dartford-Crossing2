@@ -14,9 +14,9 @@ Enquiries
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <form class="form" action="#" method="post">
+      
         <h1 class="govuk-heading-l">
-        Enquiries
+        Contact us
         </h1>
        
 
@@ -24,25 +24,32 @@ Enquiries
 {% from "govuk/components/table/macro.njk" import govukTable %}
 
 {% set pastDayHtml %}
-<h2 class="govuk-heading-l">Contact us</h2>
-<p class="govuk-body">
-  Get in touch about:
-</p>
-<ul class="govuk-list govuk-list--bullet">
-  <li>
-    List item 1
-  </li>
-  <li>
-    List item 2
-  </li>
-  <li>
-    List item 3
-  </li>
-</ul>
-{{ govukButton({
-  text: "Continue",
-  href: "../../contact/pcn-or-other"
-}) }}
+<form class="form" action="../../contact/query-category" method="post">
+  <h1 class="govuk-heading-l">
+   What is your Dart Charge query about?
+  </h1>
+  {{ govukRadios({
+   idPrefix: "enquiryComplaint",
+   name: "enquiryComplaint",
+   hint: {
+     text: "This helps us to field your query to the right person"
+   },
+   items: [
+     {
+       value: "A general enquiry",
+       text: "A general enquiry"
+     },
+     {
+       value: "A complaint",
+       text: "A complaint"
+     }
+   ]
+  }) }}
+
+  {{ govukButton({
+   text: "Continue"
+  }) }}
+</form>
 {% endset -%}
 
 {% set pastWeekHtml %}
@@ -171,7 +178,7 @@ Enquiries
     }
   ]
 }) }}
-    </form>
+    
     </div>
   </div>
 

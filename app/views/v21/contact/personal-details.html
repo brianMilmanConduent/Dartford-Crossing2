@@ -22,14 +22,19 @@ Contact details
        
 
         <h1 class="govuk-heading-l">
-          Contact details
+          What are your contact details?
           </h1>
+          {% if data['enquiryComplaint'] === 'A complaint' %}
          <p class="govuk-body">
-          Provide your details so we can contact you.
+          We'll only use these details to respond to your complaint
          </p>
+         {% else %}
+         <p class="govuk-body">
+          We'll only use these details to respond to your enquiry
+         </p>
+         {% endif %}
 
-
-         {% if data['conduentEmovis'] === 'Conduent' %}
+         {% if data['conduentEmovis'] === 'Dart Charge' %}
          {% if data['email-address'] %}
 
          {{ govukInput({
@@ -129,7 +134,7 @@ Contact details
   name: "Mobile-number",
   classes: "govuk-input--width-20",
   label: {
-    html: "Mobile number (optional)"
+    html: "Mobile number "
   }
 }) }}
 <!--EMOVIS content ends here-->

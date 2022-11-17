@@ -28,11 +28,11 @@ More information
               isPageHeading: true
             },
             hint: {
-              text: "Do not include personal or financial information like your credit card details."
+              text: "Do not include personal or financial information, like your credit card details."
             }
           }) }}
 
-                    {% if data['conduentEmovis'] === 'Emovis' %}
+                    {% if data['conduentEmovis'] === 'A fine (Penalty Charge Notice)' %}
                     <!--Emovis -->
                     {{ govukInput({
                       id: "pcnNumber",
@@ -58,7 +58,7 @@ More information
             id: "file-upload-1",
             name: "file-upload-1",
             label: {
-              text: "Upload a file"
+              text: "Upload a file (optional)"
             }
           }) }}
         {{ govukButton({
