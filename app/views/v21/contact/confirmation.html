@@ -60,11 +60,13 @@ Enquiry submitted
           <div class="govuk-grid-column-two-thirds">
             {% if data['enquiryComplaint'] === 'A complaint' %}
             {{ govukPanel({
-              titleText: "Dart Charge complaint submitted"
+              titleText: "Dart Charge complaint submitted",
+              html: "Your reference number<br><strong>EN783542</strong>"
             }) }}
             {% else %}
             {{ govukPanel({
-              titleText: "Dart Charge enquiry submitted"
+              titleText: "Dart Charge enquiry submitted",
+              html: "Your reference number<br><strong>EN783542</strong>"
             }) }}
             {% endif %}
         <p class="govuk-body">
