@@ -1,0 +1,71 @@
+{% extends "../../../layout-dash-veh-man.html" %}
+
+{% block pageTitle %}
+Crossing history
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">Crossing record</h1>
+     
+      {{ govukTable({
+        
+        firstCellIsHeader: true,
+       
+        rows: [
+          [
+            {
+              text: "Crossing date and time"
+            },
+            {
+              text: "17 Sep 2022 at 7:22 am"
+            }
+          ],
+          [
+            {
+              text: "Number plate"
+            },
+            {
+              text: "LO62 NRO"
+            }
+          ],
+          [
+            {
+              text: "Amount"
+            },
+            {
+              text: "£2.00"
+            }
+          ],
+          [
+            {
+              text: "Direction"
+            },
+            {
+              text: "Crossing"
+            }
+          ],
+          [
+            {
+              text: "Payment status"
+            },
+            {
+              text: "Paid"
+            }
+          ]
+        ]
+      }) }}
+      <p class="govuk-body">
+        <a href="crossing-history" class="govuk-link">Back to crossing history</a>
+      </p>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Contact details
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="check-answers" method="post">
+       
+
+        <h1 class="govuk-heading-l">
+          What are your contact details?
+          </h1>
+          {% if data['enquiryComplaint'] === 'A complaint' %}
+         <p class="govuk-body">
+          We'll only use these details to respond to your complaint
+         </p>
+         {% else %}
+         <p class="govuk-body">
+          We'll only use these details to respond to your enquiry
+         </p>
+         {% endif %}
+
+         {% if data['email-address'] %}
+
+         {{ govukInput({
+          id: "name",
+          name: "name",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Full name"
+          },
+          value: "Sarah Philips"
+         }) }}
+        
+         {% else %}
+        
+        {% endif %}
+       
+         {% if data['email-address'] %}
+       
+        
+        
+        {{ govukInput({
+          id: "Email",
+          name: "Email",
+          classes: "govuk-input--width-20",
+          label: {
+            html: "Email address"
+          },
+          value: "sarah.phillips@example.com"
+        }) }}
+        
+        
+        {{ govukInput({
+          id: "Mobile-number",
+          name: "Mobile-number",
+          classes: "govuk-input--width-20",
+          label: {
+            html: "Mobile number (optional)"
+          }
+        }) }}
+        {% endif %}
+
+         {% if data['conduentEmovis'] === 'Dart Charge' %}
+
+         {{ govukInput({
+          id: "name",
+          name: "name",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Full name"
+          }
+        }) }}
+
+                {{ govukInput({
+                  id: "Email",
+                  name: "Email",
+                  classes: "govuk-input--width-20",
+                  label: {
+                    html: "Email address"
+                  }
+                }) }}
+
+
+                {{ govukInput({
+                  id: "Mobile-number",
+                  name: "Mobile-number",
+                  classes: "govuk-input--width-20",
+                  label: {
+                    html: "Mobile number (optional)"
+                  }
+                }) }}
+                
+
+                {% endif %}
+                {% if data['conduentEmovis'] === 'A fine (Penalty Charge Notice)' %}
+                <!--EMOVIS content starts here-->
+                {{ govukInput({
+                  id: "name",
+                  name: "name",
+                  classes: "govuk-input--width-20",
+                  label: {
+                    text: "Full name"
+                  }
+                }) }}
+
+                {{ govukInput({
+                  id: "Email",
+                  name: "Email",
+                  classes: "govuk-input--width-20",
+                  label: {
+                    html: "Email address"
+                  }
+                }) }}
+
+
+                {{ govukInput({
+                  id: "Mobile-number",
+                  name: "Mobile-number",
+                  classes: "govuk-input--width-20",
+                  label: {
+                    html: "Mobile number "
+                  }
+                }) }}
+                <!--EMOVIS content ends here-->
+{% endif %}
+
+
+
+
+                   
+
+                    {{ govukButton({
+                      text: "Continue"
+                    }) }}
+
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

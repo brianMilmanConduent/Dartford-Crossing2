@@ -1,0 +1,190 @@
+{% extends "../../layout-dash-veh-man.html" %}
+
+{% block pageTitle %}
+Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+{% if data['account-type'] === 'Personal' %}
+
+<!--content here-->
+
+ {% else %}
+<!--content here-->
+{% endif %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+        <fieldset class="govuk-fieldset">
+          <h1 class="govuk-heading-l">We need more information about your vehicle</h1>
+
+
+            <form class="form" method="post" action="previous-journeys">
+
+              <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full">
+
+
+                    {{ govukInput({
+                      id: "number-plate",
+                      name: "number-plate",
+                      classes: "govuk-input--width-10",
+                      label: {
+                        html: "<b>Number plate</b>"
+                      },
+                      
+                      value: "LO62 NRO"
+                    }) }}
+
+                    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+                    {{ govukRadios({
+                      idPrefix: "sign-in",
+                      name: "sign-in",
+                      fieldset: {
+                        legend: {
+                          text: "Vehicle class",
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                     
+                      items: [
+                        {
+                          value: "Class A",
+                          html: "<b>Class A</b>",
+                          hint: {
+                            text: "Motorcycles, mopeds and quad bikes"
+                          }
+                        },
+                        
+                        {
+                          value: "govuk-verify",
+                          html: "<b>Class B</b>",
+                          hint: {
+                            text: "Cars, motorhomes and  minibuses with  9 or less seats"
+                          }
+                        },
+                        {
+                          value: "government-gateway",
+                          html: "<b>Class C</b>",
+                          hint: {
+                            text: "Vehicles with 2 axles"
+                          }
+                        },
+                        {
+                          value: "govuk-verify",
+                          html: "<b>Class D</b>",
+                          hint: {
+                            text: "Vehicles with more than 2 axles"
+                          }
+                        }
+                      ]
+                    }) }}
+
+
+                    
+
+                    {{ govukInput({
+                      id: "vehicle-make",
+                      name: "vehicle-make",
+                      classes: "govuk-input--width-20",
+                      label: {
+                        html: "<b>Make</b>"
+                      }
+                    }) }}
+                    
+                    {{ govukInput({
+                      id: "vehicle-make",
+                      name: "vehicle-make",
+                      classes: "govuk-input--width-20",
+                      label: {
+                        html: "<b>Model</b>"
+                      }
+                    }) }}
+                    {{ govukInput({
+                      id: "vehicle-make",
+                      name: "vehicle-make",
+                      classes: "govuk-input--width-20",
+                      label: {
+                        html: "<b>Colour</b>"
+                      }
+                    }) }}
+                   
+                    {{ govukRadios({
+                      idPrefix: "uk-or-non-uk",
+                      name: "uk-or-non-uk",
+                      fieldset: {
+                        legend: {
+                          text: "Country of registration",
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                     
+                      items: [
+                        {
+                          value: "Value",
+                          text: "UK"
+                        },
+                        {
+                          value: "Value",
+                          text: "Outside the UK"
+                        }
+                      ]
+                    }) }}
+
+
+                    
+                     
+             
+                      </div>
+                  </div>
+                  {{ govukSelect({
+                    id: "",
+                    name: "",
+                    label: {
+                      html: "<b>Group name (optional)</b>"
+                    },
+                    hint: {
+                      text: "This can help you to distinguish between different vehicles on your account"
+                    },
+                    items: [
+                      {
+                        value: "Value",
+                        text: "Select group"
+                      }
+                    ]
+                  }) }}
+
+
+
+                  {{ govukCheckboxes({
+                    idPrefix: "vrm-confirmation",
+                    name: "vrm-confirmation",
+                    
+                    items: [
+                      {
+                        value: "Value",
+                        text: "I confirm that the vehicle information provided is correct"
+                      }
+                    ]
+                  }) }}
+       
+       {{ govukButton({
+        text: "Continue",
+        href: "vehicle-summary-add-another"
+       }) }}
+   
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

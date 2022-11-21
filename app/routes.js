@@ -16,6 +16,7 @@ const v18Routes = require('./routes/v18');
 const v19Routes = require('./routes/v19');
 const v20Routes = require('./routes/v20');
 const v21Routes = require('./routes/v21');
+const v22Routes = require('./routes/v22');
 
 router.use('/', v7Routes);
 router.use('/', v8Routes);
@@ -32,5 +33,6 @@ router.use('/', v18Routes);
 router.use('/', v19Routes);
 router.use('/', v20Routes);
 router.use('/', v21Routes);
+router.use('/', v22Routes);
 
 module.exports = router;

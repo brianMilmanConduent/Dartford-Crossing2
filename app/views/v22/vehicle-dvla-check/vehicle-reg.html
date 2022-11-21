@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay for crossings without an account
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-top-1">
+        
+        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6">What is the number plate of the vehicle?</h1>
+    </div>
+   
+</div>
+
+
+
+<form class="form" method="post" action="dvla-check">
+  <div class="govuk-form-group">
+      <h2 class="govuk-label-wrapper"><label class="govuk-label govuk-label--s" for="vrn">
+        Vehicle Registration (number plate)
+        </label>
+      </h2>
+      <div id="event-name-hint" class="govuk-hint">
+        For example, CU57ABC
+        </div>
+      <input class="govuk-input govuk-input--width-10" id="vrn" name="vrn" type="text" >
+    </div>
+  
+
+     
+
+      <button type="submit" id="plateSubmit" class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">
+        Continue
+      </button>
+
+
+      {{ govukDetails({
+        summaryText: "Info for the prototype ONLY",
+        text: "use 'dvla'for uk recognised data and 'nondvla' for non recognised DVLA data"
+      }) }}
+  </form>
+
+
+
+{% endblock %}

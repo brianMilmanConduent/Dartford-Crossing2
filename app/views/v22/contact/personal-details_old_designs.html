@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Contact details
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="check-answers" method="post">
+       
+
+        <h1 class="govuk-heading-l">
+          Contact details
+          </h1>
+         <p class="govuk-body">
+          Provide your details so we can contact you.
+         </p>
+
+
+         {% if data['conduentEmovis'] === 'Conduent' %}
+         {% if data['email-address'] %}
+
+         {{ govukInput({
+          id: "name",
+          name: "name",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Full name"
+          },
+          value: "Fred Burgess"
+         }) }}
+        
+         {% else %}
+         {{ govukInput({
+          id: "name",
+          name: "name",
+          classes: "govuk-input--width-20",
+          label: {
+            text: "Full name"
+          }
+         }) }}
+        {% endif %}
+       
+         {% if data['email-address'] %}
+         {% set emailHtml %}
+         {{ govukInput({
+           id: "Email",
+           name: "Email",
+           classes: "govuk-input--width-20",
+           label: {
+             html: "<b>Email address</b>"
+           },
+           value: "email@email.com"
+         }) }}
+         {% endset -%}
+        
+         {% set textHtml %}
+         {{ govukInput({
+           id: "Mobile-number",
+           name: "Mobile-number",
+           classes: "govuk-input--width-20",
+           label: {
+             html: "<b>Mobile number</b>"
+           }
+         }) }}
+         {% endset -%}
+         
+        
+        
+         {{ govukCheckboxes({
+           idPrefix: "receipt-pref",
+           name: "receipt-pref",
+           items: [
+             {
+               value: "Email",
+               text: "Email (optional)",
+               conditional: {
+                 html: emailHtml
+               },
+               checked: "true"
+             },
+             {
+               value: "Text message",
+               text: "Text message (optional)",
+               conditional: {
+                 html: textHtml
+               }
+             }
+           ]
+         }) }}
+
+<!--second set of content-->
+{% else %}
+
+
+{{ govukInput({
+  id: "name",
+  name: "name",
+  classes: "govuk-input--width-20",
+  label: {
+    text: "Full name"
+  }
+ }) }}
+
+{{ govukInput({
+  id: "Email",
+  name: "Email",
+  classes: "govuk-input--width-20",
+  label: {
+    html: "Email address"
+  }
+}) }}
+
+
+{{ govukInput({
+  id: "Mobile-number",
+  name: "Mobile-number",
+  classes: "govuk-input--width-20",
+  label: {
+    html: "Mobile number (optional)"
+  }
+}) }}
+ {% endif %}
+
+ {% else %}
+<!--EMOVIS content starts here-->
+{{ govukInput({
+  id: "name",
+  name: "name",
+  classes: "govuk-input--width-20",
+  label: {
+    text: "Full name"
+  }
+ }) }}
+
+{{ govukInput({
+  id: "Email",
+  name: "Email",
+  classes: "govuk-input--width-20",
+  label: {
+    html: "Email address"
+  }
+}) }}
+
+
+{{ govukInput({
+  id: "Mobile-number",
+  name: "Mobile-number",
+  classes: "govuk-input--width-20",
+  label: {
+    html: "Mobile number (optional)"
+  }
+}) }}
+<!--EMOVIS content ends here-->
+{% endif %}
+
+
+
+
+                   
+
+                    {{ govukButton({
+                      text: "Continue"
+                    }) }}
+
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Payment successfull
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<!--<a href="/home" style="cursor: pointer;" class="govuk-back-link">Home</a>-->
+<div class="govuk-grid-row govuk-!-margin-top-6">
+    <div class="govuk-grid-column-two-thirds govuk-!-padding-top-0">
+        <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+                Payment successful
+            </h1>
+            <div class="govuk-panel__body">
+                Your payment reference number<br><strong>725548253</strong>
+            </div>
+        </div>
+        {% if data['Email-address'] and not data['Mobile-number'] %}
+        <p>We've sent a confirmation email to {{data['Email-address']}}.</p>
+        {%endif%}
+        {% if data['Email-address'] and data['Mobile-number'] %}
+        <p>We've sent a confirmation email to {{data['Email-address']}} and a confirmation text message to {{data['Mobile-number']}}.</p>
+        {%endif%}
+        <p class="govuk-body">
+            <b>Vehicle Registration (number plate)</b><br>{{data['vrn']}}
+        </p>
+        <p class="govuk-body govuk-!-margin-bottom-0">
+            <b>Amount paid</b><br>{% if data['sortCrossB'] %}£{{((data['krosCount'] | float + data['sortCrossB'] | float)*2.50).toFixed(2)}} {% elif not data['sortCrossB'] %}£{{((data['krosCount'] | float)*2.50).toFixed(2)}}{%endif%}
+        </p>
+        
+    </div>
+</div>
+<div class="govuk-grid-row govuk-!-padding-top-0 govuk-!-margin-top-0">
+    <div class="govuk-grid-column-two-thirds"><br>
+
+        
+        
+       
+        <h3 class = "govuk-heading-m">Create a Dart Charge account</h3>
+        <p class = "govuk-body">If you make regular crossings, you might benefit from <a href ="../create-account/create-start">creating an account</a>. Payments for crossings are then taken automatically. With a pre-pay account you’ll also get a discount of up to 20% on all crossings.</p>
+        <p>If you live in Dartford or Thurrock you may qualify for the  <a href =#>local resident discount</a>.</p>
+       
+        </div>
+       
+
+
+    </div>
+</div>
+
+
+{% endblock %}

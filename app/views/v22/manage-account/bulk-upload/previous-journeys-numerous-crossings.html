@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+{% if data['account-type'] === 'Personal' %}
+
+<!--content here-->
+
+ {% else %}
+<!--content here-->
+{% endif %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+        <fieldset class="govuk-fieldset">
+          <h1 class="govuk-heading-l">You have outstanding payments</h1>
+            <form class="form" method="post" action="confirmation-screen">
+
+              <p class="govuk-body">
+                Some of your vehicles have made crossings that have not yet been paid for. The cost of these crossings will be added to your total payment.
+              </p>
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                  {{ govukTable({
+                    firstCellIsHeader: false,
+                     head: [
+                        {
+                          text: "Number plate"
+                        },
+                       {
+                         text: "Crossing date and time"
+                       },
+                       {
+                         text: "Amount"
+                       }
+                     ],
+                     rows: [
+                       [
+                       {
+                        text: "LO62 NRO"
+                      },
+                         {
+                           text: "27 Jul at 9:34am"
+                         },
+                         {
+                           text: "£2.50"
+                         }
+                         ],
+                         [
+                         {
+                          text: "LO62 NRO"
+                        },
+                         {
+                           text: "24 Jul at 1:44pm"
+                         },
+                         {
+                           text: "£2.50"
+                         }
+                         ],
+                         [
+                         {
+                          text: "LR9O VW"
+                        },
+                         {
+                           text: "23 Jul at 10:22am"
+                         },
+                         {
+                           text: "£2.50"
+                         }
+                         ],
+                         [
+                         {
+                          text: "LO62 NRO"
+                        },
+                         {
+                           text: "22 Jul at 3:04pm"
+                         },
+                         {
+                           text: "£2.50"
+                         }
+                         ]
+                     ]
+                   }) }}
+                </div>
+              </div>
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                  {{ govukTable({
+                    firstCellIsHeader: true,
+                    rows: [
+                      [
+                        {
+                          text: "Total amount"
+                        },
+                        {
+                          text: "£10.00"
+                        }
+                      ]
+                    ]
+                  }) }}
+                </div>
+              </div>
+       
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

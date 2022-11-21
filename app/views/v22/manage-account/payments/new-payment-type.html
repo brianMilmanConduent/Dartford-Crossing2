@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Payment details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+ 
+
+
+<form action="new-payment-type" method="post">
+
+
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+ <div class="govuk-grid-column-two-thirds">
+   
+
+
+     {{ govukRadios({
+      idPrefix: "new-payment-type",
+      name: "new-payment-type",
+      fieldset: {
+         legend: {
+            text: "Choose your new payment method",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+         }
+      },
+      items: [
+         {
+            value: "debit-credit",
+            text: "Debit or credit card"
+         },
+         {
+            value: "dd",
+            text: "Direct Debit"
+         }
+      ]
+     }) }}
+
+ {{ govukButton({
+   text: "Continue"
+ }) }}
+    
+   </div>
+</div>
+</form>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+More information
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="personal-details" method="post">
+       
+       {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
+
+          {{ govukCharacterCount({
+            name: "with-hint",
+            id: "with-hint",
+            maxlength: 500,
+            label: {
+              text: "Can you provide more detail?",
+              classes: "govuk-label--l",
+              isPageHeading: true
+            },
+            hint: {
+              text: "Do not include personal or financial information, like your credit card details."
+            }
+          }) }}
+
+                    {% if data['conduentEmovis'] === 'A fine (Penalty Charge Notice)' %}
+                    <!--Emovis -->
+                    {{ govukInput({
+                      id: "pcnNumber",
+                      name: "pcnNumber",
+                      label: {
+                        text: "Penalty Charge Notice number (optional)"
+                      }
+                    }) }}
+                    <!--Emovis  end-->
+                    {% else %}
+                    <!--Conduent -->
+                   
+                     <!--Conduent end-->
+                    {% endif %}
+
+
+
+
+
+
+         
+          {{ govukFileUpload({
+            id: "file-upload-1",
+            name: "file-upload-1",
+            label: {
+              text: "Upload a file (optional)"
+            }
+          }) }}
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

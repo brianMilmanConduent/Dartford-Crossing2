@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Select LRDS
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="payment3a">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      We're upgrading your account
+    </h1>
+    <p class="govuk-body">
+      If you pay £{x}, we'll upgrade you to an unlimited discount plan.
+    </p>
+    <p class="govuk-body">
+      You will not need to pay for any more crossings for the remainder of your LRDS plan this year.
+    </p>
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+</div>
+</div> 
+    </div>
+  </div>
+</form>
+{% endblock %}

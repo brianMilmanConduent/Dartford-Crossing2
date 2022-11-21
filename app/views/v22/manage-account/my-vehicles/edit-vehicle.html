@@ -1,0 +1,91 @@
+{% extends "../../layout-dash-veh-man.html" %}
+
+{% block pageTitle %}
+Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+{% if data['account-type'] === 'Personal' %}
+
+<!--content here-->
+
+ {% else %}
+<!--content here-->
+{% endif %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+        <fieldset class="govuk-fieldset">
+          <span class="govuk-caption-l">Vehicle management</span>
+          <h1 class="govuk-heading-l">Edit a vehicle</h1>
+
+
+            <form class="form" method="post" action="vehicle-summary">
+
+              <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-two-thirds">
+                    <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+                      Number plate
+                    </h2>
+                    <p class="govuk-body">
+                      L9O VW
+                    </p>
+                    <h2 class="govuk-heading-m">
+                      Vehicle details
+                    </h2>
+                    {{ govukInput({
+                      id: "make",
+                      name: "make",
+                      classes: "govuk-input--width-10",
+                      label: {
+                        text: "Make"
+                      },
+                      value: "Landrover"
+                    }) }}
+                    {{ govukInput({
+                      id: "make",
+                      name: "make",
+                      classes: "govuk-input--width-10",
+                      label: {
+                        text: "Model"
+                      },
+                      value: "Defender"
+                    }) }}
+                    {{ govukInput({
+                      id: "make",
+                      name: "make",
+                      classes: "govuk-input--width-10",
+                      label: {
+                        text: "Colour"
+                      },
+                      value: "Grey"
+                    }) }}
+
+                    {{ govukCheckboxes({
+                      idPrefix: "",
+                      name: "",
+                     
+                      items: [
+                        {
+                          value: "Value",
+                          text: "I confirm that the vehicle information provided is correct"
+                        }
+                      ]
+                    }) }}
+                    {{ govukButton({
+                      text: "Save and continue"
+                    }) }}
+                    
+                      </div>
+                  </div>  
+      </form>
+    </div>
+  </div>
+{% endblock %}

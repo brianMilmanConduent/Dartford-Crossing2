@@ -1,0 +1,36 @@
+{% extends "../../layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+Payment details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+
+{{ govukBackLink({
+  text: "Back",
+  href: "#"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+ <div class="govuk-grid-column-full">
+   
+         <h1 class="govuk-heading-l">
+          We could not add this Direct Debit
+         </h1>
+         <div class="govuk-form-group">
+      
+            <p class="govuk-body">
+             <a href="#" class="govuk-link">Try to add a new payment method again</a>  or contact your bank for more details.
+            </p>
+              
+         </div>
+     </form>
+   </div>
+</div>
+{% endblock %}
