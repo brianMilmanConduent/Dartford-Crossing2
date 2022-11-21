@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Close your account
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+    {% set mainClasses = "govuk-main-wrapper--l" %}
+
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {{ govukPanel({
+        titleText: "Account closure request complete"
+      }) }}
+
+      <p class="govuk-body">We have sent you a confirmation email.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        Any unused balance on your account will be refunded within X days
+      </p>
+
+      <p class="govuk-body">
+        Any future crossings must be paid for separately.
+      </p>
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+      </p>
+    </div>
+  </div>
+
+
+ 
+
+{% endblock %}
