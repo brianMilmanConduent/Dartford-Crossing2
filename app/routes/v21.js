@@ -222,7 +222,7 @@ router.post(`/v${verNum}/manage-account/login-route`, function (req, res) {
     res.redirect(`/v${verNum}/landing`)
   }
   else if (userLogin === 'contact') {
-    res.redirect(`/v${verNum}/contact/pcn-or-other`)
+    res.redirect(`/v${verNum}/contact/interquery`)
   }
 });
 
