@@ -13,7 +13,7 @@ Enquiries
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
       
         <h1 class="govuk-heading-l">
         Contact us
@@ -53,112 +53,113 @@ Enquiries
 {% endset -%}
 
 {% set pastWeekHtml %}
-<h2 class="govuk-heading-l">Existing</h2>
-{% endset -%}
+  <h2 class="govuk-heading-l">Enquiry history</h2>
+  <table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption>
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row">
+        <th scope="col" class="govuk-table__header">Reference number</th>
+        <th scope="col" class="govuk-table__header">Date and time submitted</th>
+        <th scope="col" class="govuk-table__header">Status</th>
+        <th scope="col" class="govuk-table__header">Status</th>
+      </tr>
+    </thead>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#" class="govuk-link">EN783542</a></td>
+        <td class="govuk-table__cell">20 Sep 2022 at 9:34 am</td>
+        <td class="govuk-table__cell">
+          {{ govukTag({
+          text: "Submitted"
+        }) }}
+      </td>
+      <td class="govuk-table__cell">
+       <a href="#" class="govuk-link">View</a>
+    </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#" class="govuk-link">EN783542</a></td>
+        <td class="govuk-table__cell">20 Sep 2022 at 9:34 am</td>
+        <td class="govuk-table__cell">
+          {{ govukTag({
+          text: "Submitted"
+        }) }}
+      </td>
+      <td class="govuk-table__cell">
+       <a href="#" class="govuk-link">View</a>
+    </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#" class="govuk-link">EN783542</a></td>
+        <td class="govuk-table__cell">20 Sep 2022 at 9:34 am</td>
+        <td class="govuk-table__cell">
+          {{ govukTag({
+          text: "Submitted"
+        }) }}
+      </td>
+      <td class="govuk-table__cell">
+       <a href="#" class="govuk-link">View</a>
+    </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#" class="govuk-link">EN783542</a></td>
+        <td class="govuk-table__cell">20 Sep 2022 at 9:34 am</td>
+        <td class="govuk-table__cell">
+          {{ govukTag({
+          text: "completed",
+          classes: "govuk-tag--green"
+        }) }}
+      </td>
+      <td class="govuk-table__cell">
+       <a href="#" class="govuk-link">View</a>
+    </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#" class="govuk-link">EN783542</a></td>
+        <td class="govuk-table__cell">20 Sep 2022 at 9:34 am</td>
+        <td class="govuk-table__cell">
+          {{ govukTag({
+          text: "in progress",
+          classes: "govuk-tag--yellow"
+        }) }}
+      </td>
+      <td class="govuk-table__cell">
+       <a href="#" class="govuk-link">View</a>
+    </td>
+      </tr>
+    </tbody>
+  </table>
 
-{% set pastMonthHtml %}
-<h2 class="govuk-heading-l">Past month</h2>
-{{ govukTable({
-  head: [
+  {% from "govuk/components/pagination/macro.njk" import govukPagination %}
+
+{{ govukPagination({
+  
+  next: {
+    href: "#"
+  },
+  items: [
     {
-      text: "Case manager"
+      number: 1,
+      current: true,
+      href: "#"
     },
     {
-      text: "Cases opened"
+      number: 2,
+      
+      href: "#"
     },
     {
-      text: "Cases closed"
+      number: 3,
+      href: "#"
     }
-  ],
-  rows: [
-    [
-      {
-        text: "David Francis"
-      },
-      {
-        text: "98"
-      },
-      {
-        text: "95"
-      }
-    ],
-    [
-      {
-        text: "Paul Farmer"
-      },
-      {
-        text: "122"
-      },
-      {
-        text: "131"
-      }
-    ],
-    [
-      {
-        text: "Rita Patel"
-      },
-      {
-        text: "126"
-      },
-      {
-        text: "142"
-      }
-    ]
   ]
 }) }}
+
+
+
 {% endset -%}
 
-{% set pastYearHtml %}
-<h2 class="govuk-heading-l">Past year</h2>
-{{ govukTable({
-  head: [
-    {
-      text: "Case manager"
-    },
-    {
-      text: "Cases opened"
-    },
-    {
-      text: "Cases closed"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "David Francis"
-      },
-      {
-        text: "1380"
-      },
-      {
-        text: "1472"
-      }
-    ],
-    [
-      {
-        text: "Paul Farmer"
-      },
-      {
-        text: "1129"
-      },
-      {
-        text: "1083"
-      }
-    ],
-    [
-      {
-        text: "Rita Patel"
-      },
-      {
-        text: "1539"
-      },
-      {
-        text: "1265"
-      }
-    ]
-  ]
-}) }}
-{% endset -%}
+
 
 {{ govukTabs({
   items: [
