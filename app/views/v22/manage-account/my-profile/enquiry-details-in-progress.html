@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Enquiries
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <span class="govuk-caption-l">Enquiry history</span>
+      <h1 class="govuk-heading-l">Complaint</h1>
+       
+{{ govukTable({
+  firstCellIsHeader: true,
+  rows: [
+    [
+      {
+        text: "Reference number",
+        classes: 'govuk-!-width-one-third'
+      },
+      {
+        text: "EN783543"
+      }
+    ],
+    [
+    {
+      text: "Type of complaint"
+    },
+    {
+      text: "Customer service"
+    }
+  ],
+  [
+    {
+      text: "Date and time submitted"
+    },
+    {
+      text: "20 Sep 2022 at 9:34 am"
+    }
+  ],
+    [
+      {
+        text: "Details of complaint"
+      },
+      {
+        html: "
+        <details class='govuk-details' data-module='govuk-details'>
+          <summary class='govuk-details__summary'>
+            <span class='govuk-details__summary-text'>
+              Your enquiry
+            </span>
+          </summary>
+          <div class='govuk-details__text'>
+            I have a question regarding my account and how to close it down. Please could someone talk me through the process
+          </div>
+        </details>
+        
+        "
+      }
+    ],
+    [
+      {
+        text: "Status of complaint"
+      },
+      {
+        html: 
+        "
+        <strong class='govuk-tag govuk-tag--yellow'>
+          In progress
+        </strong>
+        "
+      }
+    ]
+  ]
+}) }}
+       
+<br><br>
+<h2 class="govuk-heading-m">
+  Response from Dart charge
+</h2>
+<p class="govuk-body">
+  Once we respond to your complaint, you will see the detail here.
+</p>
+</p><br><br>
+<hr>
+<br><br>
+<p class="govuk-body">
+  <a href="enquiries#past-week" class="govuk-link">Back to enquiry history</a>
+</p>
+    
+    </div>
+  </div>
+
+{% endblock %}

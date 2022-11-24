@@ -55,7 +55,6 @@ Enquiries
 {% set pastWeekHtml %}
   <h2 class="govuk-heading-l">Enquiry history</h2>
   <table class="govuk-table">
-    <caption class="govuk-table__caption govuk-table__caption--m">Dates and amounts</caption>
     <thead class="govuk-table__head">
       <tr class="govuk-table__row">
         <th scope="col" class="govuk-table__header">Reference number</th>
@@ -66,7 +65,19 @@ Enquiries
     </thead>
     <tbody class="govuk-table__body">
       <tr class="govuk-table__row">
-        <td class="govuk-table__cell"><a href="#" class="govuk-link">EN783542</a></td>
+        <td class="govuk-table__cell"><a href="enquiry-details-submitted" class="govuk-link">EN783542</a></td>
+        <td class="govuk-table__cell">20 Sep 2022 at 9:34 am</td>
+        <td class="govuk-table__cell">
+          {{ govukTag({
+          text: "Submitted"
+        }) }}
+      </td>
+      <td class="govuk-table__cell">
+       <a href="enquiry-details-submitted" class="govuk-link">View</a>
+    </td>
+      </tr>
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell"><a href="#" class="govuk-link">EN783543</a></td>
         <td class="govuk-table__cell">20 Sep 2022 at 9:34 am</td>
         <td class="govuk-table__cell">
           {{ govukTag({
@@ -78,7 +89,7 @@ Enquiries
     </td>
       </tr>
       <tr class="govuk-table__row">
-        <td class="govuk-table__cell"><a href="#" class="govuk-link">EN783542</a></td>
+        <td class="govuk-table__cell"><a href="#" class="govuk-link">EN783544</a></td>
         <td class="govuk-table__cell">20 Sep 2022 at 9:34 am</td>
         <td class="govuk-table__cell">
           {{ govukTag({
@@ -90,32 +101,20 @@ Enquiries
     </td>
       </tr>
       <tr class="govuk-table__row">
-        <td class="govuk-table__cell"><a href="#" class="govuk-link">EN783542</a></td>
+        <td class="govuk-table__cell"><a href="enquiry-details-responded" class="govuk-link">EN783545</a></td>
         <td class="govuk-table__cell">20 Sep 2022 at 9:34 am</td>
         <td class="govuk-table__cell">
           {{ govukTag({
-          text: "Submitted"
-        }) }}
-      </td>
-      <td class="govuk-table__cell">
-       <a href="#" class="govuk-link">View</a>
-    </td>
-      </tr>
-      <tr class="govuk-table__row">
-        <td class="govuk-table__cell"><a href="#" class="govuk-link">EN783542</a></td>
-        <td class="govuk-table__cell">20 Sep 2022 at 9:34 am</td>
-        <td class="govuk-table__cell">
-          {{ govukTag({
-          text: "completed",
+          text: "Responded",
           classes: "govuk-tag--green"
         }) }}
       </td>
       <td class="govuk-table__cell">
-       <a href="#" class="govuk-link">View</a>
+       <a href="enquiry-details-responded" class="govuk-link">View</a>
     </td>
       </tr>
       <tr class="govuk-table__row">
-        <td class="govuk-table__cell"><a href="#" class="govuk-link">EN783542</a></td>
+        <td class="govuk-table__cell"><a href="enquiry-details-in-progress" class="govuk-link">EN783546</a></td>
         <td class="govuk-table__cell">20 Sep 2022 at 9:34 am</td>
         <td class="govuk-table__cell">
           {{ govukTag({
@@ -124,7 +123,7 @@ Enquiries
         }) }}
       </td>
       <td class="govuk-table__cell">
-       <a href="#" class="govuk-link">View</a>
+       <a href="enquiry-details-in-progress" class="govuk-link">View</a>
     </td>
       </tr>
     </tbody>
