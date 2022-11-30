@@ -1,0 +1,96 @@
+{% extends "../../layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+Payment management
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+      <span class="govuk-caption-l">Account management</span>
+      <h1 class="govuk-heading-l">Payment detail</h1>
+
+     
+{{ govukTable({
+  firstCellIsHeader: true,
+  rows: [
+    [
+      {
+        text: "Payment reference"
+      },
+      {
+        text: "FR4234F53"
+      }
+    ],
+    [
+      {
+        text: "Type of payment"
+      },
+      {
+        text: "Auto top-up"
+      }
+    ],
+    [
+      {
+        text: "Payment date"
+      },
+      {
+        text: "9 January 2022"
+      }
+    ],
+    [
+      {
+        text: "Amount paid"
+      },
+      {
+        text: "	£25.00"
+      }
+    ],
+    [
+      {
+        text: "Payment method"
+      },
+      {
+        text: "Card payment"
+      }
+    ],
+    [
+      {
+        text: "Channel"
+      },
+      {
+        text: "Web"
+      }
+    ],
+    [
+      {
+        text: "Last four digits of card"
+      },
+      {
+        text: "4573"
+      }
+    ]
+  ]
+}) }}
+<p class="govuk-body">
+  <a href="#" class="govuk-link">Print receipt</a>
+ </p>
+ <hr>      
+
+    </div>
+  </div>
+  <br><br>
+  <p class="govuk-body">
+    <a href="../my-profile/profile-summary" class="govuk-link">Back to account management</a>
+   </p>
+  <p class="govuk-body">
+ <a href="../dashboard-summary" class="govuk-link">Back to account summary</a>
+</p>
+{% endblock %}
