@@ -26,7 +26,7 @@
          </tr>
          <tr class="govuk-table__row">
            <th scope="row" class="govuk-table__header">Number plate</th>
-           <td class="govuk-table__cell">{{data['vrm']}} <a href="vehicle-reg" class="govuk-link govuk-!-margin-left-3">Change</a></td>
+           <td class="govuk-table__cell">{{data['vrm']}} </td>
          </tr>
          <tr class="govuk-table__row">
            <th scope="row" class="govuk-table__header">Credit remaining</th>
@@ -34,7 +34,7 @@
          </tr>
          <tr class="govuk-table__row">
            <th scope="row" class="govuk-table__header">Credit expiry date</th>
-           <td class="govuk-table__cell">6 August 2023</td>
+           <td class="govuk-table__cell">6 August 2022</td>
          </tr>
        </tbody>
      </table>
@@ -59,9 +59,7 @@
     </div>-->
   
 
-    <p class="govuk-body">
-      <a href="#" class="govuk-link">Pay for another car's crossings</a>
-    </p>
+   
     
     <p class="govuk-body govuk-!-margin-bottom-9">
       <a href="#" class="govuk-link">Set up an account</a>
@@ -69,83 +67,38 @@
     
 
 
-    {{ govukTable({
-      caption: "Previous crossings",
-      firstCellIsHeader: false,
-      head: [
-        {
-          text: "Date and time"
-        },
-        {
-          text: "Number plate"
-        },
-       
-        {
-          text: "Direction"
-        }
-      ],
-      rows: [
-      [
-       
-        {
-          text: "16 Aug 2022 at 11:04am"
-        },
-        {
-          text: "LO62 RFE"
-        },
-        {
-          text: "Tunnel"
-        }
-      ],
-      [
-       
-        {
-          text: "8 Aug 2022 at 2:16pm"
-        },
-        {
-          text: "LO62 RFE"
-        },
-        {
-          text: "Crossing"
-        }
-      ],
-      [
-       
-        {
-          text: "8 Aug 2022 at 9:22pm"
-        },
-        {
-          text: "LO62 RFE"
-        },
-        {
-          text: "Tunnel"
-        }
-      ],
-      [
-       
-        {
-          text: "6 Aug 2022 at 3:01pm"
-        },
-        {
-          text: "LO62 RFE"
-        },
-        {
-          text: "Crossing"
-        }
-      ],
-      [
-       
-        {
-          text: "6 Aug 2022 at 10:01am"
-        },
-        {
-          text: "LO62 RFE"
-        },
-        {
-          text: "Tunnel"
-        }
-      ]
-    ]
+    {{ govukDetails({
+      summaryText: "Previous crossings",
+      html: 
+      "
+      <table class='govuk-table'>
+        <thead class='govuk-table__head'>
+          <tr class='govuk-table__row'>
+            <th scope='col' class='govuk-table__header'>Date and time</th>
+            <th scope='col' class='govuk-table__header'>Number plate</th>
+            <th scope='col' class='govuk-table__header'>Direction</th>
+          </tr>
+        </thead>
+        <tbody class='govuk-table__body'>
+          <tr class='govuk-table__row'>
+            <td class='govuk-table__cell'>18 Aug at 2:16pm</td>
+            <td class='govuk-table__cell'>LO62RFE</td>
+            <td class='govuk-table__cell'>Northbound (through tunnel)</td>
+          </tr>
+          <tr class='govuk-table__row'>
+            <td class='govuk-table__cell'>6 Aug at 11:04am</td>
+            <td class='govuk-table__cell'>LO62RFE</td>
+            <td class='govuk-table__cell'>Southbound (over bridge)</td>
+          </tr>
+          <tr class='govuk-table__row'>
+            <td class='govuk-table__cell'>4 Aug at 9:04am</td>
+            <td class='govuk-table__cell'>LO62RFE</td>
+            <td class='govuk-table__cell'>Northbound (through tunnel)</td>
+          </tr>
+          
+        </tbody>
+      </table>
+      "
     }) }}
 
    
