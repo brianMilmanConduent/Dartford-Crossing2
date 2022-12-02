@@ -1,0 +1,547 @@
+{% extends "../../layout-dash-veh-man.html" %}
+
+{% block pageTitle %}
+  Account summary - Business
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+
+<!--main body starts-->
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Help with the bulk upload template
+    </h1>
+      <p class="govuk-body">
+        The Dart Charge bulk upload template has columns for all the details you need to add, edit, or delete. By filling in these details in the right way, you can update up to 5,000 vehicles at one time. 
+      </p>
+      <h2 class="govuk-heading-m">
+        Adding a vehicle
+      </h2>
+      <p class="govuk-body">
+        You only need to complete certain fields in the template, depending on whether your vehicle is registered in the UK or with the Driver & Vehicle Licencing Agency (DVLA). 
+
+      </p>
+      <h3 class="govuk-heading-s">
+        Adding a UK vehicle that’s registered with the DVLA
+
+      </h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Complete columns A and E
+
+        </li>
+        <li>
+          If you have groups of vehicles, you can include a group name in column G. This name must be 10 characters or less
+
+        </li>
+        
+      </ul>
+      <h3 class="govuk-heading-s">
+        Adding a UK vehicle that’s not registered with the DVLA
+
+      </h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Complete all columns A to F
+
+        </li>
+        <li>
+          If you have groups of vehicles, you can include a group name in column G. This name must be 10 characters or less
+
+        </li>
+        
+      </ul>
+      <h3 class="govuk-heading-s">
+        Adding a non-UK vehicle 
+
+      </h3>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Complete all columns A to F
+
+        </li>
+        <li>
+          If you have groups of vehicles, you can include a group name in column G. This name must be 10 characters or less
+
+        </li>
+        
+      </ul>
+      
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+{{ govukTable({
+  
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: ""
+    },
+    {
+      text: "A"
+    },
+    {
+      text: "B"
+    },
+    {
+      text: "C"
+    },
+    {
+      text: "D"
+    },
+    {
+      text: "E"
+    },
+    {
+      text: "F"
+    },
+    {
+      text: "G"
+    },
+    {
+      text: "H"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: ""
+      },
+      {
+        text: "Number plate"
+      },
+      {
+        text: "Make"
+      },
+      {
+        text: "Model"
+      },
+      {
+        text: "Colour"
+      },
+      {
+        text: "Vehicle registered in UK"
+      },
+      {
+        text: "Class"
+      },
+      {
+        text: "Group name"
+      },
+      {
+        text: "Delete"
+      }
+    ],
+    [
+    {
+      text: "Example: what to complete when adding a UK vehicle registered with the DVLA"
+    },
+    {
+      text: "VN18 PLI"
+    },
+    {
+      text: ""
+    },
+    {
+      text: ""
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Yes"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Group A"
+    },
+    {
+      text: ""
+    }
+  ]
+  ,
+    [
+    {
+      text: "Example: what to complete when adding a UK vehicle not registered with the DLVA"
+    },
+    {
+      text: "TP22 RAY"
+    },
+    {
+      text: "Kia"
+    },
+    {
+      text: "Sportage"
+    },
+    {
+      text: "Black"
+    },
+    {
+      text: "Yes"
+    },
+    {
+      text: "2"
+    },
+    {
+      text: ""
+    },
+    {
+      text: ""
+    }
+  ],
+  [
+  {
+    text: "Example: what to complete when adding a non-UK vehicle"
+  },
+  {
+    text: "BN 18 CTL "
+  },
+  {
+    text: "Dacia"
+  },
+  {
+    text: "Duster"
+  },
+  {
+    text: "Grey"
+  },
+  {
+    text: "No"
+  },
+  {
+    text: "3"
+  },
+  {
+    text: ""
+  },
+  {
+    text: ""
+  }
+]
+   
+  ]
+}) }}
+
+    </div>
+    </div>
+
+    <div class="govuk-grid-row govuk-!-margin-top-6">
+      <div class="govuk-grid-column-two-thirds">
+          <h3 class="govuk-heading-s">
+            Editing a vehicle 
+          </h3>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+              Complete columns A and E, plus any other columns where vehicle details are changing  
+            </li>
+            <li>
+              A vehicle class can only change from class 4 to class 3
+
+            </li>
+            
+          </ul>
+        </div>
+        </div>
+
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-full">
+            {{ govukTable({
+  
+              firstCellIsHeader: true,
+              head: [
+                {
+                  text: ""
+                },
+                {
+                  text: "A"
+                },
+                {
+                  text: "B"
+                },
+                {
+                  text: "C"
+                },
+                {
+                  text: "D"
+                },
+                {
+                  text: "E"
+                },
+                {
+                  text: "F"
+                },
+                {
+                  text: "G"
+                },
+                {
+                  text: "H"
+                }
+              ],
+              rows: [
+                [
+                  {
+                    text: ""
+                  },
+                  {
+                    text: "Number plate"
+                  },
+                  {
+                    text: "Make"
+                  },
+                  {
+                    text: "Model"
+                  },
+                  {
+                    text: "Colour"
+                  },
+                  {
+                    text: "Vehicle registered in UK"
+                  },
+                  {
+                    text: "Class"
+                  },
+                  {
+                    text: "Group name"
+                  },
+                  {
+                    text: "Delete"
+                  }
+                ],
+                [
+                {
+                  text: "Example: what to complete when editing a vehicle with many changes"
+                },
+                {
+                  text: "R01 VAM"
+                },
+                {
+                  text: "DAF "
+                },
+                {
+                  text: "LF45 "
+                },
+                {
+                  text: "White"
+                },
+                {
+                  text: "Yes"
+                },
+                {
+                  text: "3"
+                },
+                {
+                  text: ""
+                },
+                {
+                  text: ""
+                }
+              ]
+              ,
+                [
+                {
+                  text: "Example: what to complete when editing a vehicle with few changes "
+                },
+                {
+                  text: "CW53 LVT"
+                },
+                {
+                  text: "Nissan"
+                },
+                {
+                  text: ""
+                },
+                {
+                  text: ""
+                },
+                {
+                  text: "Yes"
+                },
+                {
+                  text: ""
+                },
+                {
+                  text: ""
+                },
+                {
+                  text: ""
+                }
+              ]
+               
+              ]
+            }) }}
+            </div>
+            </div>
+
+            <div class="govuk-grid-row govuk-!-margin-top-6">
+              <div class="govuk-grid-column-two-thirds">
+<h3 class="govuk-heading-s">
+  Deleting a vehicle 
+</h3>
+<ul class="govuk-list govuk-list--bullet">
+  <li>
+    Complete columns A, E and H only
+  </li>
+</ul>
+             </div>
+             </div> 
+             <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                {{ govukTable({
+      
+                  firstCellIsHeader: true,
+                  head: [
+                    {
+                      text: ""
+                    },
+                    {
+                      text: "A"
+                    },
+                    {
+                      text: "B"
+                    },
+                    {
+                      text: "C"
+                    },
+                    {
+                      text: "D"
+                    },
+                    {
+                      text: "E"
+                    },
+                    {
+                      text: "F"
+                    },
+                    {
+                      text: "G"
+                    },
+                    {
+                      text: "H"
+                    }
+                  ],
+                  rows: [
+                    [
+                      {
+                        text: ""
+                      },
+                      {
+                        text: "Number plate"
+                      },
+                      {
+                        text: "Make"
+                      },
+                      {
+                        text: "Model"
+                      },
+                      {
+                        text: "Colour"
+                      },
+                      {
+                        text: "Vehicle registered in UK"
+                      },
+                      {
+                        text: "Class"
+                      },
+                      {
+                        text: "Group name"
+                      },
+                      {
+                        text: "Delete"
+                      }
+                    ],
+                    [
+                    {
+                      text: "Example: what to complete when deleting a vehicle "
+                    },
+                    {
+                      text: "LA15 CPL"
+                    },
+                    {
+                      text: " "
+                    },
+                    {
+                      text: " "
+                    },
+                    {
+                      text: ""
+                    },
+                    {
+                      text: "Yes"
+                    },
+                    {
+                      text: ""
+                    },
+                    {
+                      text: ""
+                    },
+                    {
+                      text: "Yes"
+                    }
+                  ]
+                 
+                  ]
+                }) }}
+                </div>
+                </div>  
+
+                <div class="govuk-grid-row govuk-!-margin-top-6">
+                  <div class="govuk-grid-column-two-thirds">
+    <h3 class="govuk-heading-s">
+      A note about completing vehicle classes
+ 
+    </h3>
+   <p class="govuk-body">
+    If you’re adding or amending a vehicle class, use these numbers in Column F: 
+
+   </p>
+                 </div>
+                 </div> 
+                 <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-full">
+{{ govukTable({
+  
+  firstCellIsHeader: true,
+  
+  rows: [
+    [
+      {
+        text: "Car, van or minibus"
+      },
+      {
+        text: "2"
+      }
+    ],
+    [
+      {
+        text: "Bus, coach or other goods vehicle with 2 axles"
+      },
+      {
+        text: "3"
+      }
+    ],
+    [
+      {
+        text: "Vehicle with more than 2 axles"
+      },
+      {
+        text: "4"
+      }
+    ]
+  ]
+}) }}
+                    </div>
+                    </div>
+
+{% endblock %}
+<!--main body ends-->
