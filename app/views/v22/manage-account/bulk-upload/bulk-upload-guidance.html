@@ -57,10 +57,10 @@
         </li>
         
       </ul>
-      <h3 class="govuk-heading-s">
+      <h2 class="govuk-heading-m">
         Adding a non-UK vehicle 
 
-      </h3>
+      </h2>
       <ul class="govuk-list govuk-list--bullet">
         <li>
           Complete all columns A to F
@@ -68,7 +68,6 @@
         </li>
         <li>
           If you have groups of vehicles, you can include a group name in column G. This name must be 10 characters or less
-
         </li>
         
       </ul>
@@ -112,35 +111,35 @@
     }
   ],
   rows: [
-    [
-      {
-        text: ""
-      },
-      {
-        text: "Number plate"
-      },
-      {
-        text: "Make"
-      },
-      {
-        text: "Model"
-      },
-      {
-        text: "Colour"
-      },
-      {
-        text: "Vehicle registered in UK"
-      },
-      {
-        text: "Class"
-      },
-      {
-        text: "Group name"
-      },
-      {
-        text: "Delete"
-      }
-    ],
+  [
+  {
+    text: ""
+  },
+  {
+    html: "<b>Number plate</b>"
+  },
+  {
+    html: "<b>Make</b>"
+  },
+  {
+    html: "<b>Model</b>"
+  },
+  {
+    html: "<b>Colour</b>"
+  },
+  {
+    html: "<b>Vehicle registered in UK</b>"
+  },
+  {
+    html: "<b>Class</b>"
+  },
+  {
+    html: "<b>Group name</b>"
+  },
+  {
+    html: "<b>Delete</b>"
+  }
+],
     [
     {
       text: "Example: what to complete when adding a UK vehicle registered with the DVLA"
@@ -238,9 +237,9 @@
 
     <div class="govuk-grid-row govuk-!-margin-top-6">
       <div class="govuk-grid-column-two-thirds">
-          <h3 class="govuk-heading-s">
+          <h2 class="govuk-heading-m">
             Editing a vehicle 
-          </h3>
+          </h2>
 
           <ul class="govuk-list govuk-list--bullet">
             <li>
@@ -295,28 +294,28 @@
                     text: ""
                   },
                   {
-                    text: "Number plate"
+                    html: "<b>Number plate</b>"
                   },
                   {
-                    text: "Make"
+                    html: "<b>Make</b>"
                   },
                   {
-                    text: "Model"
+                    html: "<b>Model</b>"
                   },
                   {
-                    text: "Colour"
+                    html: "<b>Colour</b>"
                   },
                   {
-                    text: "Vehicle registered in UK"
+                    html: "<b>Vehicle registered in UK</b>"
                   },
                   {
-                    text: "Class"
+                    html: "<b>Class</b>"
                   },
                   {
-                    text: "Group name"
+                    html: "<b>Group name</b>"
                   },
                   {
-                    text: "Delete"
+                    html: "<b>Delete</b>"
                   }
                 ],
                 [
@@ -386,9 +385,9 @@
 
             <div class="govuk-grid-row govuk-!-margin-top-6">
               <div class="govuk-grid-column-two-thirds">
-<h3 class="govuk-heading-s">
+<h2 class="govuk-heading-m">
   Deleting a vehicle 
-</h3>
+</h2>
 <ul class="govuk-list govuk-list--bullet">
   <li>
     Complete columns A, E and H only
@@ -431,35 +430,35 @@
                     }
                   ],
                   rows: [
-                    [
-                      {
-                        text: ""
-                      },
-                      {
-                        text: "Number plate"
-                      },
-                      {
-                        text: "Make"
-                      },
-                      {
-                        text: "Model"
-                      },
-                      {
-                        text: "Colour"
-                      },
-                      {
-                        text: "Vehicle registered in UK"
-                      },
-                      {
-                        text: "Class"
-                      },
-                      {
-                        text: "Group name"
-                      },
-                      {
-                        text: "Delete"
-                      }
-                    ],
+                  [
+                  {
+                    text: ""
+                  },
+                  {
+                    html: "<b>Number plate</b>"
+                  },
+                  {
+                    html: "<b>Make</b>"
+                  },
+                  {
+                    html: "<b>Model</b>"
+                  },
+                  {
+                    html: "<b>Colour</b>"
+                  },
+                  {
+                    html: "<b>Vehicle registered in UK</b>"
+                  },
+                  {
+                    html: "<b>Class</b>"
+                  },
+                  {
+                    html: "<b>Group name</b>"
+                  },
+                  {
+                    html: "<b>Delete</b>"
+                  }
+                ],
                     [
                     {
                       text: "Example: what to complete when deleting a vehicle "
@@ -505,10 +504,8 @@
     If you’re adding or amending a vehicle class, use these numbers in Column F: 
 
    </p>
-                 </div>
-                 </div> 
-                 <div class="govuk-grid-row">
-                  <div class="govuk-grid-column-full">
+   <div class="govuk-grid-row ">
+    <div class="govuk-grid-column-two-thirds">   
 {{ govukTable({
   
   firstCellIsHeader: true,
@@ -542,6 +539,8 @@
 }) }}
                     </div>
                     </div>
+                  </div>
+                </div>
 
 {% endblock %}
 <!--main body ends-->
