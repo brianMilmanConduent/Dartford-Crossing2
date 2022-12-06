@@ -36,8 +36,8 @@
 
     {% set html %}
       <p class="govuk-notification-banner__heading">
-        Your payment card ending [xxxx] is due to expire on [date_of_expiry]
-        <a class="govuk-notification-banner__link" href="payments/new-card">Update card</a>.
+        Your account has been suspended because you do not have enough credit to make a crossing.
+        <a class="govuk-notification-banner__link" href="payments/new-card">Top up your credit now</a>.
       </p>
     
     {% endset %}
@@ -63,8 +63,8 @@
     <span class="govuk-caption-m"><b>Account number</b> 6789027682</span>
     <span class="govuk-caption-m"><b>Account status</b> 
         {{ govukTag({
-        text: "Open",
-        classes: "govuk-tag--green"
+        text: "Suspended",
+        classes: "govuk-tag--orange"
         }) }}
 </span>
 

@@ -372,39 +372,7 @@ Payment management
             }) }}
 
 
-            {% set val1Html %}
-              {{ govukInput({
-                id: "contact-by-phone",
-                name: "contact-by-phone",
-                type: "tel",
-                autocomplete: "tel",
-                classes: "govuk-!-width-one-third",
-                hint: {
-                  text: "The last 3 digits on the back of your card"
-                },
-                label: {
-                  html: "<b>CVV</b>"
-                },
-                classes: "govuk-input--width-3"
-              }) }}
-              {% endset -%}
-
-              {% set val1Html %}
-              {{ govukInput({
-                id: "contact-by-phone",
-                name: "contact-by-phone",
-                type: "tel",
-                autocomplete: "tel",
-                classes: "govuk-!-width-one-third",
-                hint: {
-                  text: "The last 3 digits on the back of your card"
-                },
-                label: {
-                  html: "<b>CVV</b>"
-                },
-                classes: "govuk-input--width-3"
-              }) }}
-              {% endset -%}
+           
 
                 
 
@@ -422,9 +390,6 @@ Payment management
               items: [
                 {
                   value: "Valu1",
-                  conditional: {
-                    html: val1Html
-                  },
                   html: 
                   "
                   Mastercard **** 4567 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />
@@ -432,9 +397,6 @@ Payment management
                 },
                 {
                   value: "Val2ue",
-                  conditional: {
-                    html: val1Html
-                  },
                   html: 
                   "
                   Mastercard **** 1234 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />

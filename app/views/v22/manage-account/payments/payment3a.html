@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout-dash-acc-man.html" %}
 
 {% block pageTitle %}
 Payment details
@@ -116,14 +116,15 @@ Payment details
                                 items: [
                                   {
                                     value: "Value",
-                                    html: "I would like to add this card as a payment method on my account"
+                                    html: "Make this my default payment method"
                                   }
                                 ]
-                               }) }}
-                              <button onClick="location.href='./step-4-done'" data-module="govuk-button" class="govuk-button" value="Proceed to payment" type="submit" role="button"
+                               }) }}<br>
+                              
+                          </div>
+                          <button onClick="location.href='./step-4-done'" data-module="govuk-button" class="govuk-button" value="Proceed to payment" type="submit" role="button"
                                   aria-label="Proceed to payment">Proceed with payment</button>
                                   <!-- onClick="location.href='./payment-failure'" -->
-                          </div>
                         </tr>
                       </tbody>
                     </table>
