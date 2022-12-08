@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay the Dartford Crossing & Dart Charge
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <br><br>
+        <h1 class="govuk-heading-xl">Contact the Dart Charge team</h1>
+        <p class="govuk-body">
+          Use this form to contact us about something.
+        </p>
+        <p class="govuk-body">
+          You can use it to ask a question, report a problem, or make a complaint.
+          <br><a href="../manage-account/login" class="govuk-link">Sign in</a>
+        </p>
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        {{ govukButton({
+          text: "Start now",
+          href: "pcn-or-other",
+          isStartButton: true
+        }) }}
+    </div>
+     
+    </div>
+  </div>
+  {% endblock %}

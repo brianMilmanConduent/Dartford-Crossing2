@@ -1,0 +1,78 @@
+{% extends "../../layout-dash-veh-man.html" %}
+
+{% block pageTitle %}
+Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+{% if data['account-type'] === 'Personal' %}
+
+<!--content here-->
+
+ {% else %}
+<!--content here-->
+{% endif %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+        <fieldset class="govuk-fieldset">
+          <span class="govuk-caption-l">Vehicle management</span>
+          <h1 class="govuk-heading-l">Vehicle details</h1>
+
+          
+
+            <form class="form" method="post" action="vehicle-summary-add-another">
+
+              <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-two-thirds">
+                    
+                      <table class="govuk-table ">
+
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Number plate</td>
+                              <!-- <td class="govuk-table__cell  govuk-body "><b>{{data['vrm-1'][0]}}</b></td> -->
+                              <td class="govuk-table__cell  govuk-body ">L90 VW</td>
+                              <!-- <td class="govuk-table__cell  govuk-body "> </td> -->
+                          </tr>
+
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Vehicle type</td>
+                              <td class="govuk-table__cell  govuk-body ">Car</td>
+                              
+                          </tr>
+                         
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Make</td>
+                              <td class="govuk-table__cell  govuk-body ">Landrover</td>
+                          </tr>
+
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Model</td>
+                              <td class="govuk-table__cell  govuk-body ">Defender</td>
+                          </tr>
+
+                          <tr class="govuk-table__row">
+                              <td scope="col" class="govuk-table__header govuk-body ">Colour</td>
+                              <td class="govuk-table__cell  govuk-body ">Grey</td>
+                          </tr>
+                      </table>
+                      </div>
+                  </div>
+                  <div><p class="govuk-body">
+                    <a href="#" class="govuk-link">Back to vehicle list</a>
+                  </p></div>
+                  <div><p class="govuk-body">
+                    <a href="edit-vehicle" class="govuk-link">Edit vehicle details</a>
+                  </p></div>
+                 
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "../../layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+What is your phone number?
+{% endblock %}
+
+{% block beforeContent %}
+  {% include "includes/beta-banner.html" %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="verify-mobile" method="post">
+          
+          <h1 class="govuk-heading-l">What is your mobile phone number?</h1>
+
+
+              {{ govukFieldset({
+                  legend: {
+                      html: "",
+                      classes: "govuk-fieldset__legend--l",
+                      isPageHeading: true
+                  }
+              })}}
+
+              {{ govukInput({
+                  label: {
+                      text: "We'll use this to send you a security code by text message"
+                  },
+                  id: "phone-number",
+                  name: "phone-number",
+                  classes: "govuk-input--width-10",
+                  value: "07700 900457"
+              }) }}
+
+              {{ govukButton({
+                  text: "Continue"
+              }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

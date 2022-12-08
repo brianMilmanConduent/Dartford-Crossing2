@@ -1,0 +1,54 @@
+{% extends "../../layout-dash-veh-man.html" %}
+
+{% block pageTitle %}
+  Account summary - Business
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+
+<!--main body starts-->
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Upload a CSV file to add or edit your vehicles' details
+    </h1>
+    <div class="govuk-grid-row">
+      
+    
+    <div class="govuk-grid-column-two-thirds">
+      
+    
+   <p class="govuk-body">
+    You can add, edit or delete up to 5,000 vehicles in one bulk upload.
+   <p>
+     <p class="govuk-body">
+      Use the <a href="/public/images/bulk-upload-template.csv" class="govuk-link" download>bulk upload template</a>  to complete all the necessary details about your vehicles.
+     <p>
+    </div>
+    </div>
+
+    <p class="govuk-body">
+      <a href="bulk-upload-guidance" class="govuk-link" target="blank">Guidance on how to use the bulk upload template</a>
+    </p>
+
+    {{ govukFileUpload({
+      id: "bulk-upload-file",
+      name: "bulk-upload-file",
+      label: {
+        text: "Upload a file"
+      }
+    }) }}
+
+    {{ govukButton({
+      text: "Continue",
+      href: "bulk-upload-error-summary-variantb"
+    }) }}    
+  </div>
+</div>
+{% endblock %}
+<!--main body ends-->

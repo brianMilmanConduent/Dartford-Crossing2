@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Enter the SMS code
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    
+        
+      <h1 class="govuk-heading-l">Choose a verification method</h1>
+       <p class="govuk-body">
+        A code will be sent to your mobile or email
+       <p>
+        <form action="2fa-code" method="post">
+
+            <div class="govuk-form-group govuk-!-margin-top-6 govuk-!-margin-bottom-6">
+            {{ govukRadios({
+              idPrefix: "2fa-choice",
+              name: "2fa-choice",
+              items: [
+                {
+                  value: "Email",
+                  html: "<b>Email</b> *********ips@gmail.com"
+                },
+                {
+                  value: "Mobile ********388",
+                  html: "<b>Mobile</b> ********388"
+                }
+              ]
+            }) }}
+
+            
+           
+            </div>
+            {{ govukDetails({
+              summaryText: "About mobile charges",
+              text: "Message and data rates may apply. Text HELP to ##### for help. Text STOP to ##### to cancel. For terms: gov.uk/dartcharge. For privacy: gov.uk/dartcharge"
+            }) }}
+
+            {{ govukButton({
+              text: "Continue"
+            }) }}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "../../layout-dash-acc-man.html" %}
+
+{% block pageTitle %}
+Payment details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+ <div class="govuk-grid-column-two-thirds">
+   
+         <h1 class="govuk-heading-l">
+          Your payment has been declined
+         </h1>
+         <div class="govuk-form-group">
+      
+            <p class="govuk-body">
+              Contact your bank for more details. No money has been taken from your account.<br><br>
+             <a href="#" class="govuk-link">Go back to try the payment again</a>
+            </p>
+              
+         </div>
+     </form>
+   </div>
+</div>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Enquiries
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <span class="govuk-caption-l">Enquiry history</span>
+      <h1 class="govuk-heading-l">Enquiry</h1>
+       
+{{ govukTable({
+  firstCellIsHeader: true,
+  rows: [
+    [
+      {
+        text: "Reference number",
+        classes: 'govuk-!-width-one-third'
+      },
+      {
+        text: "EN783545"
+      }
+    ],
+    [
+    {
+      text: "Type of enquiry"
+    },
+    {
+      text: "Account management"
+    }
+  ],
+  [
+    {
+      text: "Date and time submitted"
+    },
+    {
+      text: "20 Sep 2022 at 9:34 am"
+    }
+  ],
+    [
+      {
+        text: "Details of enquiry"
+      },
+      {
+        html: "
+        <details class='govuk-details' data-module='govuk-details'>
+          <summary class='govuk-details__summary'>
+            <span class='govuk-details__summary-text'>
+              Your enquiry
+            </span>
+          </summary>
+          <div class='govuk-details__text'>
+            I have a question regarding my account and how to close it down. Please could someone talk me through the process
+          </div>
+        </details>
+        
+        "
+      }
+    ],
+    [
+      {
+        text: "Status of enquiry"
+      },
+      {
+        html: 
+        "
+        <strong class='govuk-tag govuk-tag--green'>
+          Closed
+        </strong>
+        "
+      }
+    ]
+  ]
+}) }}
+       
+<br><br>
+<h2 class="govuk-heading-m">
+  Response from the Dart Charge team
+  <span class="govuk-caption-m">Responded: 21 Sep 2022 at 10:15 am</span>
+</h2>
+
+<p class="govuk-body">
+  Thank you for your enquiry. Please see details below regarding closing your account...........
+</p><br><br>
+<hr>
+<br><br>
+<p class="govuk-body">
+  <a href="enquiries#past-week" class="govuk-link">Back to enquiry history</a>
+</p>
+    
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Enter your postcode
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="addressChoose" method="post">
+        <h1 class="govuk-heading-l">
+        
+        </h1>
+       
+
+        {% if data['account-type'] === 'Personal' %}
+
+        <!--content here-->
+        
+         {% else %}
+        <!--content here-->
+        {% endif %}
+        
+        
+        
+        
+        {% if data['account-type'] %}
+        
+        {% endif %}
+
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

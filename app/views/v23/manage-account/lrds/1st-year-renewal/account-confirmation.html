@@ -1,0 +1,212 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your account has been created
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<br><br>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+<div class="govuk-grid-row">
+
+
+          {% if data['add-new-vrm-lrds'] === 'existing-vrm' %}
+
+          {% if data['lrdsSelect'] === 'Unlimited discount' %}
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Application complete
+            </h1>
+          </div>  
+         
+        <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+        <h2 class="govuk-heading-m">
+          Your payment
+        </h2>
+        <p class="govuk-body">
+          Your payment reference is 34562345. You’ll receive the digital receipt for this payment separately.
+        <p>
+        
+          <h2 class="govuk-heading-m">
+            What happens next
+          </h2>
+
+   
+        
+
+        <p class="govuk-body">
+          You have unlimited crossings for your LRDS plan this year.
+        </p>
+
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">View your account</a>
+      </p> 
+
+          {% else %}
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Application complete
+            </h1>
+          </div>  
+         
+        <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+        <h2 class="govuk-heading-m">
+          Your payment
+        </h2>
+        <p class="govuk-body">
+          Your payment reference is 34562345. You’ll receive the digital receipt for this payment separately.
+        <p>
+        
+          <h2 class="govuk-heading-m">
+            What happens next
+          </h2>
+
+   
+        
+
+        <p class="govuk-body">
+          You have 50 crossings left on your plan.
+        </p>
+
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">View your account</a>
+      </p> 
+          {% endif %}
+    {% else %}
+          <!--no content shown-->
+    {% endif %}
+
+
+   
+
+
+
+   
+
+
+
+    {% if data['add-new-vrm-lrds'] === 'new-vrm' %}
+
+    <div class="govuk-panel govuk-panel--interruption">
+      
+      <fieldset class="govuk-fieldset" aria-describedby="start_new_claim">
+  
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-heading-l">
+              We're reviewing your V5C log book details
+            </h1>
+          </legend>
+          <h2 class="govuk-heading-m">
+            What happens next
+          </h2>
+            
+  
+          <p class="govuk-body">
+            Your account will be active  once your local resident discount is re-activated.
+          </p>  
+          <p class="govuk-body">
+            <a href="#" class="govuk-link whitea">View your account</a>
+          </p>
+          <h2 class="govuk-heading-m">
+            Dart Charge contact centre
+           </h2>
+  
+           <ul class="govuk-list">
+            <li>
+              Telephone: 0300 300 0120
+  
+            </li>
+            <li>
+              Textphone: 18001 0300 300 0120
+            </li>
+            <li>
+              Every day, 8am to 8pm
+            </li>
+            <li>
+              <a href="#" class="govuk-link whitea">Find out about call charges</a>
+            </li>
+           </ul>
+     
+  
+        
+  
+      </fieldset>
+  
+  </div>
+  
+      
+      <!--content here-->
+
+      {% else %}
+      <!--no content here-->
+      {% endif %}
+       
+      {% if data['lrdsSelect'] === 'None of the above'  %}
+
+          <div class="govuk-panel govuk-panel--confirmation">
+            <h1 class="govuk-panel__title">
+              Application complete
+            </h1>
+            <div class="govuk-panel__body">
+              Your account number<br><strong>HDJ2123F</strong>
+            </div>
+            <br>
+          </div>
+          
+          <p>We’ve sent a confirmation email with your account details to  {{ data['email']}}</p>
+          <h2 class="govuk-heading-m">
+            Your payment
+          </h2>
+                  
+                    <p>Your payment reference for your pre-pay account is 4569852.<br>You’ll receive the digital receipt for this payment separately. </p>
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>    
+
+              <p class="govuk-body">
+                Your Dart Charge account is now active.
+              <p>
+
+              
+                <p class="govuk-body">
+                    <a href="#" class="govuk-link">View your account</a> to:
+                </p>  
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  add more vehicles
+                </li>
+                <li>
+                  change how you pay for crossings
+                </li>
+                <li>
+                  change how you receive communications
+                </li>
+              </ul>  
+            
+      <!--content here-->
+
+      {% else %}
+      <!--no content here-->
+      {% endif %}
+      
+      
+     
+    
+             
+</div>
+
+
+
+
+  
+
+{% endblock %}

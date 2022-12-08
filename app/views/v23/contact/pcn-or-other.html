@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="inter-query" method="post">
+       <h1 class="govuk-heading-l">
+        What are you contacting us about today?
+       </h1>
+       {{ govukRadios({
+        idPrefix: "conduentEmovis",
+        name: "conduentEmovis",
+        
+        items: [
+          {
+            value: "Dart Charge",
+            text: "Dart Charge"
+          },
+          {
+            value: "A fine (Penalty Charge Notice)",
+            text: "A fine (Penalty Charge Notice)"
+          }
+        ]
+       }) }}
+
+       {{ govukDetails({
+        summaryText: "Have a Dart Charge account? Sign in first",
+        html: " <a href='../manage-account/login' class='govuk-link'>Sign in to your Dart Charge account</a>  to skip giving us your details again. You can also keep a record of all your enquiries in this way."
+       }) }}
+
+
+       {{ govukButton({
+        text: "Continue"
+       }) }}
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

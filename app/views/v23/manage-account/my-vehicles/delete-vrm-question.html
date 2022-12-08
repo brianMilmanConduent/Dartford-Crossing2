@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your vehicles
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="add-new-vrm">
+      <fieldset class="govuk-fieldset">
+        
+        <h1 class="govuk-heading-l">
+          Are you sure you want to remove these vehicles?
+        </h1>
+        <div class="govuk-grid-column-two-thirds">
+          
+          <div class="govuk-grid-row">
+            
+            {% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Number plate"
+    },
+    {
+      text: "Make"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "L90 VW"
+      },
+      {
+        text: "Landrover"
+      }
+    ],
+    [
+      {
+        text: "L999 ER"
+      },
+      {
+        text: "Maranga"
+      }
+    ]
+    ]
+}) }}
+        
+              
+
+        </div>
+      </div>
+      
+         
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                  {{ govukButton({
+                    text: "Remove",
+                    classes: "govuk-button--warning"
+                  }) }}
+      <p class="govuk-body">
+        
+      
+      <a href="vehicles" class="govuk-link">Cancel</a>
+    </p>
+    </form>
+
+  </div>
+</div>
+
+ 
+
+
+
+
+
+  
+  
+
+  
+
+
+
+
+{% endblock %}

@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your vehicle
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+{% if data['account-type'] === 'Personal' %}
+
+<!--content here-->
+
+ {% else %}
+<!--content here-->
+{% endif %}
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+        <fieldset class="govuk-fieldset">
+          <h1 class="govuk-heading-l">We need more information about your vehicle</h1>
+
+
+            <form class="form" method="post" action="previous-journeys">
+
+              <div class="govuk-grid-row">
+                  <div class="govuk-grid-column-two-thirds">
+
+
+                    <p class="govuk-body">
+                      Vehicle Registration (number plate)<br>
+                      <span class="govuk-body govuk-!-font-size-24"><strong >{{data['vrn']}}</strong></span> <a href="vehicle-reg" class="govuk-link govuk-!-margin-left-3">Change</a>
+                     </p>
+
+                    {{ govukSelect({
+                      id: "vehicle-type",
+                      name: "vehicle-type",
+                      label: {
+                        text: "Vehicle type"
+                      },
+                      
+                      items: [
+                      {
+                        value: "Value",
+                        text: "Select vehicle type"
+                      },
+                      {
+                        value: "Value",
+                        text: "Motorcycle, moped or quad bike"
+                      },
+                        {
+                          value: "Value",
+                          text: "Car or van"
+                        },
+                        {
+                          value: "Value",
+                          text: "Bus, coach or other goods vehicles with 2 axles"
+                        },
+                        {
+                          value: "Value",
+                          text: "Vehicle with more than 2 axles"
+                        }
+                      ]
+                    }) }}
+
+
+                    
+
+                    {{ govukInput({
+                      id: "vehicle-make",
+                      name: "vehicle-make",
+                      label: {
+                        text: "Make"
+                      }
+                    }) }}
+                    
+                    {{ govukInput({
+                      id: "vehicle-make",
+                      name: "vehicle-make",
+                      label: {
+                        text: "Model"
+                      }
+                    }) }}
+                   
+                    {{ govukInput({
+                      id: "vehicle-make",
+                      name: "vehicle-make",
+                      label: {
+                        text: "Colour"
+                      }
+                    }) }}
+                  
+
+
+                    {{ govukRadios({
+                      idPrefix: "uk-or-non-uk",
+                      name: "uk-or-non-uk",
+                      fieldset: {
+                        legend: {
+                          text: "Country of registration",
+                          isPageHeading: true,
+                          classes: "govuk-fieldset__legend--s"
+                        }
+                      },
+                     
+                      items: [
+                        {
+                          value: "Value",
+                          text: "UK"
+                        },
+                        {
+                          value: "Value",
+                          text: "Outside the UK"
+                        }
+                      ]
+                    }) }}
+                     
+             
+                      </div>
+                  </div>
+
+
+
+
+                  {{ govukCheckboxes({
+                    idPrefix: "vrm-confirmation",
+                    name: "vrm-confirmation",
+                    
+                    items: [
+                      {
+                        value: "Value",
+                        text: "I confirm that the vehicle information provided is correct"
+                      }
+                    ]
+                  }) }}
+       
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <!--  </div><button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+          Add another vehicle
+        </button>-->
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

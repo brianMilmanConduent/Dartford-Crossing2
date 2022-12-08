@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Enter the SMS code
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+    <form class="form" action="businessPersonalVehicles" method="post">
+        
+      <h1 class="govuk-heading-l">Would you like to opt-in to two step verifcation?</h1>
+       <p class="govuk-body">
+        This will make access to your account more secure.
+       <p>
+        <form action="step4-code" method="post">
+
+            <div class="govuk-form-group govuk-!-margin-top-6 govuk-!-margin-bottom-3">
+
+            {{ govukRadios({
+              idPrefix: "opt-in-2fa",
+              name: "opt-in-2fa",
+             
+              
+              items: [
+                {
+                  value: "Yes",
+                  text: "Yes"
+                },
+                {
+                  value: "No",
+                  text: "No"
+                }
+              ]
+            }) }}
+          </div>
+  <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What is two step verification?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          content tbc
+
+      
+      </details>
+
+{{ govukButton({
+  text: "Continue"
+}) }}
+
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

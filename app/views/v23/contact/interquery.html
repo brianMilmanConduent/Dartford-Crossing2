@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="query-category" method="post">
+       <h1 class="govuk-heading-l">
+        What is your Dart Charge query about?
+       </h1>
+       {{ govukRadios({
+        idPrefix: "enquiryComplaint",
+        name: "enquiryComplaint",
+        hint: {
+          text: "This helps us to field your query to the right person"
+        },
+        items: [
+          {
+            value: "A general enquiry",
+            text: "A general enquiry"
+          },
+          {
+            value: "A complaint",
+            text: "A complaint"
+          }
+        ]
+       }) }}
+
+       {{ govukButton({
+        text: "Continue"
+       }) }}
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

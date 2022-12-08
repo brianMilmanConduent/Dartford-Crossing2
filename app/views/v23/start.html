@@ -1,0 +1,151 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Pay the Dartford Crossing & Dart Charge
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-width-container">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">{% if serviceName %} {{ serviceName }} {% endif %}</h1>
+
+       <p class="govuk-body">
+        Use this service to
+       </p>
+       <ul class="govuk-list govuk-list--bullet">
+        <li>
+          pay for a crossing
+        </li>
+        <li>
+          sign in or set up a Dart Charge account
+        </li>
+        <li>
+          resolve a fine (Penalty Charge Notice)
+        </li>
+        <li>
+          check which crossings you've paid for
+        </li>
+        <li>
+          find out about charges and fines
+        </li>
+       </ul>
+
+        {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+          {{ govukWarningText({
+            text: "You must pay the Dart Charge by midnight the day after you cross, otherwise you may get a fine (Penalty Charge Notice). ",
+            iconFallbackText: "Warning"
+        }) }}
+        <p class="govuk-body">
+          <a href="charges-and-penalties">Find out about charges and fines</a>
+        </p>
+
+       
+
+        <a href="landing" role="button" draggable="false" class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8"  data-module="govuk-button">
+          Start now
+          <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" role="presentation" focusable="false">
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+          </svg>
+        </a>
+        
+        <h2 class="govuk-heading-m">
+          Other ways to pay your charge
+        </h2>
+<p class="govuk-body">
+  Using this online service is the quickest way to pay your charge. Or you can:
+
+</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>
+    pay with cash at a <a href="#" class="govuk-link">Payzone store</a>
+  </li>
+  <li>
+    pay or set up an account <a href="#" class="govuk-link">by post</a>
+  </li>
+  <li>
+    pay or set up an account by phoning the Dart Charge contact centre
+  </li>
+</ul>
+
+
+<h2 class="govuk-heading-m">
+  Contact the Dart Charge team
+</h2>
+<p class="govuk-body">
+  <a href="contact/pcn-or-other" class="govuk-link">Get in touch</a> about:
+</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>
+    charges
+  </li>
+  <li>
+    fines (Penalty Charge Notice)
+  </li>
+  <li>
+    refunds
+  </li>
+  <li>
+    Dart Charge accounts
+  </li>
+  <li>
+    complaints
+  </li>
+  <li>
+    general enquiries
+  </li>
+</ul>
+<!--
+{{ govukDetails({
+  summaryText: "If your query is urgent",
+  html: 
+  "
+  <p class='govuk-body'>
+    For example, if your fine (Personal Charge Notice) is about to increase, you can call or email us.<br><br>
+    UK Telephone: XXX XXX XXXX<br>
+    From outside the UK: +44 (0) XXX XXX XXXX<br>
+    Textphone: 1800 XXXX XXX XXXX<br>
+    You can get in touch every day, Monday to Sunday, 8am to 8pm
+    <a href='charges-and-penalties'>Find out about charges and fines</a>
+    <br><br>
+    Email us: <a href='#' class='govuk-link'>name@example.com</a>. We aim to respond to email enquiries within X working days
+  </p>
+  "
+}) }}
+-->
+    </div>
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="charges-and-penalties">
+                Understanding charges, discounts and penalties
+              </a>
+            </li>
+            <!--<li>
+              <a href="https://www.gov.uk/government/collections/dart-charge">
+                Dart Charge guidance and documents
+              </a>
+            </li>-->
+            <li>
+              <a href="forms-and-guidance">
+                Dart Charge guidance and documents
+              </a>
+            </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

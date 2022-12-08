@@ -1,0 +1,362 @@
+{% extends "../signout-dashboard.html" %}
+
+{% block pageTitle %}
+  Account summary
+{% endblock %}
+
+{% block beforeContent %}
+  
+{% include "includes/beta-banner.html" %}
+{% endblock %}
+
+
+<!--main body starts-->
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    {% if data['newcarddone'] %}
+
+    {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+    {% set html %}
+      
+      <p class="govuk-notification-banner__heading">
+        You have 4 unread notifications.
+        <a class="govuk-notification-banner__link" href="notifications-ur/notifications#standard-notifications">Read now</a>.
+      </p>
+    {% endset %}
+    
+    {{ govukNotificationBanner({
+      html: html
+    }) }}
+    
+     {% else %}
+     {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+    {% set html %}
+      <p class="govuk-notification-banner__heading">
+        Card <b>**** **** 4567</b> will expire in 22 days.
+        <a class="govuk-notification-banner__link" href="payments/new-card">Update card</a>.
+      </p>
+     
+    {% endset %}
+    
+    {{ govukNotificationBanner({
+      html: html
+    }) }}
+    {% endif %}
+
+    
+
+
+
+    <!--priority message banner-->
+   
+
+   <!--priority message banner-->
+
+   <h1 class="govuk-heading-xl govuk-!-margin-bottom-6 govuk-!-margin-top-0">
+    
+    Account home
+    <span class="govuk-caption-m govuk-!-margin-top-2"><b>Logged in user</b> email@email.com</span>
+    <span class="govuk-caption-m"><b>Account number</b> 6789027682</span>
+    <span class="govuk-caption-m"><b>Account status</b> 
+        {{ govukTag({
+        text: "Open",
+        classes: "govuk-tag--green"
+        }) }}
+</span>
+
+</h1>
+<!--BALANCE STARTS HERE-->
+
+{% if data['email-address'] === 'lrds' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-0 govuk-!-margin-top-3">
+      Your pre-pay balance
+     </h2>
+     <p class="govuk-body govuk-!-font-size-48 govuk-!-margin-bottom-0">£150.00 
+       
+     </p> 
+     <a href="#" class="govuk-link govuk-!-margin-top-0 govuk-!-margin-right-3">Top up balance</a> 
+     <a href="payments/payment-tabs#paymentTopUpHtml" class="govuk-link govuk-!-margin-top-0 ">Change top-up limits</a>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-0 govuk-!-margin-top-3">
+      Your LRDS allowance
+     </h2>
+     <p class="govuk-body govuk-!-font-size-48 govuk-!-margin-bottom-0">10 crossings
+       
+     </p> 
+     <a href="#" class="govuk-link govuk-!-margin-top-0 govuk-!-margin-right-3">Add credit</a> 
+     <a href="#" class="govuk-link govuk-!-margin-top-0 ">Upgrade to unlimited</a>
+  </div>
+</div>
+
+ {% else %}
+<!--content here-->
+{% endif %}
+
+
+{% if data['email-address'] === 'personal' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-0 govuk-!-margin-top-9">
+      Your pre-pay balance
+     </h2>
+     <p class="govuk-body govuk-!-font-size-48 govuk-!-margin-bottom-0">£10.00 
+       
+     </p> 
+     <a href="#" class="govuk-link govuk-!-margin-top-0 govuk-!-margin-right-3">Top up balance</a> 
+     <a href="payments/payment-tabs#paymentTopUpHtml" class="govuk-link govuk-!-margin-top-0 ">Change top-up limits</a>
+  </div>
+</div>
+
+ {% else %}
+<!--content here-->
+{% endif %}
+
+{% if data['email-address'] === 'business' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-0">
+      Your pre-pay balance
+     </h2>
+     <p class="govuk-body govuk-!-font-size-48 govuk-!-margin-bottom-0">£150.00 
+       
+     </p> 
+     <a href="#" class="govuk-link govuk-!-margin-top-0 govuk-!-margin-right-3">Top up balance</a> 
+     <a href="payments/payment-tabs#paymentTopUpHtml" class="govuk-link govuk-!-margin-top-0 ">Change top-up limits</a>
+  </div>
+</div>
+
+ {% else %}
+<!--content here-->
+{% endif %}
+<div class="govuk-grid-row govuk-!-margin-top-9">
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-l">
+      Account management
+    </h2>
+  </div>
+  <div class="govuk-grid-column-one-third">
+   
+    <!--container start-->
+    <div class="summaryContainer">
+      <a href="profile" class="govuk-link govuk-link--no-underline">
+      <div class="summaryHeader">
+        <h2 class="govuk-heading-m">
+            Profile
+        </h2>
+      </div>
+        <div class="summaryDetail">
+          <p class="govuk-body">
+            Manage and change your personal and account details
+          </p>
+        </div>
+      </a>
+    </div>
+     <!--container end-->
+  </div>
+  <div class="govuk-grid-column-one-third">
+      <!--container start-->
+      <div class="summaryContainer">
+        <a href="../payments/payment-tabs" class="govuk-link govuk-link--no-underline">
+        <div class="summaryHeader">
+          <h2 class="govuk-heading-m">
+              Payment
+          </h2>
+        </div>
+          <div class="summaryDetail">
+            <p class="govuk-body">
+              Change your payment methods and amounts
+            </p>
+          </div>
+        </a>
+      </div>
+       <!--container end-->
+  </div>
+  <div class="govuk-grid-column-one-third">
+     <!--container start-->
+     <div class="summaryContainer">
+      <a href="../notifications-ur/notifications" class="govuk-link govuk-link--no-underline">
+      <div class="summaryHeader">
+        <h2 class="govuk-heading-m">
+            Notifications
+        </h2>
+      </div>
+        <div class="summaryDetail">
+          <p class="govuk-body">
+            Read and act on alerts  about your account
+          </p>
+        </div>
+      </a>
+    </div>
+     <!--container end-->
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-third">
+    <!--container start-->
+    <div class="summaryContainer">
+      <a href="#" class="govuk-link govuk-link--no-underline">
+      <div class="summaryHeader">
+        <h2 class="govuk-heading-m">
+            Vehicle list
+        </h2>
+      </div>
+        <div class="summaryDetail">
+          <p class="govuk-body">
+            Add or delete vehicles
+          </p>
+        </div>
+      </a>
+    </div>
+     <!--container end-->
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <!--container start-->
+    <div class="summaryContainer">
+      <a href="crossing-history" class="govuk-link govuk-link--no-underline">
+      <div class="summaryHeader">
+        <h2 class="govuk-heading-m">
+          
+            Crossing history
+        
+        </h2>
+      </div>
+        <div class="summaryDetail">
+          <p class="govuk-body">
+            View the crossing history for your vehicles
+          </p>
+        </div>
+      </a>
+    </div>
+     <!--container end-->
+</div>
+  <div class="govuk-grid-column-one-third">
+    <!--container start-->
+    <div class="summaryContainer">
+      <a href="../notifications-ur/coms-pref" class="govuk-link govuk-link--no-underline">
+      <div class="summaryHeader">
+        <h2 class="govuk-heading-m">
+            Communication preferences
+        </h2>
+      </div>
+        <div class="summaryDetail">
+          <p class="govuk-body">
+            Choose how we send you communications about your account
+          </p>
+        </div>
+      </a>
+    </div>
+     <!--container end-->
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <!--container start-->
+    <div class="summaryContainer">
+    <a href="../nominated-contacts-ur/nominated-contact-start"  class="govuk-link--no-underline">
+    
+      <div class="summaryHeader">
+        <h2 class="govuk-heading-m">
+            Nominated contact
+        </h2>
+      </div>
+        <div class="summaryDetail">
+          <p class="govuk-body">
+            Invite other people who can use your account
+          </p>
+        </div>
+    
+  </a>
+  </div>
+     <!--container end-->
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+     <!--container start-->
+     <div class="summaryContainer">
+      <a href="#" class="govuk-link govuk-link--no-underline">
+      <div class="summaryHeader">
+        <h2 class="govuk-heading-m">
+            Cases and enquiry
+        </h2>
+      </div>
+        <div class="summaryDetail">
+          <p class="govuk-body">
+            Make an enquiry about your account
+          </p>
+        </div>
+      </a>
+    </div>
+     <!--container end-->
+  </div>
+  {% if data['email-address'] === 'business' %}
+
+
+        <div class="govuk-grid-column-one-third">
+           <!--container start-->
+           <div class="summaryContainer">
+            <a href="#" class="govuk-link govuk-link--no-underline">
+            <div class="summaryHeader">
+              <h2 class="govuk-heading-m">
+                
+                  Vehicle bulk upload
+              
+              </h2>
+            </div>
+              <div class="summaryDetail">
+                <p class="govuk-body">
+                  Add, edit or delete up to 5,000 vehicles in one bulk upload
+                </p>
+              </div>
+            </a>
+          </div>
+           <!--container end-->
+        </div>
+      </div>
+
+      <div class="govuk-grid-row">
+       
+        <div class="govuk-grid-column-one-third">
+          <!--container start-->
+          <div class="summaryContainer">
+            <a href="#" class="govuk-link govuk-link--no-underline">
+            <div class="summaryHeader">
+              <h2 class="govuk-heading-m">
+               
+                  Group management
+                
+              </h2>
+            </div>
+              <div class="summaryDetail">
+                <p class="govuk-body">
+                  Set up and manage your vehicles in groups
+                </p>
+              </div>
+            </a>
+          </div>
+           <!--container end-->
+        </div>
+       <!--content here-->
+
+ {% else %}
+ <!--content here-->
+ {% endif %}
+  </div>
+
+    
+
+     
+</div>
+{% endblock %}
+<!--main body ends-->

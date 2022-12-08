@@ -1,0 +1,159 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+  Account summary - Business
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/alpha-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+
+<!--main body starts-->
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+   
+
+
+    <h1 class="govuk-heading-l">
+      Your CSV file has the following errors
+    </h1>
+  
+
+    {{ govukWarningText({
+      text: "The file could not be uploaded because it contains errors. no records have been uploaded",
+      iconFallbackText: "Fallback text"
+    }) }}
+
+<div class="error-table">
+  <p id="table-error" class="govuk-error-message">
+    <span class="govuk-visually-hidden">Error:</span> Vehicle not found in DVLA database
+  </p>
+    {{ govukTable({
+      firstCellIsHeader: true,
+      head: [
+       
+        {
+          text: "Row"
+        },
+        {
+          text: "Registration number"
+        }
+      ],
+      rows: [
+        [
+        
+        {
+          text: "12"
+        },
+        {
+          html: "AB65 CVB"
+        }
+        ],
+        [
+        {
+          text: "14"
+        },
+        {
+          html: "TH70 RFV"
+        }
+        ],
+        [
+        {
+          text: "22"
+        },
+        {
+          html: "JOB20 W"
+        }
+        ],
+        [
+        {
+          text: "124"
+        },
+        {
+          html: "TY64 OOK"
+        }
+        ],
+        [
+        
+        {
+          text: "333"
+        },
+        {
+          html: "RG70 RFV"
+        }
+        ],
+        [
+        {
+          text: "455"
+        },
+        {
+          html: "LP56 PRO"
+        }
+        ],
+        [
+        {
+          text: "456"
+        },
+        {
+          html: "YH70 RET"
+        }
+        ],
+        [
+        {
+          text: "458"
+        },
+        {
+          html: "JH71 RTT"
+        }
+        ],
+        [
+        
+        {
+          text: "500"
+        },
+        {
+          html: "LO56 YUH"
+        }
+        ],
+        [
+        {
+          text: "501"
+        },
+        {
+          html: "LO45 RTY"
+        }
+        ],
+        [
+        {
+          text: "502"
+        },
+        {
+          html: "LO41 TGB"
+        }
+        ],
+        [
+        {
+          text: "510"
+        },
+        {
+          html: "LO55 KKF"
+        }
+        ]
+      ]
+    }) }}
+  </div>
+
+
+    <a href="#" class="govuk-link">Download CSV file with errors</a><br><br>
+  {{ govukButton({
+    text: "Back to error summary"
+  }) }}
+  
+  </div>
+</div>
+{% endblock %}
+<!--main body ends-->

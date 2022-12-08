@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Payment details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="account-confirmation" method="post">
+       
+          <fieldset class="govuk-fieldset">
+           
+
+
+            
+
+                 
+
+                    <h1 class="govuk-heading-l ">How do you want to pay? </h1>
+                    <fieldset class="govuk-fieldset">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label" for="email">
+                        </label>
+
+                  
+                    </div>
+                    <div class="govuk-form-group">
+                        <h2 class="govuk-heading-m govuk-!-margin-bottom-1">
+                          Payment amount
+                        </h2>
+                        <p class="govuk-body govuk-!-font-size-24">
+                          £10
+                        </p>
+                      </div>
+      
+                   
+
+                 
+                
+                  <div class="govuk-!-margin-top-1">
+                       {% include "includes/payment-info-debitonly.html" %}
+                  </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

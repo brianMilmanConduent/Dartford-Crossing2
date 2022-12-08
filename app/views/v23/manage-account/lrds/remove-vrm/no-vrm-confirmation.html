@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Your account has been created
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+<br><br>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+
+<div class="govuk-grid-row">
+ 
+              <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">
+                  Vehicle removed
+                </h1>
+              </div>  
+             
+            <p>We’ve sent a confirmation email to [email address]</p>
+           
+            
+              <h2 class="govuk-heading-m">
+                What happens next
+              </h2>
+
+       
+              <p class="govuk-body">
+                You can <a href="#" class="govuk-link">add a vehicle</a> to your LRDS (local resident discount) within the next 90 days. If no vehicle is added in the next 90 days your LRDS plan will close.
+              </p>
+
+
+            <ul class="govuk-list">
+              <li>
+                <a href="#" class="govuk-link">View your account</a>
+              </li>
+              <li>
+                <a href="#" class="govuk-link">Close your account</a>
+              </li>
+              
+            </ul>
+           
+             
+</div>
+
+
+
+
+  
+
+{% endblock %}

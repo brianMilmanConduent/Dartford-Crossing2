@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check for paid crossings
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  {% include "includes/back-link.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+ 
+
+  <form class="form" method="post" action="crossing-info">
+
+
+    
+    
+    <h1 class="govuk-heading-l">
+      Crossing details
+    </h1>
+
+    <!--<h1 class="govuk-heading-l">
+      Crossing details for payment reference {{data['pay-ref']}}
+    </h1>-->
+
+    <table class="govuk-table">
+      
+     
+     <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Payment reference</th>
+          <td class="govuk-table__cell">{{data['pay-ref']}}</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Registered vehicle</th>
+          <td class="govuk-table__cell">{{data['vrm']}} <a href="vehicle-reg" class="govuk-link govuk-!-margin-left-3">Change</a></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Crossings remaining</th>
+          <td class="govuk-table__cell">4 crossings</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Expiry date for remaining crossings</th>
+          <td class="govuk-table__cell">6 Aug 2023</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <!--<div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-6">
+      <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Registered vehicle</h3>
+      <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">{{data['vrm']}}</h1>
+      <p class="govuk-body">
+        <a href="vehicle-reg" class="govuk-link">Change vehicle</a>
+      </p>
+    </div>
+    <div class="govuk-inset-text govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-top-0 govuk-!-margin-bottom-6">
+      <h3 class="govuk-body-xl govuk-!-margin-top-0 govuk-!-padding-top-0 govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Crossings remaining</h3>
+      <h1 id = "charge" class="govuk-body-xl govuk-!-margin-bottom-0 govuk-!-padding-bottom-0 govuk-!-padding-top-0 govuk-!-margin-top-0">4</h1>
+      <p class="govuk-body">
+        Expiry date: 6 Aug 2023
+      </p>
+    </div>-->
+  
+
+    
+    
+    <p class="govuk-body govuk-!-margin-bottom-9">
+      <a href="#" class="govuk-link">Set up an account</a>
+    </p>
+    
+
+
+<h2 class="govuk-heading-m">
+  Previous crossings
+</h2>
+<p class="govuk-body">
+  No crossings have been made against this payment reference.
+</p>
+
+   
+
+   
+
+  </form>
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Enter your postcode
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="message" method="post">
+        {% if data['enquiryComplaint'] === 'A complaint' %}
+       <h1 class="govuk-heading-l">
+        Choose your type of complaint
+       </h1>
+       {% else %}
+       <h1 class="govuk-heading-l">
+        Choose your type of enquiry
+       </h1>
+       {% endif %}
+       
+       {% if data['conduentEmovis'] === 'Dart Charge' or data['email-address'] === 'personal' or data['email-address'] === 'contact' %}
+       {% if data['enquiryComplaint'] === 'A general enquiry' %}
+<!--Conduent categories-->
+       {{ govukRadios({
+        idPrefix: "query",
+        name: "query",
+        
+        items: [
+        {
+          value: "Accessibility",
+          text: "Accessibility"
+        },  
+        {
+            value: "Account management",
+            text: "Account management"
+          },
+          {
+            value: "Data request",
+            text: "Data request"
+          },
+          {
+            value: "Paying the Dart Charge",
+            text: "Paying the Dart Charge"
+          },  
+          {
+              value: "Refund",
+              text: "Refund"
+            },  
+            {
+                value: "Using the website",
+                text: "Using the website"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "None of these",
+                text: "None of these"
+              }
+        ]
+       }) }}
+       {% else %}
+       {{ govukRadios({
+        idPrefix: "query",
+        name: "query",
+        
+        items: [
+        {
+          value: "Account management",
+          text: "Account management"
+        },  
+        {
+            value: "A crossing",
+            text: "A crossing"
+          },
+          {
+            value: "Customer service",
+            text: "Customer service"
+          },
+          {
+            value: "Paying the Dart Charge",
+            text: "Paying the Dart Charge"
+          },  
+          
+            {
+                value: "Using the website",
+                text: "Using the website"
+              },
+              {
+                divider: "or"
+              },
+              {
+                value: "None of these",
+                text: "None of these"
+              }
+        ]
+       }) }}
+       {% endif %}
+<!--Conduent categories end-->
+          {% else %}
+          <!--Emovis categories-->
+          {{ govukRadios({
+            idPrefix: "query",
+            name: "query",
+            
+            items: [
+            {
+              value: "Complaint",
+              text: "Complaint"
+            },  
+            {
+                value: "Enquiry",
+                text: "Enquiry"
+              },
+              {
+                value: "Refund request",
+                text: "Refund request"
+              }
+            ]
+           }) }}
+           <!--Emovis categories end-->
+          {% endif %}
+
+
+
+
+      
+       {{ govukButton({
+        text: "Continue"
+       }) }}
+    </form>
+    </div>
+  </div>
+
+{% endblock %}

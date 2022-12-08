@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+How do you want to send your proof of local residency?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="lrdsPost">
+
+  <div class="govuk-width-container ">
+        
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+      
+
+ 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+   
+    {{ govukRadios({
+      idPrefix: "select-vrn",
+      name: "select-vrn",
+      fieldset: {
+        legend: {
+          text: "Select the vehicle to use the LRDS plan",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        
+        {
+          value: "AB21 IIU",
+          text: "AB21 IIU"
+        },
+        {
+          value: "HF11 RTF",
+          text: "HF11 RTF"
+        },
+        {
+          value: "LO62 NRO",
+          text: "LO62 NRO"
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "new vrn",
+          text: "The vehicle is not on my acccount, add new"
+        }
+      ]
+    }) }}
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    </div>
+    </div>
+    </main>
+  </div>
+</form>
+{% endblock %}

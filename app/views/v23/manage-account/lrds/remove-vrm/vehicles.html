@@ -1,0 +1,80 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+  Account summary - Business
+{% endblock %}
+
+{% block beforeContent %}
+  
+{% include "includes/beta-banner.html" %}
+{% endblock %}
+
+
+<!--main body starts-->
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!--priority message banner-->
+    
+
+   <!--priority message banner-->
+
+  <h1 class="govuk-heading-l">
+    Your vehicles
+  </h1>
+
+
+  
+ 
+
+{{ govukTable({
+  
+  firstCellIsHeader: true,
+  head: [
+    {
+      text: "Vehicles"
+    },
+    {
+      text: "Plan type"
+    },
+    {
+      text: "Crossings"
+    },
+    {
+      html: 
+        "
+        
+        "
+    }
+  ],
+  rows: [
+    
+    
+    [
+      {
+        text: "LO62 NRO"
+      },
+      {
+        text: "LRDS"
+      },
+      {
+        text: "25"
+      },
+      {
+        html: 
+          "
+          <a href='delete-vrm' class='govuk-link'>Remove</a>
+          "
+      }
+    ]
+  ]
+}) }}
+
+</div>
+</div>
+{% endblock %}
+<!--main body ends-->
