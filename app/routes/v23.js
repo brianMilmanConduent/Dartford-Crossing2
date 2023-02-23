@@ -455,6 +455,12 @@ router.post(`/v${verNum}/one-off-payment/pay-crossing`, function (req, res) {
   res.redirect(`/v${verNum}/one-off-payment/confirm-vehicle-info`);
 });
 
+/////////////////////////One off payment flow v05////////////////////////
+router.post(`/v${verNum}/one-off-payment-exempt-journey/pay-crossing`, function (req, res) {
+  // res.redirect(`/one-off-payment/${req.params.version}/payment-options`);
+  res.redirect(`/v${verNum}/one-off-payment-exempt-journey/confirm-vehicle-exempt-details`);
+});
+
 
 
 router.post(`/v${verNum}/one-off-payment/vehicle-info`, function (req, res) {
