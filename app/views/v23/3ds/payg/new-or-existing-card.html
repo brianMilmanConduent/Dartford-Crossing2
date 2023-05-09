@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  Check for paid crossings
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+  {% include "includes/back-link.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+ 
+
+  <form class="form" method="post" action="crossing-info">
+
+
+    
+
+    
+    <h1 class="govuk-heading-l">
+      Payment card details
+    </h1>
+    <p class="govuk-body">
+      You need to have a valid payment card on your account 
+    </p>
+
+{{ govukRadios({
+  idPrefix: "new-or-existing-card",
+  name: "new-or-existing-card",
+  fieldset: {
+    legend: {
+      text: "Which card do you want to use on your account?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+ 
+  items: [
+   
+    {
+      value: "Value",
+      html: 
+      "
+      <p class='govuk-body govuk-!-margin-bottom-6'>
+        Your existing card - Mastercard **** 4563 <img class='card-img-new' src='/public/images/mastercard.png'  width='40px' alt='payment' />
+      </p>
+      "
+    },
+    {
+      value: "Value",
+      text: "Add a new card"
+    }
+  ]
+}) }}
+
+
+
+    {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+    {{ govukWarningText({
+      text: "You may receive a PCN for any late payment.",
+      iconFallbackText: "Warning"
+    }) }}
+
+    {{ govukButton({
+      text: "Continue",
+      href: "payment-card-detail"
+    }) }}
+
+  </form>
+  </div>
+
+</div>
+
+{% endblock %}

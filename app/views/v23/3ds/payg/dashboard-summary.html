@@ -1,0 +1,222 @@
+{% extends "layout-dashboard.html" %}
+
+{% block pageTitle %}
+  Account summary
+{% endblock %}
+
+{% block beforeContent %}
+  
+{% include "includes/beta-banner.html" %}
+{% endblock %}
+
+
+<!--main body starts-->
+{% block content %}
+
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+    {% set html %}
+      <h3 class="govuk-notification-banner__heading">
+        Payment card details confirmed
+      </h3>
+      <p class="govuk-body">You can see and change your payment method details within your <a class="govuk-notification-banner__link" href="#">account management</a>.</p>
+    {% endset %}
+    
+    {{ govukNotificationBanner({
+      html: html,
+      type: 'success'
+    }) }}
+
+   <h1 class="govuk-heading-xl  govuk-!-margin-top-0">
+    
+    Account home
+    <span class="govuk-caption-m govuk-!-margin-top-2"><b>Logged in user</b> email@email.com</span>
+    <span class="govuk-caption-m"><b>Account number</b> 6789027682</span>
+    <span class="govuk-caption-m"><b>Account status</b> 
+        {{ govukTag({
+        text: "Open",
+        classes: "govuk-tag--green"
+        }) }}
+</span>
+</h1>
+
+</div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-grid-row ">
+      <div class="govuk-grid-column-one-third">
+        <!--container start-->
+        <div class="summaryContainer">
+          <a href="my-profile/profile-summary" class="govuk-link govuk-link--no-underline">
+          <div class="summaryHeader">
+            <h2 class="govuk-heading-m">
+                Account management
+            </h2>
+          </div>
+            <div class="summaryDetail">
+              <p class="govuk-body">
+                Manage and change your personal details
+              </p>
+            </div>
+          </a>
+        </div>
+         <!--container end-->
+      </div>
+      <div class="govuk-grid-column-one-third">
+        <!--container start-->
+        <div class="summaryContainer">
+          <a href="my-vehicles/vehicle-sub-summary" class="govuk-link govuk-link--no-underline">
+          <div class="summaryHeader">
+            <h2 class="govuk-heading-m">
+              
+                Vehicle management
+            
+            </h2>
+          </div>
+            <div class="summaryDetail">
+              <p class="govuk-body">
+                Manage your vehicle and crossing details
+              </p>
+            </div>
+          </a>
+        </div>
+         <!--container end-->
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <!--container start-->
+      <div class="summaryContainer">
+        <a href="notifications-ur/notifications" class="govuk-link govuk-link--no-underline">
+        <div class="summaryHeaderNot">
+          <h2 class="govuk-heading-m">
+            
+              Notifications
+              <div class="redCircle">4</div>
+          </h2>
+          
+        </div>
+          <div class="summaryDetail">
+            <p class="govuk-body">
+              Read and act on alerts about your account
+            </p>
+          </div>
+        </a>
+      </div>
+       <!--container end-->
+  </div>
+  </div>
+</div>
+
+</div>
+
+
+<!--BALANCE ENDS HERE
+
+
+<h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">
+  Your crossings
+ </h2>
+
+ 
+
+
+
+ {%- from "govuk/components/table/macro.njk" import govukTable -%}
+
+ {{ govukTable({
+   attributes: {
+     'data-module': 'moj-sortable-table'
+   },
+   head: [
+     {
+       text: "Crossing date and time"
+     },
+     {
+       text: "Number plate"
+     },
+     {
+       text: "Amount"
+     },
+     {
+       text: "Payment status"
+      
+     }
+   ],
+   rows: [
+     [
+       {
+         html: " <a href='#' class='govuk-link'>20 Sep 2022 at 9:34 am</a>  "
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+        html: "<strong class='govuk-tag govuk-tag--green'>Paid</strong>"
+       }
+     ],
+     [
+       {
+        html: " <a href='#' class='govuk-link'>19 Sep 2022 at 8:24 am</a> "
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+        html: "<strong class='govuk-tag govuk-tag--green'>Paid</strong>"
+      }
+     ],
+     [
+       {
+        html: "  <a href='#' class='govuk-link'>18 Sep 2022 at 10:04 am</a>  "
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+        html: "<strong class='govuk-tag govuk-tag--green'>Paid</strong>"
+      }
+     ],
+     [
+       {
+        html: "<a href='#' class='govuk-link'> 17 Sep 2022 at 7:22 am</a> "
+       },
+       {
+         text: "LO62 NRO"
+       },
+       {
+        text: "£2.00",
+        format: "numeric"
+       },
+       {
+        html: "<strong class='govuk-tag govuk-tag--green'>Paid</strong>"
+      }
+     ]
+   ]
+ }) }}
+<p class="govuk-body">
+  
+
+ <a href="my-vehicles/crossing-history" class="govuk-link">View crossings history</a>
+</p>-->
+
+
+</div>
+</div>
+{% endblock %}
+<!--main body ends-->

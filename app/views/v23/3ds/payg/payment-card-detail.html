@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Payment details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form action="account-confirmation" method="post">
+       
+          <fieldset class="govuk-fieldset">
+
+                    
+                    <h1 class="govuk-heading-l ">Enter the new card details</h1>
+                    <fieldset class="govuk-fieldset">
+                    <table>
+                      <tbody>
+                        <tr>
+                            <div class="govuk-form-group  govuk-!-margin-bottom-6">
+                                <label class="govuk-label govuk-!-font-weight-bold " for="name-on-card">Name on card</label>
+                                <span class="govuk-error-message card-name-error" style="display: none">
+                                    <span class="govuk-visually-hidden">Error:</span> Enter a valid name
+                                </span>
+                                <input class="govuk-input govuk-input--width-20" id="name-on-card" name="name-on-card" type="text"
+                                    aria-required="true" aria-label="Enter the card holder name" />
+                                    </div>
+                            <div class="govuk-form-group govuk-!-margin-bottom-2">
+                              <label class="govuk-label govuk-!-font-weight-bold " for="card-number">Card number</label>
+                              <span class="govuk-error-message card-number-error" style="display: none">
+                                  <span class="govuk-visually-hidden">Error:</span> Enter a card number
+                              </span>
+                              <input class="govuk-input govuk-input--width-20" id="card-number" name="card-number" type="text"
+                                  aria-required="true" aria-label="Enter the card number" />
+                            </div>
+                          <div class="govuk-!-margin-bottom-2"><img class="card-img" src="/public/images/cards.png"  width="360px" alt="payment" /></div>
+                          <div class="govuk-caption-m govuk-!-margin-bottom-5">
+                          Accepted credit and debit card types
+                          </div>
+                          <div class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">
+                              Expiry date
+                          </div>
+                          <div class="govuk-caption-m govuk-!-margin-bottom-2">
+                              For example, 11/20
+                          </div>
+                          <div style="display: flex;">
+                              <div class="govuk-form-group govuk-!-margin-bottom-2">
+                                  <label class="govuk-label" for="month">Month</label>
+                                  <input class="govuk-input govuk-input--width-2" id="month" name="month" type="text"
+                                      aria-required="true" aria-label="Enter the card holder name"  />
+                              </div>
+                              <div class="govuk-caption-xl govuk-!-font-weight-regular govuk-!-margin-top-5 govuk-!-margin-bottom-0 govuk-!-padding-2"> / </div>
+                              <div class="govuk-form-group govuk-!-margin-bottom-2">
+                                  <label class="govuk-label" for="year">Year</label>
+                                  <input class="govuk-input govuk-input--width-4" id="year" name="year" type="text"
+                                      aria-required="true" aria-label="Enter the card holder name"  />
+                              </div>
+                          </div>
+                          </div>
+                  
+                          <div class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">
+                              Card security code
+                          </div>
+                          <div class="govuk-caption-m govuk-!-margin-bottom-2">
+                              The last 3 or 4 digits on the back of the card
+                          </div>
+                  
+                          <div style="display: flex;">
+                              <div class="govuk-form-group">
+                                  <input class="govuk-input govuk-input--width-3" id="cvv" name="cvv" type="text"
+                                      aria-required="true" aria-label="Enter the card holder name"  />
+                              </div>
+                              <div class="govuk-!-margin-left-3"><img src="/public/images/cvv.png"  width="64px" alt="cvv" /></div>
+                          </div>
+                  
+                          
+                  
+                          <!-- Terms and Condition Starts-->
+                          <div id="sign-in-hint" class="govuk-hint">
+                            By continuing with payment, you agree to our terms and conditions, and confirm that you are happy for us to notify you of your crossings through your chosen contact method.
+                        </div>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <p class="govuk-!-margin-top-2 govuk-body-s"><a href="#" >Read terms and conditions</a></p>
+                            <div class="govuk-button-group govuk-!-margin-top-6">
+                              {{ govukCheckboxes({
+                                idPrefix: "termsandconditions",
+                                name: "termsandconditions",
+                               
+                                items: [
+                                  {
+                                    value: "Value",
+                                    html: "Make this my default payment method"
+                                  }
+                                ]
+                               }) }}<br>
+                              
+                          </div>
+                          {{ govukButton({
+                            text: "Continue",
+                            href: "dashboard-summary"
+                          }) }}
+                                  
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    
+                    
+
+                 
+                
+                 
+
+                  
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
