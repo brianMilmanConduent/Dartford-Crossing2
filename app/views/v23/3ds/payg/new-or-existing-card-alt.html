@@ -31,6 +31,30 @@
     }) }}
 
     
+    {% set emailHtml %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        
+    
+        <div class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-1">
+          Enter the card security code
+      </div>
+      <div class="govuk-caption-m govuk-!-margin-bottom-2">
+          The last 3 or 4 digits on the back of the card
+      </div>
+    
+      <div style="display: flex;">
+          <div class="govuk-form-group">
+              <input class="govuk-input govuk-input--width-3" id="cvv" name="cvv" type="text"
+                  aria-required="true" aria-label="Enter the card holder name"  />
+          </div>
+          <div class="govuk-!-margin-left-3"><img src="/public/images/cvv.png"  width="64px" alt="cvv" /></div>
+        </div> 
+       </div>
+       </div>
+    {% endset -%}
+
+
 
 {{ govukRadios({
   idPrefix: "new-or-existing-card",
@@ -44,9 +68,11 @@
   },
  
   items: [
-   
     {
       value: "Value",
+      conditional: {
+        html: emailHtml
+      },
       html: 
       "
       <p class='govuk-body govuk-!-margin-bottom-6'>
