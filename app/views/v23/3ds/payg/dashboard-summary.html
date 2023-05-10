@@ -21,17 +21,23 @@
     {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
     {% set html %}
-      <h3 class="govuk-notification-banner__heading">
-        Payment card details confirmed
-      </h3>
-      <p class="govuk-body">You can see and change your payment method details within your <a class="govuk-notification-banner__link" href="#">account management</a>.</p>
+      <p class="govuk-notification-banner__heading">
+        You do not have a valid payment method on your account.
+        <a class="govuk-notification-banner__link" href="#">Add payment method</a>.
+      </p>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          You may receive a PCN for any late payment.
+        </strong>
+      </div>
     {% endset %}
     
     {{ govukNotificationBanner({
-      html: html,
-      type: 'success'
+      html: html
     }) }}
-
    <h1 class="govuk-heading-xl  govuk-!-margin-top-0">
     
     Account home
@@ -44,7 +50,19 @@
         }) }}
 </span>
 </h1>
-
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    <h2 class="govuk-heading-m govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+      Your pre-pay balance
+     </h2>
+     <p class="govuk-body govuk-!-font-size-48 govuk-!-margin-bottom-0">£10.00 
+       
+     </p> 
+     <a href="#" class="govuk-link govuk-!-margin-top-0 govuk-!-margin-right-3">Top up balance</a> 
+     <a href="payments/payment-tabs#paymentTopUpHtml" class="govuk-link govuk-!-margin-top-0 ">Change top-up limits</a>
+  </div>
+</div>
+<br><br>
 </div>
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
