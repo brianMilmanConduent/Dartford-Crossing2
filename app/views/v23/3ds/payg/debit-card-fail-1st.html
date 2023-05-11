@@ -28,7 +28,12 @@ Payment details
             <p class="govuk-body">
              <a href="#" class="govuk-link">Try to add a new payment method again</a>  or contact your bank for more details.
             </p>
-              
+            {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+            {{ govukWarningText({
+              text: "You may receive a PCN for any late payment.",
+              iconFallbackText: "Warning"
+            }) }}
          </div>
      </form>
    </div>
