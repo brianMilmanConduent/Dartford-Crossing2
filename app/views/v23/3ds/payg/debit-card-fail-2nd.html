@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Payment details
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+
+{{ govukBackLink({
+  text: "Back",
+  href: "#"
+}) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row govuk-!-margin-top-6">
+ <div class="govuk-grid-column-full">
+   
+         <h1 class="govuk-heading-l">
+          We could not add this card
+         </h1>
+         <div class="govuk-form-group">
+      
+            <p class="govuk-body">
+             <a href="#" class="govuk-link">Add a different card</a>  or contact your bank for more details.
+            </p>
+            {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+            {{ govukWarningText({
+              text: "You may receive a PCN for any late payment.",
+              iconFallbackText: "Warning"
+            }) }}
+         </div>
+     </form>
+   </div>
+</div>
+{% endblock %}
