@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+How do you want to send your proof of local residency?
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<form id="form" method="post" action="new-or-existing-card">
+
+  <div class="govuk-width-container ">
+        
+    <main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+      
+
+ 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-panel govuk-panel--interruption">
+      
+        <fieldset class="govuk-fieldset" aria-describedby="start_new_claim">
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-heading-l">
+                You have to confirm your card details
+              </h1>
+            </legend>
+
+         <p class="govuk-body">
+          To continue to use your account we need to confirm your card details. We'll collect payment from your debit card each time you cross.
+         </p>
+
+          <h2 class="govuk-heading-m">
+            Continue to validate your payment card.
+          </h2>
+        
+          {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+   
+
+    
+
+          <div class="govuk-radios ">
+            
+           
+              {{ govukButton({
+                text: "Continue"
+              }) }}
+            
+          </div>
+          {{ govukWarningText({
+            text: "You may receive a PCN for any late payment.",
+            iconFallbackText: "Warning"
+          }) }}
+        </fieldset>
+
+    </div>
+
+ 
+ 
+    </main>
+  </div>
+</form>
+{% endblock %}

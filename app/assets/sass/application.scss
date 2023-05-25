@@ -150,3 +150,12 @@ $govuk-assets-path: '/govuk/assets/';
 h3.govuk-heading-s.govuk-\!-margin-bottom-1 {
   color: #1d70b8!important;
 }
+.chat{float:left;clear:both;padding:10px 5px;border-radius:3px;margin:5px 0px;width:100%}
+.chatStaff{float:left;clear:both;padding:10px 5px;border-radius:3px;margin:5px 0px;}
+.back{background-color:#f3f2f1;padding:5px;}
+.chatStaffTwo{float:right;clear:both;padding:10px;border-radius:3px;margin:5px 0px;background-color:#D9EDF8;max-width:80%;border:1pt solid #b1b4b6;position:relative;}
+.chatTwo{float:left;clear:both;padding:10px;border-radius:3px;margin:5px 0px;background-color:#f3f2f1;max-width:80%;border:1pt solid #b1b4b6;position:relative;}
+.chat-screen{
+  height: 50vh;border:1pt solid #000;padding:10px;margin-bottom:20px;background-color:#fff;border-radius:2pt;}
+.timeSent{color:rgba(0,0,0,0.5);margin:25px 0px 0px 0px;position:absolute;bottom:0px;}
+.name{color:#505a5f}

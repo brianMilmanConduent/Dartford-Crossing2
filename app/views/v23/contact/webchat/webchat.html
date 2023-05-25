@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+Contact details
+{% endblock %}
+
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <form class="form" action="check-answers" method="post">
+       
+
+        <h1 class="govuk-heading-l">
+          Dart charge Support webchat
+          </h1>
+          <!--chat starts here-->
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-full">
+              <div class="chat-screen">
+              
+            <div class="chatStaffTwo">
+                <p class="govuk-body">
+                  <b class="name">John Smith - Dart Charge customer service:</b>
+                  <br>
+                   Hello  {{ data['name']}}, you're speaking to John, how can I help you with your {{ data['query']}} query today?
+                  <br><span class="timeSent">09:01</span>
+                </p>
+            </div>
+
+            <div class="chatTwo">
+              <p class="govuk-body">
+                <b class="name">You:</b><br>
+                Example of an initial piece of chat by the customer.
+                
+                <br><span class="timeSent">09:00</span>
+              </p>
+            </div>
+
+            </div>
+          </div>
+          </div>
+<!-- chat ends here-->
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                 {{ govukTextarea({
+                  id: "chat",
+                  name: "chat",
+                rows: "4",
+                placeholder :"dsa"
+                 }) }}
+                  
+                </div>
+                <div class="govuk-grid-column-one-third">
+                  {{ govukButton({
+                    text: "Send message"
+                  }) }}
+                </div>
+              </div>
+
+                   
+              <p class="govuk-body">
+                <a href="#" class="govuk-link">Print a copy of this chat</a>
+              </p>
+              <p class="govuk-body">
+                <a href="#" class="govuk-link">Close chat</a>
+              </p>
+    </form>
+    </div>
+  </div>
+
+{% endblock %}
