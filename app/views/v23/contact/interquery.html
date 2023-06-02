@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-
+What is your query about?
 {% endblock %}
 
 
@@ -42,7 +42,10 @@
 
 
        {{ govukInsetText({
-        html: "You can also contact a member of our support team directly using our <a href='webchat/query-category' class='govuk-link'>Web chat</a> service. "
+        html: "<h3 class='govuk-heading-s'>
+          Want to talk directly to our support team?
+        </h3>You can also contact a member of our support team directly using our <a href='webchat/query-category' class='govuk-link'>Web chat</a> service. ",
+        classes: " govuk-!-margin-top-1"
        }) }}
 
 
