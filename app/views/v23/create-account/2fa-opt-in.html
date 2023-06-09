@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block pageTitle %}
-Enter the SMS code
+Would you like to opt in to two-step verification?
 {% endblock %}
 
 
@@ -14,7 +14,7 @@ Enter the SMS code
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-    <form class="form" action="businessPersonalVehicles" method="post">
+    <form class="form" action="mobile-revision" method="post">
         
       <h1 class="govuk-heading-l">Would you like to opt in to two-step verification?</h1>
        <p class="govuk-body">
@@ -41,7 +41,10 @@ Enter the SMS code
               ]
             }) }}
           </div>
- 
+          {{ govukDetails({
+            summaryText: "Phone numbers with Belgium or Hungary country codes",
+            text: "If your phone number starts with the country codes of (+32) Belgium or (+36) Hungary, you will not be able to opt in to two-step verification."
+          }) }}
 
 {{ govukButton({
   text: "Continue"

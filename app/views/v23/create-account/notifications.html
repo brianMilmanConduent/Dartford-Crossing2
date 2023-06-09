@@ -14,7 +14,7 @@ How do you want to be notified?
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form action="statements" method="post">
+    <form action="2fa-opt-in" method="post">
         
         <div class="govuk-form-group">
          
@@ -63,8 +63,8 @@ How do you want to be notified?
           </fieldset>
        
         {{ govukDetails({
-          summaryText: "Do we need a details component about where to find charges?",
-          text: "Text"
+          summaryText: "Phone numbers with Belgium or Hungary country codes",
+          text: "If your phone number starts with the country codes of (+32) Belgium or (+36) Hungary, you will not be able to receive text communications about your account. This means you won't receive messages about your account through text."
         }) }}
 
             {{ govukButton({

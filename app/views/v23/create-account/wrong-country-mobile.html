@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+incompatible phone number
+{% endblock %}
+
+{% block beforeContent %}
+{% include "includes/beta-banner.html" %}
+{% include "includes/back-link.html" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <form class="form" action="verify-mobile" method="post">
+          
+      <h1 class="govuk-heading-l">incompatible country code</h1>
+     
+       
+       <p class="govuk-body">
+        Your phone number starts with the country code of (+32) Belgium, at this time you will be unable to use the following services:
+       </p>
+       <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Receiving communications about your account by text message
+        </li>
+        <li>
+          Two-step verification
+        </li>
+       </ul>
+       {{ govukInsetText({
+        text: "We will retain your mobile number [phone number] for contact purposes."
+       }) }}
+       <p class="govuk-body">
+        You may <a href="#" class="govuk-link">change your mobile phone number</a> or continue with your account creation.
+       </p>
+       
+       <div class="govuk-button-group govuk-!-margin-top-6">
+        {{ govukCheckboxes({
+          idPrefix: "termsandconditions",
+          name: "termsandconditions",
+         
+          items: [
+            {
+              value: "Value",
+              html: "Save this mobile number to my account contact details"
+            }
+          ]
+         }) }}<br>
+        
+    </div>
+
+              {{ govukButton({
+                  text: "Continue"
+              }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
